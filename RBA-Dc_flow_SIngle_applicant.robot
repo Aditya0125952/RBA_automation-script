@@ -87,6 +87,17 @@ installation address
 billing address
     Wait Until Element Is Enabled    xpath://span[@class='checkmark-sm']    20
     Click Element    xpath://span[@class='checkmark-sm']
+    Sleep    3
     Click Button    xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/span/form/div[2]/div[2]/div/div/div/div/button
+otp verfication
+    Wait Until Element Is Visible    xpath://*[@id="swal2-html-container"]/b/h3    120
+    Click Button    xpath://button[normalize-space()='OK']
+    Wait Until Element Is Enabled    xpath://div[@class='row']//input[1]    10
+    Input Text    xpath://div[@class='row']//input[1]    1
+    Input Text    xpath://div[@class='row']//input[2]    2
+    Input Text    xpath://div[@class='row']//input[3]    3
+    Input Text    xpath://div[@class='row']//input[4]    4
+    Input Text    xpath://div[@class='row']//input[5]    5
+    Click Button    xpath:/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[2]/form[1]/div[2]/div[1]/div[1]/button[1]
       
 
