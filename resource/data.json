@@ -1,0 +1,16 @@
+{
+  "Test_case": [
+    {
+      "login_data": {
+        "username": "satish.mallavarapu@finmkt.io",
+        "password": "Qa@12345"
+      }
+    },
+    {
+      "login_data": {
+        "username": "aditya.chelluru@finmkt.io",
+        "password": "Qa@12345"
+      }
+    }
+  ]
+}
