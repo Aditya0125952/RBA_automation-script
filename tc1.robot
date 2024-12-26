@@ -1,32 +1,42 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library           BuiltIn
+Library           String
 
 *** Variables ***
-
+${HOST}         imap.your_mail_server.com
+${PORT}         993  # Change to appropriate port for your mail server
+${FOLDER}       INBOX
+${USERNAME}     your_username
+${PASSWORD}     your_password
 
 *** Test Cases ***
-Login Test
-    Open Browser    https://finfi-qa.mktplacegateway.com/login/MERCHANT    chrome
-    Wait Until Element Is Visible    emailInput    120
-    Input Text    emailInput    satish.mallavarapu@finmkt.io
-    Input Text    passwordInput    Qa@12345
-    Click Element    emailSubmit
-    Wait Until Element Is Visible    appendVendors    180
+Read Emails
+    [Tags]  imap  read_emails
+    ${connection}=    Create IMAP Connection    ${HOST}    ${PORT}    ${FOLDER}    ${USERNAME}    ${PASSWORD}
+    ${result, data}=  Search Emails  ${connection}  'ALL'
 
-Merchant selection test
-    Select From List By Label    appendVendors    FINFI_OMF
-
-Sending Application to the customer
-    Click Button    Send Application
-    Wait Until Element Is Visible    xpath://*[@id="loanReffLinkModal"]/div/div/div[2]/p[2]    120
-    referal credentials
-    Sleep     3
-    
+    # Process emails (e.g., extract subject, sender, body)
+    # ...
+    Close IMAP Connection
 
 *** Keywords ***
-referal credentials
-    Input Text    refLinkEmail    aditya.chelluru@finmkt.io
-    Input Text    refLoanAmount    10000
-    Select From List By Label    selectedSubProgramName    HVAC
-    Select From List By Label    refOffCodes    OMF
-    Click Element    xpath://*[@id="loanReffLinkModal"]/div/div/div[3]/button
+Create IMAP Connection
+    [Arguments]  ${host}  ${port}  ${folder}  ${username}  ${password}
+    Create Dictionary  credentials  username=${username}  password=${password}
+    Create Instance  IMAP4_SSL  ${host}  ${port}  **kwargs:${credentials}
+    Select Folder  ${folder}
+    [Return]  ${self._imap}  # Assuming 'self' refers to the class instance
+
+Close IMAP Connection
+    [Arguments]  ${connection}
+    Call Method  ${connection}  close  # Close the connection
+    Call Method  ${connection}  logout  # Logout from the mailbox
+
+Select Folder
+    [Arguments]  ${folder}
+    Call Method  ${self._imap}  select  ${folder}  # Select the specified folder
+
+Search Emails
+    [Arguments]  ${connection}  ${criteria}
+    ${result, data}=  Run Keyword And Ignore Error  ${connection}.search  None  ${criteria}
+    [Return]  ${result}  ${data}

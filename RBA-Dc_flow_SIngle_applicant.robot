@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library  MailClientLibrary
 Library    JSONLibrary
+Library    ImapLibrary2
 
 *** Test Cases ***
 
@@ -23,8 +23,13 @@ testing data files
     installation address
     billing address
     otp verfication
+    Email Test
     END
-    
+
+
+
+
+
 
 
 
@@ -77,6 +82,7 @@ terms and conditions
     Click Element    xpath://div[@class='stylus-sign-div']//canvas
     Click Button    xpath://*[@id="stylusSignPopup___BV_modal_body_"]/div/div[2]/div[2]/div/button    
     Wait Until Element Is Enabled       xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/span/form/div/div/div[3]/div/div/button    10
+    Sleep    1
     Click Button    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/span/form/div/div/div[3]/div/div/button
 application id scan
     Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/h4[1]    20
@@ -99,7 +105,7 @@ contact information
     Execute JavaScript    document.getElementById("legal-last-name").value = "";
     Input Text    legal-last-name    villar
     Input Text    mobile-number    9999999999
-    Input Text    email    aditya.chelluru@finmkt.io
+    Input Text    email    adityatestingfile@gmail.com
     Click Button    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/span/form/div[2]/div[2]/div/div/div/div/button
 installation address
     Wait Until Element Is Visible    address-1    20
@@ -129,4 +135,10 @@ otp verfication
     Input Text    xpath://div[@class='row']//input[5]    5
     Click Button    xpath:/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[2]/form[1]/div[2]/div[1]/div[1]/button[1]
     Close Browser
+email test
+
+    Open Mailbox    host=imap.gmail.com    user=adityatestingfile@gmail.com    password=frtf vfec qzxu fqry
+    ${LATEST} =    Wait For Email    sender=noreply@mg.mktplacegateway.com    timeout=300
+    Log To Console    ${LATEST}
+    Close Mailbox
 
