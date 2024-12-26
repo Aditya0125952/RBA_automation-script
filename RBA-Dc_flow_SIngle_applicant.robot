@@ -1,13 +1,42 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library  MailClientLibrary
+Library    JSONLibrary
 
 *** Test Cases ***
-Merchant login
+
+testing data files
+    ${data}    Load Json From File    C:/Users/AdityaChelluru/PycharmProjects/testing/TestCases/resource/data.json
+    @{username}    Get Value From Json    ${data}    $..username
+    @{password}    Get Value From Json    ${data}    $..password
+    FOR    ${name}    IN    @{username}
+      Merchant Login    ${name}    
+    Merchant selection
+    Selecting Location
+    sending application to the customer
+    selecting payment option
+    credit freeze
+    will there be any co-applicant
+    terms and conditions
+    application id scan
+    contact information
+    installation address
+    billing address
+    otp verfication
+    END
+    
+
+
+
+*** Keywords ***
+Merchant Login
+    [Arguments]    ${username}    
     Open Browser    https://rba-qa.mktplacegateway.com/m/login    chrome
     Wait Until Page Contains Element    user-name    30
-    Input Text    user-name    mahesh.dandu@finmkt.io
+    Input Text    user-name    ${username}  # Access the first element of the list
     Input Text    user-password    Qa@12345
     Click Button    xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/span/form/div/div/div[4]/div/button
+
 Merchant selection
     Wait Until Element Is Visible    merchant-selection-modal___BV_modal_title_    30
     Select From List By Label        xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select    Upgrade_Regression
@@ -99,5 +128,5 @@ otp verfication
     Input Text    xpath://div[@class='row']//input[4]    4
     Input Text    xpath://div[@class='row']//input[5]    5
     Click Button    xpath:/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[2]/form[1]/div[2]/div[1]/div[1]/button[1]
-      
+    Close Browser
 
