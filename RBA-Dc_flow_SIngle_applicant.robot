@@ -3,40 +3,39 @@ Library    SeleniumLibrary
 Library    JSONLibrary
 Library    ImapLibrary2
 
-*** Test Cases ***
+*** Variables ***
 
+
+*** Test Cases ***
 testing data files
     ${data}    Load Json From File    C:/Users/AdityaChelluru/PycharmProjects/testing/TestCases/resource/data.json
     @{username}    Get Value From Json    ${data}    $..username
     @{password}    Get Value From Json    ${data}    $..password
     FOR    ${name}    IN    @{username}
+      Open Browser    https://rba-qa.mktplacegateway.com/m/login    chrome
+      ${old_browser}=    Get Window Handles    
       Merchant Login    ${name}    
-    Merchant selection
-    Selecting Location
-    sending application to the customer
-    selecting payment option
-    credit freeze
-    will there be any co-applicant
-    terms and conditions
-    application id scan
-    contact information
-    installation address
-    billing address
-    otp verfication
-    Email Test
+      Merchant selection
+      Selecting Location
+      sending application to the customer
+      selecting payment option
+      credit freeze
+      will there be any co-applicant
+      terms and conditions
+      application id scan
+      contact information
+      installation address
+      billing address
+      otp verfication
+      Email Test
+      Switch Browser    1
+      waiting
+      offer approval
     END
-
-
-
-
-
-
-
 
 *** Keywords ***
 Merchant Login
-    [Arguments]    ${username}    
-    Open Browser    https://rba-qa.mktplacegateway.com/m/login    chrome
+    [Arguments]    ${username}
     Wait Until Page Contains Element    user-name    30
     Input Text    user-name    ${username}  # Access the first element of the list
     Input Text    user-password    Qa@12345
@@ -49,6 +48,7 @@ Selecting Location
     Wait Until Element Is Visible    location-selection-modal___BV_modal_content_    30
     Select From List By Label        xpath://*[@id="location-selection-modal___BV_modal_body_"]/div/div/select    Upgrade_Regression_Master
 sending application to the customer
+    Wait Until Element Is Visible    xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']    30
     Wait Until Element Is Enabled    xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']    30
     Click Button    xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']
     Switch Window    title:Point Of Sale    20
@@ -66,7 +66,7 @@ will there be any co-applicant
     Click Button    xpath://input[@value='1']
     Click Button    xpath://button[@type='button']
 terms and conditions
-    Wait Until Element Is Visible    webviewer-1    20
+    Wait Until Element Is Visible    webviewer-1    60
     Select Frame    webviewer-1
     Wait Until Element Is Visible    xpath://div[@id='pageWidgetContainer1']    20
     Scroll Element Into View    pageWidgetContainer1
@@ -102,7 +102,7 @@ application id scan
 contact information
     Wait Until Element Is Visible    legal-first-name    20
     Input Text    legal-first-name    ana
-    Execute JavaScript    document.getElementById("legal-last-name").value = "";
+    #Execute JavaScript    document.getElementById("legal-last-name").value = "";
     Input Text    legal-last-name    villar
     Input Text    mobile-number    9999999999
     Input Text    email    adityatestingfile@gmail.com
@@ -134,11 +134,73 @@ otp verfication
     Input Text    xpath://div[@class='row']//input[4]    4
     Input Text    xpath://div[@class='row']//input[5]    5
     Click Button    xpath:/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[2]/form[1]/div[2]/div[1]/div[1]/button[1]
-    Close Browser
+    
+waiting
+    Wait Until Element Is Visible    xpath://*[@id="Capa_1"]    20
+    Wait Until Element Is Enabled    xpath://*[@id="Capa_1"]    20
+    Click Element    xpath://*[@id="Capa_1"]
+    Wait Until Element Is Enabled    xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/div[1]/div/button    30
+    Click Button    xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/div[1]/div/button
+    
+offer approval
+   # Wait Until Element Is Visible    xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/div[1]/div/div/div/div/div    30
+    Sleep    200
+
+
 email test
 
-    Open Mailbox    host=imap.gmail.com    user=adityatestingfile@gmail.com    password=frtf vfec qzxu fqry
+    Open Mailbox    host=imap.gmail.com    user=adityatestingfile@gmail.com    password=jvmi anfi gdid giuq
     ${LATEST} =    Wait For Email    sender=noreply@mg.mktplacegateway.com    timeout=300
     Log To Console    ${LATEST}
+    ${HTML_BODY} =    Walk Multipart Email    ${LATEST}
+    ${LINK}=    Get Matches From Email    ${LATEST}    <a[^>]*href=["'](https?://[^"']+)["'][^>]*>.*</a>
     Close Mailbox
+    consumer filling the econsent    ${LINK[0]}
+    C_credit Freeze
+    C_finiancial Information
+    C_personal Information
 
+
+consumer filling the econsent
+    [Arguments]    ${LINK}
+    Log To Console    ${LINK}
+    Open Browser    ${LINK}    chrome
+    Wait Until Element Is Visible    webviewer-1    120
+    Select Frame    webviewer-1
+    Wait Until Element Is Visible    pageWidgetContainer1
+    Scroll Element Into View    pageWidgetContainer3
+    Unselect Frame
+    Click Button    clickToSign
+    Wait Until Element Is Visible    xpath://div[@class='stylus-sign-div']//canvas
+    Click Element    xpath://div[@class='stylus-sign-div']//canvas
+    Click Button    xpath://*[@id="stylusSignPopup___BV_modal_body_"]/div/div[2]/div[2]/div/button
+    Wait Until Element Is Enabled       xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div/div[3]/div/div/button    10
+    Sleep    1
+    Click Button    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div/div[3]/div/div/button
+
+C_credit freeze
+    Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/button    20
+    Click Button    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/button
+C_finiancial information
+    Wait Until Element Is Visible    EMPLOYMENT__STATUS    20
+    Wait Until Element Is Enabled    EMPLOYMENT__STATUS    20
+    Select From List By Label    EMPLOYMENT__STATUS    Employed
+    Wait Until Element Is Visible    occupation    10
+    Wait Until Element Is Enabled    occupation    10
+    Input Text    id:occupation    abc
+    Input Text    employer-name    xyz
+    Input Text    monthly-mortgage    100
+    Input Text    annual-income    100000
+    Input Text    household-income    125000
+    Click Button    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/span/form/div/div[2]/div/div/div/div/button
+    
+C_personal information
+    Sleep    12
+    Wait Until Element Is Enabled    name:dob    12
+    Input Text    name:dob    07/01/1980
+    Input Text    ssn    666308630
+    Select From List By Label    CITIZENSHIP_STATUS    US Citizen
+    Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/span/form/div/div[2]/div/div/div/div/button    20
+    Wait Until Element Is Enabled    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/span/form/div/div[2]/div/div/div/div/button    20
+    Click Button    xpath://button[@type='submit']
+    Wait Until Element Is Visible    xpath://p[normalize-space()='Your application has been received.']    20
