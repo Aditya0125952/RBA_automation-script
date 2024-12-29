@@ -1,0 +1,6 @@
+offer approval
+   # Wait Until Element Is Visible    xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/div[1]/div/div/div/div/div    30
+   #Wait Until Element Is Not Visible    xpath:/html/body/div[1]/div[2]/div[3]/div[1]    200
+    Wait Until Element Is Visible    xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/div[2]/div/div/div/div/button    200
+    Click Button    xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/div[2]/div/div/div/div/button
+    Wait Until Element Is Visible    xpath:/html/body/div[1]/div[2]/div[1]/div/div[1]/nav/div[2]/span/b    50
