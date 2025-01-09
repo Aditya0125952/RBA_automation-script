@@ -2,18 +2,17 @@
   "Test_case": [
     {
       "login_data": {
-        "username": "satish.mallavarapu@finmkt.io",
+        "username": "bhavanasri.challamalla@finmkt.io",
         "password": "Qa@12345",
         "FirstName":"MONICA",
         "LastName":"SWIHART",
-        "House":"2020",
-        "StreetName":"SAN GABRIEL",
+        "House":"2020 SAN GABRIEL",
         "City":"STOCKTON",
         "State":"California",
         "ZipCode":"95209",
         "SSN":"666489697",
-        "DOB":"01/09/1960",
-        "Phone number":"9999999999"
+        "DOB":"08/01/1960",
+        "Phonenumber":"9999999999"
       }
     }
   ]
