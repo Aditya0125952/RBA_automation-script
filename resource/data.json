@@ -2,17 +2,25 @@
   "Test_case": [
     {
       "login_data": {
-        "username": "bhavanasri.challamalla@finmkt.io",
+        "username": "aditya.chelluru@finmkt.io",
         "password": "Qa@12345",
-        "FirstName":"MONICA",
-        "LastName":"SWIHART",
-        "House":"2020 SAN GABRIEL",
-        "City":"STOCKTON",
-        "State":"California",
-        "ZipCode":"95209",
-        "SSN":"666489697",
-        "DOB":"08/01/1960",
-        "Phonenumber":"9999999999"
+        "PN": "8888888888",
+        "email": "aditya.chelluru+99@finmkt.io",
+        "FN": "Morghan",
+        "LN": "Blake",
+        "Address": "17254 Timberlake Cour",
+        "city": "Boonville",
+        "state": "Missouri",
+        "pin": "65233",
+        "ssn": "666971260",
+        "dob": "08/01/1985",
+        "pc": "25000",
+        "da": "1000",
+        "Ai": "85000",
+        "Hi": "85000",
+        "rent": "500",
+        "plan": "R418009"
+
       }
     }
   ]
