@@ -1,0 +1,59 @@
+{
+    "Merchant": "Upgrade_Regression",
+    "Location": "Upgrade_Regression_Master",
+    "planID": "S100617",
+    "projectCost": "15000",
+    "depositAmount": "2000",
+    "Applicant": {
+        "FirstName": "WILLIE",
+        "LastName": "MCCOY",
+        "street_add": "CAMINITO TECERA",
+        "city": "DEL MAR",
+        "state": "California",
+        "zipcode": "92014",
+        "Do_you_own_installation_add": "Yes, I own this property.",
+        "Do_you_reside_installation_add": "Yes, I reside at this address.",
+        "mobileNumber": "8888888888",
+        "employment_status": "Employed",
+        "occupation": "business",
+        "employer_name": "ganesh",
+        "monthly_mortgage_amount": "500",
+        "annual_income": "155000",
+        "household_income": "155000",
+        "ssn": "666021470",
+        "dob": "02/01/1968",
+        "citizenship_status": "US Citizen"
+    },
+    "Co-Applicant": {
+        "FirstName": "MYRNA",
+        "LastName": "GARRETT",
+        "street_add": "BLISS",
+        "city": "BAKERSFIELD",
+        "state": "California",
+        "zipcode": "93307",
+        "Do_you_own_installation_add": "Yes, I own this property.",
+        "Do_you_reside_installation_add": "Yes, I reside at this address.",
+        "mobileNumber": "6666666987",
+        "employment_status": "Employed",
+        "occupation": "business",
+        "employer_name": "ganesh",
+        "monthly_mortgage_amount": "200",
+        "annual_income": "145000",
+        "household_income": "145000",
+        "ssn": "666729144",
+        "dob": "12/01/2005",
+        "citizenship_status": "US Citizen"
+    },
+    "Agretha_Chene": {
+        "mobileNumber": "2001001687",
+        "ssn": "369956933"
+    },
+    "Johnnie_Lammiman": {
+        "mobileNumber": "2001004004",
+        "ssn": "111258802"
+    },
+    "Sebastian_Limmer": {
+        "mobileNumber": "2001004001",
+        "ssn": "347465324"
+    }
+}

@@ -1,0 +1,1605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2025-09-03T15:23:45.507652" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="C:\Users\AdityaChelluru\PycharmProjects\Test">
+<suite id="s1-s1" name="Lenders" source="C:\Users\AdityaChelluru\PycharmProjects\Test\Lenders">
+<suite id="s1-s1-s1" name="Single Applicant" source="C:\Users\AdityaChelluru\PycharmProjects\Test\Lenders\Single_Applicant">
+<suite id="s1-s1-s1-s1" name="GICU" source="C:\Users\AdityaChelluru\PycharmProjects\Test\Lenders\Single_Applicant\GICU.robot">
+<test id="s1-s1-s1-s1-t1" name="GICU Happycase" line="10">
+<kw name="Load Lender Data" owner="LoadingInputFile">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-09-03T15:23:47.090057" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\AdityaChelluru\PycharmProjects\Test\InputData\GICU_TestData.json"&gt;C:\Users\AdityaChelluru\PycharmProjects\Test\InputData\GICU_TestData.json&lt;/a&gt;'.</msg>
+<msg time="2025-09-03T15:23:47.090727" level="INFO">${json_text} =   {
+      "Merchant": "RbA-AD1",
+      "planID" : "R412007",
+      "projectCost" : "7000",
+      "depositAmount" : "200",
+      "Applicant":
+        {
+          "FirstName": "Ana",
+          "LastName...</msg>
+<var>${json_text}</var>
+<arg>${file_path}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-09-03T15:23:47.089733" elapsed="0.001144"/>
+</kw>
+<kw name="Convert String To Json" owner="JSONLibrary">
+<msg time="2025-09-03T15:23:47.092188" level="INFO">${data} = {'Merchant': 'RbA-AD1', 'planID': 'R412007', 'projectCost': '7000', 'depositAmount': '200', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': ...</msg>
+<var>${data}</var>
+<arg>${json_text}</arg>
+<doc>Convert String to JSON object</doc>
+<status status="PASS" start="2025-09-03T15:23:47.091483" elapsed="0.000814"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-03T15:23:47.093264" level="INFO">${index1} = None</msg>
+<arg>${index1}</arg>
+<arg>${index1}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-03T15:23:47.092752" elapsed="0.000625"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-03T15:23:47.094148" level="INFO">${index2} = None</msg>
+<arg>${index2}</arg>
+<arg>${index2}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-03T15:23:47.093752" elapsed="0.000489"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-03T15:23:47.095013" level="INFO">${LENDER_DATA} = {'Merchant': 'RbA-AD1', 'planID': 'R412007', 'projectCost': '7000', 'depositAmount': '200', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': ...</msg>
+<arg>${LENDER_DATA}</arg>
+<arg>${data}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-03T15:23:47.094576" elapsed="0.000531"/>
+</kw>
+<arg>${GICU_DATA}</arg>
+<status status="PASS" start="2025-09-03T15:23:47.088287" elapsed="0.006973"/>
+</kw>
+<kw name="Merchant Portal Login" owner="Merchant_Login">
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="List Should Contain Value" owner="Collections">
+<arg>${Instance}</arg>
+<arg>${tag}</arg>
+<doc>Fails if the ``value`` is not found from ``list``.</doc>
+<status status="PASS" start="2025-09-03T15:23:47.096882" elapsed="0.000181"/>
+</kw>
+<msg time="2025-09-03T15:23:47.097169" level="INFO">${is_present} = True</msg>
+<var>${is_present}</var>
+<arg>List Should Contain Value</arg>
+<arg>${Instance}</arg>
+<arg>${tag}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-03T15:23:47.096702" elapsed="0.000495"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_present}">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-03T15:23:47.097646" level="INFO">${base_url} = rba6</msg>
+<var>${base_url}</var>
+<arg>${tag}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-03T15:23:47.097496" elapsed="0.000178"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:23:47.097298" elapsed="0.000422"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:23:47.097269" elapsed="0.000497"/>
+</if>
+<var name="${tag}">rba6</var>
+<status status="PASS" start="2025-09-03T15:23:47.096525" elapsed="0.001265"/>
+</iter>
+<var>${tag}</var>
+<value>@{TEST_TAGS}</value>
+<status status="PASS" start="2025-09-03T15:23:47.096300" elapsed="0.001539"/>
+</for>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:23:47.098251" level="INFO">Opening browser 'chrome' to base url 'https://rba6-qa.mktplacegateway.com/m/login'.</msg>
+<arg>https://${base_url}-qa.mktplacegateway.com/m/login</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-03T15:23:47.098025" elapsed="9.958639"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>user-name</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-09-03T15:23:57.057153" elapsed="0.023546"/>
+</kw>
+<if>
+<branch type="IF" condition="'${user}'=='None'">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:23:57.082131" level="INFO">Typing text 'aditya.chelluru@finmkt.io' into text field 'user-name'.</msg>
+<arg>user-name</arg>
+<arg>aditya.chelluru@finmkt.io</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:23:57.081651" elapsed="0.192046"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:23:57.080981" elapsed="0.192844"/>
+</branch>
+<branch type="ELSE">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>user-name</arg>
+<arg>${user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:23:57.274194" elapsed="0.000068"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:23:57.273906" elapsed="0.000427"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:23:57.080922" elapsed="0.193463"/>
+</if>
+<if>
+<branch type="IF" condition="'${password}' == 'None'">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:23:57.275152" level="INFO">Typing text 'Qa@12345' into text field 'user-password'.</msg>
+<arg>user-password</arg>
+<arg>Qa@12345</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:23:57.274892" elapsed="0.171278"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:23:57.274481" elapsed="0.171856"/>
+</branch>
+<branch type="ELSE">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>user-password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:23:57.446793" elapsed="0.000075"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:23:57.446440" elapsed="0.000528"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:23:57.274456" elapsed="0.172583"/>
+</if>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:23:57.447663" level="INFO">Clicking button 'xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/span/form/div/div/div[4]/div/button'.</msg>
+<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/span/form/div/div/div[4]/div/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:23:57.447289" elapsed="0.237173"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:23:47.096000" elapsed="10.588864"/>
+</kw>
+<kw name="Merchant Selection Page" owner="merchant_selection">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>merchant-selection-modal___BV_modal_title_</arg>
+<arg>60</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-03T15:23:57.687116" elapsed="0.458346"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>merchant-selection-modal___BV_modal_title_</arg>
+<arg>60</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:23:58.146162" elapsed="0.083868"/>
+</kw>
+<if>
+<branch type="IF" condition="'${merchant}' == 'None'">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:23:58.232305" level="INFO">Selecting options from selection list 'xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select' by label RbA-AD1.</msg>
+<arg>xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select</arg>
+<arg>${LENDER_DATA['Merchant']}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-09-03T15:23:58.230997" elapsed="0.150646"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:23:58.230356" elapsed="0.151473"/>
+</branch>
+<branch type="ELSE">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<arg>xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select</arg>
+<arg>${merchant}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:23:58.382205" elapsed="0.000048"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:23:58.381916" elapsed="0.000409"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:23:58.230298" elapsed="0.152080"/>
+</if>
+<status status="PASS" start="2025-09-03T15:23:57.686304" elapsed="0.696160"/>
+</kw>
+<kw name="Sending Application to Consumer" owner="sendApplication">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css=div.position-absolute.bg-white.rounded-lg</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-09-03T15:23:58.383522" elapsed="0.012129"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css:div.position-absolute.bg-white</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-09-03T15:23:58.395971" elapsed="3.001221"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']</arg>
+<arg>60</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:01.397535" elapsed="0.019081"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:01.417004" elapsed="0.025363"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css=div.position-absolute.bg-white.rounded-lg</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:01.442735" elapsed="0.006835"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:01.449963" level="INFO">Clicking button 'xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']'.</msg>
+<arg>xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:01.449778" elapsed="0.238490"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>title:Point Of Sale</arg>
+<arg>20</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:01.688569" elapsed="7.619966"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:23:58.383078" elapsed="10.925668"/>
+</kw>
+<kw name="Dc plans page" owner="DC_Plan_Page">
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="List Should Contain Value" owner="Collections">
+<msg time="2025-09-03T15:24:09.313164" level="FAIL">[ S100617 | S100617-AUT | S100617-PP-AUT | S100617-UG-AUT | S101217 | S101817 | S102417 | Z303600 | Z303600-TD-AUT | Z302400 | Z304800 | Z306000 | Z307200 | R424008 | R418009 | R418007 | R418005 | R418006 | R418008 | R418013 | R418015 | R412005 | R412007 | R412009 | R412013 | R412002 | R412003 | R412004 | R412004-DIV-AUT | R412006 | R424007 | R424005 | R424009 | R424006 | R424004 | H30300 | H201205 | H201209 | F193728 | GICU_RBA | Dividend | Dividend_Plan | Dividend Test | PowerPay2 Test | PowerPay2 CoApp | Upgrade ] does not contain value 'rba6'.</msg>
+<arg>${KNOWN_PLANS}</arg>
+<arg>${tag}</arg>
+<doc>Fails if the ``value`` is not found from ``list``.</doc>
+<status status="FAIL" start="2025-09-03T15:24:09.312563" elapsed="0.000963">[ S100617 | S100617-AUT | S100617-PP-AUT | S100617-UG-AUT | S101217 | S101817 | S102417 | Z303600 | Z303600-TD-AUT | Z302400 | Z304800 | Z306000 | Z307200 | R424008 | R418009 | R418007 | R418005 | R418006 | R418008 | R418013 | R418015 | R412005 | R412007 | R412009 | R412013 | R412002 | R412003 | R412004 | R412004-DIV-AUT | R412006 | R424007 | R424005 | R424009 | R424006 | R424004 | H30300 | H201205 | H201209 | F193728 | GICU_RBA | Dividend | Dividend_Plan | Dividend Test | PowerPay2 Test | PowerPay2 CoApp | Upgrade ] does not contain value 'rba6'.</status>
+</kw>
+<msg time="2025-09-03T15:24:09.314028" level="INFO">${is_present} = False</msg>
+<var>${is_present}</var>
+<arg>List Should Contain Value</arg>
+<arg>${KNOWN_PLANS}</arg>
+<arg>${tag}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-03T15:24:09.312074" elapsed="0.002020"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_present}">
+<kw name="Copy Dictionary" owner="Collections">
+<var>${Lender}</var>
+<arg>${LENDER_DATA}</arg>
+<doc>Returns a copy of the given dictionary.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:09.314935" elapsed="0.000087"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${Lender}</arg>
+<arg>planID=${tag}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:09.315308" elapsed="0.000090"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<arg>${LENDER_DATA}</arg>
+<arg>${Lender}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:09.315680" elapsed="0.000104"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:09.314388" elapsed="0.001527"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:09.314284" elapsed="0.001763"/>
+</if>
+<var name="${tag}">rba6</var>
+<status status="PASS" start="2025-09-03T15:24:09.311716" elapsed="0.004406"/>
+</iter>
+<var>${tag}</var>
+<value>@{TEST_TAGS}</value>
+<status status="PASS" start="2025-09-03T15:24:09.311069" elapsed="0.005172"/>
+</for>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css:div.position-absolute.bg-white</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:09.316630" elapsed="0.723163"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/span/div/div[1]/div/div[1]/h4/b</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:10.040309" elapsed="0.039026"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${LENDER_DATA['planID']}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:10.079998" elapsed="0.041281"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:10.122323" level="INFO">Clicking button 'R412007'.</msg>
+<arg>${LENDER_DATA['planID']}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:10.121591" elapsed="0.122537"/>
+</kw>
+<if>
+<branch type="IF" condition="'${amount}' == 'None'">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:10.246007" level="INFO">Typing text '7000' into text field 'enter-project-cost'.</msg>
+<arg>enter-project-cost</arg>
+<arg>${LENDER_DATA['projectCost']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:10.244936" elapsed="0.225998"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:10.472674" level="INFO">Typing text '200' into text field 'enter-deposit-amount'.</msg>
+<arg>enter-deposit-amount</arg>
+<arg>${LENDER_DATA['depositAmount']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:10.471431" elapsed="0.230603"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:10.244397" elapsed="0.457785"/>
+</branch>
+<branch type="ELSE">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>enter-project-cost</arg>
+<arg>${amount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:10.702612" elapsed="0.000059"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>enter-deposit-amount</arg>
+<arg>${deposite}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:10.702907" elapsed="0.000038"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:10.702264" elapsed="0.000744"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:10.244345" elapsed="0.458719"/>
+</if>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:10.703538" level="INFO">Clicking button 'xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/span/div/div[2]/div[2]/div/div/div[1]/div/button'.</msg>
+<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/span/div/div[2]/div[2]/div/div/div[1]/div/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:10.703250" elapsed="0.151952"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:09.310040" elapsed="1.545635"/>
+</kw>
+<kw name="Type of Application page" owner="Application_type_page">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-03T15:24:10.858343" level="FAIL">'['rba6']' does not contain 'Co-App'</msg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-03T15:24:10.857782" elapsed="0.000752">'['rba6']' does not contain 'Co-App'</status>
+</kw>
+<msg time="2025-09-03T15:24:10.858775" level="INFO">${is_CoApp} = False</msg>
+<var>${is_CoApp}</var>
+<arg>Should Contain</arg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-03T15:24:10.857376" elapsed="0.001454"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css:div.position-absolute.bg-white.rounded-lg</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:10.859171" elapsed="1.213020"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_CoApp}">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath://input[@value='2']</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:12.073448" elapsed="0.000120"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath://input[@value='2']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:12.074060" elapsed="0.000101"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:12.072638" elapsed="0.001679"/>
+</branch>
+<branch type="ELSE">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath://input[@value='1']</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:12.074964" elapsed="0.052155"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:12.128178" level="INFO">Clicking button 'xpath://input[@value='1']'.</msg>
+<arg>xpath://input[@value='1']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:12.127706" elapsed="0.127656"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:12.074468" elapsed="0.181015"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:12.072559" elapsed="0.182989"/>
+</if>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:12.256035" level="INFO">Clicking button 'xpath://button[@type='button']'.</msg>
+<arg>xpath://button[@type='button']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:12.255783" elapsed="0.087135"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:10.856658" elapsed="1.486406"/>
+</kw>
+<kw name="Load and Prepare applicant details" owner="PrepareApplicant_Details">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-03T15:24:12.344929" level="FAIL">'['rba6']' does not contain 'Co-App'</msg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-03T15:24:12.344702" elapsed="0.000311">'['rba6']' does not contain 'Co-App'</status>
+</kw>
+<msg time="2025-09-03T15:24:12.345141" level="INFO">${is_CoApp} = False</msg>
+<var>${is_CoApp}</var>
+<arg>Should Contain</arg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-03T15:24:12.344479" elapsed="0.000695"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-03T15:24:12.345895" level="INFO">${has_applicants} = False</msg>
+<var>${has_applicants}</var>
+<arg>'Applicants' in ${LENDER_DATA}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-03T15:24:12.345351" elapsed="0.000582"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${has_applicants}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-03T15:24:12.346101" elapsed="0.000422"/>
+</kw>
+<if>
+<branch type="IF" condition="'${has_applicants}' == 'True'">
+<if>
+<branch type="IF" condition="'${index1}' != 'None'">
+<kw name="Get From List" owner="Collections">
+<var>${application}</var>
+<arg>${LENDER_DATA["Applicants"]}</arg>
+<arg>${index1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:12.347366" elapsed="0.000073"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:12.347083" elapsed="0.000454"/>
+</branch>
+<branch type="ELSE">
+<kw name="Get From Dictionary" owner="Collections">
+<var>${application}</var>
+<arg>${LENDER_DATA}</arg>
+<arg>Applicant</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:12.347827" elapsed="0.000045"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:12.347606" elapsed="0.000473"/>
+</branch>
+<status status="NOT RUN" start="2025-09-03T15:24:12.347056" elapsed="0.001191"/>
+</if>
+<status status="NOT RUN" start="2025-09-03T15:24:12.346790" elapsed="0.001531"/>
+</branch>
+<branch type="ELSE">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-03T15:24:12.349541" level="INFO">${application} = {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Iowa', 'zipcode': '50011', 'Do_you_own_installation...</msg>
+<var>${application}</var>
+<arg>${LENDER_DATA}</arg>
+<arg>Applicant</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-03T15:24:12.348961" elapsed="0.000663"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:12.348415" elapsed="0.001344"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:12.346748" elapsed="0.003126"/>
+</if>
+<if>
+<branch type="IF" condition="${is_CoApp}">
+<if>
+<branch type="IF" condition="'${index2}' != 'None'">
+<kw name="Get From List" owner="Collections">
+<var>${co-app}</var>
+<arg>${LENDER_DATA["Applicants"]}</arg>
+<arg>${index2}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:12.350746" elapsed="0.000094"/>
+</kw>
+<kw name="Copy Dictionary" owner="Collections">
+<var>${co_app_dup}</var>
+<arg>${co-app}</arg>
+<doc>Returns a copy of the given dictionary.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:12.351235" elapsed="0.000085"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<arg>${co_app_dup}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:12.351749" elapsed="0.000109"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:12.350320" elapsed="0.001648"/>
+</branch>
+<branch type="ELSE">
+<kw name="Get From Dictionary" owner="Collections">
+<var>${co-app}</var>
+<arg>${LENDER_DATA}</arg>
+<arg>Co-Applicant</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:12.352449" elapsed="0.000064"/>
+</kw>
+<kw name="Copy Dictionary" owner="Collections">
+<var>${co_app_dup}</var>
+<arg>${co-app}</arg>
+<doc>Returns a copy of the given dictionary.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:12.353031" elapsed="0.000167"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<arg>${co_app_dup}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:12.353707" elapsed="0.000084"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:12.352104" elapsed="0.001744"/>
+</branch>
+<status status="NOT RUN" start="2025-09-03T15:24:12.350278" elapsed="0.003623"/>
+</if>
+<status status="NOT RUN" start="2025-09-03T15:24:12.350047" elapsed="0.003893"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:12.349997" elapsed="0.003989"/>
+</if>
+<kw name="Copy Dictionary" owner="Collections">
+<msg time="2025-09-03T15:24:12.354426" level="INFO">${applicant} = {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Iowa', 'zipcode': '50011', 'Do_you_own_installation...</msg>
+<var>${applicant}</var>
+<arg>${application}</arg>
+<doc>Returns a copy of the given dictionary.</doc>
+<status status="PASS" start="2025-09-03T15:24:12.354129" elapsed="0.000362"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-03T15:24:12.355050" level="INFO">${applicant} = {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Iowa', 'zipcode': '50011', 'Do_you_own_installation...</msg>
+<arg>${applicant}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-03T15:24:12.354694" elapsed="0.000419"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-03T15:24:12.355581" level="INFO">${application} = {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Iowa', 'zipcode': '50011', 'Do_you_own_installation...</msg>
+<arg>${application}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-03T15:24:12.355289" elapsed="0.000349"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:12.344069" elapsed="0.011653"/>
+</kw>
+<kw name="Application Details Page" owner="Application_details_Page">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-03T15:24:12.357434" level="FAIL">'['rba6']' does not contain 'Co-App'</msg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-03T15:24:12.357196" elapsed="0.000328">'['rba6']' does not contain 'Co-App'</status>
+</kw>
+<msg time="2025-09-03T15:24:12.357660" level="INFO">${is_CoApp} = False</msg>
+<var>${is_CoApp}</var>
+<arg>Should Contain</arg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-03T15:24:12.356956" elapsed="0.000737"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css:div.position-absolute.bg-white.rounded-lg</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:12.357901" elapsed="0.018903"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>street-address-1</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:12.377112" elapsed="0.915200"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:13.296230" level="INFO">Typing text '11765 West Avenue' into text field 'street-address-1'.</msg>
+<arg>street-address-1</arg>
+<arg>${application["street_add"]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:13.293245" elapsed="0.266139"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:13.560747" level="INFO">Typing text 'San Antonio' into text field 'city'.</msg>
+<arg>city</arg>
+<arg>${application["city"]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:13.559832" elapsed="0.263617"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:13.825221" level="INFO">Selecting options from selection list 'street-address-state' by label Iowa.</msg>
+<arg>street-address-state</arg>
+<arg>${application["state"]}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-09-03T15:24:13.823920" elapsed="0.215515"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:14.041277" level="INFO">Typing text '50011' into text field 'zipCode'.</msg>
+<arg>zipCode</arg>
+<arg>${application["zipcode"]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:14.039923" elapsed="0.219414"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:14.260683" level="INFO">Typing text 'Ana' into text field 'legal-first-name'.</msg>
+<arg>legal-first-name</arg>
+<arg>${application["FirstName"]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:14.259732" elapsed="0.146625"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:14.408030" level="INFO">Typing text 'Villar' into text field 'legal-last-name'.</msg>
+<arg>legal-last-name</arg>
+<arg>${application["LastName"]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:14.407025" elapsed="0.186102"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:14.594423" level="INFO">Typing text 'aditya.chelluru@finmkt.io' into text field 'email'.</msg>
+<arg>email</arg>
+<arg>${application["email"]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:14.593512" elapsed="0.270575"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:14.865472" level="INFO">Typing text '9877878787' into text field 'mobile-number'.</msg>
+<arg>mobile-number</arg>
+<arg>${application["mobileNumber"]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:14.864504" elapsed="0.165896"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css=.position-absolute.bg-white.rounded-lg</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.030819" elapsed="0.010566"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_CoApp}">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>coapp-legal-first-name</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:15.041931" elapsed="0.000055"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>coapp-legal-first-name</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:15.042188" elapsed="0.000045"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>coapp-legal-first-name</arg>
+<arg>${co_app_dup['FirstName']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:15.042422" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>coapp-legal-last-name</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:15.042671" elapsed="0.000044"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>coapp-legal-last-name</arg>
+<arg>${co_app_dup['LastName']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:15.042901" elapsed="0.000039"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath:(//input[@id="email"])[2]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:15.043117" elapsed="0.000034"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath:(//input[@id="email"])[2]</arg>
+<arg>${co_app_dup['email']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:15.043317" elapsed="0.000036"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath:(//input[@id="mobile-number"])[2]</arg>
+<arg>8</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:15.043531" elapsed="0.000037"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath:(//input[@id="mobile-number"])[2]</arg>
+<arg>${co_app_dup['mobileNumber']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:15.043736" elapsed="0.000040"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:15.041587" elapsed="0.002254"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:15.041553" elapsed="0.002358"/>
+</if>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>no</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.044094" elapsed="0.026025"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>no</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.070544" elapsed="0.028021"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:15.099388" level="INFO">Clicking element 'no'.</msg>
+<arg>no</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.099023" elapsed="0.135312"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/span/form/div[3]/div/div/div/div/div[2]/div/button</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.235115" elapsed="0.029380"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:15.265185" level="INFO">Clicking button 'xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/span/form/div[3]/div/div/div/div/div[2]/div/button'.</msg>
+<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/span/form/div[3]/div/div/div/div/div[2]/div/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.264887" elapsed="0.123593"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:12.356532" elapsed="3.032124"/>
+</kw>
+<kw name="verification info pop-up" owner="Verification_Info_pop-up">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-03T15:24:15.391026" level="FAIL">'['rba6']' does not contain 'Co-App'</msg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-03T15:24:15.390626" elapsed="0.000529">'['rba6']' does not contain 'Co-App'</status>
+</kw>
+<msg time="2025-09-03T15:24:15.391350" level="INFO">${is_CoApp} = False</msg>
+<var>${is_CoApp}</var>
+<arg>Should Contain</arg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.390287" elapsed="0.001108"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:15.406126" level="INFO">${creating_new_Url} = https://rba6-qa.mktplacegateway.com/dc/initiate-application?m=687780acc54eaaac5d20d39c&amp;pId=5c86c1dd3fe07d3f675d9417&amp;spId=5cb112103fe07d72716dc548&amp;locationId=67c5806cc54eaae3e0880d65&amp;appId=94d03188-060...</msg>
+<var>${creating_new_Url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.391850" elapsed="0.014327"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-03T15:24:15.406862" level="INFO">${match} = ['687780acc54eaaac5d20d39c', '5c86c1dd3fe07d3f675d9417', '5cb112103fe07d72716dc548', '67c5806cc54eaae3e0880d65', '94d03188-060d-4efa-9a12-725adc64ce9b', '67d13debc54eaafb4b84b778']</msg>
+<var>${match}</var>
+<arg>__import__('re').findall(r'[a-z0-9\-]{24,36}', '''${creating_new_Url}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.406416" elapsed="0.000482"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${match}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.407139" elapsed="0.000762"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-03T15:24:15.409373" level="INFO">${APP_ID} = 94d03188-060d-4efa-9a12-725adc64ce9b</msg>
+<arg>${APP_ID}</arg>
+<arg>${match[-2]}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.408171" elapsed="0.001284"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-03T15:24:15.410638" level="INFO">${Location_ID} = 67c5806cc54eaae3e0880d65</msg>
+<arg>${Location_ID}</arg>
+<arg>${match[-3]}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.409665" elapsed="0.001025"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-03T15:24:15.411880" level="INFO">${Merchant_ID} = 687780acc54eaaac5d20d39c</msg>
+<arg>${Merchant_ID}</arg>
+<arg>${match[0]}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.410855" elapsed="0.001091"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_CoApp}">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[8]/div[2]/div/button</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:15.412619" elapsed="0.000048"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[8]/div[2]/div/button</arg>
+<arg>120</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:15.412822" elapsed="0.000032"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[8]/div[2]/div/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:15.412985" elapsed="0.000027"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:15.412086" elapsed="0.000972"/>
+</branch>
+<branch type="ELSE">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[7]/div[2]/div/button</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.413291" elapsed="0.042001"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[7]/div[2]/div/button</arg>
+<arg>180</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.455577" elapsed="0.052470"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:15.508794" level="INFO">Clicking element 'xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[7]/div[2]/div/button'.</msg>
+<arg>xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[7]/div[2]/div/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.508449" elapsed="0.104194"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:15.413119" elapsed="0.199866"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:15.412051" elapsed="0.201077"/>
+</if>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Application Sent Successfully!</arg>
+<arg>15</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-09-03T15:24:15.613618" elapsed="0.654999"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:15.389728" elapsed="0.879092"/>
+</kw>
+<kw name="URL Applicant" owner="URL_applicant">
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="List Should Contain Value" owner="Collections">
+<arg>${Instance}</arg>
+<arg>${tag}</arg>
+<doc>Fails if the ``value`` is not found from ``list``.</doc>
+<status status="PASS" start="2025-09-03T15:24:16.272134" elapsed="0.000339"/>
+</kw>
+<msg time="2025-09-03T15:24:16.272693" level="INFO">${is_present} = True</msg>
+<var>${is_present}</var>
+<arg>List Should Contain Value</arg>
+<arg>${Instance}</arg>
+<arg>${tag}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-03T15:24:16.271785" elapsed="0.000946"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_present}">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-03T15:24:16.273271" level="INFO">${base_url} = rba6</msg>
+<var>${base_url}</var>
+<arg>${tag}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-03T15:24:16.273090" elapsed="0.000215"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:16.272861" elapsed="0.000505"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:16.272831" elapsed="0.000594"/>
+</if>
+<var name="${tag}">rba6</var>
+<status status="PASS" start="2025-09-03T15:24:16.271337" elapsed="0.002126"/>
+</iter>
+<var>${tag}</var>
+<value>@{TEST_TAGS}</value>
+<status status="PASS" start="2025-09-03T15:24:16.271061" elapsed="0.002470"/>
+</for>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-03T15:24:16.274317" level="FAIL">'['rba6']' does not contain 'Co-App'</msg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-03T15:24:16.274044" elapsed="0.000370">'['rba6']' does not contain 'Co-App'</status>
+</kw>
+<msg time="2025-09-03T15:24:16.274566" level="INFO">${is_CoApp} = False</msg>
+<var>${is_CoApp}</var>
+<arg>Should Contain</arg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-03T15:24:16.273796" elapsed="0.000804"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_CoApp} and '${type}'!='None'">
+<kw name="Get Location" owner="SeleniumLibrary">
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:16.275136" elapsed="0.000042"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${match}</var>
+<arg>__import__('re').findall(r'[a-z0-9\-]{24,36}', '''${url}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:16.275408" elapsed="0.000054"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${match}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:16.275602" elapsed="0.000023"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${M_URL}</var>
+<arg>https://${base_Url}-qa.mktplacegateway.com/c/application-authorization?loanId=${match[-1]}&amp;type=CO_APPLICANT&amp;m=${Merchant_ID}&amp;locationId=${Location_ID}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:16.275735" elapsed="0.000022"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:16.274725" elapsed="0.001064"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-03T15:24:16.276264" level="INFO">${M_URL} = https://rba6-qa.mktplacegateway.com/c/application-authorization?appId=94d03188-060d-4efa-9a12-725adc64ce9b&amp;type=APPLICANT&amp;m=687780acc54eaaac5d20d39c&amp;locationId=67c5806cc54eaae3e0880d65</msg>
+<var>${M_URL}</var>
+<arg>https://${base_Url}-qa.mktplacegateway.com/c/application-authorization?appId=${APP_ID}&amp;type=APPLICANT&amp;m=${Merchant_ID}&amp;locationId=${Location_ID}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-03T15:24:16.275946" elapsed="0.000456"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:16.275834" elapsed="0.000770"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:16.274695" elapsed="0.001954"/>
+</if>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:16.277255" level="INFO">Executing JavaScript:
+window.open('https://rba6-qa.mktplacegateway.com/c/application-authorization?appId=94d03188-060d-4efa-9a12-725adc64ce9b&amp;type=APPLICANT&amp;m=687780acc54eaaac5d20d39c&amp;locationId=67c5806cc54eaae3e0880d65', '_blank')
+Without any arguments.</msg>
+<arg>window.open('${M_URL}', '_blank')</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-09-03T15:24:16.276809" elapsed="0.087756"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>NEW</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:16.365295" elapsed="0.019577"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:17.031750" level="INFO">${location} = https://rba6-qa.mktplacegateway.com/c/application-authorization?appId=94d03188-060d-4efa-9a12-725adc64ce9b&amp;type=APPLICANT&amp;m=687780acc54eaaac5d20d39c&amp;locationId=67c5806cc54eaae3e0880d65</msg>
+<var>${location}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-09-03T15:24:16.385392" elapsed="0.646480"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>this is the location</arg>
+<arg>${location}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-03T15:24:17.032251" elapsed="0.000710"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:16.270610" elapsed="0.762524"/>
+</kw>
+<kw name="Application Authorization Page" owner="Application_Authorization">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css:div.position-absolute.bg-white.rounded-lg</arg>
+<arg>120</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:17.034559" elapsed="0.018868"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div[5]/div/div/button/div</arg>
+<arg>120</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:17.053828" elapsed="0.027863"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:17.082352" level="INFO">Clicking element 'xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div[5]/div/div/button/div'.</msg>
+<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div[5]/div/div/button/div</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:17.082055" elapsed="0.103328"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:17.033930" elapsed="0.151680"/>
+</kw>
+<kw name="Credit freeze page" owner="Credit_Freeze_Page">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css:div.position-absolute.bg-white.rounded-lg</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:17.187564" elapsed="0.504678"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Credit freezes must be lifted to proceed</arg>
+<arg>20</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-09-03T15:24:17.692515" elapsed="0.010733"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/div[6]/div/button</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:17.703451" elapsed="0.028496"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:17.732461" level="INFO">Clicking element 'xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/div[6]/div/button'.</msg>
+<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/div[6]/div/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:17.732245" elapsed="0.119858"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:17.186987" elapsed="0.665249"/>
+</kw>
+<kw name="prove data" owner="Prove_data_Page">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>ssn</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:17.853579" elapsed="0.566117"/>
+</kw>
+<if>
+<branch type="IF" condition="'${type}' == 'None'">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:18.421128" level="INFO">Typing text '666308630' into text field 'ssn'.</msg>
+<arg>ssn</arg>
+<arg>${application['ssn']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:18.420508" elapsed="0.167873"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:18.589755" level="INFO">Typing text '9877878787' into text field 'prove-mobile-number'.</msg>
+<arg>prove-mobile-number</arg>
+<arg>${application['mobileNumber']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:18.588809" elapsed="0.221415"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:18.420093" elapsed="0.390288"/>
+</branch>
+<branch type="ELSE">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>ssn</arg>
+<arg>${co_app_dup['ssn']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:18.810904" elapsed="0.000093"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>prove-mobile-number</arg>
+<arg>${co_app_dup['mobileNumber']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:18.811361" elapsed="0.000062"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:18.810482" elapsed="0.001035"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:18.420054" elapsed="0.391561"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-03T15:24:21.812821" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-03T15:24:18.811930" elapsed="3.001036"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:21.813485" level="INFO">Clicking button 'xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/fieldset/div/div[6]/div/div/button'.</msg>
+<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/fieldset/div/div[6]/div/div/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:21.813247" elapsed="0.109504"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:17.853191" elapsed="4.069773"/>
+</kw>
+<kw name="basic information" owner="Basic_Info_Page">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-03T15:24:21.924661" level="FAIL">'['rba6']' does not contain 'Co-App'</msg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-03T15:24:21.924439" elapsed="0.000302">'['rba6']' does not contain 'Co-App'</status>
+</kw>
+<msg time="2025-09-03T15:24:21.924855" level="INFO">${is_CoApp} = False</msg>
+<var>${is_CoApp}</var>
+<arg>Should Contain</arg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-03T15:24:21.924057" elapsed="0.000819"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[7]/div/div/span/div/input</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:21.925214" elapsed="0.982325"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-03T15:24:25.908609" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-03T15:24:22.907935" elapsed="3.000839"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-03T15:24:25.909710" level="FAIL">'['rba6']' does not contain 'Prove'</msg>
+<arg>${TEST TAGS}</arg>
+<arg>Prove</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-03T15:24:25.909405" elapsed="0.000409">'['rba6']' does not contain 'Prove'</status>
+</kw>
+<msg time="2025-09-03T15:24:25.909980" level="INFO">${is_prove} = False</msg>
+<var>${is_prove}</var>
+<arg>Should Contain</arg>
+<arg>${TEST TAGS}</arg>
+<arg>Prove</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-03T15:24:25.909114" elapsed="0.000905"/>
+</kw>
+<if>
+<branch type="IF" condition="'${primary}'=='None'">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-03T15:24:25.910852" level="INFO">${data} = {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Iowa', 'zipcode': '50011', 'Do_you_own_installation...</msg>
+<var>${data}</var>
+<arg>${application}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-03T15:24:25.910578" elapsed="0.000321"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:25.910175" elapsed="0.000797"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable If" owner="BuiltIn">
+<var>${data}</var>
+<arg>${is_CoApp}</arg>
+<arg>${co_app_dup}</arg>
+<arg>${application}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:25.911243" elapsed="0.000049"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:25.911033" elapsed="0.000333"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:25.910127" elapsed="0.001289"/>
+</if>
+<if>
+<branch type="IF" condition="${is_prove}">
+<kw name="Handle Prove Scenario" owner="Basic_Info_Page">
+<arg>${is_CoApp}</arg>
+<arg>${data}</arg>
+<status status="NOT RUN" start="2025-09-03T15:24:25.911899" elapsed="0.000052"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:25.911507" elapsed="0.000512"/>
+</branch>
+<branch type="ELSE">
+<kw name="Handle NonProve Scenario" owner="Basic_Info_Page">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[7]/div/div/span/div/input</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:25.913026" elapsed="0.025651"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:25.939904" level="INFO">Typing text '03/01/1981' into text field 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[7]/div/div/span/div/input'.</msg>
+<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[7]/div/div/span/div/input</arg>
+<arg>${data['dob']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:25.939013" elapsed="0.209012"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>INSTALLATION__ADDRESS__DROPDOWN</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:26.148410" elapsed="0.039428"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:26.188793" level="INFO">Executing JavaScript:
+document.getElementById("INSTALLATION__ADDRESS__DROPDOWN").value = "true";
+Without any arguments.</msg>
+<arg>document.getElementById("INSTALLATION__ADDRESS__DROPDOWN").value = "true";</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-09-03T15:24:26.188199" elapsed="0.010154"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:26.199383" level="INFO">Executing JavaScript:
+document.getElementById("INSTALLATION__ADDRESS__DROPDOWN").dispatchEvent(new Event('change'));
+Without any arguments.</msg>
+<arg>document.getElementById("INSTALLATION__ADDRESS__DROPDOWN").dispatchEvent(new Event('change'));</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-09-03T15:24:26.198744" elapsed="0.014959"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-03T15:24:28.214559" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-03T15:24:26.214050" elapsed="2.000697"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:28.215885" level="INFO">Selecting options from selection list 'INSTALLATION__ADDRESS__DROPDOWN' by label Yes, I own this property..</msg>
+<arg>INSTALLATION__ADDRESS__DROPDOWN</arg>
+<arg>${application['Do_you_own_installation_add']}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-09-03T15:24:28.215073" elapsed="0.062173"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:28.278057" level="INFO">Executing JavaScript:
+document.getElementById("INSTALLATION__ADDRESS__RESIDE__DROPDOWN").value = "true";
+Without any arguments.</msg>
+<arg>document.getElementById("INSTALLATION__ADDRESS__RESIDE__DROPDOWN").value = "true";</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-09-03T15:24:28.277558" elapsed="0.007268"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:28.285368" level="INFO">Executing JavaScript:
+document.getElementById("INSTALLATION__ADDRESS__RESIDE__DROPDOWN").dispatchEvent(new Event('change'));
+Without any arguments.</msg>
+<arg>document.getElementById("INSTALLATION__ADDRESS__RESIDE__DROPDOWN").dispatchEvent(new Event('change'));</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-09-03T15:24:28.285035" elapsed="0.009844"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-03T15:24:30.295916" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-03T15:24:28.295231" elapsed="2.000843"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:30.297085" level="INFO">Selecting options from selection list 'INSTALLATION__ADDRESS__RESIDE__DROPDOWN' by label Yes, I reside at this address..</msg>
+<arg>INSTALLATION__ADDRESS__RESIDE__DROPDOWN</arg>
+<arg>${application['Do_you_reside_installation_add']}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-09-03T15:24:30.296392" elapsed="0.091064"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[12]/div/span/div/div/label/span[2]</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:30.387692" elapsed="0.046817"/>
+</kw>
+<if>
+<branch type="IF" condition="'${primary}' == '${None}'">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:30.435802" level="INFO">Clicking element 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[12]/div/span/div/div/label/span[2]'.</msg>
+<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[12]/div/span/div/div/label/span[2]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:30.435348" elapsed="0.092860"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:30.434823" elapsed="0.093561"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fill Billing Address" owner="Basic_Info_Page">
+<arg>${data}</arg>
+<status status="NOT RUN" start="2025-09-03T15:24:30.529289" elapsed="0.000119"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:30.528526" elapsed="0.000990"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:30.434780" elapsed="0.094799"/>
+</if>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:30.530166" level="INFO">Clicking button 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[14]/div/div/button'.</msg>
+<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[14]/div/div/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:30.529857" elapsed="0.157605"/>
+</kw>
+<arg>${is_CoApp}</arg>
+<arg>${primary}</arg>
+<arg>${data}</arg>
+<status status="PASS" start="2025-09-03T15:24:25.912465" elapsed="4.775136"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:25.912078" elapsed="4.775674"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:25.911484" elapsed="4.776357"/>
+</if>
+<status status="PASS" start="2025-09-03T15:24:21.923617" elapsed="8.764458"/>
+</kw>
+<kw name="Personal information" owner="Personal_Information_Page">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-03T15:24:30.691080" level="FAIL">'['rba6']' does not contain 'Co-App'</msg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-03T15:24:30.690636" elapsed="0.000625">'['rba6']' does not contain 'Co-App'</status>
+</kw>
+<msg time="2025-09-03T15:24:30.691560" level="INFO">${is_CoApp} = False</msg>
+<var>${is_CoApp}</var>
+<arg>Should Contain</arg>
+<arg>${TEST TAGS}</arg>
+<arg>Co-App</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-03T15:24:30.689897" elapsed="0.002114"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://button[contains(text(), 'Next') or contains(@type, 'submit')]</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:30.692282" elapsed="0.034447"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-03T15:24:32.727831" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-03T15:24:30.727184" elapsed="2.000822"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-03T15:24:32.729014" level="FAIL">'['rba6']' does not contain 'Prove'</msg>
+<arg>${TEST TAGS}</arg>
+<arg>Prove</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-03T15:24:32.728696" elapsed="0.000430">'['rba6']' does not contain 'Prove'</status>
+</kw>
+<msg time="2025-09-03T15:24:32.729305" level="INFO">${is_prove} = False</msg>
+<var>${is_prove}</var>
+<arg>Should Contain</arg>
+<arg>${TEST TAGS}</arg>
+<arg>Prove</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-03T15:24:32.728368" elapsed="0.000980"/>
+</kw>
+<if>
+<branch type="IF" condition="'${primary}'=='None'">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-03T15:24:32.730138" level="INFO">${data} = {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Iowa', 'zipcode': '50011', 'Do_you_own_installation...</msg>
+<var>${data}</var>
+<arg>${application}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-03T15:24:32.729877" elapsed="0.000314"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:32.729518" elapsed="0.000759"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable If" owner="BuiltIn">
+<var>${data}</var>
+<arg>${is_CoApp}</arg>
+<arg>${co_app_dup}</arg>
+<arg>${application}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:32.730596" elapsed="0.000054"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:32.730350" elapsed="0.000382"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:32.729463" elapsed="0.001324"/>
+</if>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@style, 'backdrop-filter: blur')]</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:32.731018" elapsed="0.016222"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_prove}">
+<kw name="Fill Personal Information" owner="Personal_Information_Page">
+<arg>${data}</arg>
+<arg>${FALSE}</arg>
+<status status="NOT RUN" start="2025-09-03T15:24:32.748264" elapsed="0.000086"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:32.747434" elapsed="0.001003"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fill Personal Information" owner="Personal_Information_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://button[contains(text(), 'Next') or contains(@type, 'submit')]</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:32.749534" elapsed="0.016478"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-03T15:24:34.766716" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-03T15:24:32.766334" elapsed="2.000561"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>annual-income</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:34.767232" elapsed="0.024522"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>annual-income</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:34.792173" elapsed="0.026991"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:34.820431" level="INFO">Typing text '125000' into text field 'annual-income'.</msg>
+<arg>annual-income</arg>
+<arg>${data['annual_income']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:34.819517" elapsed="0.112067"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:34.932969" level="INFO">Typing text '125000' into text field 'household-income'.</msg>
+<arg>household-income</arg>
+<arg>${data['household_income']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:34.931995" elapsed="0.118311"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:35.051421" level="INFO">Selecting options from selection list 'EMPLOYMENT__STATUS__DROPDOWN' by label Employed.</msg>
+<arg>EMPLOYMENT__STATUS__DROPDOWN</arg>
+<arg>${data['employment_status']}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-09-03T15:24:35.050674" elapsed="0.103042"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:35.154521" level="INFO">Selecting options from selection list 'CITIZENSHIP__STATUS__DROPDOWN' by label US Citizen.</msg>
+<arg>CITIZENSHIP__STATUS__DROPDOWN</arg>
+<arg>${data['citizenship_status']}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-09-03T15:24:35.153950" elapsed="0.078219"/>
+</kw>
+<if>
+<branch type="IF" condition="'${data['employment_status']}' == 'Employed'">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div[1]/div[3]/span/div/input</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:35.233222" elapsed="0.019653"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:35.253895" level="INFO">Typing text 'business' into text field 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div[1]/div[3]/span/div/input'.</msg>
+<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div[1]/div[3]/span/div/input</arg>
+<arg>${application['occupation']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:35.253156" elapsed="0.113887"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:35.367987" level="INFO">Typing text 'ganesh' into text field 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div[1]/div[4]/span/div/input'.</msg>
+<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div[1]/div[4]/span/div/input</arg>
+<arg>${application['employer_name']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:35.367437" elapsed="0.096156"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:35.232470" elapsed="0.231237"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:35.232416" elapsed="0.231357"/>
+</if>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:35.464789" level="INFO">Typing text '500' into text field 'monthly-mortgage'.</msg>
+<arg>monthly-mortgage</arg>
+<arg>${data['monthly_mortgage_amount']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:35.463988" elapsed="0.109830"/>
+</kw>
+<if>
+<branch type="IF" condition="${include_ssn}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:35.575624" level="INFO">Typing text '666308630' into text field 'ssn'.</msg>
+<arg>ssn</arg>
+<arg>${data['ssn']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:35.574796" elapsed="0.097875"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:35.574319" elapsed="0.098479"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:35.574268" elapsed="0.098615"/>
+</if>
+<arg>${data}</arg>
+<arg>${TRUE}</arg>
+<status status="PASS" start="2025-09-03T15:24:32.748902" elapsed="2.924072"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:32.748506" elapsed="2.924536"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:32.747401" elapsed="2.925716"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-03T15:24:37.674072" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-03T15:24:35.673310" elapsed="2.001115"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:37.676026" level="INFO">Clicking button 'xpath://button[contains(text(), 'Next') or contains(@type, 'submit')]'.</msg>
+<arg>xpath://button[contains(text(), 'Next') or contains(@type, 'submit')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:37.675296" elapsed="0.166238"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-03T15:24:39.842646" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-03T15:24:37.841867" elapsed="2.000970"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:30.689130" elapsed="9.153878"/>
+</kw>
+<kw name="Address Re-Kyc screen" owner="Only_Address_Re-Kyc">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>address-1</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-03T15:24:39.844961" elapsed="0.032417"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>address-1</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-03T15:24:39.877817" elapsed="0.022529"/>
+</kw>
+<if>
+<branch type="IF" condition="'${type}' == 'None'">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:39.901655" level="INFO">Typing text '11765 West Avenue' into text field 'address-1'.</msg>
+<arg>address-1</arg>
+<arg>${applicant['street_add']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:39.900914" elapsed="0.122304"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:40.024572" level="INFO">Typing text 'San Antonio' into text field 'city'.</msg>
+<arg>city</arg>
+<arg>${applicant['city']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:40.023635" elapsed="0.187833"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:40.212673" level="INFO">Selecting options from selection list 'KYC__BILLING__ADDRESS__CITY' by label Iowa.</msg>
+<arg>KYC__BILLING__ADDRESS__CITY</arg>
+<arg>${applicant['state']}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-09-03T15:24:40.211825" elapsed="0.083061"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:40.296415" level="INFO">Typing text '50011' into text field 'zipCode'.</msg>
+<arg>zipCode</arg>
+<arg>${applicant['zipcode']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-03T15:24:40.295366" elapsed="0.188298"/>
+</kw>
+<status status="PASS" start="2025-09-03T15:24:39.900531" elapsed="0.583323"/>
+</branch>
+<branch type="ELSE">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>address-1</arg>
+<arg>${co_app_dup['street_add']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:40.484260" elapsed="0.000059"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>city</arg>
+<arg>${co_app_dup['city']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:40.484560" elapsed="0.000054"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<arg>KYC__BILLING__ADDRESS__CITY</arg>
+<arg>${co_app_dup['state']}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:40.484905" elapsed="0.000055"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>zipCode</arg>
+<arg>${co_app_dup['zipcode']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:40.485180" elapsed="0.000076"/>
+</kw>
+<status status="NOT RUN" start="2025-09-03T15:24:40.483950" elapsed="0.001485"/>
+</branch>
+<status status="PASS" start="2025-09-03T15:24:39.900501" elapsed="0.585013"/>
+</if>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<msg time="2025-09-03T15:24:50.760835" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-38.png"&gt;&lt;img src="selenium-screenshot-38.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-03T15:24:50.761043" level="FAIL">Element with locator 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div/div/div/div/span/form/div[2]/div/div/button' not found.</msg>
+<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div/div/div/div/span/form/div[2]/div/div/button</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="FAIL" start="2025-09-03T15:24:40.485751" elapsed="10.278305">Element with locator 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div/div/div/div/span/form/div[2]/div/div/button' not found.</status>
+</kw>
+<status status="FAIL" start="2025-09-03T15:24:39.844335" elapsed="10.919985">Element with locator 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div/div/div/div/span/form/div[2]/div/div/button' not found.</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div/div/div/div/span/form/div[2]/div/div/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-03T15:24:50.765143" elapsed="0.000063"/>
+</kw>
+<kw name="Handle Initial Flow" owner="KBA_Page">
+<status status="NOT RUN" start="2025-09-03T15:24:50.766152" elapsed="0.000056"/>
+</kw>
+<tag>rba6</tag>
+<status status="FAIL" start="2025-09-03T15:23:47.087029" elapsed="63.679662">Element with locator 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div/div/div/div/span/form/div[2]/div/div/button' not found.</status>
+</test>
+<status status="FAIL" start="2025-09-03T15:23:45.564734" elapsed="65.203348"/>
+</suite>
+<status status="FAIL" start="2025-09-03T15:23:45.562081" elapsed="65.207707"/>
+</suite>
+<status status="FAIL" start="2025-09-03T15:23:45.559216" elapsed="65.212137"/>
+</suite>
+<status status="FAIL" start="2025-09-03T15:23:45.511057" elapsed="65.261428"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">rba6</stat>
+</tag>
+<suite>
+<stat name="Test" id="s1" pass="0" fail="1" skip="0">Test</stat>
+<stat name="Lenders" id="s1-s1" pass="0" fail="1" skip="0">Test.Lenders</stat>
+<stat name="Single Applicant" id="s1-s1-s1" pass="0" fail="1" skip="0">Test.Lenders.Single Applicant</stat>
+<stat name="GICU" id="s1-s1-s1-s1" pass="0" fail="1" skip="0">Test.Lenders.Single Applicant.GICU</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-03T15:23:45.433933" level="WARN">Error in file 'C:\Users\AdityaChelluru\PycharmProjects\Test\Lenders\Co-Applicant\FFC.robot' on line 45: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-03T15:23:45.441252" level="WARN">Error in file 'C:\Users\AdityaChelluru\PycharmProjects\Test\Lenders\Co-Applicant\GL.robot' on line 169: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-03T15:23:45.444787" level="WARN">Error in file 'C:\Users\AdityaChelluru\PycharmProjects\Test\Lenders\Co-Applicant\PowerPay.robot' on line 45: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-09-03T15:23:45.489982" level="WARN">Error in file 'C:\Users\AdityaChelluru\PycharmProjects\Test\Lenders\Single_Applicant\GL.robot' on line 66: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>

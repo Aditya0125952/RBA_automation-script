@@ -1,0 +1,237 @@
+First Name,Middle Name,Last Name,Suffix,House,Direction,Street Name,Type,Unit/Apt,City,State,Zip Code,SSN,DOB,,,,,,
+SHEILA         ,D              ,HOOVER                   ,   ,1210      ,  ,LEBANON RIDGE              ,RD,     ,FRANKFORT                  ,KY,40601-8321,666729763,19810901
+MARY           ,EILEEN         ,DOMINGUEZ                ,JR ,788250    ,  ,PO BOX 788250              ,  ,     ,TWENTYNINE PALMS           ,CA,92278-8250,666820339,19720901
+DONNA          ,M              ,ROBERSON                 ,   ,3246      ,  ,MAGAZINE                   ,ST,A    ,NEW ORLEANS                ,LA,70115-2341,666724167,19880901
+MIKE           ,               ,COHEN                    ,   ,930       ,S ,MAXWELL                    ,TE,D    ,BLOOMINGTON                ,IN,47401-5279,666686236,19260901
+CARLETTA       ,               ,HAYNES                   ,IV ,11737     ,  ,MANUEL                     ,AV,A    ,LOMA LINDA                 ,CA,92354-6757,666137500,19920901
+EDUINA         ,CARO           ,CAROHARDIN               ,   ,3807      ,  ,TIDEWATER                  ,WY,     ,ACWORTH                    ,GA,30101-6208,666679116,19820901
+TRINH          ,T              ,CAO                      ,   ,15233     ,  ,HAYS                       ,RD,     ,SPRING HILL                ,FL,34610-3810,666963518,19780901
+PAT            ,               ,LOPEZ                    ,   ,465       ,  ,FOREST                     ,ST,     ,BRIDGEWATER                ,MA,02324-2914,666304964,19450901
+ELIZABETH      ,S              ,OWUSU                    ,   ,3202      ,  ,STATE ROAD 70              ,  ,     ,HERTEL                     ,WI,54845-9701,666083389,19820901
+NANCY          ,J              ,WEGMANN                  ,   ,631       ,  ,MARY ANN                   ,AV,     ,RIDGECREST                 ,CA,93555-3408,666528200,19660901
+JAMES          ,A              ,MNIKOLAICIK              ,   ,11        ,  ,LYNDALE                    ,PK,11   ,WESTPORT                   ,CT,06880-1228,666563257,19510901
+DAWN           ,C              ,KRUPA                    ,   ,3618      ,  ,BLANCHAN                   ,AV,GN   ,BROOKFIELD                 ,IL,60513-1585,666396078,19600901
+RUSSELL        ,B              ,RAGLAND                  ,   ,232       ,  ,PO BOX 232                 ,  ,     ,BEDIAS                     ,TX,77831-0232,666664371,19510901
+MARK           ,A              ,HAGERTY                  ,   ,2529      ,  ,DELL VIEW                  ,DR,     ,DALLAS                     ,TX,75253-3602,666330381,19610901
+JOSEPH         ,P              ,PARISI                   ,   ,3063      ,  ,HOLLINE                    ,CT,     ,LANCASTER                  ,CA,93535-4911,666546370,19710901
+LESLIE         ,A              ,MCDANNEL                 ,   ,2523      ,  ,WENDELL                    ,AV,     ,LOUISVILLE                 ,KY,40205-3011,666703451,19540901
+FAROKH         ,               ,PIRUZMAND                ,   ,1113      ,  ,DEBRA                      ,DR,     ,COSTA MESA                 ,CA,92626-1644,666320091,19550901
+MARY           ,DIAZ           ,DIAZ                     ,   ,19390     ,  ,COLLINS                    ,AV,626A ,SUNNY ISLES BEACH          ,FL,33160-7201,666516178,19720901
+WILLIAM        ,R              ,REED                     ,   ,11155     ,  ,77TH                       ,AV,3C   ,FOREST HILLS               ,NY,11375-7040,666858680,19780901
+LABERTUS       ,R              ,BILODEAU                 ,   ,521       ,  ,ROSE                       ,ST,     ,LANSDOWNE                  ,PA,19050-3227,666698834,19960901
+LOIS           ,               ,JOHNSON                  ,   ,7231      ,  ,WEBBWOOD                   ,WY,     ,SAN ANTONIO                ,TX,78250-3401,666528726,19820901
+BRYAN          ,E              ,HOHLT                    ,   ,1015      ,  ,PARKTHROUGH                ,ST,     ,CARY                       ,NC,27511-3288,666484651,19590901
+JESSE          ,R              ,LIZALDE                  ,   ,437       ,  ,BRIAR LAKE                 ,DR,     ,ELYRIA                     ,OH,44035-1623,666551223,19590901
+MARILYN        ,MARX           ,HORNER                   ,   ,11100     ,SW,197TH                      ,ST,306  ,CUTLER BAY                 ,FL,33157-8267,666605167,19640901
+JULIE          ,C              ,SCHMIDT                  ,   ,914       ,SW,FENWAY                     ,RD,     ,PORT SAINT LUCIE           ,FL,34953-2301,666041536,19790901
+AMY            ,ELIZABETH      ,LILLY                    ,   ,844       ,W ,CALLE VALENCIANA           ,  ,     ,SAHUARITA                  ,AZ,85629-8206,666960322,19590901
+APRIL          ,W              ,WINDHAM                  ,   ,3297      ,  ,SCOTTISH                   ,  ,     ,LEXINGTON                  ,KY,40509-8545,666496600,19870901
+COLLINS        ,J              ,COLEMAN                  ,   ,7962      ,  ,FOREST PATH                ,WY,     ,SPRINGFIELD                ,VA,22153-2637,666904072,19920901
+GENEROSO       ,D              ,FERNANDEZ                ,II ,103757    ,S ,3414                       ,RD,     ,MEEKER                     ,OK,74855-8800,666943311,19840901
+KELLEY         ,M              ,THORNE                   ,   ,5358      ,  ,WOODRUFF FARM              ,RD,907  ,COLUMBUS                   ,GA,31907-1326,666664374,19870901
+JAMES          ,WALDO          ,WILSON                   ,   ,221       ,  ,JAIME JACK                 ,DR,     ,GRAND PRAIRIE              ,TX,75052-3577,666710789,19740901
+CATHARINE      ,L              ,POST                     ,III,368       ,  ,SELMA                      ,ST,     ,PHILADELPHIA               ,PA,19116-2720,666523336,19660901
+PATRICIA       ,M              ,LINDSEY                  ,   ,13        ,  ,HAMPDEN                    ,CT,17   ,MIDDLETOWN                 ,DE,19709-8302,666051432,19210901
+DAWN           ,M              ,FIALK                    ,   ,408       ,  ,NORTHVIEW                  ,LN,     ,CRESTVIEW                  ,FL,32536-9256,666890625,19830901
+MICHAEL        ,J              ,NOYES                    ,   ,2445      ,  ,DERHAKE                    ,RD,     ,FLORISSANT                 ,MO,63033-6516,666261666,19220901
+GYNGER         ,G              ,FORBESS                  ,   ,72        ,S ,GARDEN                     ,ST,2    ,VENTURA                    ,CA,93001-2580,666379116,19730901
+DANNY          ,M              ,SULLIVAN                 ,   ,5419      ,  ,BLUEBERRY HILL             ,AV,A    ,LAKE WORTH                 ,FL,33463-6766,666642044,19770901
+KOURTLYN       ,C              ,ESSLIN                   ,   ,37        ,  ,ROSA                       ,ST,     ,WESTWEGO                   ,LA,70094-5833,666842667,19950901
+SANDRA         ,L              ,CASSADY                  ,   ,297       ,  ,PO BOX 297                 ,  ,     ,CIRCLE PINES               ,MN,55014-0297,666680896,19880901
+MARTIN         ,               ,BARASCH                  ,   ,313       ,S ,MUSKET RIDGE               ,DR,     ,SUN PRAIRIE                ,WI,53590-3471,666403491,19540901
+ANDREA         ,A              ,HAYNESWORTH              ,   ,801       ,  ,CREEKVIEW                  ,CT,     ,BELLEFONTAINE              ,OH,43311-2771,666753132,19720901
+BARRY          ,R              ,HILL                     ,JR ,395       ,SW,188TH                      ,AV,     ,PEMBROKE PINES             ,FL,33029-5438,666050567,19210901
+ANDREW         ,E              ,FRANKLIN                 ,   ,13653     ,W ,SAN MIGUEL                 ,AV,     ,LITCHFIELD PARK            ,AZ,85340-8374,666423428,19550901
+JOSE           ,A              ,CLAROS                   ,   ,2321      ,  ,BENSON GARDENS             ,BV,     ,OMAHA                      ,NE,68134-6769,666375107,19880901
+JAMAL          ,D              ,RICHARDSON               ,   ,61        ,  ,LAKESIDE                   ,DR,43   ,BRISTOL                    ,CT,06010-7380,666374699,19710901
+GAYLE          ,SUSAN          ,RASMUSSEN                ,   ,2036      ,  ,OTTELLO                    ,AV,     ,DAYTON                     ,OH,45414-4512,666886118,19670901
+EST            ,ELLEN          ,TAYLOR                   ,   ,8901      ,W ,SUNRISE                    ,BV,     ,PLANTATION                 ,FL,33322-5216,666020234,19810901
+TAMARA         ,K              ,WHITE                    ,   ,1081      ,  ,GIFFORD                    ,RD,     ,MALVERN                    ,AR,72104-6620,666801450,19780901
+ALAN           ,M              ,DAVIS                    ,   ,2827      ,  ,GARFIELD                   ,AV,     ,CAMDEN                     ,NJ,08105-4420,666346960,19410901
+MICHAEL        ,C              ,IANNENE                  ,   ,500       ,N ,METRO                      ,BV,1035 ,CHANDLER                   ,AZ,85226-3126,666487357,19690901
+CHRISTOPHER    ,G              ,ANDERSON                 ,   ,32        ,  ,TEMPEST                    ,LN,     ,WILLINGBORO                ,NJ,08046-3803,666947974,19670901
+CHRISTOPHER    ,R              ,ZORICH                   ,   ,51        ,  ,GLENVIEW                   ,LN,     ,WILLINGBORO                ,NJ,08046-3213,666607076,19690901
+EVERETTE       ,E              ,DIONNE                   ,III,280       ,  ,RUSSELL                    ,RD,     ,LYON                       ,MS,38645-9567,666480012,19700901
+JUAN           ,ANTONIO        ,RUIZ                     ,   ,1941      ,W ,LA VETA                    ,AV,225  ,ORANGE                     ,CA,92868-4169,666886787,19630901
+SEAN           ,C              ,STOKESBURY               ,   ,7602      ,  ,CAUGHMAN                   ,RD,     ,COLUMBIA                   ,SC,29209-4014,666173252,19780901
+CARLA          ,VALETTE        ,RANDALL                  ,   ,2176      ,N ,BERWICK                    ,DR,     ,MYRTLE BEACH               ,SC,29575-5802,666204873,19810901
+MARIA          ,               ,BEREK                    ,   ,3217      ,  ,FRANKLIN                   ,AV,     ,SAN DIEGO                  ,CA,92113-1515,666419265,19830901
+AMBROSIO       ,               ,CRUS                     ,   ,2201      ,  ,PEERLESS                   ,RD,     ,CLEVELAND                  ,TN,37311-3744,666849054,19590901
+MARIAN         ,H              ,TAYLOR                   ,   ,5751      ,  ,LOPEZ                      ,  ,     ,VON ORMY                   ,TX,78073-3119,666518575,19840901
+VLADIMIR       ,D              ,PERNAR                   ,   ,250       ,  ,CARMEL HILL                ,RD,     ,BETHLEHEM                  ,CT,06751-1603,666509834,19560901
+LELAND         ,B              ,NICHOLSON                ,   ,804       ,  ,VANCE                      ,AV,     ,BIGGS                      ,CA,95917-9773,666816214,19930901
+DUSTON         ,O              ,WILLIAMS                 ,   ,632       ,  ,WOLF                       ,ST,     ,CHENEY                     ,KS,67025-8903,666686812,19730901
+TAKIYAH        ,S              ,PARRISH                  ,SR ,5906      ,  ,OAK RIDGE                  ,CT,     ,BURKE                      ,VA,22015-2435,666587457,19710901
+JENNIFER       ,B              ,HUBLER                   ,   ,2038      ,  ,BLACK DIAMOND              ,RD,     ,OXFORD                     ,IA,52322-9108,666454241,19620901
+TERRY          ,R              ,LEDBETTER                ,   ,247       ,  ,TRIPPLE H                  ,LN,H    ,LINCOLNTON                 ,NC,28092-7155,666706791,19630901
+GREGG          ,W              ,NORRIS                   ,   ,26906     ,E ,EASTLAND                   ,AV,     ,NEWMAN LAKE                ,WA,99025-9529,666159945,19960901
+DEKAYLA        ,L              ,TILLMAN                  ,JR ,10382     ,  ,TENNYSON                   ,CT,     ,WESTMINSTER                ,CO,80031-2320,666822995,19910901
+ROBERT         ,W              ,JOHNSON                  ,   ,1571      ,  ,OMIE                       ,WY,     ,LAWRENCEVILLE              ,GA,30043-5874,666721450,19810901
+GLADYS         ,ANN            ,FERNANDEZ                ,III,1908      ,  ,ESHER                      ,PL,     ,MARRERO                    ,LA,70072-6709,666583478,19790901
+ANDREW         ,T              ,OLVERA                   ,   ,1110      ,  ,CHESTER                    ,AV,     ,NASHVILLE                  ,TN,37206-2222,666797974,19740901
+APRIL          ,ANN            ,HOFFMAN                  ,   ,14        ,  ,ORCHARD HILLS APTS         ,  ,     ,HIGHLAND                   ,NY,12528-1523,666688023,19860901
+ARMANDO        ,REYES          ,PEREZ                    ,   ,5         ,  ,CHAMBERS                   ,CT,     ,O FALLON                   ,MO,63366-3463,666448116,19400901
+JUAN           ,B              ,ARTIAGA                  ,   ,1226      ,  ,ORRICK                     ,RD,     ,ALMA                       ,AR,72921-7024,666114825,19610901
+ALFREDO        ,F              ,ORTIZ                    ,   ,11907     ,  ,MOUNTAIN LAUREL            ,DR,D    ,RICHMOND                   ,VA,23236-2549,666881317,19560901
+WASEEM         ,A              ,KHAN                     ,   ,6985      ,  ,PROCYON                    ,ST,     ,LAS VEGAS                  ,NV,89118-5255,666779815,19710901
+JAMES          ,R              ,HOLT                     ,   ,20        ,  ,AUBURN                     ,DR,     ,CHARLESTOWN                ,RI,02813-6102,666543083,19700901
+LAURA          ,S              ,GLADDEN                  ,   ,9322      ,W ,GLEN OAKS                  ,CI,     ,SUN CITY                   ,AZ,85351-1306,666484214,19640901
+SHAWANA        ,R              ,BLACK                    ,   ,3519      ,E ,PIERCE                     ,ST,     ,PHOENIX                    ,AZ,85008-6246,666609965,19860901
+SHARON         ,M              ,LAPERLE                  ,   ,1535      ,N ,55TH                       ,ST,     ,KANSAS CITY                ,KS,66102-1428,666464887,19540901
+ELIZABETH      ,L              ,PEREZ                    ,   ,1000      ,  ,JACKSON KELLER             ,RD,2002 ,SAN ANTONIO                ,TX,78213-3722,666232145,19840901
+ALVIN          ,S              ,ABRAHAM                  ,   ,4436      ,  ,STOCKBRIDGE                ,AV,     ,SACRAMENTO                 ,CA,95842-3347,666103049,19920901
+MARQUES        ,T              ,SINGLETON                ,   ,1815      ,  ,ARMSTRONG                  ,ST,     ,FAYETTEVILLE               ,NC,28301-3903,666625224,19530901
+KEITH          ,Q              ,BRYANT                   ,SR ,22421     ,  ,SHERMAN                    ,WY,6    ,WEST HILLS                 ,CA,91307-2364,666467625,19820901
+CELINA         ,L              ,ATARAS                   ,SR ,795       ,  ,PO BOX 795                 ,  ,     ,BEACON                     ,NY,12508-0795,666530210,19820901
+JAVIER         ,               ,CARRILLO                 ,JR ,220       ,W ,NORTH                      ,ST,     ,KOKOMO                     ,IN,46901-2857,666246062,19900901
+ISAAC          ,               ,LIFSHITZ                 ,   ,1457      ,  ,NOTTAWAY                   ,DR,     ,WHEELING                   ,WV,26003-1405,666271684,19720901
+JILL           ,J              ,WILLIAMS                 ,   ,4277      ,  ,PINEVILLE                  ,RD,     ,PORT REPUBLIC              ,VA,24471-2129,666444449,19270901
+JOSE           ,A              ,VELAZQUEZ                ,   ,2423      ,  ,CANDLER                    ,RD,C1   ,DECATUR                    ,GA,30032-6442,666761845,19820901
+VERONICA       ,E              ,MCCARTHUR                ,   ,304       ,  ,PENNSYLVANIA               ,AV,     ,LOVES PARK                 ,IL,61111-4066,666427472,19410901
+STEPHANIE      ,DANIEL         ,NORMAN                   ,   ,6325      ,  ,AMBERLY                    ,RD,     ,REX                        ,GA,30273-1254,666883131,19070901
+ED             ,T              ,BLACKBURN                ,   ,12077     ,  ,LOVELESS                   ,DR,     ,GULFPORT                   ,MS,39503-2821,666478900,19890901
+ANTHONY        ,J              ,STURM                    ,   ,14        ,  ,PRINCESS                   ,CT,     ,ROANOKE                    ,IN,46783-9132,666540390,19710901
+ANDREW         ,T              ,RUIZ                     ,   ,500       ,E ,ANDERSON                   ,LN,179K ,AUSTIN                     ,TX,78752-1232,666131875,19650901
+REBECCA        ,A              ,LEON                     ,   ,304       ,  ,RIDGE                      ,RD,     ,CEDAR GROVE                ,NJ,07009-1947,666406186,19520901
+JOYCE          ,E              ,EVANS                    ,   ,18082     ,  ,LAS CUMBRES                ,RD,     ,LOS GATOS                  ,CA,95033-8247,666157340,19880901
+C              ,E              ,COX                      ,   ,2011      ,  ,DEARING                    ,CV,     ,JONESBORO                  ,AR,72401-2315,666662672,19750901
+STEPHEN        ,A              ,RUPERT                   ,SR ,13116     ,  ,VIOLETA                    ,LN,     ,SAN ELIZARIO               ,TX,79849-8609,666717875,19790901
+MICHAEL        ,R              ,STACY                    ,   ,318       ,W ,CHEROKEE                   ,ST,     ,SEDAN                      ,KS,67361-1207,666549573,19690901
+MARGARET       ,TAYLOR         ,WORLEY                   ,   ,973       ,NE,INGRAM                     ,ST,115  ,ISSAQUAH                   ,WA,98029-5430,666564736,19570901
+EDDIE          ,L              ,HERBERT                  ,   ,2349      ,  ,MELODY                     ,DR,     ,EDMOND                     ,OK,73012-0625,666403976,19410901
+JACOB          ,C              ,LEATHERBY                ,JR ,2364      ,  ,TOLBERT                    ,CT,     ,SAN JOSE                   ,CA,95122-2453,666441034,19530901
+FRANK          ,J              ,MANICK                   ,   ,269       ,  ,HIGH                       ,ST,     ,ROCHESTER                  ,MA,02770-2211,666384267,19710901
+JANE           ,A              ,BOYD                     ,   ,7930      ,  ,DAY                        ,ST,     ,SUNLAND                    ,CA,91040-3310,666840283,19770901
+MARSTEVENS     ,T              ,MARASIGAN                ,   ,1557      ,  ,MERCER                     ,RD,     ,FRANKLIN                   ,PA,16323-4011,666622128,19640901
+LYNWOOD        ,M              ,CHESTNUT                 ,   ,4931      ,  ,KONA                       ,DR,C    ,HUNTINGTON BEACH           ,CA,92649-2353,666345422,19430901
+STEPHANIE      ,T              ,TERCERO                  ,   ,10945     ,  ,SPAULDING                  ,PZ,     ,OMAHA                      ,NE,68164-2847,666352172,19730901
+DONNA          ,L              ,TUISAMATA                ,   ,2668      ,W ,WILLIAMSBURG               ,ST,     ,SPRINGFIELD                ,MO,65810-2138,666724471,19900901
+RAHAT          ,               ,PERVEEN                  ,   ,136       ,  ,CRISSWELL                  ,RD,     ,BUTLER                     ,PA,16002-8636,666219639,19870901
+CHUCK          ,H              ,MANESS                   ,   ,907       ,  ,ELM                        ,DR,     ,COLUMBIA                   ,MS,39429-3804,666840624,19650901
+MIRIAM         ,               ,SCHUMAKER                ,   ,8728      ,  ,TREASURE                   ,AV,1    ,WALKERSVILLE               ,MD,21793-7775,666176984,19910901
+DEBORAH        ,K              ,WACHTER                  ,   ,201       ,  ,COTTON BAY                 ,WY,     ,SIMPSONVILLE               ,SC,29681-4313,666605935,19760901
+GORDON         ,               ,KOEGLER                  ,   ,1271      ,  ,ROGERS                     ,AV,3    ,BROOKLYN                   ,NY,11226-7823,666640414,19840901
+TRAVIS         ,G              ,PATTEE                   ,   ,35        ,  ,WILDWOOD                   ,AV,     ,MOUNT VERNON               ,NY,10550-4935,666609705,19840901
+INEZ           ,R              ,THOMPSON                 ,   ,5747      ,  ,IVY KNOLL                  ,DR,A    ,INDIANAPOLIS               ,IN,46250-3709,666898189,19800901
+GINGER         ,               ,DAVIS                    ,   ,3584      ,  ,HIGHWAY 84                 ,  ,     ,LAUREL                     ,MS,39443-8389,666424508,19570901
+GARY           ,ALFRED CADINHA ,RLT                      ,   ,320       ,W ,HENDRICKS                  ,ST,     ,CEDAR HILL                 ,TX,75104-1923,666987482,19680901,
+COLLEEN        ,A              ,CHITTENDEN               ,   ,708       ,  ,OLD CHARLOTTE              ,RD,R    ,WHITE BLUFF                ,TN,37187-2100,666835743,19940901
+STEVE          ,M              ,PICCINI                  ,   ,2992      ,  ,SILVER MAPLE               ,DR,1    ,FAIRLAWN                   ,OH,44333-3295,666466452,19570901
+IRINA          ,S              ,BUTKO                    ,   ,7257      ,  ,OAKVIEW                    ,DR,     ,ZACHARY                    ,LA,70791-2881,666694078,19870901
+KAROL          ,W              ,IWANY                    ,   ,7035      ,  ,BELGREEN                   ,DR,     ,SAN ANTONIO                ,TX,78227-1103,666985872,19700901
+MARIE          ,Y              ,VALSAINT                 ,   ,509       ,  ,GREENWOOD                  ,DR,     ,ROUND LAKE PARK            ,IL,60073-3043,666699988,19960901
+PHILIP         ,H              ,LAYMAN                   ,   ,3314      ,W ,SARATOGA                   ,AV,     ,ENGLEWOOD                  ,CO,80110-6204,666808365,19640901
+ROBERT         ,W              ,STANLEY                  ,   ,1839      ,N ,WESTFIELD                  ,ST,NONE ,WICHITA                    ,KS,67212-5318,666542630,19660901
+MARY ANN       ,               ,FISHER                   ,   ,10330     ,  ,KOST                       ,RD,     ,GALT                       ,CA,95632-8802,666105554,19930901
+GEORGE         ,E              ,POLVI                    ,   ,2311      ,  ,WHISPERTON                 ,DR,     ,ARLINGTON                  ,TX,76016-1968,666392730,19740901
+RAYMOND        ,S              ,GARCIA                   ,SR ,4950      ,  ,ECLIPSE                    ,AV,     ,MIRA LOMA                  ,CA,91752-1706,666602406,19960901
+BRADLEY        ,W              ,OWEN                     ,   ,1010      ,W ,THOMAS                     ,ST,     ,MILLEDGEVILLE              ,GA,31061-2682,666387519,19550901
+ASTELLIA       ,               ,DIAZ                     ,   ,33        ,W ,UNION                      ,ST,     ,NANTICOKE                  ,PA,18634-2718,666480114,19640901
+STEVE          ,E              ,KARKANEN                 ,   ,2173      ,  ,SUNRISE                    ,DR,     ,MAPLEWOOD                  ,MN,55117-1821,666566682,19740901
+JEFFREY        ,S              ,LYON                     ,   ,1164      ,NW,75TH                       ,ST,     ,MIAMI                      ,FL,33150-3340,666824415,19930901
+ROSALYNN       ,M              ,KOO                      ,   ,5905      ,  ,LAURENT                    ,RD,     ,NEW IBERIA                 ,LA,70560-7766,666665270,19660901
+LORETTA        ,M              ,HAGELGANS                ,   ,7301      ,W ,COLEMAN                    ,RD,     ,PONCA CITY                 ,OK,74601-8109,666617608,19900901
+CRYSTAL        ,G              ,HAGAN                    ,   ,6781      ,W ,FIREBIRD                   ,DR,     ,GLENDALE                   ,AZ,85308-8963,666829570,19550901
+CHRISTINA      ,M              ,MCMANIS                  ,   ,2434      ,  ,CUSHING                    ,LN,     ,AURORA                     ,IL,60503-3628,666824859,19840901
+ALAN           ,L              ,ROSEN                    ,   ,838       ,  ,KALE                       ,DR,     ,BILLINGS                   ,MT,59105-4158,666306439,19430901
+DENYSE         ,A              ,BUITRAGO                 ,   ,10255     ,  ,CEDAR RIDGE                ,DR,     ,MANASSAS                   ,VA,20110-6630,666265539,19370901
+ANITA          ,REBECCA        ,BOWERS                   ,   ,6161      ,W ,MCDOWELL                   ,RD,2064 ,PHOENIX                    ,AZ,85035-4893,666884931,19590901
+LINDA          ,J              ,MCCOY                    ,   ,484       ,  ,PO BOX 484                 ,  ,     ,ROME                       ,IL,61562-0484,666849786,19890901
+KASSIE         ,               ,CHAVEZ                   ,   ,2216      ,  ,CULVER                     ,RD,     ,ROCHESTER                  ,NY,14609-2747,666082851,19690901
+ALMA           ,P              ,RODARTE                  ,   ,236       ,  ,GEORGE OAK                 ,LN,     ,LEESVILLE                  ,LA,71446-9121,666707234,19960901
+JAIMAE         ,M              ,MUIR                     ,   ,6007      ,  ,WEEDPATCH                  ,HY,     ,BAKERSFIELD                ,CA,93307-8705,666884550,19690901
+LISA           ,A              ,BURNS                    ,   ,329       ,N ,PARK                       ,AV,     ,FOND DU LAC                ,WI,54935-2456,666395201,19870901
+RICHARD        ,C              ,STROOP                   ,   ,1235      ,E ,ARMANDO                    ,DR,     ,LONG BEACH                 ,CA,90807-3702,666722802,19910901
+JANET          ,A              ,JUSTICE                  ,   ,22        ,  ,EDGEWATER                  ,ST,     ,WATERBURY                  ,CT,06706-2206,666456730,19730901
+TOYA           ,V              ,EADDY                    ,   ,6415      ,W ,84TH                       ,ST,     ,BURBANK                    ,IL,60459-2412,666569675,19700901
+DAVID          ,L              ,SPILMAN                  ,   ,137       ,  ,CAHOKIA                    ,RD,     ,MARQUETTE HEIGHTS          ,IL,61554-1301,666908443,19940901
+RADONNA        ,J              ,FOX                      ,JR ,6200      ,  ,EUBANK                     ,BV,1325 ,ALBUQUERQUE                ,NM,87111-7319,666948775,19770901
+STEPHEN        ,T              ,WILLIAMS                 ,   ,3740      ,  ,BEACON                     ,DR,     ,SUMTER                     ,SC,29154-8063,666475308,19790901
+JOSE           ,O              ,GARCIA                   ,   ,36000     ,  ,FREMONT                    ,BV,32   ,FREMONT                    ,CA,94536-3429,666860037,19630901
+B              ,K              ,SMITH                    ,   ,15        ,  ,COUNTRY LANE               ,CT,     ,FLORISSANT                 ,MO,63033-4539,666721420,19510901
+MARIE          ,A              ,FLEISCHMANN              ,   ,9919      ,  ,TEBO                       ,ST,     ,HOUSTON                    ,TX,77076-5026,666429470,19610901
+ANTHONY        ,U              ,EFOBI                    ,   ,5         ,  ,FAIRVIEW                   ,AV,     ,AUGUSTA                    ,ME,04330-5830,666978633,19840901
+CHARMAIN       ,               ,ALLEN                    ,   ,1102      ,N ,SPRINGBROOK                ,RD,215  ,NEWBERG                    ,OR,97132-2007,666965696,19860901
+BECKY          ,J              ,BEHLENDORF               ,   ,375       ,  ,HANCOCK MILL               ,RD,     ,MINERAL                    ,VA,23117-5207,666646109,19610901
+LISA           ,M              ,WILSON                   ,   ,108       ,  ,BAYLAND                    ,DR,10   ,HAVRE DE GRACE             ,MD,21078-4235,666916241,19860901
+NEIL           ,               ,SHUELL                   ,   ,7622      ,S ,NORMAL                     ,AV,1    ,CHICAGO                    ,IL,60620-1831,666848493,19570901
+GRISELDA       ,               ,CASTILLO                 ,   ,737       ,W ,UNION                      ,RD,     ,CARRIERE                   ,MS,39426-2637,666380948,19560901
+SARA           ,C              ,RODGERS                  ,   ,1875      ,S ,CHAMPION                   ,AV,     ,COLUMBUS                   ,OH,43207-2036,666325288,19680901
+CHARLES        ,A              ,SPAULDING                ,   ,901       ,W ,GARLAND                    ,ST,     ,SILOAM SPRINGS             ,AR,72761-2231,666766185,19420901
+SUSAN          ,S              ,NUNN                     ,II ,322 1/2   ,  ,47TH                       ,ST,A    ,SAINT PETERSBURG           ,FL,33713-7232,666021154,19720901
+DAVID          ,R              ,GIBSON                   ,   ,11        ,  ,MORLATTON                  ,RD,     ,DOUGLASSVILLE              ,PA,19518-9528,666326020,19380901
+REBECCA        ,L              ,HERNANDEZ                ,   ,1203      ,  ,PO BOX 1203                ,  ,     ,BUFFALO                    ,NY,14220-8203,666260108,19530901
+MINNIE         ,L              ,CHAMBERLAIN              ,   ,885       ,  ,BRIARCLIFF                 ,RD,33   ,ATLANTA                    ,GA,30306-4646,666873495,19870901
+CLARA          ,D              ,ELLIS                    ,   ,10506     ,  ,KETTERING                  ,DR,511  ,CHARLOTTE                  ,NC,28226-4795,666324256,19490901
+SAMANTHA       ,D              ,PIRKOV MIDDAUGH          ,   ,33        ,  ,FARRELL                    ,ST,     ,HOUSTON                    ,TX,77022-2635,666662879,19770901
+SAMANTHA       ,L              ,SEVERINO                 ,JR ,1700      ,N ,GALLOWAY                   ,AV,416  ,MESQUITE                   ,TX,75149-9406,666590035,19840901
+MANOLA         ,R              ,GREGROW                  ,   ,11455     ,  ,STRINGFELLOW               ,RD,     ,GRAND BAY                  ,AL,36541-6544,666461079,19460901
+JACKIE         ,E              ,CLAUSEN                  ,   ,2115      ,  ,RR 2 BOX 2115              ,  ,     ,BIRCH TREE                 ,MO,65438-9208,666291770,19870901
+RONALD         ,E              ,METTLER                  ,   ,12334     ,W ,107TH                      ,TE,     ,OVERLAND PARK              ,KS,66210-1152,666021714,19880901
+CORA           ,H              ,MOORE                    ,   ,807       ,  ,BAYLY                      ,RD,     ,CAMBRIDGE                  ,MD,21613-2909,666680270,19730901
+ALICIA         ,JEAN           ,PERSONDEK                ,   ,3115      ,  ,HARTWICK                   ,RD,     ,HOUSTON                    ,TX,77093-1221,666361105,19510901
+JIM            ,S              ,BOWE                     ,   ,1891      ,  ,PO BOX 1891                ,  ,     ,MORGANTON                  ,NC,28680-1891,666678920,19890901
+EUNICE         ,M              ,BENTON                   ,   ,3         ,  ,RONIT                      ,DR,     ,EWING                      ,NJ,08628-2225,666114549,19900901
+KEVIN          ,A              ,PUTMAN                   ,   ,20A       ,  ,DALES                      ,AV,1    ,JERSEY CITY                ,NJ,07306-6808,666806939,19790901
+GLENDA         ,F              ,JONES                    ,II ,11381     ,SW,17TH                       ,CT,     ,MIRAMAR                    ,FL,33025-6604,666907404,19870901
+MADELYNN       ,Y              ,WOODSON                  ,   ,2627      ,  ,BERRINGER                  ,RD,     ,TWO RIVERS                 ,WI,54241-8954,666840100,19650901
+SHANE          ,M              ,TAGUE                    ,   ,3515      ,S ,COTTAGE GROVE              ,AV,412  ,CHICAGO                    ,IL,60653-1491,666506488,19440901
+JOE            ,A              ,MORENO                   ,   ,3238      ,E ,JUNE                       ,CI,     ,MESA                       ,AZ,85213-3200,666089977,19980901
+ALAN           ,               ,SIMPSON                  ,   ,1058      ,E ,99TH                       ,ST,2    ,BROOKLYN                   ,NY,11236-4414,666659693,19870901
+JACLYN         ,K              ,OLIVA                    ,   ,505       ,  ,PO BOX 505                 ,  ,     ,FLOYDADA                   ,TX,79235-0505,666443038,19520901
+KIMBERLY       ,I              ,NYE                      ,   ,8849      ,  ,FAIR OAKS                  ,  ,1093 ,DALLAS                     ,TX,75243-7949,666520911,19650901
+PATRICK        ,J              ,OSTER                    ,SR ,7614      ,  ,250TH                      ,ST,     ,BELLEROSE                  ,NY,11426-2620,666702945,19500901
+BANG           ,NHU            ,VU                       ,   ,14701     ,  ,DAYTON                     ,AV,110  ,SHORELINE                  ,WA,98133-6497,666369184,19490901
+JON            ,G              ,DOWNING                  ,   ,324       ,  ,PO BOX 324                 ,  ,     ,ALVIN                      ,TX,77512-0324,666328962,19480901
+JOSHUA         ,G              ,EAGAN                    ,   ,14222     ,  ,WUNDERLICH                 ,DR,1100 ,HOUSTON                    ,TX,77069-3490,666729979,19820901
+LINDA          ,               ,LINTON                   ,   ,24032     ,  ,NEWHALL                    ,AV,     ,ROSEDALE                   ,NY,11422-2441,666047930,19840901
+DOLORES        ,A              ,YBARRA                   ,   ,64        ,  ,PO BOX 64                  ,  ,     ,MIDDLEBURG                 ,NC,27556-0064,666287645,19430901
+EDWARD         ,J              ,BRINKLEY                 ,   ,212       ,  ,GIBSON                     ,LP,     ,AFTON                      ,TN,37616-4804,666485520,19500901
+APRIL          ,R              ,MCGRIFF                  ,   ,9222      ,  ,CEDAR                      ,ST,2    ,BELLFLOWER                 ,CA,90706-6456,666569420,19660901
+TRENYAAE       ,JEHAR          ,BONDOJIA                 ,   ,2028      ,  ,TORREY                     ,DR,     ,BAKERSFIELD                ,CA,93312-2816,666199576,19680901
+SEAN           ,T              ,GILLIGAN                 ,   ,464       ,NW,WESCHESTER                 ,CT,     ,BLUE SPRINGS               ,MO,64014-1661,666136277,19740901
+MICHAEL        ,D              ,MCCURLEY                 ,   ,21        ,  ,PO BOX 21                  ,  ,     ,FONTANELLE                 ,IA,50846-0021,666442017,19610901
+RICHARD        ,J              ,MAHER                    ,   ,4311      ,  ,HOLLY RIDGE                ,RD,     ,ROCKVILLE                  ,MD,20853-1406,666474157,19070901
+BETTY          ,B              ,IMBODEN                  ,   ,1311      ,  ,WILSON                     ,AV,     ,TRACY                      ,CA,95376-3325,666201056,19310901
+FABIOLA        ,               ,HERNANDEZ                ,   ,919       ,  ,SALT                       ,PL,     ,MURRELLS INLET             ,SC,29576-8719,666333620,19710901
+MARINA         ,M              ,PEREZ                    ,   ,1635      ,  ,WINDSOR                    ,PL,DS   ,PALMDALE                   ,CA,93551-4010,666350409,19840901
+MICHAEL        ,JOHN           ,HUNDLEY                  ,   ,3692      ,E ,59TH                       ,ST,     ,CLEVELAND                  ,OH,44105-1243,666615460,19910901
+DAVID          ,L              ,CIPOLLA                  ,   ,7640      ,  ,3RD                        ,WY,19   ,LACEY                      ,WA,98503-7408,666521420,19490901
+AMELIA         ,RAY            ,ZAPPA                    ,JR ,4050      ,  ,ROUGON                     ,RD,     ,PORT ALLEN                 ,LA,70767-5216,666559276,19850901
+ROBERT         ,D              ,BURNEY                   ,   ,7517      ,  ,BAYLISS                    ,PL,     ,SAN JOSE                   ,CA,95139-1411,666608572,19810901
+SAMONE         ,R              ,BAILEY                   ,   ,683       ,  ,PO BOX 683                 ,  ,     ,WITTENSVILLE               ,KY,41274-0683,666968062,19710901
+DEIRDRE        ,L              ,PASKEVIC                 ,   ,4232      ,  ,SOUTHERN                   ,AV,     ,WASHINGTON                 ,DC,20019-5630,666988210,19780901
+JONNA          ,D              ,SANDOVAL                 ,   ,1107      ,  ,GUNNISON                   ,AV,     ,GRAND JUNCTION             ,CO,81501-3227,666322237,19480901
+AMANDA         ,K              ,STROH                    ,   ,3815      ,  ,PEACHTREE DUNWOODY         ,RD,     ,ATLANTA                    ,GA,30342-4325,666426443,19380901
+MARY           ,L              ,BRIAGAS                  ,   ,1000      ,  ,LINCOLN                    ,ST,314  ,ANOKA                      ,MN,55303-1866,666426147,19550901
+LINSEY         ,M              ,STACEY                   ,   ,938       ,  ,PO BOX 938                 ,  ,     ,CORTEZ                     ,CO,81321-0938,666588777,19630901
+RICHARD        ,ALAN           ,MELANCON                 ,   ,211       ,  ,ATWATER                    ,ST,205  ,LAKE ORION                 ,MI,48362-3360,666064728,19950901
+REBECCA        ,A              ,GREGORY                  ,II ,16011     ,  ,BUTTERFIELD RANCH          ,RD,527  ,CHINO HILLS                ,CA,91709-7457,666162327,19320901
+PAULA          ,D              ,AGUIRRE                  ,   ,1000      ,  ,BELL                       ,ST,     ,SACRAMENTO                 ,CA,95825-3511,666088777,19590901
+JACLYN         ,M              ,LEIBHAM                  ,   ,935       ,  ,SNUG HARBOR                ,ST,     ,SALINAS                    ,CA,93906-4613,666449180,19610901
+DEBORAH        ,S              ,ENSLEY                   ,   ,3640      ,  ,BOWNE                      ,ST,1C   ,FLUSHING                   ,NY,11354-4526,666610722,19830901
+SOUHA          ,A              ,OSMAN                    ,   ,742       ,  ,VIA SACRA                  ,  ,     ,FARMVILLE                  ,VA,23901-5638,666909040,19770901
+JOHN           ,R              ,ROUSONELOS               ,   ,361       ,  ,WOODLAWN                   ,AV,     ,CRAMERTON                  ,NC,28032-1321,666801620,19630901
+TIEN           ,H              ,NGUYEN                   ,   ,3000      ,  ,ASBURY                     ,ST,     ,LOS ANGELES                ,CA,90065-1829,666731190,19960901
+CHARLES        ,W              ,COOK                     ,   ,1508      ,N ,MASSASOIT                  ,AV,     ,CHICAGO                    ,IL,60651-1125,666708133,19640901
+JEAN           ,A              ,MARSHALL                 ,   ,128       ,  ,MEGAN                      ,WY,     ,LEWISBERRY                 ,PA,17339-9214,666356242,19760901
+EDMUND         ,S              ,KRENEK                   ,   ,226       ,  ,HATHAWAY                   ,ST,     ,WAREHAM                    ,MA,02571-1369,666924617,19580901
+FRANS          ,CHARLES        ,CASTEELS                 ,   ,224       ,  ,OREGON                     ,ST,     ,BAKERSFIELD                ,CA,93305-3515,666469216,19540901
+VERONICA       ,W              ,NOLAND                   ,   ,3520      ,  ,CLEAR CREEK                ,PL,     ,RIO RANCHO                 ,NM,87144-3700,666760542,19760901
+ANGIE          ,M              ,FORTNER                  ,   ,1004      ,  ,SENECIO                    ,PL,     ,SAINT JOHNS                ,FL,32259-4467,666227017,19360901
+MARIA          ,D              ,RIOS                     ,   ,2229      ,NW,79TH                       ,AV,     ,DORAL                      ,FL,33122-1618,666588731,19660901
+SUMIKO         ,C              ,ANDERSON                 ,   ,13015     ,W ,DOUGLAS PARK               ,DR,     ,HUNTERSVILLE               ,NC,28078-2304,666629309,19470901
+WILLIAM        ,B              ,FITZGERALD               ,   ,4638      ,  ,GRAYWOOD                   ,AV,     ,LONG BEACH                 ,CA,90808-1017,666302826,19400901
+SANTOS         ,VILMA          ,CARRILLO                 ,   ,342       ,  ,BENSON                     ,RD,     ,MINDEN                     ,LA,71055-5866,666188242,19330901
+ALFRED         ,W              ,MCGILLIS                 ,   ,2608      ,  ,168TH STREET               ,CT,     ,TACOMA                     ,WA,98445-7321,666152984,19900901
+CHARLES        ,               ,JACKSON                  ,   ,1400      ,  ,LANDMARK                   ,CT,     ,IRVING                     ,TX,75060-3269,666565331,19560901
+TIMOTHY        ,J              ,PAGE                     ,   ,42        ,  ,PO BOX 42                  ,  ,     ,COLBERT                    ,OK,74733-0042,666156732,19630901
+CHARLES        ,RAY            ,HINAMAN                  ,   ,17        ,  ,ALBAIN                     ,CI,     ,GREENVILLE                 ,SC,29617-1915,666687923,19500901
+JILLA          ,S              ,LOCKARD                  ,   ,88        ,  ,LOUIS                      ,DR,     ,BLOOMINGTON                ,IL,61701-7749,666500859,19440901
+JOSEPHINE      ,E              ,SORRELLS                 ,   ,8929      ,  ,CLOVERLEAF                 ,CI,     ,PARKER                     ,CO,80134-3957,666134256,19450901
+KENNETH        ,JOHN           ,KROEHLER                 ,   ,5114      ,  ,BLUESTEM                   ,WY,     ,MADISON                    ,WI,53704-8534,666349898,19510901
+JOSEPH         ,L              ,ALLDREDGE                ,   ,114       ,S ,THOMPSON                   ,ST,     ,PRATT                      ,KS,67124-2917,666731082,19990901
+MARTHA         ,ANN            ,SHARPE                   ,   ,2446      ,  ,WORKMAN                    ,ST,302  ,LOS ANGELES                ,CA,90031-2380,666433262,19700901
+JEFF           ,               ,OLSON                    ,   ,19        ,  ,KARLSTAD                   ,RD,     ,NEW CASTLE                 ,DE,19720-3581,666115105,19800901
+KALIN          ,L              ,JOHNSON                  ,   ,14528     ,  ,COALINGA                   ,RD,     ,VICTORVILLE                ,CA,92392-9617,666023178,19810901
+CYNTHIA        ,JEFFREYS       ,NEIGHBORS                ,   ,5012      ,  ,UNION                      ,CI,     ,OKLAHOMA CITY              ,OK,73135-3010,666803721,19940901

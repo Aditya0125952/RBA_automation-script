@@ -1,0 +1,158 @@
+First Name,Middle Name,Last Name,Suffix,House,Direction,Street Name,Type,Unit/Apt,City,State,Zip Code,SSN,DOB,,,,,,
+LESLIE         ,M              ,IRIZARRY                 ,   ,5537      ,  ,SUN GLEN                   ,DR,     ,SALIDA                     ,CA,95368-8009,666486858,19470901
+VITHAVA        ,               ,YOMJINDA                 ,   ,1524      ,  ,MAGNOLIA                   ,AV,     ,ROHNERT PARK               ,CA,94928-8152,666250943,19790901
+LAUREN         ,TRICIA         ,BREINDEL                 ,   ,1770      ,  ,ROOSEVELT                  ,AV,     ,SAN DIEGO                  ,CA,92109-6532,666629787,19590901
+TONYA          ,L              ,ROSWARSKI                ,   ,3950      ,  ,DEBBYANN                   ,PL,     ,SAN DIEGO                  ,CA,92154-2526,666573632,19740901
+LIANE          ,K              ,DETERING                 ,   ,2760      ,  ,MCKEE                      ,RD,317  ,SAN JOSE                   ,CA,95127-1860,666640928,19290901
+ANYELINA       ,               ,DELACRUZ                 ,   ,16304     ,  ,TWILIGHT                   ,CI,     ,RIVERSIDE                  ,CA,92503-0557,666224212,19370901
+LEONARD        ,W              ,TRAVNICEK                ,   ,642       ,E ,NAVILLA                    ,PL,     ,COVINA                     ,CA,91723-3238,666023571,19860901
+CESAR          ,N              ,BLANCO                   ,II ,4551      ,  ,CONCHITA                   ,WY,     ,TARZANA                    ,CA,91356-4903,666965758,19770901
+ELSA           ,F              ,VILLANUEVA               ,JR ,2509      ,  ,SPRINGFLOWER               ,WY,     ,MODESTO                    ,CA,95350-6562,666380272,19590901
+STEVEN         ,E              ,DORMAN                   ,   ,1720      ,  ,BURLWOOD                   ,CT,     ,HUGHSON                    ,CA,95326-9496,666480852,19410901
+NORMA          ,               ,MALDONADO                ,   ,13635     ,  ,SPIRIT                     ,PL,     ,VICTORVILLE                ,CA,92392-6873,666600268,19720901
+STEPHEN        ,G              ,FROMMES                  ,   ,611       ,  ,GREYSTONE                  ,TE,     ,ORINDA                     ,CA,94563-2421,666744695,19760901
+CATHY          ,               ,TRINIDAD                 ,   ,10275     ,  ,AVENIDA REAL               ,  ,     ,LAKESIDE                   ,CA,92040-2307,666250407,19850901
+THOMAS         ,JOSEPH         ,TUTTLE                   ,   ,3406      ,W ,82ND                       ,ST,     ,INGLEWOOD                  ,CA,90305-1244,666143771,19280901
+FRANCIS        ,J              ,HORSEY                   ,   ,10127     ,  ,MONTGOMERY                 ,AV,     ,NORTH HILLS                ,CA,91343-1436,666065892,19780901
+ERIK           ,GLENN          ,MARPLE                   ,   ,300       ,W ,LINCOLN                    ,AV,8    ,ORANGE                     ,CA,92865-1059,666936537,19940901
+DELPHINE       ,R              ,DOVE                     ,   ,2404      ,  ,FLORENTINA                 ,AV,301  ,ALHAMBRA                   ,CA,91803-4214,666143902,19340901
+ARMANDO        ,LUIS           ,CALDERON                 ,   ,23806     ,  ,MISSION PUEBLA             ,  ,     ,VALENCIA                   ,CA,91354-1514,666621871,19700901
+NANCY          ,ELIZABETH      ,MCDANIEL                 ,   ,919       ,  ,KENSINGTON                 ,PL,     ,PETALUMA                   ,CA,94954-7459,666822553,19960901
+JOSE           ,M              ,YSLAS                    ,SR ,2031      ,W ,70TH                       ,ST,     ,LOS ANGELES                ,CA,90047-1733,666585860,19440901
+FATIMA         ,               ,HOSSAIN                  ,   ,4810      ,  ,ABBEYVILLE                 ,AV,     ,WOODLAND HILLS             ,CA,91364-3703,666717736,19920901
+ERICK          ,G              ,QUINONEZ                 ,   ,515       ,S ,MANHATTAN                  ,PL,8    ,LOS ANGELES                ,CA,90020-4442,666486378,19570901
+VICTOR         ,J              ,ISADA                    ,   ,9142      ,  ,INVERNESS                  ,RD,     ,SANTEE                     ,CA,92071-2219,666859190,19940901
+ELIZABETH      ,T              ,MONK                     ,   ,4168      ,W ,160TH                      ,ST,     ,LAWNDALE                   ,CA,90260-2727,666846412,19860901
+CHRISTOPHER    ,J              ,RUANE                    ,   ,1507      ,W ,85TH                       ,ST,     ,LOS ANGELES                ,CA,90047-5415,666849597,19870901
+MICHAEL        ,C              ,RAYBOUN                  ,   ,39348     ,  ,FARWELL                    ,DR,     ,FREMONT                    ,CA,94538-1019,666967520,19920901
+GERALD         ,               ,GWINN                    ,SR ,3660      ,  ,WELLS                      ,RD,14   ,OAKLEY                     ,CA,94561-5014,666302442,19450901
+NANCY          ,A              ,ISNER                    ,   ,43516     ,  ,PALM                       ,LN,     ,LANCASTER                  ,CA,93535-2938,666518640,19800901
+MICHAEL        ,D              ,PASLAY                   ,   ,1838      ,  ,9TH                        ,ST,104  ,SANTA MONICA               ,CA,90404-4553,666309723,19380901
+JAMES          ,P              ,CAMERON                  ,   ,1631      ,  ,WYNDHAM                    ,DR,     ,SAN JOSE                   ,CA,95124-4749,666357396,19670901
+MICHAEL        ,J              ,SPIRL                    ,   ,315       ,W ,ALAMOS 111                 ,  ,CEDAR,CLOVIS                     ,CA,93612     ,666394977,19770901
+CANDACE        ,A              ,REDING                   ,   ,1041      ,W ,77TH                       ,ST,     ,LOS ANGELES                ,CA,90044-2414,666086434,19970901
+CINDY          ,L              ,CORREA                   ,   ,10690     ,  ,ITZAMNA                    ,DR,     ,LA MESA                    ,CA,91941-7114,666548502,19650901
+SHERRELL       ,MC             ,MCMANAWAY                ,   ,7920      ,  ,HESPERIA                   ,AV,     ,RESEDA                     ,CA,91335-2113,666687258,19700901
+ELAINE         ,G              ,OBRIEN                   ,   ,2668      ,  ,CHRISTINA                  ,AV,     ,STOCKTON                   ,CA,95204-1412,666850651,19760901
+DEBRA          ,K              ,WAGGONER                 ,JR ,5348      ,  ,CROW                       ,RD,     ,OAKDALE                    ,CA,95361-8445,666705998,19750901
+JORGE          ,F              ,LANTIGUA                 ,   ,12664     ,  ,SHOREWOOD                  ,LN,     ,VICTORVILLE                ,CA,92392-0519,666562670,19610901
+MARK           ,E              ,GENTRY                   ,   ,120       ,  ,MACE                       ,ST,     ,MADERA                     ,CA,93638-3323,000000000,19880901
+JAMIE          ,D              ,HAYES                    ,   ,852       ,N ,VENTURA                    ,AV,     ,VENTURA                    ,CA,93001-1751,666641873,19720901
+DEBORAH        ,ANN            ,ZUCARO                   ,   ,276       ,W ,EVAN                       ,ST,     ,SAN BERNARDINO             ,CA,92411     ,666305244,19950901
+JUAN           ,R              ,SEVILLA                  ,   ,5535      ,  ,SANDPIPER                  ,PL,     ,PALMDALE                   ,CA,93552-4641,000000000,19730901
+CRISTIAN       ,T              ,GRADY                    ,   ,4200      ,E ,COMMERCE                   ,WY,1211 ,SACRAMENTO                 ,CA,95834-9653,666131577,19930901
+REGINA         ,V              ,KHAROD                   ,   ,13262     ,  ,MURANO                     ,AV,     ,CHINO                      ,CA,91710-8116,666133908,19670901
+ROGER          ,J              ,KUGEL                    ,   ,16025     ,  ,CARIBOU                    ,RD,     ,COTTONWOOD                 ,CA,96022-9633,666176659,19320901
+WILLIAM        ,T              ,DAVENPORT                ,   ,2864      ,  ,TICE CREEK                 ,DR,2    ,WALNUT CREEK               ,CA,94595-3265,666152450,19950901
+THERESA        ,M              ,HANOVICH                 ,   ,1323      ,  ,MONTROSE                   ,PL,     ,PLEASANTON                 ,CA,94566-2103,666766483,19790901
+JEREMY         ,M              ,WALDRON                  ,   ,5922      ,  ,MELVIN                     ,AV,     ,TARZANA                    ,CA,91356-1022,666332361,19660901
+SUZANN         ,P              ,TETELMAN                 ,   ,26803     ,  ,PEPPERTREE                 ,DR,     ,VALENCIA                   ,CA,91381-0611,666225013,19920901
+STEPHANIE      ,L              ,RUSSO                    ,   ,7472      ,  ,MOESER                     ,LN,     ,EL CERRITO                 ,CA,94530-3065,666754473,19920901
+MELISSA        ,E              ,DICKS                    ,   ,1518      ,N ,BOYLSTON                   ,ST,     ,LOS ANGELES                ,CA,90012-1019,666562765,19740901
+CHERYL         ,LEIGH          ,HITT                     ,   ,1492      ,  ,GREENWOOD                  ,AV,     ,SANGER                     ,CA,93657-2919,666904811,19630901
+EVAN           ,C              ,SOIBELMAN                ,   ,1440      ,  ,BRADBOURNE                 ,AV,     ,DUARTE                     ,CA,91010-2607,666422224,19530901
+TERESA         ,L              ,BENNETT SMITH            ,JR ,2424      ,  ,VIA PACHECO                ,  ,     ,PALOS VERDES ESTATES       ,CA,90274-2645,666862578,19820901
+GENEVA         ,M              ,JEFFERSON                ,   ,650       ,  ,MANSELL                    ,ST,     ,SAN FRANCISCO              ,CA,94134-1831,666500582,19680901
+BRADLEY        ,NORMAN         ,MERLE                    ,   ,25827     ,  ,OAK                        ,ST,6    ,LOMITA                     ,CA,90717-3122,666549584,19550901
+SARAH          ,R              ,HJELMSTAD                ,   ,805       ,N ,PASADENA                   ,AV,E    ,AZUSA                      ,CA,91702-2577,666362046,19540901
+KIARA          ,E              ,ST ANGE                  ,   ,2754      ,  ,BELFAST                    ,DR,     ,SAN JOSE                   ,CA,95127-4501,666251866,19840901
+JENNIFER       ,T              ,ASKEW                    ,   ,322       ,  ,LADERA                     ,ST,202  ,SANTA BARBARA              ,CA,93101-4552,666254654,
+ALBERT         ,E              ,PEPPERS                  ,   ,145       ,S ,5TH                        ,ST,     ,MONTEBELLO                 ,CA,90640-5205,666030944,19920901
+ALVIN          ,S              ,ABRAHAM                  ,   ,4436      ,  ,STOCKBRIDGE                ,AV,     ,SACRAMENTO                 ,CA,95842-3347,666103049,19920901
+JOSH           ,P              ,DUPLECHIAN               ,   ,7225      ,S ,SAN PEDRO                  ,ST,6    ,LOS ANGELES                ,CA,90003-2247,666553932,19830901
+LOSMYN         ,M              ,WAITE                    ,   ,9505      ,  ,VICTORIA                   ,AV,D    ,SOUTH GATE                 ,CA,90280-4442,666967236,19720901
+LOREN          ,C              ,SO                       ,   ,3669      ,W ,LUTHER                     ,LN,     ,INGLEWOOD                  ,CA,90305-1884,666527613,19550901
+GENEVIEVE      ,M              ,RAMIREZ                  ,   ,39062     ,  ,VIRGINIA                   ,ST,     ,PALMDALE                   ,CA,93551-4652,666380607,
+SAVADOR        ,               ,MAGALLANCES              ,   ,1309      ,  ,SPECTRUM                   ,  ,     ,IRVINE                     ,CA,92618-3126,666827107,19550901
+RONA           ,DIANE          ,COHEN                    ,   ,31        ,  ,WEST                       ,WY,     ,SOUTH SAN FRANCISCO        ,CA,94080-7325,666643179,19620901
+SHELBY         ,W              ,REITZ                    ,JR ,3123      ,  ,BOULDER                    ,ST,     ,LOS ANGELES                ,CA,90063-4008,666827231,19620901
+RAYMOND        ,MAX            ,FRAEDRICH                ,   ,15447     ,W ,MIDDLETON                  ,AV,     ,KERMAN                     ,CA,93630-1254,666533852,19870901
+PEPA           ,Z              ,PENCHEVA                 ,   ,451       ,  ,VALLEY DAIRY               ,RD,     ,BUELLTON                   ,CA,93427-6808,666914154,19790901
+EDWARD         ,R              ,ELDER                    ,   ,4233      ,  ,PRADO DE LOS PAJAROS       ,  ,     ,CALABASAS                  ,CA,91302-3619,666321082,19470901
+HEATHER        ,L              ,OLIVER                   ,   ,62        ,  ,HERMAN                     ,CT,     ,WATSONVILLE                ,CA,95076-2517,666216337,19690901
+LATISHA        ,               ,HUGGINS                  ,   ,1852      ,W ,11TH                       ,ST,201  ,TRACY                      ,CA,95376-3736,666701030,19770901
+SMITHIE        ,RD             ,BUIE                     ,   ,1552      ,  ,CARMEN                     ,DR,     ,SIMI VALLEY                ,CA,93065-3015,666418697,19690901
+MARTIN         ,F              ,CORTES                   ,   ,816       ,S ,DOUGLAS                    ,AV,     ,FRESNO                     ,CA,93727-5862,666490585,19850901
+MARLENE        ,B              ,HAITHCOX                 ,   ,7929      ,  ,DERSINGHAM                 ,DR,     ,SACRAMENTO                 ,CA,95829-1463,666531832,19730901
+MICHELE        ,L              ,BENA                     ,   ,543       ,E ,NEWFIELD                   ,ST,5T   ,GARDENA                    ,CA,90248-2542,666381548,19490901
+ERIC           ,SCOTT          ,NORDMAN                  ,   ,436       ,  ,FAULKNER                   ,ST,     ,TRACY                      ,CA,95391-1032,666481694,19560901
+SHARON         ,M              ,WHEELOCK                 ,   ,2428      ,W ,CALLE CELESTE              ,DR,D    ,RIALTO                     ,CA,92377-3548,666885337,19930901
+NICHOLAS       ,J              ,DIBIASE                  ,   ,11295     ,  ,WISTERIA                   ,WY,     ,AUBURN                     ,CA,95603-9427,666191621,19760901
+JONI           ,L              ,NEWTON                   ,   ,8682      ,  ,WREN                       ,CI,     ,ELK GROVE                  ,CA,95624-1531,666527139,19380901
+HELEN          ,R              ,GARRETTSON               ,   ,5572      ,  ,MESAGROVE                  ,AV,     ,WHITTIER                   ,CA,90601-2127,666641893,19910901
+BREYNN         ,R              ,HIBBARD                  ,   ,5707      ,  ,BALTIMORE                  ,DR,28   ,LA MESA                    ,CA,91942-1680,666329691,19480901
+MICHAEL        ,A              ,SHORT                    ,   ,8155      ,  ,MANITOBA                   ,ST,12   ,PLAYA DEL REY              ,CA,90293-8791,666784465,19460901
+JACOB          ,C              ,LEATHERBY                ,JR ,2364      ,  ,TOLBERT                    ,CT,     ,SAN JOSE                   ,CA,95122-2453,666441034,19530901
+JANE           ,A              ,BOYD                     ,   ,7930      ,  ,DAY                        ,ST,     ,SUNLAND                    ,CA,91040-3310,666840283,19770901
+MICHAEL        ,D              ,BARNWELL                 ,   ,2223      ,  ,GOLDEN HILLS               ,RD,     ,LA VERNE                   ,CA,91750-1129,666409770,19590901
+MARILYN        ,M              ,MOTTO                    ,   ,1665      ,  ,BETA                       ,DR,B    ,SAN DIEGO                  ,CA,92126-7057,666503503,19530901
+DAVID          ,               ,TERRAZAS                 ,   ,1341      ,  ,OXFORD                     ,ST,     ,REDWOOD CITY               ,CA,94061-2812,666624866,19770901
+SHAWN          ,F              ,SHRIMPTON                ,   ,1062      ,  ,STETSON                    ,CI,     ,CORONA                     ,CA,92882-6165,666423689,
+ROBERT         ,R              ,KRASNOPERA               ,   ,2001      ,  ,CLUB CENTER                ,DR,8144 ,SACRAMENTO                 ,CA,95835-1411,666570851,19880901
+GERALD         ,WALTER         ,WOERNER                  ,   ,164       ,  ,ESCOBAR                    ,AV,     ,LOS GATOS                  ,CA,95032-3842,666884033,19430901
+WILLIAM        ,A              ,HARRINGTON               ,JR ,125       ,S ,SAN TOMAS AQUINO           ,RD,     ,CAMPBELL                   ,CA,95008-2565,666318914,19940901
+RENCHUAN       ,C              ,KONG                     ,   ,359       ,  ,HALF MOON                  ,LN,214  ,DALY CITY                  ,CA,94015-2439,666447314,19480901
+LAMAR          ,               ,EDWARDS                  ,   ,2903      ,  ,LAS FLORES                 ,CI,     ,LOS BANOS                  ,CA,93635-9301,666049311,19810901
+ERIC           ,D              ,ALTMAN                   ,SR ,1366      ,N ,HEATHDALE                  ,AV,     ,COVINA                     ,CA,91722-1469,666147569,19300901
+DENNIS         ,D              ,LEMMON                   ,   ,2601      ,N ,GRAND                      ,AV,332  ,SANTA ANA                  ,CA,92705-8736,666484472,19620901
+TINA           ,L              ,JUSIEWICZ                ,   ,1995      ,  ,ABBOTT                     ,ST,B    ,SAN LUIS OBISPO            ,CA,93401-2629,666873236,19910901
+ROY            ,WEI FAN        ,HSU                      ,   ,23105     ,  ,ALEXANDRIA                 ,AV,     ,TORRANCE                   ,CA,90502-2634,666462845,19550901
+GOTREL         ,A              ,POITIER                  ,   ,2601      ,  ,PIERPONT                   ,BV,     ,VENTURA                    ,CA,93001-4064,666294118,19900901
+LAURA          ,RINES          ,STETSON                  ,   ,411       ,S ,MARIPOSA                   ,AV,12   ,LOS ANGELES                ,CA,90020-2965,666505610,19630901
+LORI           ,ANN            ,HAWK                     ,   ,33410     ,  ,9TH                        ,ST,     ,UNION CITY                 ,CA,94587-2313,666716838,19920901
+ALFRED         ,NATHEN         ,EDWARDS                  ,   ,219       ,  ,ANTEEO                     ,WY,     ,SANTA ROSA                 ,CA,95407-7865,666616197,19800901
+DUNG           ,C              ,LAM                      ,   ,213       ,  ,GRANT                      ,ST,     ,SANTA CRUZ                 ,CA,95060-2918,666463897,19590901
+WILLIAM        ,G              ,KERPER                   ,   ,1902      ,  ,HYPERION                   ,AV,     ,LOS ANGELES                ,CA,90027-4740,666542105,19750901
+NICOLE         ,               ,VALADEZ                  ,   ,84201     ,  ,AZZURA                     ,WY,     ,INDIO                      ,CA,92203-2964,666642962,19520901
+RYAN           ,JAMES          ,SCHERTZ                  ,   ,12        ,  ,OAKWOOD                    ,ST,2    ,SAN FRANCISCO              ,CA,94110-1514,666747559,19840901
+KAREN          ,H              ,CARLSON                  ,   ,43908     ,  ,MADISON                    ,CT,     ,LANCASTER                  ,CA,93536-2604,666707621,19930901
+ALLISON        ,L              ,MORGENTHALER             ,   ,1038      ,  ,SPAZIER                    ,AV,8    ,GLENDALE                   ,CA,91201-1651,666528037,19620901
+VICKI          ,J              ,BERA                     ,   ,3078      ,  ,TAROCCO                    ,DR,     ,CORONA                     ,CA,92881-8391,666055852,19860901
+KRISTI         ,L              ,MONTGOMERY               ,SR ,1396      ,S ,RESERVOIR                  ,ST,     ,POMONA                     ,CA,91766-3851,666929713,19890901
+KATHARYN       ,DENISE         ,WISDOM                   ,   ,10309     ,  ,AZUAGA                     ,ST,39   ,SAN DIEGO                  ,CA,92129-4086,666401803,19530901
+PATRICIA       ,M              ,MCCORMICK                ,   ,256       ,  ,BIGELOW                    ,ST,     ,CLAYTON                    ,CA,94517-1657,666644249,19790901
+DANNY          ,F              ,ANGOTTI                  ,   ,1989      ,  ,GENEVA                     ,WY,     ,MANTECA                    ,CA,95337-6656,666487496,19630901
+LOMA           ,C              ,EFFLER                   ,   ,1158      ,E ,222ND                      ,ST,     ,CARSON                     ,CA,90745-3506,666564652,19580901
+JUDITH         ,R              ,JASINSKI                 ,   ,11220     ,  ,DENIVELLE                  ,PL,     ,TUJUNGA                    ,CA,91042-1117,666090905,19760901
+ROSEMARIE      ,               ,PALUMBO                  ,   ,17200     ,  ,BURBANK                    ,BV,122  ,ENCINO                     ,CA,91316-1848,666457901,19660901
+STEVEN         ,D              ,MCADAMS                  ,   ,4613      ,  ,BUCKINGHAM                 ,LN,     ,CARLSBAD                   ,CA,92010-6402,666563145,19580901
+JEFFREY        ,SCOTT          ,MAAS                     ,   ,1966      ,  ,MARIPOSA                   ,ST,     ,SEASIDE                    ,CA,93955-3315,666501722,19350901
+XOCHITL        ,               ,GUZMAN                   ,   ,512       ,  ,PACIFIC                    ,AV,     ,CRESCENT CITY              ,CA,95531-3144,666042751,19940901
+ALLISON        ,WADE           ,LIGHTNER                 ,   ,42966     ,  ,LEMONWOOD                  ,DR,     ,LANCASTER                  ,CA,93536-4735,666790225,19670901
+JAMES          ,T              ,LAMBERTUS                ,   ,6830      ,  ,JORDAN                     ,AV,139  ,CANOGA PARK                ,CA,91303-4668,666543349,19560901
+ELISA          ,B              ,MANGARIN                 ,   ,2154      ,  ,12TH                       ,AV,     ,SAN FRANCISCO              ,CA,94116-1901,666963638,19810901
+DAVID          ,S              ,AMIDON                   ,   ,7690      ,  ,WHITSETT                   ,AV,     ,LOS ANGELES                ,CA,90001-3156,666965340,19810901
+CRAIG          ,S              ,WORSHAM                  ,   ,6161      ,  ,EL CAJON                   ,BV,136  ,SAN DIEGO                  ,CA,92115-3922,666981100,19750901
+MALCOLM        ,D              ,BRENNER                  ,   ,1015      ,  ,AMHERST                    ,AV,     ,LOS ANGELES                ,CA,90049-5803,666583088,19840901
+TERI           ,J              ,FRANCIS                  ,SR ,14439     ,  ,WHEATSTONE                 ,AV,     ,NORWALK                    ,CA,90650-5034,666868746,19760901
+JOHN           ,M              ,KOSTICK                  ,   ,4691      ,  ,ALLESANDRO                 ,ST,     ,MONTCLAIR                  ,CA,91763-1702,666702222,19710901
+JACK           ,W              ,BANE                     ,   ,235       ,  ,LUCADA                     ,ST,     ,SANTA PAULA                ,CA,93060-3113,666402796,19460901
+LAVERNE        ,GLAESER        ,FRANCESCONI              ,   ,346       ,  ,LYONS                      ,ST,     ,SONORA                     ,CA,95370-5801,666446490,19490901
+GALEN          ,E              ,COLTON                   ,   ,308       ,  ,KNOLLGLEN                  ,  ,     ,IRVINE                     ,CA,92614-7496,666682076,19810901
+SCOTT          ,A              ,SHAFFER                  ,   ,3809      ,W ,135TH                      ,ST,     ,HAWTHORNE                  ,CA,90250-6109,666542252,19630901
+RDITH          ,L              ,DREVECKY                 ,   ,8621      ,  ,KEMPSTER                   ,AV,     ,FONTANA                    ,CA,92335-3907,666403431,19570901
+JASMINE        ,JS             ,HORTON                   ,   ,1662      ,N ,YUCCA                      ,AV,     ,RIALTO                     ,CA,92376-2649,666235458,19810901
+DIANE          ,E              ,COE                      ,   ,837       ,W ,HARVARD                    ,PL,     ,ONTARIO                    ,CA,91762-1820,666988852,19780901
+THELMA         ,SPRAY          ,ROBERTS                  ,   ,16732     ,E ,BENWOOD                    ,ST,     ,COVINA                     ,CA,91722-2416,666869307,19690901
+BEVERLY        ,S              ,STRAUB                   ,   ,2707      ,S ,GENESEE                    ,AV,     ,LOS ANGELES                ,CA,90016-2415,666600439,19750901
+BETTY          ,J              ,COOK                     ,   ,5179      ,  ,LAKESHORE                  ,DR,     ,FAIRFIELD                  ,CA,94534-4026,666942256,19590901
+THOMAS         ,WAYNE          ,HURLEY                   ,   ,4324      ,  ,BIRCHWOOD                  ,AV,     ,SEAL BEACH                 ,CA,90740-2813,000000000,19750901
+SUE            ,S              ,ADAMS                    ,   ,6047      ,  ,BURGUNDY                   ,AV,     ,ALTA LOMA                  ,CA,91737-2926,000000000,19890901
+RHEA           ,               ,BUENO                    ,   ,4720      ,  ,NORMA                      ,DR,     ,SAN DIEGO                  ,CA,92115-3136,000000000,19650901
+IMOGENE        ,               ,KEISER                   ,   ,1380      ,  ,JACARANDA                  ,CI,     ,ARCADIA                    ,CA,91006-6354,000000000,19680901
+KEN            ,LAU            ,RLT DTD                  ,   ,471331    ,  ,PO BOX 471331              ,  ,     ,SAN FRANCISCO              ,CA,94147-1331,666625363,19700901
+J              ,D              ,FORD                     ,   ,10614     ,  ,ROUNTREE                   ,RD,     ,LOS ANGELES                ,CA,90064-4336,666551635,19900901
+CLAUDELLE      ,C              ,ANGELES                  ,   ,10620     ,  ,BOGARDUS                   ,AV,     ,WHITTIER                   ,CA,90603-2915,000000000,19720901
+JOSEPH         ,W              ,DUENN                    ,   ,16950     ,  ,TESORO                     ,DR,     ,SAN DIEGO                  ,CA,92128-2140,666409566,19970901
+RAMON          ,               ,CONTRERAS                ,   ,250       ,  ,PO BOX 250                 ,  ,     ,DURHAM                     ,CA,95938-0250,666864332,19630901
+TRACEY         ,H              ,LANE                     ,   ,2251      ,  ,PO BOX 2251                ,  ,     ,AVILA BEACH                ,CA,93424-2251,000000000,19630901
+SHARON         ,R              ,CARROLL                  ,   ,922       ,  ,PO BOX 922                 ,  ,     ,OAKLEY                     ,CA,94561-0922,666896034,19720901
+DANNY          ,               ,DOAN                     ,   ,1968      ,  ,HORSESHOE GLEN             ,CI,     ,FOLSOM                     ,CA,95630-6293,666530876,19940901
+RICHARD        ,W              ,HIGHTOWER                ,   ,822       ,  ,PO BOX 822                 ,  ,     ,LOYALTON                   ,CA,96118-0822,666548806,19630901
+JAMES          ,A              ,STEWART                  ,   ,18313     ,  ,CLARKDALE                  ,AV,     ,ARTESIA                    ,CA,90701-5719,666645797,19860901
+TONY           ,J              ,VITALE                   ,   ,4940      ,  ,SAN MARQUE                 ,CI,     ,CARMICHAEL                 ,CA,95608-5629,000000000,19950901
+DAKSHESH       ,R              ,PATEL                    ,   ,2185      ,  ,PO BOX 2185                ,  ,     ,CHINO                      ,CA,91708-2185,666756394,19900901
+LILA           ,J              ,CATON                    ,   ,243       ,  ,PO BOX 243                 ,  ,     ,GEYSERVILLE                ,CA,95441-0243,666968150,19780901
+GILMAN         ,D              ,KIRK                     ,   ,72        ,  ,15TH                       ,ST,     ,PASO ROBLES                ,CA,93446-2031,000000000,19660901
+ROY            ,G              ,SEGEBART                 ,   ,317       ,  ,LORETO                     ,PL,     ,SANTA BARBARA              ,CA,93111-1716,000000000,19680901
+BARBARA        ,A              ,OCCHIPINTI               ,JR ,11021     ,  ,HAIGHT                     ,ST,     ,CASTROVILLE                ,CA,95012-2831,666392807,19770901

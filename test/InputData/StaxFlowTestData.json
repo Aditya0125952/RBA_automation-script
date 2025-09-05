@@ -1,0 +1,110 @@
+{
+    "First_Name": "ana",
+    "Last_Name": "villar",
+    "Mobile_Number": "(888)-888-8888",
+    "Order_Number": "78127",
+    "Payment_Amount": "10,000",
+    "AMX_Credit_Card_Trigger_Success": [
+        {
+            "Card_Holder_Name": "Vickie May",
+            "Amx_Card_Number": "378282246310005",
+            "Expiration": "09/2026",
+            "CVV": "1234",
+            "Billing_Zipcode": "78216"
+        }
+    ],
+    "VISA_Credit_Card_Trigger_Success": [
+        {
+            "Card_Holder_Name": "Vickie May",
+            "Visa_Card_Number": "4111111111111111",
+            "Expiration": "09/2026",
+            "CVV": "123",
+            "Billing_Zipcode": "78216"
+        }
+    ],
+    "MASTER_Credit_Card_Trigger_Success": [
+        {
+            "Card_Holder_Name": "Vickie May",
+            "Master_Card_Number": "5555555555554444",
+            "Expiration": "09/2026",
+            "CVV": "123",
+            "Billing_Zipcode": "78216"
+        }
+    ],
+    "DISCOVER_Credit_Card_Trigger_Success": [
+        {
+            "Card_Holder_Name": "Vickie May",
+            "Discover_Card_Number": "6011111111111117",
+            "Expiration": "09/2026",
+            "CVV": "123",
+            "Billing_Zipcode": "78216"
+        }
+    ],
+    "AMX_Credit_Card_Trigger_Failure": [
+        {
+            "Card_Holder_Name": "Vickie May",
+            "Amx_Card_Number": "371449635398431",
+            "Expiration": "09/2026",
+            "CVV": "1234",
+            "Billing_Zipcode": "78216"
+        }
+    ],
+    "VISA_Credit_Card_Trigger_Failure": [
+        {
+            "Card_Holder_Name": "Vickie May",
+            "Visa_Card_Number": "4012888888881881",
+            "Expiration": "09/2026",
+            "CVV": "123",
+            "Billing_Zipcode": "78216"
+        }
+    ],
+    "MASTER_Credit_Card_Trigger_Failure": [
+        {
+            "Card_Holder_Name": "Vickie May",
+            "Master_Card_Number": "4012888888881881",
+            "Expiration": "09/2026",
+            "CVV": "123",
+            "Billing_Zipcode": "78216"
+        }
+    ],
+    "Discover_Credit_Card_Trigger_Failure": [
+        {
+            "Card_Holder_Name": "Vickie May",
+            "Discover_Card_Number": "6011000990139424",
+            "Expiration": "09/2026",
+            "CVV": "123",
+            "Billing_Zipcode": "78216"
+        }
+    ],
+    "Debit_Card_Trigger_Success": [
+        {
+            "Master_Card_Number": "5105105105105100"
+        }
+    ],
+    "ACH_Checking_Trigger_Success": [
+        {
+            "Name_On_Account": "James Kline",
+            "Bank_Name": "Jp Morghans",
+            "Account_Number": "9876543210",
+            "Routing_Number": "021000021"
+
+        }
+    ],
+    "ACH_Checking_Trigger_Failure": [
+        {
+            "Name_On_Account": "James Kline",
+            "Bank_Name": "Jp Morghans",
+            "Account_Number": "9876943210",
+            "Routing_Number": "021000021"
+
+        }
+    ],
+    "Send_Link_To_Customer": [
+        {
+            "Enter_Email": "Lalith.buddha@finmkt.io",
+            "Enter_Mobile_Number": "(785) 687-6786"
+        }
+    ]
+}
+
+
