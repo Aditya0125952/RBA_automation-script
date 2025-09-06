@@ -1,9 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/PycharmProjects/Test/common_pages/common_Resoucres.robot
+Resource    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/common_pages/common_Resoucres.robot
 
 *** Variables ***
-${GL_DATA}     C:/Users/AdityaChelluru/PycharmProjects/Test/InputData/GL_applicants_list.json
+${GL_DATA}     C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/InputData/GL_applicants_list.json
 ${START_DIGITS}    888
 
 *** Test Cases ***
@@ -38,7 +38,7 @@ Good Leap HappyCase
     Personal Information
     Handle Initial Flow
     Wait Until Element Is Visible    xpath:(//p)[1]    120
-    URL Applicant    Co-App
+    URL Applicant
     Application Authorization Page
     Credit Freeze Page
     Prove Data
@@ -75,7 +75,7 @@ Good leap Co-App flow(ssn_change) Happy flow
     SSN Re-Kyc Screen
     Handle Initial Flow
     Wait Until Element Is Visible    xpath:(//p)[1]    120
-    URL Applicant    Co-App
+    URL Applicant
     Application Authorization Page
     Credit Freeze Page
     Prove Data
@@ -114,7 +114,7 @@ GoodLeap applicant Drop case
     Handle Initial Flow
     Wait Until Element Is Visible    xpath:(//p)[1]    120
     ${co_appurl}=    Get Location
-    URL Applicant    Co-App
+    URL Applicant
     Application Authorization Page
     Credit Freeze Page
     Prove Data
@@ -153,7 +153,7 @@ GoodLeap co-applicant Drop case
     SSN Re-Kyc Screen
     Handle Initial Flow
     Wait Until Element Is Visible    xpath:(//p)[1]    120
-    URL Applicant    Co-App
+    URL Applicant
     Application Authorization Page
     Credit Freeze Page
     Prove Data

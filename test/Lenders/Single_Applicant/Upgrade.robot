@@ -1,9 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/PycharmProjects/Test/common_pages/common_Resoucres.robot
+Resource    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/common_pages/common_Resoucres.robot
 
 *** Variables ***
-${GL_DATA}     C:/Users/AdityaChelluru/PycharmProjects/Test/InputData/GL_applicants_list.json
+${GL_DATA}     C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/InputData/GL_applicants_list.json
 ${START_DIGITS}    888
 
 *** Test Cases ***

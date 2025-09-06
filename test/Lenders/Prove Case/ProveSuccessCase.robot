@@ -1,8 +1,8 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/PycharmProjects/Test/common_pages/common_Resoucres.robot
+Resource    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/common_pages/common_Resoucres.robot
 *** Variables ***
-${Prove_DATA}    C:/Users/AdityaChelluru/PycharmProjects/Test/InputData/Prove_Success_TestData.json
+${Prove_DATA}    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/InputData/Prove_Success_TestData.json
 
 *** Test Cases ***
 Prove HappyCase

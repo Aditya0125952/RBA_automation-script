@@ -16,24 +16,24 @@ Onfido Page
     Unselect Frame
     Wait Until Keyword Succeeds    15    500   
     ...    Select Frame    xpath://*[@id="onfido-sdk"]/iframe[1]
-    Wait Until Element Is Visible    xpath://*[@id="Document-root"]/div/div[2]/div/form/div[4]/fieldset/ul/li[1]/button
-    Wait Until Element Is Enabled    xpath://*[@id="Document-root"]/div/div[2]/div/form/div[4]/fieldset/ul/li[1]/button
+    Wait Until Element Is Visible    xpath://*[@id="Document-root"]/div/div[2]/div/form/div[4]/fieldset/ul/li[1]/button    20
+    Wait Until Element Is Enabled    xpath://*[@id="Document-root"]/div/div[2]/div/form/div[4]/fieldset/ul/li[1]/button    20
     Click Button    xpath://*[@id="Document-root"]/div/div[2]/div/form/div[4]/fieldset/ul/li[1]/button
     Unselect Frame
     Wait Until Keyword Succeeds    15    500
     ...    Select Frame    xpath://*[@id="onfido-sdk"]/iframe[1]
     Choose File    xpath:${file_upload_xpath}    ${file_path}
-    Wait Until Element Is Visible    xpath://*[@id="Document-root"]/div/div[3]/div[1]/button[2]    10
-    Wait Until Element Is Enabled    xpath://*[@id="Document-root"]/div/div[3]/div[1]/button[2]    10
+    Wait Until Element Is Visible    xpath://*[@id="Document-root"]/div/div[3]/div[1]/button[2]    20
+    Wait Until Element Is Enabled    xpath://*[@id="Document-root"]/div/div[3]/div[1]/button[2]    20
     Click Button    xpath://*[@id="Document-root"]/div/div[3]/div[1]/button[2]
     Unselect Frame
     Wait Until Keyword Succeeds    15    500
     ...    Select Frame    xpath://*[@id="onfido-sdk"]/iframe[1]
-    Wait Until Element Is Visible    xpath://*[@id="Document-root"]/div/div[3]/div[1]/div/div/button    10
+    Wait Until Element Is Visible    xpath://*[@id="Document-root"]/div/div[3]/div[1]/div/div/button    20
     Choose File    xpath:${file_upload_xpath}    ${file_path}
-    Wait Until Element Is Visible    xpath://*[@id="Document-root"]/div/div[3]/div[1]/button[2]    10
-    Wait Until Element Is Enabled    xpath://*[@id="Document-root"]/div/div[3]/div[1]/button[2]    10
+    Wait Until Element Is Visible    xpath://*[@id="Document-root"]/div/div[3]/div[1]/button[2]    20
+    Wait Until Element Is Enabled    xpath://*[@id="Document-root"]/div/div[3]/div[1]/button[2]    20
     Click Button    xpath://*[@id="Document-root"]/div/div[3]/div[1]/button[2]
     Unselect Frame
-    Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div[2]/div/div/h3
+    Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div[2]/div/div/h3    20
     Sleep    3

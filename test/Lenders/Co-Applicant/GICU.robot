@@ -1,9 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/PycharmProjects/Test/common_pages/common_Resoucres.robot
+Resource    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/common_pages/common_Resoucres.robot
 
 *** Variables ***
-${GICU_DATA}    C:/Users/AdityaChelluru/PycharmProjects/Test/InputData/GICU_TestData.json
+${GICU_DATA}    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/InputData/GICU_TestData.json
 
 
 *** Test Cases ***
@@ -28,7 +28,7 @@ GICU Happycase
     Click Button    xpath:/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div/div/div/div/span/form/div[2]/div/div/button
     Handle Initial Flow
     Wait Until Element Is Visible    xpath:(//p)[1]    120
-    URL Applicant    Co-App
+    URL Applicant
     Application Authorization Page
     Credit Freeze Page
     Prove Data

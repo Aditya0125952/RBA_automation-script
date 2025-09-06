@@ -1,9 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/PycharmProjects/Test/common_pages/common_Resoucres.robot
+Resource    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/common_pages/common_Resoucres.robot
 
 *** Variables ***
-${FFC_DATA}     C:/Users/AdityaChelluru/PycharmProjects/Test/InputData/FF_TestData.json
+${FFC_DATA}     C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/InputData/FF_TestData.json
 ${START_DIGITS}    888
 
 *** Test Cases ***
@@ -27,13 +27,12 @@ FFC HappyCase
     Personal Information
     Handle Initial Flow
     Wait Until Element Is Visible    xpath:(//p)[1]    120
-    URL Applicant    Co-App
+    URL Applicant
     Application Authorization Page
     Credit Freeze Page
     Prove Data
     Basic Information    Co-App    
     Personal Information    Co-App
-    Sleep    5
     Handle Initial Flow
 
 

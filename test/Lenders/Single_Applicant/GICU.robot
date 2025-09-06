@@ -1,9 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/PycharmProjects/Test/common_pages/common_Resoucres.robot
+Resource    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/common_pages/common_Resoucres.robot
 
 *** Variables ***
-${GICU_DATA}    C:/Users/AdityaChelluru/PycharmProjects/Test/InputData/GICU_TestData.json
+${GICU_DATA}    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/InputData/GICU_TestData.json
 
 
 *** Test Cases ***
