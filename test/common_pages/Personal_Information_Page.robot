@@ -23,9 +23,8 @@ Personal information
         Fill Personal Information    ${data}    ${TRUE}
     END
 
-    Sleep    2s
+    Sleep    3
     Click Button    xpath://button[contains(text(), 'Next') or contains(@type, 'submit')]
-    Sleep    2s
 
 Fill Personal Information
     [Arguments]    ${data}    ${include_ssn}=${FALSE}

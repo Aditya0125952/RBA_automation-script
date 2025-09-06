@@ -80,17 +80,12 @@ Handle Identity Verification Page
     ${is_pend}=    Run Keyword And Return Status    Should Contain    ${TEST TAGS}    Pend
     IF    not $is_pend and $type is None
         Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div[2]/div/div/div/div/button    120
-    ELSE IF    not $is_pend and $type is not None
-        ${location}=    Get Location
-        Close Current Excel Document
-        ${Loan_ID}=    Run Keyword And Return    Loan ID Extraction    ${location}  # Fixed: Capture return value
-        Log To Console    this the loan ID = ${Loan_ID}
-        RETURN
     ELSE
+        # This block handles both Pend and Co-Applicant scenarios
         Close Current Excel Document
         ${location}=    Get Location
-        ${Loan_ID}=    Run Keyword And Return    Loan ID Extraction    ${location}  # Fixed: Capture return value
-        Log To Console    this the loan ID = ${Loan_ID}
+        ${Loan_ID}=    Loan ID Extraction    ${location}
+        Log To Console    Extracted Loan ID = ${Loan_ID}
         RETURN
     END
 

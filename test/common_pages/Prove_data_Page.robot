@@ -13,5 +13,4 @@ prove data
         Input Text    ssn    ${co_app_dup['ssn']}
         Input Text    prove-mobile-number    ${co_app_dup['mobileNumber']}
     END
-    Sleep    3
     Click Button    xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/fieldset/div/div[6]/div/div/button
