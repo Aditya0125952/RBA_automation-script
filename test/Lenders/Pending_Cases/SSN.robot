@@ -1,9 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/PycharmProjects/Test/common_pages/common_Resoucres.robot
+Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
-${FFC_DATA}    C:/Users/AdityaChelluru/PycharmProjects/Test/InputData/FF_TestData.json
+${FFC_DATA}    ${CURDIR}/../../InputData/FF_TestData.json
 
 *** Test Cases ***
 SSN Pending - Applicant

@@ -1,11 +1,11 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/PycharmProjects/Test/common_pages/common_Resoucres.robot
-
+Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
-${FFC_DATA}    C:/Users/AdityaChelluru/PycharmProjects/Test/InputData/FF_TestData.json
+${FFC_DATA}    ${CURDIR}/../../InputData/CSI_data.json
 *** Test Cases ***
 CSI Pending - Applicant
+    [Tags]    rba5
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login
     Merchant Selection Page
@@ -14,9 +14,6 @@ CSI Pending - Applicant
     Dc plans page
     Type of Application page
     Load and Prepare applicant details
-    ${modified_app}=    Copy Dictionary    ${application}
-    Set To Dictionary    ${modified_app}    FirstName=Anaa
-    Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up
     URL Applicant
@@ -25,7 +22,6 @@ CSI Pending - Applicant
     Prove Data
     Basic Information
     Personal Information
-    First Name Re-Kyc Screen
     Handle Initial Flow
     Onfido Page
 

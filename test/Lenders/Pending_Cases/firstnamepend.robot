@@ -1,18 +1,18 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/common_pages/common_Resoucres.robot
+Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
-${FFC_DATA}    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/InputData/FF_TestData.json
+${FFC_DATA}    ${CURDIR}/../../InputData/FF_TestData.json
 *** Test Cases ***
 First Name Pending - Applicant
-    [Tags]    Pend    rba5
+    [Tags]    Pend    rba    S101817
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login
-    Merchant Selection Page
-    Selecting The Merchant Location
+    Merchant Selection Page    Sunlight_HI
+    #Selecting The Merchant Location
     Sending Application to Consumer
-    Dc plans page
+    Dc plans page    60000    0
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
@@ -31,11 +31,11 @@ First Name Pending - Applicant
     Onfido Page
 
 First Name Pending - Co-Applicant (Primary Applicant)
-    [Tags]    Pend    rba5    Co-App
+    [Tags]    Pend    rba    Co-App    S101817
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login
-    Merchant Selection Page
-    Selecting The Merchant Location
+    Merchant Selection Page    Sunlight_HI
+    #Selecting The Merchant Location
     Sending Application to Consumer
     Dc plans page
     Type of Application page
@@ -53,8 +53,10 @@ First Name Pending - Co-Applicant (Primary Applicant)
     Personal Information
     First Name Re-Kyc Screen
     Handle Initial Flow
-    Wait Until Element Is Visible    xpath:(//p)[1]    120
-    URL Applicant    Co-App
+    Onfido Page
+    Sleep    25
+    #Wait Until Element Is Visible    xpath:(//p)[1]    120
+    URL Applicant
     Application Authorization Page
     Credit Freeze Page
     Prove Data
@@ -63,7 +65,7 @@ First Name Pending - Co-Applicant (Primary Applicant)
     First Name Re-Kyc Screen    Co-App
     Sleep    5
     Handle Initial Flow
-    #Onfido Page
+    Onfido Page
 
 First Name Pending - Co-Applicant
     [Tags]    Pend    rba5    Co-App

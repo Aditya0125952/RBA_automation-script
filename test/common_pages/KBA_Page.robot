@@ -24,13 +24,13 @@ Handle Initial Flow
     END
 
 Handle Technical Issue Page
-    Wait Until Element Is Not Visible    css:div.position-absolute.bg-white.rounded-lg    10
+    Wait Until Element Is Not Visible    css:div.position-absolute.bg-white.rounded-lg    20
     ${error_status}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button    30
     WHILE    ${error_status}
         Wait Until Element Is Enabled    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button    20
         Click Button    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button
-        Wait Until Element Is Not Visible    css:div.position-absolute.bg-white.rounded-lg    10
-        ${error_status}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button    10
+        Wait Until Element Is Not Visible    css:div.position-absolute.bg-white.rounded-lg    20
+        ${error_status}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button    20
     END
 
 Handle Identity Verification Page

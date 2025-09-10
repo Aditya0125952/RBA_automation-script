@@ -1,9 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/common_pages/common_Resoucres.robot
+Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
-${PP_DATA}     C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/InputData/PP_TestData.json
+${PP_DATA}     ${CURDIR}/../../InputData/PP_TestData.json
 #${GL_DATA}     C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/InputData/GL_applicants_list.json
 
 *** Test Cases ***

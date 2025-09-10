@@ -1,18 +1,18 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/common_pages/common_Resoucres.robot
+Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
-${FFC_DATA}    C:/Users/AdityaChelluru/PycharmProjects/Test/InputData/FF_TestData.json
+${FFC_DATA}    ${CURDIR}/../../InputData/FF_TestData.json
 
 *** Test Cases ***
 FFC HappyCase
-    [Tags]    rba6    S100617
+    [Tags]    rba6    R418008
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login
-    Merchant Selection Page
-    Selecting The Merchant Location
+    Merchant Selection Page    Sunlight_HI
+    #Selecting The Merchant Location
     Sending Application to Consumer
-    Dc plans page
+    Dc plans page    23678    6
     Type of Application page
     Load and Prepare applicant details
     Application Details Page

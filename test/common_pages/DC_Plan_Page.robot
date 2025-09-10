@@ -11,7 +11,7 @@ Resource    ../common_Pages/common_Resoucres.robot
 ...    R424008    R418009    R418007    R418005    R418006    R418008    R418013    R418015
 ...    R412005    R412007    R412009    R412013    R412002    R412003    R412004    R412004-DIV-AUT    R412006
 ...    R424007    R424005    R424009    R424006    R424004
-...    H30300    H201205    H201209
+...    H30300    H201205    H201209    R418004
 ...    F193728
 ...    GICU_RBA
 ...    Dividend    Dividend_Plan    Dividend Test

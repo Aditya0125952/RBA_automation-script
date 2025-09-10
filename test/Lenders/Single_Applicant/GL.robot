@@ -1,17 +1,18 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/common_pages/common_Resoucres.robot
+Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
-${GL_DATA}     C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/InputData/GL_applicants_list.json
+${GL_DATA}     ${CURDIR}/../../InputData/GL_applicants_list.json
 ${START_DIGITS}    888
 
 *** Test Cases ***
 Good Leap HappyCase
-    Load Lender Data    ${GL_DATA}    1196
+    [Tags]    rba3
+    Load Lender Data    ${GL_DATA}    1182
     Merchant Portal Login
-    Merchant Selection Page    RBA_GL_FFC_DIV_PP
-    Selecting The Merchant Location    RBA_GL_FFC_DIV_PP_Master
+    Merchant Selection Page    Sunlight_HI
+    #Selecting The Merchant Location    RBA_GL_FFC_DIV_PP_Master
     Sending Application to Consumer
     Dc plans page
     Type of Application page

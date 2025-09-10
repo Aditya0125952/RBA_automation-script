@@ -16,6 +16,7 @@ verification info pop-up
     ELSE
         Wait Until Element Is Visible    xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[7]/div[2]/div/button   20
         Wait Until Element Is Enabled    xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[7]/div[2]/div/button   180
+        Scroll Element Into View    xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[7]/div[2]/div/button
         Click Element    xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[7]/div[2]/div/button
     END
     Wait Until Page Contains    Application Sent Successfully!    15

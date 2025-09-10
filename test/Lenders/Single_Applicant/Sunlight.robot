@@ -1,16 +1,17 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/common_pages/common_Resoucres.robot
+Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
-${Sunlight_DATA}    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/InputData/Sunlight_TestData.json
+${Sunlight_DATA}    ${CURDIR}/../../InputData/Sunlight_TestData.json
 
 *** Test Cases ***
 Sunlight HappyCase
+    [Tags]    rba    S101817
     Load Lender Data    ${Sunlight_DATA}
     Merchant Portal Login
     Merchant Selection Page    Sunlight_HI
     Sending Application to Consumer
-    Dc plans page
+    Dc plans page    1000001    0
     Type of Application page
     Load and Prepare applicant details
     Application Details Page

@@ -1,9 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/common_pages/common_Resoucres.robot
+Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
-${FFC_DATA}     C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/InputData/FF_TestData.json
+${FFC_DATA}     ${CURDIR}/../../InputData/FF_TestData.json
 ${START_DIGITS}    888
 
 *** Test Cases ***
