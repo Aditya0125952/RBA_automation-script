@@ -1,0 +1,28 @@
+{
+  "Merchant": "Upgrade_Regression",
+  "Location": "Upgrade_Regression_Master",
+  "planID" : "S100617",
+  "projectCost" : "22000",
+  "depositAmount" : "10",
+  "Applicant": {
+    "FirstName": "KATHRYN",
+    "LastName": "WHITE",
+    "email": "aditya.chelluru@finmkt.io",
+    "street_add": "27 RESERVOIR RD",
+    "city": "WALLKILL",
+    "state": "New York",
+    "zipcode": "12589",
+    "Do_you_own_installation_add": "Yes, I own this property.",
+    "Do_you_reside_installation_add": "Yes, I reside at this address.",
+    "mobileNumber": "9877830814",
+    "employment_status": "Employed",
+    "occupation": "business",
+    "employer_name": "ganesh",
+    "monthly_mortgage_amount": "500",
+    "annual_income": "155000",
+    "household_income": "155000",
+    "dob": "04/01/1967",
+    "ssn": "666769377",
+    "citizenship_status": "US Citizen"
+  }
+}
