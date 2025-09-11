@@ -6,7 +6,7 @@ Library    String
 Library    Collections
 
 *** Variables ***
-${EXCEL_FILE}    C:/Users/AdityaChelluru/PycharmProjects/Test/InputData/answers.xlsx
+${EXCEL_FILE}    ${EXECDIR}/InputData/answers.xlsx
 ${SheetName}     Sheet1
 ${answer}        aditya
 ${tech_issue}    Sorry, we are facing a technical issue with one of our data providers.
