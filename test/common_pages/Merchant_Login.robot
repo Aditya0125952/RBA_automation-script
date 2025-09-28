@@ -3,16 +3,19 @@ Library    SeleniumLibrary
 
 *** Variables ***
 @{Instance}
-...    rba    rba2    rba3    rba4    rba5    rba6
+...    rba    rba2    rba3    rba4    rba5    rba6    rba7
 ${base_url}    rba
 
 *** Keywords ***
 Merchant Portal Login
     [Arguments]   ${user}=None    ${password}=None
     FOR    ${tag}    IN    @{TEST_TAGS}
-        ${is_present}=    Run Keyword And Return Status    List Should Contain Value    ${Instance}    ${tag}
+        ${is_present}=    Run Keyword And Return Status    Should Start With    ${tag}    rba
         IF    ${is_present}
+            Log To Console    this is the tag : ${tag}
             ${base_url}=    Set Variable    ${tag}
+            Log To Console    this is the base url ${base_url}
+            Exit For Loop
         END
     END
     Open Browser    https://${base_url}-qa.mktplacegateway.com/m/login    chrome

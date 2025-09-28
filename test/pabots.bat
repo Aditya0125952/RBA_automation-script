@@ -1,2 +1,2 @@
 @echo off
-python pabots.py %*
+python run.py %*

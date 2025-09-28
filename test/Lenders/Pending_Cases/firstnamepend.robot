@@ -3,10 +3,10 @@ Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
-${FFC_DATA}    ${CURDIR}/../../InputData/FF_TestData.json
+${FFC_DATA}    ${CURDIR}/../../InputData/prove2.json
 *** Test Cases ***
 First Name Pending - Applicant
-    [Tags]    Pend    rba    S101817
+    [Tags]    Pend    rba6    S101817
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login
     Merchant Selection Page    Sunlight_HI
@@ -41,7 +41,7 @@ First Name Pending - Co-Applicant (Primary Applicant)
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    Set To Dictionary    ${modified_app}    FirstName=Anaa
+    Set To Dictionary    ${modified_app}    FirstName=YURII
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up

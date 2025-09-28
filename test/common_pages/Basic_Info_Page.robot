@@ -25,6 +25,7 @@ Handle Prove Scenario
     [Arguments]    ${type}    ${data}
 
     # Handle dropdown selections
+
     Execute JavaScript    document.getElementById("INSTALLATION__ADDRESS__DROPDOWN").value = "true";
     Execute JavaScript    document.getElementById("INSTALLATION__ADDRESS__DROPDOWN").dispatchEvent(new Event('change'));
     Sleep    2

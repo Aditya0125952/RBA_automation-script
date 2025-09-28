@@ -13,7 +13,7 @@ Resource    ../common_Pages/common_Resoucres.robot
 ...    R424007    R424005    R424009    R424006    R424004
 ...    H30300    H201205    H201209    R418004
 ...    F193728
-...    GICU_RBA
+...    GICU_RBA    Upgrade_1_plan    Upgrade_2_plan
 ...    Dividend    Dividend_Plan    Dividend Test
 ...    PowerPay2 Test    PowerPay2 CoApp
 ...    Upgrade
@@ -29,7 +29,7 @@ Dc plans page
             Set Global Variable    ${LENDER_DATA}    ${Lender}
         END
     END
-    Wait Until Element Is Not Visible        css:div.position-absolute.bg-white    10
+    Wait Until Element Is Not Visible        css:div.position-absolute.bg-white    20
     Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/span/div/div[1]/div/div[1]/h4/b    20
     Wait Until Element Is Enabled    ${LENDER_DATA['planID']}       
     Click Button   ${LENDER_DATA['planID']}

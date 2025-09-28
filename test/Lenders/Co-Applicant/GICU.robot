@@ -4,18 +4,24 @@ Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
 ${GICU_DATA}    ${CURDIR}/../../InputData/GICU_TestData.json
-
+${instance}    rba
 
 *** Test Cases ***
 GICU Happycase
-    [Tags]    R412004    rba5    Co-App
+    [Tags]    R412007    ${instance}    Co-App
     Load Lender Data    ${GICU_DATA}
     Merchant Portal Login
     Merchant Selection Page
     Sending Application to Consumer
-    Dc plans page
+    Dc plans page    10000    5000
     Type of Application page
     Load and Prepare applicant details
+    ${modified_app1}=    Copy Dictionary    ${application}
+    ${modified_app2}=    Copy Dictionary    ${co_app_dup}
+     Set To Dictionary    ${modified_app1}    email=bhavanasri.challamalla@finmkt.io
+     Set To Dictionary    ${modified_app2}    email=bhavanasri.challamalla@finmkt.io
+    Set Global Variable    ${co_app_dup}    ${modified_app2}
+    Set Global Variable    ${application}    ${modified_app1}
     Application Details Page
     Verification Info Pop-up
     URL Applicant

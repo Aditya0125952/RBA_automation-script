@@ -9,9 +9,10 @@ ${base_url}    rba
 *** Keywords ***
 URL Applicant
     FOR    ${tag}    IN    @{TEST_TAGS}
-        ${is_present}=    Run Keyword And Return Status    List Should Contain Value    ${Instance}    ${tag}
+        ${is_present}=    Run Keyword And Return Status    Should Start With    ${tag}    rba
         IF    ${is_present}
             ${base_url}=    Set Variable    ${tag}
+            Exit For Loop
         END
     END
     ${url}=    Get Location

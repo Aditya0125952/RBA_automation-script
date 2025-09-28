@@ -1,0 +1,13 @@
+ .gitignore
+
+# Robot Framework generated files
+*.log
+*.html
+*.xml
+*.output
+
+# Screenshots
+selenium-screenshot-*.png
+
+# Python virtual environment
+.venv/

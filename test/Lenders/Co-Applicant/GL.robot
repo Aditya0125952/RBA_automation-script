@@ -5,12 +5,13 @@ Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${GL_DATA}     ${CURDIR}/../../InputData/GL_applicants_list.json
 ${START_DIGITS}    888
+${instance}    rba
 
 *** Test Cases ***
 Good Leap HappyCase
-    [Tags]    rba5    Co-App
+    [Tags]    ${instance}    Co-App
     Load Lender Data    ${GL_DATA}    1241    1243
-    Merchant Portal Login    ${instance}
+    Merchant Portal Login    
     Merchant Selection Page    RBA_GL_FFC_DIV_PP
     Selecting The Merchant Location    RBA_GL_FFC_DIV_PP_Master
     Sending Application to Consumer
@@ -46,11 +47,11 @@ Good Leap HappyCase
     Personal Information    Co-App
     Handle Initial Flow
 Good leap Co-App flow(ssn_change) Happy flow
-    [Tags]    rba5    Co-App
-    Load Lender Data    ${GL_DATA}    1121    1126
+    [Tags]    rba3    Co-App    S100617
+    Load Lender Data    ${GL_DATA}    1123    1118
     Merchant Portal Login 
-    Merchant Selection Page    RBA_GL_FFC_DIV_PP
-    Selecting The Merchant Location    RBA_GL_FFC_DIV_PP_Master
+    Merchant Selection Page    Sunlight_HI
+    #Selecting The Merchant Location    RBA_GL_FFC_DIV_PP_Master
     Sending Application to Consumer
     Dc plans page
     Type of Application page 

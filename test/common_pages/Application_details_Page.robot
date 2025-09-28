@@ -27,7 +27,7 @@ Application Details Page
         Input Text    xpath:(//input[@id="mobile-number"])[2]    ${co_app_dup['mobileNumber']}
     END
     Wait Until Element Is Visible    no    10
-    Wait Until Element Is Enabled    no    10
+    Wait Until Element Is Enabled    yes    10
     Click Element    no
     Wait Until Element Is Enabled    xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/span/form/div[3]/div/div/div/div/div[2]/div/button    10
     Click Button    xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/span/form/div[3]/div/div/div/div/div[2]/div/button

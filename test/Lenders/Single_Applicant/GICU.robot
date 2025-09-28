@@ -4,11 +4,11 @@ Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
 ${GICU_DATA}    ${CURDIR}/../../InputData/GICU_TestData.json
-
+${instance}    rba6
 
 *** Test Cases ***
 GICU Happycase
-    [Tags]    rba6
+    [Tags]    ${instance}    R412007
     Load Lender Data    ${GICU_DATA}
     Merchant Portal Login
     Merchant Selection Page

@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
-${FFC_DATA}    ${CURDIR}/../../InputData/CSI_data.json
+${FFC_DATA}    ${CURDIR}/../../InputData/GICU_TestData.json
 *** Test Cases ***
 CSI Pending - Applicant
     [Tags]    rba5
@@ -27,7 +27,7 @@ CSI Pending - Applicant
 
 CSI Pending - Co-Applicant
     Set Global Variable    ${type}    coapp
-    Set Global Variable    ${instance}    rba4
+    Set Global Variable    ${instance}    rba6
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login    ${instance}
     Merchant Selection Page
@@ -47,7 +47,7 @@ CSI Pending - Co-Applicant
     Prove Data
     Basic Information
     Personal Information
-    Handle Initial Flow    coapplicant
+    Handle Initial Flow
     Wait Until Element Is Visible    xpath:(//p)[1]    120
     ${co_appurl}=    Get Location
     URL Applicant    ${instance}    ${co_appurl}

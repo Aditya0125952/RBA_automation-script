@@ -3,18 +3,22 @@ Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${FFC_DATA}    ${CURDIR}/../../InputData/FF_TestData.json
+${INSTANCE}    rba
 
 *** Test Cases ***
 FFC HappyCase
-    [Tags]    rba6    R418008
+    [Tags]    ${INSTANCE}    S100617
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login
     Merchant Selection Page    Sunlight_HI
-    #Selecting The Merchant Location
+    #Selecting The Merchant Location   
     Sending Application to Consumer
-    Dc plans page    23678    6
+    Dc plans page
     Type of Application page
     Load and Prepare applicant details
+    ${modified_app}=    Copy Dictionary    ${application}
+    Set To Dictionary    ${modified_app}    email=bhavanasri.challamalla@finmkt.io
+    Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up
     URL Applicant

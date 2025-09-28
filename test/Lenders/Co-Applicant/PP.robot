@@ -7,16 +7,22 @@ ${PP_DATA}     ${CURDIR}/../../InputData/PP_TestData.json
 ${START_DIGITS}    888
 
 *** Test Cases ***
-PowerPay HappyCase
-    [Tags]    rba6    Co-App    S101217
+PP HappyCase
+    [Tags]    rba    Co-App    R412007
     Load Lender Data    ${PP_DATA}
     Merchant Portal Login
-    Merchant Selection Page
-    Selecting The Merchant Location
+    Merchant Selection Page    RbA-AD1
+ #   Selecting The Merchant Location    RBA_GL_FFC_DIV_PP_Master
     Sending Application to Consumer
     Dc plans page    20000    10
     Type of Application page
     Load and Prepare applicant details
+    ${modified_app1}=    Copy Dictionary    ${application}
+    ${modified_app2}=    Copy Dictionary    ${co_app_dup}
+     Set To Dictionary    ${modified_app1}    email=bhavanasri.challamalla@finmkt.io
+     Set To Dictionary    ${modified_app2}    email=bhavanasri.challamalla@finmkt.io
+    Set Global Variable    ${co_app_dup}    ${modified_app2}
+    Set Global Variable    ${application}    ${modified_app1}
     Application Details Page
     Verification Info Pop-up
     URL Applicant

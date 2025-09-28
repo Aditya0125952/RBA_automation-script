@@ -27,10 +27,16 @@ Handle Technical Issue Page
     Wait Until Element Is Not Visible    css:div.position-absolute.bg-white.rounded-lg    20
     ${error_status}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button    30
     WHILE    ${error_status}
-        Wait Until Element Is Enabled    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button    20
+        Wait Until Element Is Enabled    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button    10
         Click Button    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button
-        Wait Until Element Is Not Visible    css:div.position-absolute.bg-white.rounded-lg    20
-        ${error_status}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button    20
+
+        # OPTIMIZED: Instead of waiting 20s for the button to reappear,
+        # we now wait for it to disappear. This is much faster.
+        Wait Until Element Is Not Visible    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button    15
+
+        # The loop will now only continue if the button is still somehow visible after the refresh.
+        # This check is now almost instantaneous.
+        ${error_status}=    Run Keyword And Return Status    Page Should Contain Element    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button
     END
 
 Handle Identity Verification Page
@@ -68,15 +74,12 @@ Handle Identity Verification Page
     Selecting Answers    ${answers}
     Click Button    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/span/form/div/div[3]/div/div/div/div/button
     Sleep    2s
+    
+    ${location}=    Get Location
+    Log To Console    ${location}
 
     ${max_retry}=    Set Variable    10
-    FOR    ${i}    IN RANGE    ${max_retry}
-        ${tech_issue_again}=    Run Keyword And Return Status    Page Should Contain Element    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button
-        Run Keyword If    ${tech_issue_again}    Handle Technical Issue Page
-        ${identity_still}=    Run Keyword And Return Status    Page Should Contain    We need to verify your identity.
-        Exit For Loop If    not ${tech_issue_again} and not ${identity_still}
-        Sleep    2s
-    END
+    #Handle Issues And Wait For Page    /html/body/div/div[2]/div[1]/div/div[1]/nav/div[3]/div/h1[1]
     ${is_pend}=    Run Keyword And Return Status    Should Contain    ${TEST TAGS}    Pend
     IF    not $is_pend and $type is None
         Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div[2]/div/div/div/div/button    120
@@ -142,3 +145,28 @@ Loan ID Extraction
     ELSE
         RETURN    ${None}
     END
+
+Handle Issues And Wait For Page
+    [Arguments]    ${expected_element}
+    [Documentation]    This single, powerful keyword handles all polling and technical issue resolution.
+
+    # This loop will time out after 60 seconds.
+    FOR    ${i}    IN RANGE    30
+        ${is_success_page_visible}=    Run Keyword And Return Status    Page Should Contain Element    ${expected_element}
+        ${is_tech_issue_visible}=    Run Keyword And Return Status    Page Should Contain Element    ${TECH_ISSUE_BUTTON}
+
+        IF    ${is_success_page_visible}
+            Log To Console    [INFO] Expected page is now visible.
+            RETURN  # Success! Exit the keyword.
+
+        ELSE IF    ${is_tech_issue_visible}
+            Log To Console    [WARN] Technical issue detected. Resolving...
+            # This is the optimized logic that fixes the 20-second delay
+            Click Button    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button
+            Wait Until Element Is Not Visible    xpath:/html/body/div/div[2]/div[1]/div/div[1]/nav/div[3]/div/h1[1]    timeout=15s
+        END
+
+        Sleep    2s
+    END
+
+    Fail    Timeout: Expected page with element '${expected_element}' did not appear.

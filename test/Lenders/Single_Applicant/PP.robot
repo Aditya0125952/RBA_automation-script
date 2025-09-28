@@ -4,19 +4,22 @@ Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
 ${PP_DATA}     ${CURDIR}/../../InputData/PP_TestData.json
-#${GL_DATA}     C:/Users/AdityaChelluru/Desktop/github/RBA_automation-script/Test/InputData/GL_applicants_list.json
+${INSTANCE}    rba
 
 *** Test Cases ***
-PowerPay Happy Flow
-    [Tags]    rba6    S101217
+PP HappyCase
+    [Tags]    ${INSTANCE}    R418009
     Load Lender Data    ${PP_DATA}
     Merchant Portal Login
-    Merchant Selection Page
-    Selecting The Merchant Location
+    Merchant Selection Page    Sunlight_HI
+    #Selecting The Merchant Location
     Sending Application to Consumer
-    Dc plans page
+    Dc plans page    100000    0
     Type of Application page
     Load and Prepare applicant details
+    ${modified_app}=    Copy Dictionary    ${application}
+    Set To Dictionary    ${modified_app}    email=prathyusha.dumala@finmkt.io
+    Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up
     URL Applicant
