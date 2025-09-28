@@ -1,0 +1,65 @@
+  {   "Merchant": "Upgrade_Regression",
+      "Location": "Upgrade_Regression_Master",
+      "planID" : "S100617",
+      "projectCost" : "22000",
+      "depositAmount" : "10",
+      "Applicant":
+        {
+          "FirstName": "YURI",
+            "LastName": "RODRIGUEZ",
+            "email": "hemasri.moram@finmkt.io",
+            "street_add": "9018 ALISTER BLVD # APT 106",
+            "city": "PALM BEACH GARDENS",
+            "state": "Florida",
+            "zipcode": "33418",
+            "Do_you_own_installation_add": "Yes, I own this property.",
+            "Do_you_reside_installation_add": "Yes, I reside at this address.",
+            "mobileNumber": "8139682994",
+            "employment_status": "Employed",
+            "occupation": "business",
+            "employer_name": "ganesh",
+            "monthly_mortgage_amount": "500",
+            "annual_income": "150000",
+            "household_income": "155000",
+            "dob": "11/03/1963",
+            "ssn": "933254934",
+            "citizenship_status": "US Citizen"
+        }
+
+      ,
+      "Co-Applicant":
+          {
+          "FirstName": "YURI",
+        "LastName": "SCOTT",
+        "email": "hemasri.moram@finmkt.io",
+        "street_add": "9838 RUGGLES ST",
+        "city": "OMAHA",
+        "state": "Nebraska",
+        "zipcode": "68134",
+        "Do_you_own_installation_add": "Yes, I own this property.",
+        "Do_you_reside_installation_add": "Yes, I reside at this address.",
+        "mobileNumber": "8165214264",
+        "employment_status": "Employed",
+        "occupation": "business",
+        "employer_name": "ganesh",
+        "monthly_mortgage_amount": "500",
+        "annual_income": "150000",
+        "household_income": "155000",
+        "dob": "09/08/1961",
+        "ssn": "939217030",
+        "citizenship_status": "US Citizen"
+      },
+      "Agretha_Chene": {
+      "mobileNumber": "2001001687",
+      "ssn": "369956933"
+    },
+    "Johnnie_Lammiman": {
+      "mobileNumber": "2001004004",
+      "ssn": "111258802"
+    },
+    "Sebastian_Limmer": {
+      "mobileNumber": "2001004001",
+      "ssn": "347465324"
+    }
+
+  }
