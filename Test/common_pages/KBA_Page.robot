@@ -6,7 +6,7 @@ Library    String
 Library    Collections
 
 *** Variables ***
-${EXCEL_FILE}    ${EXECDIR}/InputData/answers.xlsx
+${EXCEL_FILE}    ${EXECDIR}/Test/InputData/answers.xlsx
 ${SheetName}     Sheet1
 ${answer}        aditya
 ${tech_issue}    Sorry, we are facing a technical issue with one of our data providers.
@@ -42,9 +42,10 @@ Handle Technical Issue Page
 Handle Identity Verification Page
     [Arguments]    ${type}
     Wait Until Page Contains    We need to verify your identity.    120
-    ${is_opened}=    Run Keyword And Return Status    Get Workbook    ${SheetName}
-    IF    not ${is_opened}
-        Open Excel Document    ${EXCEL_FILE}    ${SheetName}
+    ${doc_alias}=    Set Variable    MyExcelFile
+    ${is_already_open}=    Run Keyword And Return Status    List Sheet Names    ${doc_alias}
+    IF    not ${is_already_open}
+        Open Excel Document    ${EXCEL_FILE}    ${SheetName}    ${doc_alias}
     END
     ${q1}=    Get Text    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/span/form/div/div[2]/div[1]/div/h3
     ${q2}=    Get Text    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/span/form/div/div[2]/div[2]/div/h3
@@ -74,12 +75,8 @@ Handle Identity Verification Page
     Selecting Answers    ${answers}
     Click Button    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/span/form/div/div[3]/div/div/div/div/button
     Sleep    2s
-    
-    ${location}=    Get Location
-    Log To Console    ${location}
 
     ${max_retry}=    Set Variable    10
-    #Handle Issues And Wait For Page    /html/body/div/div[2]/div[1]/div/div[1]/nav/div[3]/div/h1[1]
     ${is_pend}=    Run Keyword And Return Status    Should Contain    ${TEST TAGS}    Pend
     IF    not $is_pend and $type is None
         Wait Until Element Is Visible    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div[2]/div/div/div/div/button    120

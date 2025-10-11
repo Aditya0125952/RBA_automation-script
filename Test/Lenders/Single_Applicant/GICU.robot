@@ -4,7 +4,7 @@ Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
 ${GICU_DATA}    ${CURDIR}/../../InputData/GICU_TestData.json
-${instance}    rba6
+${instance}    rba5
 
 *** Test Cases ***
 GICU Happycase
