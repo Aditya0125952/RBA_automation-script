@@ -1,59 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2025-10-13T12:34:35.443754" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2025-10-14T10:31:27.351334" rpa="false" schemaversion="5">
 <suite id="s1" name="RBA automation-script" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script">
 <suite id="s1-s1" name="Test" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test">
 <suite id="s1-s1-s1" name="Lenders" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\Lenders">
 <suite id="s1-s1-s1-s1" name="Single Applicant" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\Lenders\Single_Applicant">
-<suite id="s1-s1-s1-s1-s1" name="Upgrade" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\Lenders\Single_Applicant\Upgrade.robot">
-<test id="s1-s1-s1-s1-s1-t1" name="Upgrade HappyCase" line="11">
+<suite id="s1-s1-s1-s1-s1" name="FFC" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\Lenders\Single_Applicant\FFC.robot">
+<test id="s1-s1-s1-s1-s1-t1" name="FFC HappyCase" line="9">
 <kw name="Load Lender Data" owner="LoadingInputFile">
 <kw name="Get File" owner="OperatingSystem">
-<msg time="2025-10-13T12:34:45.431099" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\InputData\GL_applicants_list.json"&gt;C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\InputData\GL_applicants_list.json&lt;/a&gt;'.</msg>
-<msg time="2025-10-13T12:34:45.506695" level="INFO">${json_text} = {
-    "Merchant": "Upgrade_Regression",
-    "Location": "Upgrade_Regression_Master",
-    "planID": "S100617",
-    "projectCost": "15000",
-    "depositAmount": "2000",
-    "Applicants": [
-        {
-   ...</msg>
+<msg time="2025-10-14T10:31:32.414760" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\InputData\FF_TestData.json"&gt;C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\InputData\FF_TestData.json&lt;/a&gt;'.</msg>
+<msg time="2025-10-14T10:31:32.443295" level="INFO">${json_text} =   {   "Merchant": "Upgrade_Regression",
+      "Location": "Upgrade_Regression_Master",
+      "planID" : "S100617",
+      "projectCost" : "25000",
+      "depositAmount" : "10",
+      "Applicant":
+     ...</msg>
 <var>${json_text}</var>
 <arg>${file_path}</arg>
 <doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2025-10-13T12:34:45.429903" elapsed="0.077234"/>
+<status status="PASS" start="2025-10-14T10:31:32.414459" elapsed="0.029182"/>
 </kw>
 <kw name="Convert String To Json" owner="JSONLibrary">
-<msg time="2025-10-13T12:34:45.540473" level="INFO">${data} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '15000', 'depositAmount': '2000', 'Applicants': [{'FirstName': 'MONICA', 'LastName': 'SW...</msg>
+<msg time="2025-10-14T10:31:32.444768" level="INFO">${data} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '25000', 'depositAmount': '10', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', ...</msg>
 <var>${data}</var>
 <arg>${json_text}</arg>
 <doc>Convert String to JSON object</doc>
-<status status="PASS" start="2025-10-13T12:34:45.507764" elapsed="0.033160"/>
+<status status="PASS" start="2025-10-14T10:31:32.443986" elapsed="0.000907"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-10-13T12:34:45.542076" level="INFO">${index1} = 1130</msg>
+<msg time="2025-10-14T10:31:32.445510" level="INFO">${index1} = None</msg>
 <arg>${index1}</arg>
 <arg>${index1}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-10-13T12:34:45.541425" elapsed="0.000942"/>
+<status status="PASS" start="2025-10-14T10:31:32.445174" elapsed="0.000458"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-10-13T12:34:45.543238" level="INFO">${index2} = None</msg>
+<msg time="2025-10-14T10:31:32.446166" level="INFO">${index2} = None</msg>
 <arg>${index2}</arg>
 <arg>${index2}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-10-13T12:34:45.542690" elapsed="0.000848"/>
+<status status="PASS" start="2025-10-14T10:31:32.445831" elapsed="0.000503"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-10-13T12:34:45.555832" level="INFO">${LENDER_DATA} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '15000', 'depositAmount': '2000', 'Applicants': [{'FirstName': 'MONICA', 'LastName': 'SW...</msg>
+<msg time="2025-10-14T10:31:32.447611" level="INFO">${LENDER_DATA} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '25000', 'depositAmount': '10', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', ...</msg>
 <arg>${LENDER_DATA}</arg>
 <arg>${data}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-10-13T12:34:45.543771" elapsed="0.012335"/>
+<status status="PASS" start="2025-10-14T10:31:32.446552" elapsed="0.001232"/>
 </kw>
-<arg>${GL_DATA}</arg>
-<arg>1130</arg>
-<status status="PASS" start="2025-10-13T12:34:45.426725" elapsed="0.129583"/>
+<arg>${FFC_DATA}</arg>
+<status status="PASS" start="2025-10-14T10:31:32.413479" elapsed="0.034465"/>
 </kw>
 <kw name="Merchant Portal Login" owner="Merchant_Login">
 <for flavor="IN">
@@ -63,57 +60,174 @@
 <arg>${tag}</arg>
 <arg>rba</arg>
 <doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
-<status status="PASS" start="2025-10-13T12:34:45.559109" elapsed="0.000396"/>
+<status status="PASS" start="2025-10-14T10:31:32.451580" elapsed="0.000426"/>
 </kw>
-<msg time="2025-10-13T12:34:45.559724" level="INFO">${is_present} = True</msg>
+<msg time="2025-10-14T10:31:32.452394" level="INFO">${is_present} = True</msg>
 <var>${is_present}</var>
 <arg>Should Start With</arg>
 <arg>${tag}</arg>
 <arg>rba</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-13T12:34:45.558630" elapsed="0.001305"/>
+<status status="PASS" start="2025-10-14T10:31:32.450933" elapsed="0.001699"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_present}">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>this is the tag : ${tag}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-13T12:34:45.560537" elapsed="0.000694"/>
+<status status="PASS" start="2025-10-14T10:31:32.453273" elapsed="0.000555"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-10-13T12:34:45.562005" level="INFO">${base_url} = rba7</msg>
+<msg time="2025-10-14T10:31:32.454268" level="INFO">${base_url} = rba</msg>
 <var>${base_url}</var>
 <arg>${tag}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-10-13T12:34:45.561608" elapsed="0.000555"/>
+<status status="PASS" start="2025-10-14T10:31:32.454004" elapsed="0.000661"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>this is the base url ${base_url}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-13T12:34:45.562427" elapsed="0.000600"/>
+<status status="PASS" start="2025-10-14T10:31:32.454946" elapsed="0.000529"/>
 </kw>
 <kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2025-10-13T12:34:45.563688" level="INFO">Exiting for loop altogether.</msg>
+<msg time="2025-10-14T10:31:32.455959" level="INFO">Exiting for loop altogether.</msg>
 <doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2025-10-13T12:34:45.563298" elapsed="0.000615"/>
+<status status="PASS" start="2025-10-14T10:31:32.455738" elapsed="0.000401"/>
 </kw>
-<status status="PASS" start="2025-10-13T12:34:45.560171" elapsed="0.003879"/>
+<status status="PASS" start="2025-10-14T10:31:32.452784" elapsed="0.003437"/>
 </branch>
-<status status="PASS" start="2025-10-13T12:34:45.560136" elapsed="0.003996"/>
+<status status="PASS" start="2025-10-14T10:31:32.452758" elapsed="0.003514"/>
 </if>
-<var name="${tag}">rba7</var>
-<status status="PASS" start="2025-10-13T12:34:45.558231" elapsed="0.005936"/>
+<var name="${tag}">rba</var>
+<status status="PASS" start="2025-10-14T10:31:32.450292" elapsed="0.006003"/>
 </iter>
 <var>${tag}</var>
 <value>@{TEST_TAGS}</value>
-<status status="PASS" start="2025-10-13T12:34:45.557762" elapsed="0.006473"/>
+<status status="PASS" start="2025-10-14T10:31:32.449561" elapsed="0.006779"/>
 </for>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-10-13T12:34:45.564979" level="INFO">Opening browser 'chrome' to base url 'https://rba7-qa.mktplacegateway.com/m/login'.</msg>
-<msg time="2025-10-13T12:34:48.908256" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg time="2025-10-13T12:34:48.908890" level="FAIL">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
-</msg>
+<msg time="2025-10-14T10:31:32.456919" level="INFO">Opening browser 'chrome' to base url 'https://rba-qa.mktplacegateway.com/m/login'.</msg>
+<arg>https://${base_url}-qa.mktplacegateway.com/m/login</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-10-14T10:31:32.456479" elapsed="15.284973"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>user-name</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-10-14T10:31:47.742618" elapsed="0.016756"/>
+</kw>
+<if>
+<branch type="IF" condition="'${user}'=='None'">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T10:31:47.760230" level="INFO">Typing text 'aditya.chelluru@finmkt.io' into text field 'user-name'.</msg>
+<arg>user-name</arg>
+<arg>aditya.chelluru@finmkt.io</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T10:31:47.759959" elapsed="0.107406"/>
+</kw>
+<status status="PASS" start="2025-10-14T10:31:47.759577" elapsed="0.107934"/>
+</branch>
+<branch type="ELSE">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>user-name</arg>
+<arg>${user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-10-14T10:31:47.867862" elapsed="0.000137"/>
+</kw>
+<status status="NOT RUN" start="2025-10-14T10:31:47.867562" elapsed="0.000508"/>
+</branch>
+<status status="PASS" start="2025-10-14T10:31:47.759546" elapsed="0.108556"/>
+</if>
+<if>
+<branch type="IF" condition="'${password}' == 'None'">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T10:31:47.868622" level="INFO">Typing text 'Qa@12345' into text field 'user-password'.</msg>
+<arg>user-password</arg>
+<arg>Qa@12345</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T10:31:47.868398" elapsed="0.080346"/>
+</kw>
+<status status="PASS" start="2025-10-14T10:31:47.868152" elapsed="0.080738"/>
+</branch>
+<branch type="ELSE">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>user-password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-10-14T10:31:47.949244" elapsed="0.000289"/>
+</kw>
+<status status="NOT RUN" start="2025-10-14T10:31:47.948937" elapsed="0.000680"/>
+</branch>
+<status status="PASS" start="2025-10-14T10:31:47.868137" elapsed="0.081515"/>
+</if>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-14T10:31:47.949990" level="INFO">Clicking button 'xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/span/form/div/div/div[4]/div/button'.</msg>
+<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/span/form/div/div/div[4]/div/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T10:31:47.949753" elapsed="0.114170"/>
+</kw>
+<status status="PASS" start="2025-10-14T10:31:32.448780" elapsed="15.615324"/>
+</kw>
+<kw name="Merchant Selection Page" owner="merchant_selection">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>merchant-selection-modal___BV_modal_title_</arg>
+<arg>60</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T10:31:48.065154" elapsed="0.611351"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>merchant-selection-modal___BV_modal_title_</arg>
+<arg>60</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-10-14T10:31:48.676754" elapsed="0.022243"/>
+</kw>
+<if>
+<branch type="IF" condition="'${merchant}' == 'None'">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<arg>xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select</arg>
+<arg>${LENDER_DATA['Merchant']}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="NOT RUN" start="2025-10-14T10:31:48.699595" elapsed="0.000145"/>
+</kw>
+<status status="NOT RUN" start="2025-10-14T10:31:48.699199" elapsed="0.000629"/>
+</branch>
+<branch type="ELSE">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-10-14T10:31:48.700307" level="INFO">Selecting options from selection list 'xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select' by label Sunlight_HI.</msg>
+<arg>xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select</arg>
+<arg>${merchant}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-10-14T10:31:48.700018" elapsed="0.089226"/>
+</kw>
+<status status="PASS" start="2025-10-14T10:31:48.699869" elapsed="0.089556"/>
+</branch>
+<status status="PASS" start="2025-10-14T10:31:48.699172" elapsed="0.090297"/>
+</if>
+<arg>Sunlight_HI</arg>
+<status status="PASS" start="2025-10-14T10:31:48.064658" elapsed="0.724859"/>
+</kw>
+<kw name="Sending Application to Consumer" owner="sendApplication">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css=div.position-absolute.bg-white.rounded-lg</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-10-14T10:31:48.791571" elapsed="0.011428"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css:div.position-absolute.bg-white</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-10-14T10:31:48.803264" elapsed="0.016342"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-10-14T10:32:01.981960" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000264E62FDD10&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/dbad8b6f419fd8890f2baca1f82c2141/screenshot</msg>
+<msg time="2025-10-14T10:32:04.032088" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Execution terminated by signal</msg>
+<msg time="2025-10-14T10:32:04.045945" level="FAIL">ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))</msg>
 <errors>
-<msg time="2025-10-13T12:34:49.747023" level="ERROR">Execution stopped by user.</msg>
+<msg time="2025-10-14T10:32:01.981960" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000264E62FDD10&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/dbad8b6f419fd8890f2baca1f82c2141/screenshot</msg>
+<msg time="2025-10-14T10:32:04.032088" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Execution terminated by signal</msg>
+<msg time="2025-10-14T10:32:04.074149" level="ERROR">Execution stopped by user.</msg>
 </errors>
 </robot>
