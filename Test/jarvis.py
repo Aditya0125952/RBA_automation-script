@@ -79,36 +79,79 @@ def handle_debugging(params: dict, pipe, retriever):
     print(f"\n{Style.BRIGHT}🤖 Jarvis says:{Style.RESET_ALL}")
     print(assistant_response)
 
+# --- NEW FUNCTION: Test Case Generator ---
+def generate_test_case(prompt: str, pipe, retriever):
+    """Generates a new Robot Framework test case using a Chain of Thought RAG prompt."""
+    print(f"\n{Fore.GREEN}✅ Jarvis (Generator): Understood. Generating new test case...{Style.RESET_ALL}")
+
+    print("   - Searching knowledge base for relevant examples...")
+    relevant_docs = retriever.invoke(prompt)
+    context = "\n\n".join([f"--- From file: {doc.metadata['source']} ---\n{doc.page_content}" for doc in relevant_docs])
+
+    # --- NEW, ADVANCED "CHAIN OF THOUGHT" PROMPT ---
+    system_prompt_generator = """
+    You are an expert Robot Framework test case writer. Your task is to analyze the user's request and the provided code examples to generate a new test case by following a strict chain of thought.
+
+    **Your Chain of Thought (Internal Steps):**
+    1.  **Identify the Template:** Look at the user's request to find which existing test case to use as a template (e.g., "like FFC"). Find this template in the 'Existing Code Examples'.
+    2.  **Identify the Modification:** Analyze the user's request for the specific change they want to make (e.g., "add SSN screen before Personal Information page").
+    3.  **Construct the New Test Case:** Mentally copy the template test case. Then, apply the modification by adding, removing, or reordering the keywords as requested.
+    4.  **Format the Output:** Present the final, modified test case inside a `*** Test Cases ***` block. Ensure the test case is renamed appropriately for the new lender mentioned by the user.
+
+    Your final output must be ONLY the `*** Test Cases ***` block. Do not provide explanations.
+    """
+    
+    user_prompt_generator = f"""
+    **Existing Code Examples from the Project:**
+    {context}
+
+    **User's Request:**
+    "{prompt}"
+
+    Please follow your chain of thought and generate the new test case now.
+    """
+    
+    messages = [{"role": "system", "content": system_prompt_generator}, {"role": "user", "content": user_prompt_generator}]
+    
+    outputs = run_with_animation(pipe, messages, max_new_tokens=500, do_sample=False)
+    
+    assistant_response = outputs[0]['generated_text'][-1]['content']
+    print(f"\n{Style.BRIGHT}🤖 Jarvis says: Here is the generated test case for you:{Style.RESET_ALL}")
+    print(assistant_response)
+
 def main():
+    """Main function to orchestrate the AI assistant."""
     parser = argparse.ArgumentParser(description="Jarvis: Your AI Automation Assistant.")
     parser.add_argument("prompt", type=str, help="Your request in plain English.")
     args = parser.parse_args()
 
     print("🧠 Initializing Jarvis...")
     print("   - Loading AI model...")
-    pipe = pipeline("text-generation", model=MODEL_ID, torch_dtype="auto", device_map="auto")
+    pipe = pipeline("text-generation", model=MODEL_ID, trust_remote_code=True, torch_dtype="auto", device_map="auto")
     
     print("   - Loading project knowledge base (RAG)...")
     try:
         embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL_ID)
         db = FAISS.load_local(INDEX_NAME, embeddings, allow_dangerous_deserialization=True)
-        retriever = db.as_retriever()
+        # This is the updated line to make retrieval faster
+        retriever = db.as_retriever(search_kwargs={'k': 2}) 
     except Exception as e:
         print(f"{Fore.RED}❌ Critical Error: Could not load the knowledge base: {e}"); sys.exit(1)
 
     print(f"{Fore.GREEN}✅ Jarvis is online and ready.{Style.RESET_ALL}")
 
     try:
-        decision = get_ai_decision(args.prompt, pipe)
-        tool = decision.get("tool_to_use")
-        parameters = decision.get("parameters")
-
-        if tool == "run_automation":
-            execute_automation(parameters)
-        elif tool == "debug_failure":
-            handle_debugging(parameters, pipe, retriever)
+        # This is the corrected, Python-based routing logic.
+        prompt_lower = args.prompt.lower()
+        if any(word in prompt_lower for word in ['failed', 'fails', 'error', 'debug', 'log']):
+            handle_debugging(args.prompt, pipe, retriever)
+        elif any(word in prompt_lower for word in ['run', 'execute', 'start']):
+            execute_automation(args.prompt, pipe)
+        elif any(word in prompt_lower for word in ['generate', 'create', 'write a test']):
+            generate_test_case(args.prompt, pipe, retriever)
         else:
-            print(f"{Fore.YELLOW}🤔 Jarvis: I'm not sure what to do. Please try rephrasing.")
+            # Fallback to a general conversation handler if you have one
+            print(f"\n{Fore.YELLOW}🤔 Jarvis: I'm not sure what to do. Please try rephrasing your request to run, debug, or generate a test.")
             
         print(f"\n{Style.BRIGHT}✨ Task complete.{Style.RESET_ALL}")
     except Exception as e:
