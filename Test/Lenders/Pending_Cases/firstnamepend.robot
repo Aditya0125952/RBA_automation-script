@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
-${FFC_DATA}    ${CURDIR}/../../InputData/prove2.json
+${FFC_DATA}    ${CURDIR}/../../InputData/FF_TestData.json
 *** Test Cases ***
 First Name Pending - Applicant
     [Tags]    Pend    rba6    S101817
@@ -12,7 +12,7 @@ First Name Pending - Applicant
     Merchant Selection Page    Sunlight_HI
     #Selecting The Merchant Location
     Sending Application to Consumer
-    Dc plans page    60000    0
+    Dc plans page
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
@@ -31,7 +31,7 @@ First Name Pending - Applicant
     Onfido Page
 
 First Name Pending - Co-Applicant (Primary Applicant)
-    [Tags]    Pend    rba    Co-App    S101817
+    [Tags]   rba    Co-App    S101817
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login
     Merchant Selection Page    Sunlight_HI
@@ -41,7 +41,7 @@ First Name Pending - Co-Applicant (Primary Applicant)
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    Set To Dictionary    ${modified_app}    FirstName=YURII
+    Set To Dictionary    ${modified_app}    FirstName=anaa
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up
@@ -55,7 +55,7 @@ First Name Pending - Co-Applicant (Primary Applicant)
     Handle Initial Flow
     Onfido Page
     Sleep    25
-    #Wait Until Element Is Visible    xpath:(//p)[1]    120
+    Wait Until Element Is Visible    xpath:(//p)[1]    120
     URL Applicant
     Application Authorization Page
     Credit Freeze Page
