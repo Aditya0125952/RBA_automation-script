@@ -1,52 +1,60 @@
-# build_knowledge_base.py
+# Save this as create_knowledge_base.py
+import sys
 from pathlib import Path
-from langchain_community.document_loaders import TextLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from colorama import init, Fore, Style
 
-# The main folder containing your code files
-SOURCE_DIRECTORY = "."
-# The name of the folder where the AI's 'memory' will be saved
+# --- Configuration ---
+init(autoreset=True)
+# This will search for .robot files inside the 'Lenders' and 'common_pages' folders
+ROBOT_FOLDERS_TO_INDEX = ["Lenders", "common_pages"]
+EMBEDDING_MODEL_ID = "all-MiniLM-L6-v2"
 INDEX_NAME = "project_knowledge_base"
+# ---------------------
 
-def build_kb():
-    """Scans your project and builds a searchable 'memory' (vector store) for the AI."""
-    print(f"Scanning for .py and .robot files in '{SOURCE_DIRECTORY}'...")
+def main():
+    print("🧠 Starting to build the project knowledge base...")
     
-    # Find all .py and .robot files, excluding the virtual environment
-    all_files = list(Path(SOURCE_DIRECTORY).glob("**/*.py")) + list(Path(SOURCE_DIRECTORY).glob("**/*.robot"))
-    filtered_files = [path for path in all_files if '.venv' not in path.parts]
-    
-    if not filtered_files:
-        print("No .py or .robot script files found (outside of .venv). Aborting.")
-        return
+    all_robot_files = []
+    for folder in ROBOT_FOLDERS_TO_INDEX:
+        folder_path = Path(folder)
+        if not folder_path.is_dir():
+            print(f"{Fore.YELLOW}Warning: Directory not found, skipping: {folder}{Style.RESET_ALL}")
+            continue
+        
+        files_found = list(folder_path.rglob("*.robot"))
+        print(f"   - Found {len(files_found)} .robot files in '{folder}'")
+        all_robot_files.extend(files_found)
 
-    print(f"Found {len(filtered_files)} relevant files. Loading their content...")
-    
-    documents = []
-    for fp in filtered_files:
+    if not all_robot_files:
+        print(f"{Fore.RED}❌ Error: No .robot files were found in the specified directories. Aborting.")
+        sys.exit(1)
+
+    print(f"\n   - Loading content from {len(all_robot_files)} files...")
+    all_documents = []
+    for file_path in all_robot_files:
         try:
-            loader = TextLoader(str(fp), encoding='utf-8', autodetect_encoding=True)
-            documents.extend(loader.load())
+            loader = TextLoader(str(file_path), encoding='utf-8')
+            all_documents.extend(loader.load())
         except Exception as e:
-            print(f"Warning: Skipping file {fp} due to error: {e}")
+            print(f"{Fore.YELLOW}Warning: Could not load file {file_path}: {e}{Style.RESET_ALL}")
 
-    # Split the file contents into smaller, manageable chunks
+    print("   - Splitting documents into chunks...")
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-    chunked_docs = text_splitter.split_documents(documents)
-    print(f"Split content into {len(chunked_docs)} chunks.")
+    docs = text_splitter.split_documents(all_documents)
 
-    # Load the model that turns text into searchable vectors
-    print("Creating text embeddings (this may download a model on the first run)...")
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    print(f"   - Embedding {len(docs)} text chunks... (This may take a moment)")
+    embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL_ID)
+    
+    db = FAISS.from_documents(docs, embeddings)
 
-    # Build the vector store from the chunks and save it to your disk
-    print("Building and saving the knowledge base...")
-    db = FAISS.from_documents(chunked_docs, embeddings)
+    print(f"   - Saving knowledge base to disk as '{INDEX_NAME}'")
     db.save_local(INDEX_NAME)
     
-    print(f"\n✅ Success! Your AI's 'memory' is saved in the '{INDEX_NAME}' folder.")
+    print(f"\n{Fore.GREEN}✅ Success! The knowledge base is built and ready.{Style.RESET_ALL}")
 
 if __name__ == "__main__":
-    build_kb()
+    main()

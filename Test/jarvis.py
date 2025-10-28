@@ -1,5 +1,6 @@
 # Save this as jarvis.py
 import argparse
+import re  # <-- Added for the new generator logic
 import json
 import subprocess
 import sys
@@ -22,7 +23,7 @@ MODEL_ID = "Qwen/Qwen2-1.5B-Instruct"
 EMBEDDING_MODEL_ID = "all-MiniLM-L6-v2"
 INDEX_NAME = "project_knowledge_base"
 
-# --- Animation Logic (This was missing) ---
+# --- Animation Logic ---
 done = False
 def animate():
     for c in itertools.cycle(['.', '..', '...']):
@@ -41,11 +42,10 @@ def run_with_animation(func, *args, **kwargs):
 
 # --- Handler Functions ---
 def execute_automation(params: dict):
-    # This function needs to be fully implemented with your pabots.py logic
+    """(Placeholder) Executes the pabots.py script with parsed parameters."""
     print(f"\n{Fore.GREEN}✅ Jarvis (Operator): Understood. Preparing automation command...{Style.RESET_ALL}")
     print(f"{Fore.YELLOW}   (Full operator logic would run here with params: {params})")
 
-# --- CORRECTED FUNCTION SIGNATURE ---
 def handle_debugging(params: dict, pipe, retriever):
     """Analyzes a failed test run using a hyper-focused RAG prompt."""
     prompt = params.get("query") # Extract the prompt from the parameters dictionary
@@ -79,24 +79,41 @@ def handle_debugging(params: dict, pipe, retriever):
     print(f"\n{Style.BRIGHT}🤖 Jarvis says:{Style.RESET_ALL}")
     print(assistant_response)
 
-# --- NEW FUNCTION: Test Case Generator ---
+# --- UPDATED FUNCTION: Test Case Generator ---
 def generate_test_case(prompt: str, pipe, retriever):
     """Generates a new Robot Framework test case using a Chain of Thought RAG prompt."""
     print(f"\n{Fore.GREEN}✅ Jarvis (Generator): Understood. Generating new test case...{Style.RESET_ALL}")
 
-    print("   - Searching knowledge base for relevant examples...")
-    relevant_docs = retriever.invoke(prompt)
-    context = "\n\n".join([f"--- From file: {doc.metadata['source']} ---\n{doc.page_content}" for doc in relevant_docs])
+    print("   - Searching knowledge base for relevant examples (RAG)...")
+    
+    print("     - Retrieving context for 'modification' (SSN rekyc)...")
+    docs_from_full_prompt = retriever.invoke(prompt)
 
-    # --- NEW, ADVANCED "CHAIN OF THOUGHT" PROMPT ---
+    template_docs = []
+    # --- UPDATED REGEX: More flexible ---
+    template_match = re.search(r"(like|same as|same like) (the )?([\w]+) flow", prompt, re.IGNORECASE)
+    
+    if template_match:
+        template_name = template_match.group(3) # This will be "FFC"
+        template_query = f"{template_name} happy flow"
+        print(f"     - Retrieving context for 'template' ({template_name})...")
+        template_docs = retriever.invoke(template_query)
+    
+    all_docs = docs_from_full_prompt + template_docs
+    unique_docs = {doc.page_content: doc for doc in all_docs}.values()
+    context = "\n\n".join([f"--- From file: {doc.metadata['source']} ---\n{doc.page_content}" for doc in unique_docs])
+
     system_prompt_generator = """
     You are an expert Robot Framework test case writer. Your task is to analyze the user's request and the provided code examples to generate a new test case by following a strict chain of thought.
 
     **Your Chain of Thought (Internal Steps):**
     1.  **Identify the Template:** Look at the user's request to find which existing test case to use as a template (e.g., "like FFC"). Find this template in the 'Existing Code Examples'.
-    2.  **Identify the Modification:** Analyze the user's request for the specific change they want to make (e.g., "add SSN screen before Personal Information page").
-    3.  **Construct the New Test Case:** Mentally copy the template test case. Then, apply the modification by adding, removing, or reordering the keywords as requested.
-    4.  **Format the Output:** Present the final, modified test case inside a `*** Test Cases ***` block. Ensure the test case is renamed appropriately for the new lender mentioned by the user.
+    2.  **Identify the Modification:** Analyze the user's request for the specific change they want to make (e.g., "add SSN screen after the Personal Information page").
+    3.  **Identify Modification Context:** Look for keywords related to the modification (e.g., "SSN Re-Kyc Screen") in the 'Existing Code Examples' to see how it's implemented.
+    4.  **Construct the New Test Case:** a. Mentally copy the template test case (from step 1).
+        b. Rename the test case to match the new lender (e.g., "LPU").
+        c. Apply the modification (from step 2) using the keywords from the context (from step 3).
+    5.  **Format the Output:** Present the final, modified test case inside a `*** Test Cases ***` block.
 
     Your final output must be ONLY the `*** Test Cases ***` block. Do not provide explanations.
     """
@@ -113,12 +130,82 @@ def generate_test_case(prompt: str, pipe, retriever):
     
     messages = [{"role": "system", "content": system_prompt_generator}, {"role": "user", "content": user_prompt_generator}]
     
-    outputs = run_with_animation(pipe, messages, max_new_tokens=500, do_sample=False)
+    generation_args = {
+        "max_new_tokens": 500,
+        "do_sample": False
+    }
+    
+    outputs = run_with_animation(pipe, messages, **generation_args)
     
     assistant_response = outputs[0]['generated_text'][-1]['content']
     print(f"\n{Style.BRIGHT}🤖 Jarvis says: Here is the generated test case for you:{Style.RESET_ALL}")
     print(assistant_response)
+# --- NEW: Placeholder for Test Data Generation ---
+def generate_test_data(prompt: str, pipe, retriever):
+    """(Placeholder) Generates new JSON test data based on a prompt."""
+    print(f"\n{Fore.GREEN}✅ Jarvis (Data Generator): Understood. Generating new test data...{Style.RESET_ALL}")
+    
+    # --- This is where you would build the full function ---
+    # 1. Define a system_prompt_data_generator with your JSON schemas
+    # 2. Call the LLM (pipe) with the prompt
+    # 3. Parse the JSON response
+    # 4. Ask the user for a filename (e.g., input("Enter filename: ")) and save it
+    # ----------------------------------------------------
+    
+    print(f"{Fore.YELLOW}   (Test data generation logic is not yet implemented.)")
+    print(f"{Fore.YELLOW}   Prompt was: {prompt}")
 
+# --- NEW: The AI Router Function ---
+def route_request(prompt: str, pipe) -> dict:
+    """
+    Uses the LLM to classify the user's intent and return a structured decision.
+    """
+    print(f"   - AI Router analyzing prompt...")
+    
+    system_prompt_router = """
+    You are a high-level routing assistant for a test automation framework.
+    Your job is to classify the user's intent into one of five categories:
+    1. "run_test": For executing tests (e.g., "run ffc", "start the pending test").
+    2. "debug_test": For analyzing failures (e.g., "why did it fail?", "debug the log").
+    3. "generate_test_case": For writing a new .robot test case (e.g., "create a new script", "provide a test for LPU").
+    4. "generate_test_data": For creating new JSON test data (e.g., "make test data", "I need a new applicant file").
+    5. "unknown": For anything else (e.g., "hello", "what is the weather?").
+
+    You must respond ONLY with a single, valid JSON object with two keys:
+    - "intent": The category you chose (e.g., "generate_test_case").
+    - "query": The user's original, unmodified prompt.
+    """
+    
+    messages = [
+        {"role": "system", "content": system_prompt_router},
+        {"role": "user", "content": prompt}
+    ]
+    
+    # --- UPDATED: Added generation_args to silence warnings ---
+    generation_args = {
+        "max_new_tokens": 150,
+        "do_sample": False
+    }
+    
+    outputs = pipe(messages, **generation_args)
+    
+    try:
+        # Extract the JSON part of the response
+        response_text = outputs[0]['generated_text'][-1]['content']
+        json_str = response_text[response_text.find('{') : response_text.rfind('}')+1]
+        
+        decision = json.loads(json_str)
+        if "intent" not in decision or "query" not in decision:
+             raise ValueError("Invalid JSON format from router.")
+        
+        print(f"   - AI Router decision: {Fore.CYAN}{decision['intent']}{Style.RESET_ALL}")
+        return decision
+        
+    except Exception as e:
+        print(f"{Fore.RED}❌ AI Router failed: {e}{Style.RESET_ALL}")
+        return {"intent": "unknown", "query": prompt}
+
+# --- REPLACED: The main() function now uses the AI Router ---
 def main():
     """Main function to orchestrate the AI assistant."""
     parser = argparse.ArgumentParser(description="Jarvis: Your AI Automation Assistant.")
@@ -133,27 +220,37 @@ def main():
     try:
         embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL_ID)
         db = FAISS.load_local(INDEX_NAME, embeddings, allow_dangerous_deserialization=True)
-        # This is the updated line to make retrieval faster
-        retriever = db.as_retriever(search_kwargs={'k': 2}) 
+        retriever = db.as_retriever(search_kwargs={'k': 5}) # Kept 'k=5' from our last fix
     except Exception as e:
         print(f"{Fore.RED}❌ Critical Error: Could not load the knowledge base: {e}"); sys.exit(1)
 
     print(f"{Fore.GREEN}✅ Jarvis is online and ready.{Style.RESET_ALL}")
 
     try:
-        # This is the corrected, Python-based routing logic.
-        prompt_lower = args.prompt.lower()
-        if any(word in prompt_lower for word in ['failed', 'fails', 'error', 'debug', 'log']):
-            handle_debugging(args.prompt, pipe, retriever)
-        elif any(word in prompt_lower for word in ['run', 'execute', 'start']):
-            execute_automation(args.prompt, pipe)
-        elif any(word in prompt_lower for word in ['generate', 'create', 'write a test']):
-            generate_test_case(args.prompt, pipe, retriever)
-        else:
-            # Fallback to a general conversation handler if you have one
+        # --- This is the new AI-powered routing logic ---
+        ai_decision = route_request(args.prompt, pipe)
+        
+        intent = ai_decision.get("intent")
+        query = ai_decision.get("query")
+
+        if intent == "generate_test_case":
+            generate_test_case(query, pipe, retriever)
+        
+        elif intent == "debug_test":
+            handle_debugging({"query": query}, pipe, retriever)
+            
+        elif intent == "run_test":
+            # (Placeholder) We can build a second AI parser here later
+            execute_automation({"query": query})
+        
+        elif intent == "generate_test_data":
+            generate_test_data(query, pipe, retriever)
+            
+        else: # This handles "unknown"
             print(f"\n{Fore.YELLOW}🤔 Jarvis: I'm not sure what to do. Please try rephrasing your request to run, debug, or generate a test.")
             
         print(f"\n{Style.BRIGHT}✨ Task complete.{Style.RESET_ALL}")
+
     except Exception as e:
         print(f"\n{Fore.RED}❌ A critical error occurred: {e}")
 

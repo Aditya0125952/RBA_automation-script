@@ -7,7 +7,7 @@ ${INSTANCE}    rba2
 
 *** Test Cases ***
 FFC HappyCase
-    [Tags]    ${INSTANCE}    R418009
+    [Tags]    ${INSTANCE}    
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login
     Merchant Selection Page
@@ -17,7 +17,7 @@ FFC HappyCase
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    Set To Dictionary    ${modified_app}    email=aditya.chelluru+4354@finmkt.io
+    Set To Dictionary    ${modified_app}    email=siva.konisetti@finmkt.io
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up

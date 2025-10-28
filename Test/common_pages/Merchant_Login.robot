@@ -21,7 +21,7 @@ Merchant Portal Login
     Open Browser    https://${base_url}-qa.mktplacegateway.com/m/login    chrome
     Wait Until Page Contains Element    user-name    30
     IF    '${user}'=='None'
-        Input Text    user-name    aditya.chelluru@finmkt.io
+        Input Text    user-name    aditya.chelluru+12@finmkt.io
     ELSE
         Input Text    user-name    ${user}
     END
