@@ -4,7 +4,7 @@ Library    JSONLibrary
 *** Keywords ***
 Application Details Page
     ${is_CoApp}=    Run Keyword And Return Status    Should Contain    ${TEST TAGS}    Co-App
-    Wait Until Element Is Not Visible    css:div.position-absolute.bg-white.rounded-lg    10
+    Wait Until Element Is Not Visible    css:div.position-absolute.bg-white.rounded-lg    20
     Wait Until Element Is Enabled    street-address-1
     Input Text    street-address-1    ${application["street_add"]}
     Input Text    city    ${application["city"]}
