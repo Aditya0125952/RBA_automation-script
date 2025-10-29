@@ -10,9 +10,9 @@ Onfido Page
     Wait Until Element Is Visible    onfido-sdk    20
     Wait Until Keyword Succeeds    15s    500ms
     ...    Select Frame    xpath://iframe[@name='onfido-welcome']
-    Wait Until Element Is Visible    xpath://*[@id="Welcome-root"]/div/div[3]/div[1]/button    20    
-    Wait Until Element Is Enabled    xpath://*[@id="Welcome-root"]/div/div[3]/div[1]/button    20
-    Click Button    xpath://*[@id="Welcome-root"]/div/div[3]/div[1]/button
+    Wait Until Element Is Visible    xpath:///*[@id="app"]/div/div[3]/div[1]/button    20    
+    Wait Until Element Is Enabled    xpath:///*[@id="app"]/div/div[3]/div[1]/button    20
+    Click Button    xpath://*[@id="app"]/div/div[3]/div[1]/button
     Unselect Frame
     Wait Until Keyword Succeeds    15    500   
     ...    Select Frame    xpath://*[@id="onfido-sdk"]/iframe[1]
