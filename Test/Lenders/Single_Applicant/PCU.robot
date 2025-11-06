@@ -1,15 +1,16 @@
 *** Settings ***
 Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
-
+Library         JSONLibrary  # Needed for parsing
+Library         BuiltIn
 *** Variables ***
-${GICU_DATA}    ${CURDIR}/../../InputData/GICU_TestData.json
-${instance}    rba5
+${PCU_DATA}    ${CURDIR}/../../InputData/PCU_TestData.json
+${INSTANCE}    rba
 
 *** Test Cases ***
-GICU HappyCase
-    [Tags]    ${instance}    R412007
-    Load Lender Data    ${GICU_DATA}
+PCU HappyCase
+    [Tags]    ${instance}    R412005
+    Load Lender Data    ${PCU_DATA}
     Merchant Portal Login
     Merchant Selection Page
     Sending Application to Consumer

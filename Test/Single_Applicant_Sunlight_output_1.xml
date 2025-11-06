@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2025-10-31T12:45:16.884555" rpa="false" schemaversion="5">
+<suite id="s1" name="Sunlight" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\Lenders\Single_Applicant\Sunlight.robot">
+<test id="s1-t1" name="SUNLIGHT Ownership_Stipulation" line="31">
+<kw name="Load Lender Data" owner="LoadingInputFile">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-10-31T12:45:23.059591" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\InputData\Sunlight_TestData.json"&gt;C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\InputData\Sunlight_TestData.json&lt;/a&gt;'.</msg>
+<msg time="2025-10-31T12:45:23.078608" level="INFO">${json_text} = {
+    "planID": "S100617",
+    "projectCost": "12000",
+    "depositAmount": "500",
+    "Applicant": {
+        "FirstName": "Ana",
+          "LastName": "Villar",
+          "email": "aditya.chelluru@fi...</msg>
+<var>${json_text}</var>
+<arg>${file_path}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-10-31T12:45:23.059455" elapsed="0.019209"/>
+</kw>
+<kw name="Convert String To Json" owner="JSONLibrary">
+<msg time="2025-10-31T12:45:23.079161" level="INFO">${data} = {'planID': 'S100617', 'projectCost': '12000', 'depositAmount': '500', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', '...</msg>
+<var>${data}</var>
+<arg>${json_text}</arg>
+<doc>Convert String to JSON object</doc>
+<status status="PASS" start="2025-10-31T12:45:23.078885" elapsed="0.000304"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-10-31T12:45:23.079501" level="INFO">${index1} = None</msg>
+<arg>${index1}</arg>
+<arg>${index1}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-10-31T12:45:23.079342" elapsed="0.000189"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-10-31T12:45:23.079807" level="INFO">${index2} = None</msg>
+<arg>${index2}</arg>
+<arg>${index2}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-10-31T12:45:23.079653" elapsed="0.000185"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-10-31T12:45:23.080059" level="INFO">${LENDER_DATA} = {'planID': 'S100617', 'projectCost': '12000', 'depositAmount': '500', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', '...</msg>
+<arg>${LENDER_DATA}</arg>
+<arg>${data}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-10-31T12:45:23.079942" elapsed="0.000142"/>
+</kw>
+<arg>${Sunlight_DATA}</arg>
+<status status="PASS" start="2025-10-31T12:45:23.058467" elapsed="0.021668"/>
+</kw>
+<kw name="Merchant Portal Login" owner="Merchant_Login">
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Start With" owner="BuiltIn">
+<msg time="2025-10-31T12:45:23.081396" level="FAIL">'R418006' does not start with 'rba'</msg>
+<arg>${tag}</arg>
+<arg>rba</arg>
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<status status="FAIL" start="2025-10-31T12:45:23.081247" elapsed="0.000260">'R418006' does not start with 'rba'</status>
+</kw>
+<msg time="2025-10-31T12:45:23.081589" level="INFO">${is_present} = False</msg>
+<var>${is_present}</var>
+<arg>Should Start With</arg>
+<arg>${tag}</arg>
+<arg>rba</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-10-31T12:45:23.081123" elapsed="0.000483"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_present}">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>this is the tag : ${tag}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-10-31T12:45:23.082048" elapsed="0.000019"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${base_url}</var>
+<arg>${tag}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-10-31T12:45:23.082160" elapsed="0.000017"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>this is the base url ${base_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-10-31T12:45:23.082254" elapsed="0.000015"/>
+</kw>
+<kw name="Exit For Loop" owner="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" start="2025-10-31T12:45:23.082341" elapsed="0.000015"/>
+</kw>
+<status status="NOT RUN" start="2025-10-31T12:45:23.081903" elapsed="0.000473"/>
+</branch>
+<status status="PASS" start="2025-10-31T12:45:23.081660" elapsed="0.000747"/>
+</if>
+<var name="${tag}">R418006</var>
+<status status="PASS" start="2025-10-31T12:45:23.080997" elapsed="0.001429"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Start With" owner="BuiltIn">
+<arg>${tag}</arg>
+<arg>rba</arg>
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<status status="PASS" start="2025-10-31T12:45:23.082721" elapsed="0.000088"/>
+</kw>
+<msg time="2025-10-31T12:45:23.082866" level="INFO">${is_present} = True</msg>
+<var>${is_present}</var>
+<arg>Should Start With</arg>
+<arg>${tag}</arg>
+<arg>rba</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-10-31T12:45:23.082616" elapsed="0.000265"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_present}">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>this is the tag : ${tag}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-31T12:45:23.083034" elapsed="0.000204"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-31T12:45:23.083428" level="INFO">${base_url} = rba</msg>
+<var>${base_url}</var>
+<arg>${tag}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-31T12:45:23.083337" elapsed="0.000108"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>this is the base url ${base_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-31T12:45:23.083535" elapsed="0.000127"/>
+</kw>
+<kw name="Exit For Loop" owner="BuiltIn">
+<msg time="2025-10-31T12:45:23.083807" level="INFO">Exiting for loop altogether.</msg>
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="PASS" start="2025-10-31T12:45:23.083750" elapsed="0.000103"/>
+</kw>
+<status status="PASS" start="2025-10-31T12:45:23.082933" elapsed="0.000948"/>
+</branch>
+<status status="PASS" start="2025-10-31T12:45:23.082920" elapsed="0.000994"/>
+</if>
+<var name="${tag}">rba</var>
+<status status="PASS" start="2025-10-31T12:45:23.082532" elapsed="0.001399"/>
+</iter>
+<var>${tag}</var>
+<value>@{TEST_TAGS}</value>
+<status status="PASS" start="2025-10-31T12:45:23.080828" elapsed="0.003136"/>
+</for>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-10-31T12:45:23.084328" level="INFO">Opening browser 'chrome' to base url 'https://rba-qa.mktplacegateway.com/m/login'.</msg>
+<arg>https://${base_url}-qa.mktplacegateway.com/m/login</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-10-31T12:45:23.084150" elapsed="31.814601"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>user-name</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-10-31T12:45:54.899502" elapsed="0.050949"/>
+</kw>
+<if>
+<branch type="IF" condition="'${user}'=='None'">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T12:45:54.953447" level="INFO">Typing text 'aditya.chelluru+12@finmkt.io' into text field 'user-name'.</msg>
+<arg>user-name</arg>
+<arg>aditya.chelluru+12@finmkt.io</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T12:45:54.952730" elapsed="0.551331"/>
+</kw>
+<status status="PASS" start="2025-10-31T12:45:54.950927" elapsed="0.553555"/>
+</branch>
+<branch type="ELSE">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>user-name</arg>
+<arg>${user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-10-31T12:45:55.505521" elapsed="0.000333"/>
+</kw>
+<status status="NOT RUN" start="2025-10-31T12:45:55.504712" elapsed="0.001440"/>
+</branch>
+<status status="PASS" start="2025-10-31T12:45:54.950838" elapsed="0.555502"/>
+</if>
+<if>
+<branch type="IF" condition="'${password}' == 'None'">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T12:45:55.509901" level="INFO">Typing text 'Qa@12345' into text field 'user-password'.</msg>
+<arg>user-password</arg>
+<arg>Qa@12345</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T12:45:55.508657" elapsed="0.272124"/>
+</kw>
+<status status="PASS" start="2025-10-31T12:45:55.506843" elapsed="0.274170"/>
+</branch>
+<branch type="ELSE">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>user-password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-10-31T12:45:55.781771" elapsed="0.000162"/>
+</kw>
+<status status="NOT RUN" start="2025-10-31T12:45:55.781226" elapsed="0.000933"/>
+</branch>
+<status status="PASS" start="2025-10-31T12:45:55.506740" elapsed="0.275558"/>
+</if>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T12:45:55.783487" level="INFO">Clicking button 'xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/span/form/div/div/div[4]/div/button'.</msg>
+<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/span/form/div/div/div[4]/div/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T12:45:55.782949" elapsed="0.348797"/>
+</kw>
+<status status="PASS" start="2025-10-31T12:45:23.080609" elapsed="33.051615"/>
+</kw>
+<kw name="Merchant Selection Page" owner="merchant_selection">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>merchant-selection-modal___BV_modal_title_</arg>
+<arg>60</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T12:45:56.136399" elapsed="0.956371"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>merchant-selection-modal___BV_modal_title_</arg>
+<arg>60</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-10-31T12:45:57.093322" elapsed="0.040662"/>
+</kw>
+<if>
+<branch type="IF" condition="'${merchant}' == 'None'">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<arg>xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select</arg>
+<arg>${LENDER_DATA['Merchant']}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="NOT RUN" start="2025-10-31T12:45:57.134783" elapsed="0.000076"/>
+</kw>
+<status status="NOT RUN" start="2025-10-31T12:45:57.134240" elapsed="0.000704"/>
+</branch>
+<branch type="ELSE">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-10-31T12:45:57.136281" level="INFO">Selecting options from selection list 'xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select' by label Sunlight_HI.</msg>
+<arg>xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select</arg>
+<arg>${merchant}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-10-31T12:45:57.135468" elapsed="0.344398"/>
+</kw>
+<status status="PASS" start="2025-10-31T12:45:57.135031" elapsed="0.345192"/>
+</branch>
+<status status="PASS" start="2025-10-31T12:45:57.134194" elapsed="0.346480"/>
+</if>
+<arg>Sunlight_HI</arg>
+<status status="PASS" start="2025-10-31T12:45:56.134286" elapsed="1.346712"/>
+</kw>
+<kw name="Sending Application to Consumer" owner="sendApplication">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css=div.position-absolute.bg-white.rounded-lg</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-10-31T12:45:57.484489" elapsed="0.057601"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<msg time="2025-10-31T12:46:01.122565" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
+<arg>css:div.position-absolute.bg-white</arg>
+<arg>60</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-10-31T12:45:57.543092" elapsed="3.798992"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']</arg>
+<arg>60</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T12:46:01.342815" elapsed="0.057913"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-10-31T12:46:01.402507" elapsed="0.078408"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css=div.position-absolute.bg-white.rounded-lg</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-10-31T12:46:01.481517" elapsed="0.022325"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T12:46:01.504796" level="INFO">Clicking button 'xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']'.</msg>
+<arg>xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T12:46:01.504355" elapsed="0.218948"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<msg time="2025-10-31T12:46:08.059752" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=141.0.7390.123)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6bdcfe8e5+80021]
+	GetHandleVerifier [0x0x7ff6bdcfe940+80112]
+	(No symbol) [0x0x7ff6bda8060f]
+	(No symbol) [0x0x7ff6bda582f1]
+	(No symbol) [0x0x7ff6bdb088be]
+	(No symbol) [0x0x7ff6bdb28fa2]
+	(No symbol) [0x0x7ff6bdb01003]
+	(No symbol) [0x0x7ff6bdac95d1]
+	(No symbol) [0x0x7ff6bdaca3f3]
+	GetHandleVerifier [0x0x7ff6bdfbdc7d+2960429]
+	GetHandleVerifier [0x0x7ff6bdfb7f3a+2936554]
+	GetHandleVerifier [0x0x7ff6bdfd8977+3070247]
+	GetHandleVerifier [0x0x7ff6bdd183ce+185214]
+	GetHandleVerifier [0x0x7ff6bdd1fe1f+216527]
+	GetHandleVerifier [0x0x7ff6bdd07b24+117460]
+	GetHandleVerifier [0x0x7ff6bdd07cdf+117903]
+	GetHandleVerifier [0x0x7ff6bdcedbb8+11112]
+	BaseThreadInitThunk [0x0x7ff93aafe8d7+23]
+	RtlUserThreadStart [0x0x7ff93be7c34c+44]
+</msg>
+<msg time="2025-10-31T12:46:08.062177" level="FAIL">TypeError: cannot unpack non-iterable NoneType object</msg>
+<arg>title:Point Of Sale</arg>
+<arg>20</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="FAIL" start="2025-10-31T12:46:01.724042" elapsed="6.662133">TypeError: cannot unpack non-iterable NoneType object</status>
+</kw>
+<status status="FAIL" start="2025-10-31T12:45:57.482771" elapsed="10.906512">TypeError: cannot unpack non-iterable NoneType object</status>
+</kw>
+<kw name="Dc plans page" owner="DC_Plan_Page">
+<arg>76000</arg>
+<arg>0</arg>
+<status status="NOT RUN" start="2025-10-31T12:46:08.406130" elapsed="0.000336"/>
+</kw>
+<kw name="Type of Application page" owner="Application_type_page">
+<status status="NOT RUN" start="2025-10-31T12:46:08.416833" elapsed="0.000834"/>
+</kw>
+<kw name="Load and Prepare applicant details" owner="PrepareApplicant_Details">
+<status status="NOT RUN" start="2025-10-31T12:46:08.420049" elapsed="0.000798"/>
+</kw>
+<kw name="Copy Dictionary" owner="Collections">
+<var>${modified_app}</var>
+<arg>${application}</arg>
+<doc>Returns a copy of the given dictionary.</doc>
+<status status="NOT RUN" start="2025-10-31T12:46:08.429005" elapsed="0.000474"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${modified_app}</arg>
+<arg>email=aditya.chelluru@finmkt.io</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-10-31T12:46:08.440166" elapsed="0.000267"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<arg>${application}</arg>
+<arg>${modified_app}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" start="2025-10-31T12:46:08.442488" elapsed="0.000302"/>
+</kw>
+<kw name="Application Details Page" owner="Application_details_Page">
+<status status="NOT RUN" start="2025-10-31T12:46:08.444552" elapsed="0.000388"/>
+</kw>
+<kw name="verification info pop-up" owner="Verification_Info_pop-up">
+<status status="NOT RUN" start="2025-10-31T12:46:08.447868" elapsed="0.000361"/>
+</kw>
+<kw name="URL Applicant" owner="URL_applicant">
+<status status="NOT RUN" start="2025-10-31T12:46:08.451118" elapsed="0.000288"/>
+</kw>
+<kw name="Application Authorization Page" owner="Application_Authorization">
+<status status="NOT RUN" start="2025-10-31T12:46:08.453136" elapsed="0.000247"/>
+</kw>
+<kw name="Credit freeze page" owner="Credit_Freeze_Page">
+<status status="NOT RUN" start="2025-10-31T12:46:08.456081" elapsed="0.000260"/>
+</kw>
+<kw name="prove data" owner="Prove_data_Page">
+<status status="NOT RUN" start="2025-10-31T12:46:08.459171" elapsed="0.000112"/>
+</kw>
+<kw name="basic information" owner="Basic_Info_Page">
+<status status="NOT RUN" start="2025-10-31T12:46:08.460173" elapsed="0.000106"/>
+</kw>
+<kw name="Personal information" owner="Personal_Information_Page">
+<status status="NOT RUN" start="2025-10-31T12:46:08.461091" elapsed="0.000100"/>
+</kw>
+<kw name="Handle Initial Flow" owner="KBA_Page">
+<status status="NOT RUN" start="2025-10-31T12:46:08.461761" elapsed="0.000086"/>
+</kw>
+<tag>R418006</tag>
+<tag>rba</tag>
+<status status="FAIL" start="2025-10-31T12:45:23.057782" elapsed="45.404876">TypeError: cannot unpack non-iterable NoneType object</status>
+</test>
+<status status="FAIL" start="2025-10-31T12:45:16.886468" elapsed="51.578092"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">R418006</stat>
+<stat pass="0" fail="1" skip="0">rba</stat>
+</tag>
+<suite>
+<stat name="Sunlight" id="s1" pass="0" fail="1" skip="0">Sunlight</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-10-31T12:46:08.059752" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=141.0.7390.123)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6bdcfe8e5+80021]
+	GetHandleVerifier [0x0x7ff6bdcfe940+80112]
+	(No symbol) [0x0x7ff6bda8060f]
+	(No symbol) [0x0x7ff6bda582f1]
+	(No symbol) [0x0x7ff6bdb088be]
+	(No symbol) [0x0x7ff6bdb28fa2]
+	(No symbol) [0x0x7ff6bdb01003]
+	(No symbol) [0x0x7ff6bdac95d1]
+	(No symbol) [0x0x7ff6bdaca3f3]
+	GetHandleVerifier [0x0x7ff6bdfbdc7d+2960429]
+	GetHandleVerifier [0x0x7ff6bdfb7f3a+2936554]
+	GetHandleVerifier [0x0x7ff6bdfd8977+3070247]
+	GetHandleVerifier [0x0x7ff6bdd183ce+185214]
+	GetHandleVerifier [0x0x7ff6bdd1fe1f+216527]
+	GetHandleVerifier [0x0x7ff6bdd07b24+117460]
+	GetHandleVerifier [0x0x7ff6bdd07cdf+117903]
+	GetHandleVerifier [0x0x7ff6bdcedbb8+11112]
+	BaseThreadInitThunk [0x0x7ff93aafe8d7+23]
+	RtlUserThreadStart [0x0x7ff93be7c34c+44]
+</msg>
+</errors>
+</robot>
