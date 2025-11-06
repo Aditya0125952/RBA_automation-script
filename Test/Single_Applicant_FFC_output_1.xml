@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2025-11-03T10:50:23.460710" rpa="false" schemaversion="5">
+<suite id="s1" name="FFC" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\Lenders\Single_Applicant\FFC.robot">
+<test id="s1-t1" name="FFC HappyCase" line="11">
+<kw name="Get Test Data">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Variable Should Exist" owner="BuiltIn">
+<msg time="2025-11-03T10:50:24.296669" level="FAIL">Variable '${DYNAMIC_TEST_DATA}' does not exist.</msg>
+<arg>${DYNAMIC_TEST_DATA}</arg>
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<status status="FAIL" start="2025-11-03T10:50:24.296048" elapsed="0.000779">Variable '${DYNAMIC_TEST_DATA}' does not exist.</status>
+</kw>
+<msg time="2025-11-03T10:50:24.296938" level="INFO">${script_run_detected} = False</msg>
+<var>${script_run_detected}</var>
+<arg>Variable Should Exist</arg>
+<arg>${DYNAMIC_TEST_DATA}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-03T10:50:24.295893" elapsed="0.001064"/>
+</kw>
+<if>
+<branch type="IF" condition="${script_run_detected}">
+<kw name="Log" owner="BuiltIn">
+<arg>Automatic run detected. Parsing dynamic data.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-11-03T10:50:24.297159" elapsed="0.000018"/>
+</kw>
+<kw name="Parse Json">
+<var>${data}</var>
+<arg>${DYNAMIC_TEST_DATA}</arg>
+<status status="NOT RUN" start="2025-11-03T10:50:24.297288" elapsed="0.000025"/>
+</kw>
+<status status="NOT RUN" start="2025-11-03T10:50:24.297030" elapsed="0.000313"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-11-03T10:50:24.297539" level="INFO">Manual run detected. Loading default file.</msg>
+<arg>Manual run detected. Loading default file.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-11-03T10:50:24.297455" elapsed="0.000116"/>
+</kw>
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-11-03T10:50:24.298073" level="INFO">${data} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '25000', 'depositAmount': '10', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', ...</msg>
+<var>${data}</var>
+<arg>${FFC_DATA}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-11-03T10:50:24.297652" elapsed="0.000445"/>
+</kw>
+<status status="PASS" start="2025-11-03T10:50:24.297374" elapsed="0.000760"/>
+</branch>
+<status status="PASS" start="2025-11-03T10:50:24.297011" elapsed="0.001146"/>
+</if>
+<return>
+<value>${data}</value>
+<status status="PASS" start="2025-11-03T10:50:24.298187" elapsed="0.000034"/>
+</return>
+<msg time="2025-11-03T10:50:24.298321" level="INFO">${test_data} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '25000', 'depositAmount': '10', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', ...</msg>
+<var>${test_data}</var>
+<doc>This keyword smartly loads test data.
+If run from run.py, it parses the ${DYNAMIC_TEST_DATA} variable.
+If run manually (e.g., from VS Code), it loads from ${FFC_DATA_FILE}.</doc>
+<status status="PASS" start="2025-11-03T10:50:24.295219" elapsed="0.003117"/>
+</kw>
+<kw name="Load Lender Data" owner="LoadingInputFile">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-11-03T10:50:24.299106" level="FAIL">AttributeError: 'dict' object has no attribute 'replace'</msg>
+<var>${json_text}</var>
+<arg>${file_path}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="FAIL" start="2025-11-03T10:50:24.298792" elapsed="0.001832">AttributeError: 'dict' object has no attribute 'replace'</status>
+</kw>
+<kw name="Convert String To Json" owner="JSONLibrary">
+<var>${data}</var>
+<arg>${json_text}</arg>
+<doc>Convert String to JSON object</doc>
+<status status="NOT RUN" start="2025-11-03T10:50:24.300740" elapsed="0.000020"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${index1}</arg>
+<arg>${index1}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-11-03T10:50:24.300845" elapsed="0.000016"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${index2}</arg>
+<arg>${index2}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-11-03T10:50:24.300939" elapsed="0.000014"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${LENDER_DATA}</arg>
+<arg>${data}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-11-03T10:50:24.301026" elapsed="0.000013"/>
+</kw>
+<arg>${test_data}</arg>
+<status status="FAIL" start="2025-11-03T10:50:24.298570" elapsed="0.002536">AttributeError: 'dict' object has no attribute 'replace'</status>
+</kw>
+<kw name="Merchant Portal Login" owner="Merchant_Login">
+<status status="NOT RUN" start="2025-11-03T10:50:24.301410" elapsed="0.000022"/>
+</kw>
+<kw name="Merchant Selection Page" owner="merchant_selection">
+<status status="NOT RUN" start="2025-11-03T10:50:24.301592" elapsed="0.000019"/>
+</kw>
+<kw name="selecting the merchant location" owner="Merchant_location">
+<status status="NOT RUN" start="2025-11-03T10:50:24.301762" elapsed="0.000019"/>
+</kw>
+<kw name="Sending Application to Consumer" owner="sendApplication">
+<status status="NOT RUN" start="2025-11-03T10:50:24.301909" elapsed="0.000019"/>
+</kw>
+<kw name="Dc plans page" owner="DC_Plan_Page">
+<arg>21000</arg>
+<arg>0</arg>
+<status status="NOT RUN" start="2025-11-03T10:50:24.302114" elapsed="0.000019"/>
+</kw>
+<kw name="Type of Application page" owner="Application_type_page">
+<status status="NOT RUN" start="2025-11-03T10:50:24.302284" elapsed="0.000018"/>
+</kw>
+<kw name="Load and Prepare applicant details" owner="PrepareApplicant_Details">
+<status status="NOT RUN" start="2025-11-03T10:50:24.302501" elapsed="0.000018"/>
+</kw>
+<kw name="Copy Dictionary" owner="Collections">
+<var>${modified_app}</var>
+<arg>${application}</arg>
+<doc>Returns a copy of the given dictionary.</doc>
+<status status="NOT RUN" start="2025-11-03T10:50:24.302676" elapsed="0.000017"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${modified_app}</arg>
+<arg>email=aditya.chelluru@finmkt.io</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-11-03T10:50:24.302798" elapsed="0.000015"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<arg>${application}</arg>
+<arg>${modified_app}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" start="2025-11-03T10:50:24.302922" elapsed="0.000016"/>
+</kw>
+<kw name="Application Details Page" owner="Application_details_Page">
+<status status="NOT RUN" start="2025-11-03T10:50:24.303115" elapsed="0.000020"/>
+</kw>
+<kw name="verification info pop-up" owner="Verification_Info_pop-up">
+<status status="NOT RUN" start="2025-11-03T10:50:24.303293" elapsed="0.000018"/>
+</kw>
+<kw name="URL Applicant" owner="URL_applicant">
+<status status="NOT RUN" start="2025-11-03T10:50:24.303483" elapsed="0.000017"/>
+</kw>
+<kw name="Application Authorization Page" owner="Application_Authorization">
+<status status="NOT RUN" start="2025-11-03T10:50:24.303612" elapsed="0.000017"/>
+</kw>
+<kw name="Credit freeze page" owner="Credit_Freeze_Page">
+<status status="NOT RUN" start="2025-11-03T10:50:24.303741" elapsed="0.000016"/>
+</kw>
+<kw name="prove data" owner="Prove_data_Page">
+<status status="NOT RUN" start="2025-11-03T10:50:24.303940" elapsed="0.000017"/>
+</kw>
+<kw name="basic information" owner="Basic_Info_Page">
+<status status="NOT RUN" start="2025-11-03T10:50:24.304107" elapsed="0.000017"/>
+</kw>
+<kw name="Personal information" owner="Personal_Information_Page">
+<status status="NOT RUN" start="2025-11-03T10:50:24.304283" elapsed="0.000127"/>
+</kw>
+<kw name="Handle Initial Flow" owner="KBA_Page">
+<status status="NOT RUN" start="2025-11-03T10:50:24.304577" elapsed="0.000019"/>
+</kw>
+<tag>rba</tag>
+<status status="FAIL" start="2025-11-03T10:50:24.294101" elapsed="0.010622">AttributeError: 'dict' object has no attribute 'replace'</status>
+</test>
+<status status="FAIL" start="2025-11-03T10:50:23.461860" elapsed="0.843691"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">rba</stat>
+</tag>
+<suite>
+<stat name="FFC" id="s1" pass="0" fail="1" skip="0">FFC</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

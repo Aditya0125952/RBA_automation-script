@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${Sunlight_DATA}    ${CURDIR}/../../InputData/Sunlight_TestData.json
-${instance}    rba
+${instance}    rba6
 
 *** Test Cases ***
 Sunlight HappyCase

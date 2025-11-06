@@ -12,16 +12,20 @@ from pabots import discover_tests
 nlp = spacy.load("en_core_web_sm")
 matcher = Matcher(nlp.vocab)
 
-# --- 2. Configuration & Dictionaries ---
+# --- 2. Configuration & Dictionaries (Updated with your new aliases) ---
 LENDER_ALIASES = {
     "FFC": ["ffc", "foundation", "foundation finance","FF"],
     "GL": ["gl", "good leap"],
     "PP": ["pp","powerpay"],
     "GICU":["gicu","GICU"],
     "Upgrade":["UG","Upgrade"],
-    "Sunlight":["sunlight","Sun Light","Sunlight Financial","SLF"]
+    "Sunlight":["sunlight","Sun Light","Sunlight Financial","SLF"],
+    "PCU":["pcu","PCU","People Credit Union","Pcu"],
 }
-KNOWN_FLOWS = {"HappyCase": [
+
+# This is your new dictionary, renamed for clarity
+FLOW_ALIASES = {
+    "HappyCase": [
         "happy", 
         "happy case"
     ],
@@ -36,16 +40,21 @@ KNOWN_FLOWS = {"HappyCase": [
         "ownership test",
         "owner ship stipulation", 
         "owner ship stip"
-    ],"Counter_Offer": [
+    ],
+    "Counter_Offer": [
         "counter offer",
-    ],"conditional_approval": [
+    ],
+    "conditional_approval": [
         "conditional approval"
-    ]}
+    ]
+}
 
+# --- This is the "flattening" code you need ---
+# It builds the flat dictionary that spaCy will use for lookups
 KNOWN_FLOWS_FLAT_MAP = {}
-for official_name, alias_list in KNOWN_FLOWS.items():
+for official_name, alias_list in FLOW_ALIASES.items():
     for alias in alias_list:
-        KNOWN_FLOWS_FLAT_MAP[alias] = official_name
+        KNOWN_FLOWS_FLAT_MAP[alias.lower()] = official_name # .lower() for safety
 
 CATEGORY_MAP = {
     "single": "Single_Applicant", "single applicant": "Single_Applicant",
@@ -54,6 +63,7 @@ CATEGORY_MAP = {
 WORD_TO_DIGIT = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "twice": 2}
 
 
+# --- CORRECTED setup_matcher function ---
 def setup_matcher(matcher, known_lenders, aliases, categories, flows_map, numbers):
     """Dynamically creates and adds all SpaCy patterns to the matcher."""
     alias_to_official_code = {
@@ -65,46 +75,41 @@ def setup_matcher(matcher, known_lenders, aliases, categories, flows_map, number
 
     lender_patterns = [[{"LOWER": word} for word in alias.split()] for alias in alias_to_official_code.keys()]
     matcher.add("Lender", lender_patterns)
+    
     category_patterns = [[{"LOWER": word} for word in phrase.split()] for phrase in categories.keys()]
     matcher.add("Category", category_patterns)
     
-    # --- This now correctly reads your aliases and splits multi-word phrases ---
+    # This line is now CORRECTED to split multi-word aliases
     flow_patterns = [[{"LOWER": word} for word in key.split()] for key in flows_map.keys()]
     matcher.add("Flow", flow_patterns)
     
     runs_patterns = [[{"IS_DIGIT": True}], [{"LOWER": {"IN": list(numbers.keys())}}]]
     matcher.add("Run", runs_patterns)
+    
     instance_pattern = [[{"LOWER": {"REGEX": "^rba\\d+$"}}]]
     matcher.add("Instance", instance_pattern)
+    
     return alias_to_official_code
 
 
-# --- FIX 4: Updated parse_single_command ---
+# --- CORRECTED parse_single_command function ---
 def parse_single_command(command_text, alias_map):
     """Uses SpaCy to parse a single test command and returns a params dictionary."""
     doc = nlp(command_text)
     matches = matcher(doc)
     params = {"lender": None, "flow": "HappyCase", "runs": 1, "category": "Single_Applicant", "instance": None}
     
-    # --- Debugging line (optional, but helpful) ---
-    # print(f"[DEBUG] Tokens: {[token.text for token in doc]}")
-    # ----------------------------------------------
-    
     for match_id, start, end in matches:
         pattern_name = nlp.vocab.strings[match_id]
         matched_text = doc[start:end].text.lower()
-        
-        # print(f"[DEBUG] Found Match: {pattern_name} -> {matched_text}") # Optional
         
         if pattern_name == "Lender":
             params["lender"] = alias_map.get(matched_text)
         elif pattern_name == "Category":
             params["category"] = CATEGORY_MAP.get(matched_text)
-        
-        # --- This now correctly looks up the alias in the flat map ---
+        # This line is now CORRECTED to use the flat map
         elif pattern_name == "Flow":
             params["flow"] = KNOWN_FLOWS_FLAT_MAP.get(matched_text, "HappyCase")
-            
         elif pattern_name == "Run":
             cleaned_text = matched_text.strip()
             if cleaned_text in WORD_TO_DIGIT:
@@ -121,7 +126,7 @@ def parse_single_command(command_text, alias_map):
     return params
 
 
-# --- 3. Core Logic ---
+# --- 3. Core Logic (CORRECTED) ---
 def main():
     # --- Discover and Set up Patterns ---
     SCRIPT_DIR = Path(__file__).resolve().parent
@@ -131,7 +136,7 @@ def main():
     discovered_lenders = {key for cat in AVAILABLE_TESTS.values() for key in cat.keys()}
     print(f"[INFO] Found lenders: {', '.join(discovered_lenders)}")
     
-    # --- FIX 5: Pass the new KNOWN_FLOWS_FLAT_MAP to the matcher ---
+    # This line is now CORRECTED to pass the flat map
     alias_map = setup_matcher(matcher, discovered_lenders, LENDER_ALIASES, CATEGORY_MAP, KNOWN_FLOWS_FLAT_MAP, WORD_TO_DIGIT)
 
     # --- Parse User Command ---
@@ -155,7 +160,6 @@ def main():
         if params:
             if not params.get("instance"):
                 params["instance"] = global_instance
-
             tests_to_run.append(params)
             print(f"  -> Found test: {params}")
 
