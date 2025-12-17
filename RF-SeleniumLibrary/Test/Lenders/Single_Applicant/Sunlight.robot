@@ -3,20 +3,20 @@ Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${Sunlight_DATA}    ${CURDIR}/../../InputData/Sunlight_TestData.json
-${instance}    rba2
+${instance}    rba6
 
 *** Test Cases ***
 Sunlight HappyCase
-    [Tags]    ${instance}    R418006
+    [Tags]    ${instance}    S100617
     Load Lender Data    ${Sunlight_DATA}
     Merchant Portal Login
     Merchant Selection Page    Sunlight_HI
     Sending Application to Consumer
-    Dc plans page    21000    0
+    Dc plans page    22000    0
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    Set To Dictionary    ${modified_app}    email=aditya.chelluru@finmkt.io
+    Set To Dictionary    ${modified_app}    email=manohar.anaparthi@finmkt.io
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up
@@ -29,7 +29,7 @@ Sunlight HappyCase
     Handle Initial Flow
 
 SUNLIGHT Ownership_Stipulation
-    [Tags]    ${instance}    R418006
+    [Tags]    ${instance}    S102417
     Load Lender Data    ${Sunlight_DATA}
     Merchant Portal Login
     Merchant Selection Page    Sunlight_HI
@@ -60,7 +60,7 @@ Sunlight DTI Failure Case
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    Set To Dictionary    ${modified_app}    email=aditya.chelluru@finmkt.io
+    Set To Dictionary    ${modified_app}    email=aditya.chelluru+1@finmkt.io
     Set To Dictionary    ${modified_app}    annual_income=100000
     Set To Dictionary    ${modified_app}    household_income=100000
     Set Global Variable    ${application}    ${modified_app}

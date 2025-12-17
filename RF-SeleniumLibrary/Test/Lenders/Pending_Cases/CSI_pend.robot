@@ -5,7 +5,7 @@ Resource    ../../common_pages/common_Resoucres.robot
 ${FFC_DATA}    ${CURDIR}/../../InputData/FF_TestData.json
 *** Test Cases ***
 CSI Pending - Applicant
-    [Tags]    rba5
+    [Tags]    rba6
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login
     Merchant Selection Page

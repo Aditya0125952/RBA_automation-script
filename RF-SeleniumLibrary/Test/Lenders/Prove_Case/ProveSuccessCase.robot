@@ -2,15 +2,15 @@
 Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
-${Prove_DATA}    ${CURDIR}/../../InputData/prove2.json
+${Prove_DATA}    ${CURDIR}/../../InputData/Prove_Success_TestData.json
 
 *** Test Cases ***
 Prove HappyCase
-    [Tags]    Prove    rba    S100617
+    [Tags]    Prove    rba5    S100617
     Load Lender Data    ${Prove_DATA}    0
     Merchant Portal Login
-    Merchant Selection Page
-    Selecting The Merchant Location
+    Merchant Selection Page    Sunlight_HI
+    #Selecting The Merchant Location
     Sending Application to Consumer
     Dc plans page    21000    0
     Type of Application page

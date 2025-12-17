@@ -1,0 +1,26 @@
+{
+  "Users": [
+    {
+      "UserId": "User01",
+      "FirstName": "Ana",
+      "LastName": "Villar",
+      "email": "aditya.chelluru@finmkt.io",
+      "street_add": "11765 West Avenue",
+      "city": "San Antonio",
+      "state": "Texas",
+      "zipcode": "50014",
+      "Do_you_own_installation_add": "Yes, I own this property.",
+      "Do_you_reside_installation_add": "Yes, I reside at this address.",
+      "mobileNumber": "9877676698",
+      "employment_status": "Employed",
+      "occupation": "business",
+      "employer_name": "ganesh",
+      "monthly_mortgage_amount": "500",
+      "annual_income": "85,000",
+      "household_income": "85,000",
+      "dob": "07/01/1981",
+      "ssn": "666308630",
+      "citizenship_status": "US Citizen"
+    }
+  ]
+}

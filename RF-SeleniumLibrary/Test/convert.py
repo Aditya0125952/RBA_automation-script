@@ -87,28 +87,26 @@ def main():
     print(f"--- Running DOB Update Script on {today} ---")
     
     # --- The date check is now RESTORED ---
-    if today.day == TRIGGER_DAY:
-        print(f"[TRIGGER] Today is the {TRIGGER_DAY}rd. Starting update process...")
-        
-        # This code is now correctly INDENTED
-        if not INPUT_DIR.is_dir():
-            print(f"[ERROR] Input directory not found: {INPUT_DIR}")
-            return
 
-        json_files = list(INPUT_DIR.glob("*.json"))
-        if not json_files:
-            print("[WARN] No .json files found in the input directory.")
-            return
-
-        for file_path in json_files:
-            process_json_file(file_path)
+    print(f"[TRIGGER] Today is the {TRIGGER_DAY}rd. Starting update process...")
         
-        print("\n--- Update process complete. ---")
+    # This code is now correctly INDENTED
+    if not INPUT_DIR.is_dir():
+        print(f"[ERROR] Input directory not found: {INPUT_DIR}")
+        return
+
+    json_files = list(INPUT_DIR.glob("*.json"))
+    if not json_files:
+        print("[WARN] No .json files found in the input directory.")
+        return
+
+    for file_path in json_files:
+        process_json_file(file_path)
+        
+    print("\n--- Update process complete. ---")
         
     # --- The 'else' block is now RESTORED ---
-    else:
-        print(f"[INFO] Not the {TRIGGER_DAY}rd of the month. No updates will be made.")
-        print("--- Script finished. ---")
+
 
 if __name__ == "__main__":
     main()

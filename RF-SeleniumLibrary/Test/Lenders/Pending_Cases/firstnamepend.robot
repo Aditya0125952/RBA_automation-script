@@ -4,11 +4,12 @@ Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
 ${FFC_DATA}    ${CURDIR}/../../InputData/FF_TestData.json
+${INSTANCE}    rba3
 *** Test Cases ***
 First Name Pending - Applicant
-    [Tags]    Pend    rba6    S101817
+    [Tags]    Pend    ${INSTANCE} 
     Load Lender Data    ${FFC_DATA}
-    Merchant Portal Login
+    Merchant Portal Login   
     Merchant Selection Page    Sunlight_HI
     #Selecting The Merchant Location
     Sending Application to Consumer
@@ -27,15 +28,16 @@ First Name Pending - Applicant
     Basic Information
     Personal Information
     First Name Re-Kyc Screen
-    Handle Initial Flow
+    #Last Name Re-Kyc Screen
+    #Handle Initial Flow
     Onfido Page
 
 First Name Pending - Co-Applicant (Primary Applicant)
-    [Tags]   rba    Co-App    S101817
+    [Tags]   rba6    Co-App    S100617
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login
     Merchant Selection Page    Sunlight_HI
-    #Selecting The Merchant Location
+    Selecting The Merchant Location    Sunlight_HI_Master
     Sending Application to Consumer
     Dc plans page
     Type of Application page
@@ -43,6 +45,9 @@ First Name Pending - Co-Applicant (Primary Applicant)
     ${modified_app}=    Copy Dictionary    ${application}
     Set To Dictionary    ${modified_app}    FirstName=anaa
     Set Global Variable    ${application}    ${modified_app}
+     #${modified_app}=    Copy Dictionary    ${co_app_dup}
+    #Set To Dictionary    ${modified_app}    FirstName=morgan
+    #Set Global Variable    ${co_app_dup}   ${modified_app}
     Application Details Page
     Verification Info Pop-up
     URL Applicant
@@ -54,8 +59,8 @@ First Name Pending - Co-Applicant (Primary Applicant)
     First Name Re-Kyc Screen
     Handle Initial Flow
     Onfido Page
-    Sleep    25
-    Wait Until Element Is Visible    xpath:(//p)[1]    120
+    #Sleep    25
+    #Wait Until Element Is Visible    xpath:(//p)[1]    120
     URL Applicant
     Application Authorization Page
     Credit Freeze Page
@@ -63,22 +68,22 @@ First Name Pending - Co-Applicant (Primary Applicant)
     Basic Information    Co-App
     Personal Information    Co-App
     First Name Re-Kyc Screen    Co-App
-    Sleep    5
+    #Sleep    5
     Handle Initial Flow
     Onfido Page
 
 First Name Pending - Co-Applicant
-    [Tags]    Pend    rba5    Co-App
+    [Tags]    Pend    rba6    Co-App
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login
-    Merchant Selection Page
-    Selecting The Merchant Location
+    Merchant Selection Page    Sunlight_HI
+    Selecting The Merchant Location    Sunlight_HI_Master
     Sending Application to Consumer
     Dc plans page
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${co_app_dup}
-    Set To Dictionary    ${modified_app}    FirstName=morgan
+    Set To Dictionary    ${modified_app}    dob=05/01/1985
     Set Global Variable    ${co_app_dup}   ${modified_app}
     Application Details Page
     Verification Info Pop-up

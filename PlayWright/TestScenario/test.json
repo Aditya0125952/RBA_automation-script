@@ -1,0 +1,26 @@
+{
+  "scenarioName": "Minimal Flow Control Test",
+  "flowControl": {
+    "hasCoApplicant": true, 
+    "kbaAnswersNeeded": true 
+  },
+  "applicantOverrides": {
+    "email": "aditya@test.io",
+    "state": "California"
+  },
+  
+  "coApplicantOverrides": {
+    "FirstName": "Co-Applicant First Name",
+    "LastName": "Co-Applicant Last Name",
+    "email": "coapp.test@test.io"
+  },
+  "lenderSelection": {
+    "merchant": "rba_Ad",
+    "dcPlan": "R412006"
+  },
+  "lender":{
+    "name" : "Sunlight",
+    "state" : "Iowa",
+    "Zip" : "50006"
+  }
+}

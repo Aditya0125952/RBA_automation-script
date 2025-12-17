@@ -1,65 +1,60 @@
-  {
-      "Merchant": "RbA-AD1",
-      "planID" : "R412007",
-      "projectCost" : "7000",
-      "depositAmount" : "200",
-      "Applicant":
-        {
-          "FirstName": "Ana",
-          "LastName": "Villar",
-          "email": "aditya.chelluru@finmkt.io",
-          "street_add": "11765 West Avenue",
-          "city": "San Antonio",
-          "state": "Iowa",
-          "zipcode": "50011",
-          "Do_you_own_installation_add": "Yes, I own this property.",
-          "Do_you_reside_installation_add": "Yes, I reside at this address.",
-          "mobileNumber": "9877878787",
-          "employment_status": "Employed",
-          "occupation": "business",
-          "employer_name": "ganesh",
-          "monthly_mortgage_amount": "500",
-          "annual_income": "125000",
-          "household_income": "125000",
-          "dob": "05/01/1981",
-          "ssn": "666308630",
-          "citizenship_status": "US Citizen"
-        }
-
-      ,
-      "Co-Applicant":
-          {
-          "FirstName": "Morghan",
-          "LastName": "Blake",
-          "email": "aditya.chelluru+1@finmkt.io",
-          "street_add": "17254 Timberlake Court",
-          "city": "Boonville",
-          "state": "Missouri",
-          "zipcode": "65233",
-          "Do_you_own_installation_add": "Yes, I own this property.",
-          "Do_you_reside_installation_add": "Yes, I reside at this address.",
-          "mobileNumber": "5657987348",
-          "employment_status": "Employed",
-          "occupation": "business",
-          "employer_name": "ganesh",
-          "monthly_mortgage_amount": "1000",
-          "annual_income": "120000",
-          "household_income": "120000",
-          "dob": "04/01/1986",
-          "ssn": "666971260",
-          "citizenship_status": "US Citizen"
-      },
-      "Agretha_Chene": {
-      "mobileNumber": "2001001687",
-      "ssn": "369956933"
-    },
-    "Johnnie_Lammiman": {
-      "mobileNumber": "2001004004",
-      "ssn": "111258802"
-    },
-    "Sebastian_Limmer": {
-      "mobileNumber": "2001004001",
-      "ssn": "347465324"
-    }
-
+{
+  "Merchant": "RbA-AD1",
+  "planID": "R412007",
+  "projectCost": "7000",
+  "depositAmount": "200",
+  "Applicant": {
+    "FirstName": "Ana",
+    "LastName": "Villar",
+    "email": "aditya.chelluru@finmkt.io",
+    "street_add": "11765 West Avenue",
+    "city": "San Antonio",
+    "state": "Iowa",
+    "zipcode": "50014",
+    "Do_you_own_installation_add": "Yes, I own this property.",
+    "Do_you_reside_installation_add": "Yes, I reside at this address.",
+    "mobileNumber": "9877878787",
+    "employment_status": "Employed",
+    "occupation": "business",
+    "employer_name": "ganesh",
+    "monthly_mortgage_amount": "500",
+    "annual_income": "125000",
+    "household_income": "125000",
+    "dob": "07/01/1981",
+    "ssn": "666308630",
+    "citizenship_status": "US Citizen"
+  },
+  "Co-Applicant": {
+    "FirstName": "Morghan",
+    "LastName": "Blake",
+    "email": "aditya.chelluru+1@finmkt.io",
+    "street_add": "17254 Timberlake Court",
+    "city": "Boonville",
+    "state": "Missouri",
+    "zipcode": "65233",
+    "Do_you_own_installation_add": "Yes, I own this property.",
+    "Do_you_reside_installation_add": "Yes, I reside at this address.",
+    "mobileNumber": "5657987348",
+    "employment_status": "Employed",
+    "occupation": "business",
+    "employer_name": "ganesh",
+    "monthly_mortgage_amount": "1000",
+    "annual_income": "120000",
+    "household_income": "120000",
+    "dob": "06/01/1986",
+    "ssn": "666971260",
+    "citizenship_status": "US Citizen"
+  },
+  "Agretha_Chene": {
+    "mobileNumber": "2001001687",
+    "ssn": "369956933"
+  },
+  "Johnnie_Lammiman": {
+    "mobileNumber": "2001004004",
+    "ssn": "111258802"
+  },
+  "Sebastian_Limmer": {
+    "mobileNumber": "2001004001",
+    "ssn": "347465324"
   }
+}

@@ -126,6 +126,7 @@ def run_setup():
     print("  node -v")
     print("  npm -v")
     print("Please run this command : rfbrowser init")
+    print("Please run this command : npm install dotenv")
 
 
 if __name__ == "__main__":

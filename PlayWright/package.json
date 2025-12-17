@@ -1,0 +1,22 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.0",
+    "@types/string-similarity": "^4.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "fuse.js": "^7.1.0",
+    "mongodb": "^7.0.0",
+    "string-similarity": "^4.0.4"
+  }
+}

@@ -5,11 +5,11 @@ Library         JSONLibrary  # Needed for parsing
 Library         BuiltIn
 *** Variables ***
 ${PCU_DATA}    ${CURDIR}/../../InputData/PCU_TestData.json
-${INSTANCE}    rba
+${INSTANCE}    rba6
 
 *** Test Cases ***
 PCU HappyCase
-    [Tags]    ${instance}    R412005
+    [Tags]    ${instance}    H201209
     Load Lender Data    ${PCU_DATA}
     Merchant Portal Login
     Merchant Selection Page

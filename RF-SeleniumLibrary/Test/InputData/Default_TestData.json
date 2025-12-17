@@ -1,51 +1,45 @@
-{   
-    "planID" : "S100617",
-    "projectCost" : "20000",
-    "depositAmount" : "2500",
-    "Applicant": 
-      { 
-        "FirstName": "Ana",
-        "LastName": "Villar",
-        "street_add": "11765 West Avenue",
-        "city": "San Antonio",
-        "state": "Texas",
-        "zipcode": "78216",
-        "Do_you_own_installation_add": "Yes, I own this property.",
-        "Do_you_reside_installation_add": "Yes, I reside at this address.",
-        "mobileNumber": "9877676658",
-        "employment_status": "Employed",
-        "occupation": "business",
-        "employer_name": "ganesh",
-        "monthly_mortgage_amount": "500",
-        "annual_income": "125000",
-        "household_income": "125000",
-        "dob": "12/01/1980",
-        "ssn": "666308630",
-        "citizenship_status": "US Citizen"
-
-      }
-    ,
-    "Co-Applicant":
-        {  
-        "FirstName": "Linda",
-        "LastName": "Maxey",
-        "street_add": "235565 BERNARDO  AV",
-        "city": "ESCONDIDO",
-        "state": "California",
-        "zipcode": "92029",
-        "mobileNumber": "8888888889",
-        "Do_you_own_installation_add": "Yes, I own this property.",
-        "Do_you_reside_installation_add": "Yes, I reside at this address.",
-        "employment_status": "Employed",
-        "occupation": "business",
-        "employer_name": "ganesh",
-        "monthly_mortgage_amount": "500",
-        "annual_income": "125000",
-        "household_income": "125000",
-        "dob": "12/01/1982",
-        "ssn": "666564345",
-        "citizenship_status": "US Citizen"
-            
-    }
-    
+{
+  "planID": "S100617",
+  "projectCost": "20000",
+  "depositAmount": "2500",
+  "Applicant": {
+    "FirstName": "Ana",
+    "LastName": "Villar",
+    "street_add": "11765 West Avenue",
+    "city": "San Antonio",
+    "state": "Texas",
+    "zipcode": "78216",
+    "Do_you_own_installation_add": "Yes, I own this property.",
+    "Do_you_reside_installation_add": "Yes, I reside at this address.",
+    "mobileNumber": "9877676658",
+    "employment_status": "Employed",
+    "occupation": "business",
+    "employer_name": "ganesh",
+    "monthly_mortgage_amount": "500",
+    "annual_income": "125000",
+    "household_income": "125000",
+    "dob": "02/01/1981",
+    "ssn": "666308630",
+    "citizenship_status": "US Citizen"
+  },
+  "Co-Applicant": {
+    "FirstName": "Linda",
+    "LastName": "Maxey",
+    "street_add": "235565 BERNARDO  AV",
+    "city": "ESCONDIDO",
+    "state": "California",
+    "zipcode": "92029",
+    "mobileNumber": "8888888889",
+    "Do_you_own_installation_add": "Yes, I own this property.",
+    "Do_you_reside_installation_add": "Yes, I reside at this address.",
+    "employment_status": "Employed",
+    "occupation": "business",
+    "employer_name": "ganesh",
+    "monthly_mortgage_amount": "500",
+    "annual_income": "125000",
+    "household_income": "125000",
+    "dob": "02/01/1983",
+    "ssn": "666564345",
+    "citizenship_status": "US Citizen"
   }
+}

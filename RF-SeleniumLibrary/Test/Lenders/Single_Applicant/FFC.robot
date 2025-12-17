@@ -9,18 +9,17 @@ ${INSTANCE}    rba
 
 *** Test Cases ***
 FFC HappyCase
-    [Tags]    ${INSTANCE}  
+    [Tags]    ${INSTANCE}    H201209         
     ${test_data}=    Get Test Data  
-    Load Lender Data    ${test_data}
-    Merchant Portal Login
-    Merchant Selection Page
-    Selecting The Merchant Location   
+    Load Lender Data    ${FFC_DATA}
+    Merchant Portal Login         
+    Merchant Selection Page    
+    Selecting The Merchant Location    Sunlight_HI_Master     
     Sending Application to Consumer
-    Dc plans page    21000    0
+    Dc plans page    10000    200   
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    Set To Dictionary    ${modified_app}    email=aditya.chelluru@finmkt.io
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up
@@ -36,7 +35,7 @@ FFC HappyCase
 FFC Counter_Offer
     [Tags]    ${INSTANCE}
     Load Lender Data    ${FFC_DATA}
-    Merchant Portal Login
+    Merchant Portal Login    
     Merchant Selection Page
     Selecting The Merchant Location
     Sending Application to Consumer

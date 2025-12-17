@@ -5,7 +5,7 @@ Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${GL_DATA}     ${CURDIR}/../../InputData/GL_applicants_list.json
 ${START_DIGITS}    888
-${instance}    rba
+${instance}    rba2
 #for succes case
 #${SSN}    500101 
 #for failure case
@@ -13,19 +13,19 @@ ${SSN}    500205
 
 *** Test Cases ***
 GL HappyCase
-    [Tags]    ${instance}    S101217
-    Load Lender Data    ${GL_DATA}    118
+    [Tags]    ${instance}    S100617
+    Load Lender Data    ${GL_DATA}    1335
     Merchant Portal Login
-    Merchant Selection Page    Sunlight_HI
-    #Selecting The Merchant Location    RBA_GL_FFC_DIV_PP_Master
+    Merchant Selection Page
+    Selecting The Merchant Location
     Sending Application to Consumer
-    Dc plans page    37,478    5000
+    Dc plans page
     Type of Application page
     Load and Prepare applicant details
     ${number}=    Generate Phone Number Starting With 888
     ${modified_app}=    Copy Dictionary    ${application}
     Set To Dictionary    ${modified_app}    mobileNumber=${number}
-    #Set To Dictionary    ${modified_app}    email=manohar.anaparthi+13@finmkt.io
+    Set To Dictionary    ${modified_app}    email=madhuvani.uppala@finmkt.io
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up
@@ -48,7 +48,7 @@ Good Leap Counter Offer Case
     Merchant Selection Page
     Selecting The Merchant Location
     Sending Application to Consumer
-    Dc plans page    60000
+    Dc plans page    60000    0
     Type of Application page
     Load and Prepare applicant details
     ${number}=    Generate Phone Number Starting With 888

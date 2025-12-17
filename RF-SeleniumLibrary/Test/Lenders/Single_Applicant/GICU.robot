@@ -4,14 +4,14 @@ Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
 ${GICU_DATA}    ${CURDIR}/../../InputData/GICU_TestData.json
-${instance}    rba5
+${instance}    rba2
 
 *** Test Cases ***
 GICU HappyCase
     [Tags]    ${instance}    R412007
     Load Lender Data    ${GICU_DATA}
     Merchant Portal Login
-   # Merchant Selection Page   
+    Merchant Selection Page   
     Sending Application to Consumer
     Dc plans page
     Type of Application page
