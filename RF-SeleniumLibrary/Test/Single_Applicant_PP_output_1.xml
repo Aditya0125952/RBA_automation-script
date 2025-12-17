@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2025-10-29T17:45:52.850464" rpa="false" schemaversion="5">
+<suite id="s1" name="PP" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\Lenders\Single_Applicant\PP.robot">
+<test id="s1-t1" name="PP Conditional Approval" line="33">
+<kw name="Load Lender Data" owner="LoadingInputFile">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-10-29T17:45:54.445424" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\InputData\PP_Conditional_Approval_TestData.json"&gt;C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\Test\InputData\PP_Conditional_Approval_TestData.json&lt;/a&gt;'.</msg>
+<msg time="2025-10-29T17:45:54.473228" level="INFO">${json_text} = {
+    "Merchant": "Upgrade_Regression",
+    "Location": "Upgrade_Regression_Master",
+    "planID": "S100617",
+    "projectCost": "15000",
+    "depositAmount": "2000",
+    "Applicant": {
+            "F...</msg>
+<var>${json_text}</var>
+<arg>${file_path}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-10-29T17:45:54.445227" elapsed="0.028098"/>
+</kw>
+<kw name="Convert String To Json" owner="JSONLibrary">
+<msg time="2025-10-29T17:45:54.474138" level="INFO">${data} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '15000', 'depositAmount': '2000', 'Applicant': {'FirstName': 'CHRISTOPHER', 'LastName': ...</msg>
+<var>${data}</var>
+<arg>${json_text}</arg>
+<doc>Convert String to JSON object</doc>
+<status status="PASS" start="2025-10-29T17:45:54.473714" elapsed="0.000478"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-10-29T17:45:54.474814" level="INFO">${index1} = None</msg>
+<arg>${index1}</arg>
+<arg>${index1}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-10-29T17:45:54.474498" elapsed="0.000388"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-10-29T17:45:54.475386" level="INFO">${index2} = None</msg>
+<arg>${index2}</arg>
+<arg>${index2}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-10-29T17:45:54.475136" elapsed="0.000318"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-10-29T17:45:54.476300" level="INFO">${LENDER_DATA} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '15000', 'depositAmount': '2000', 'Applicant': {'FirstName': 'CHRISTOPHER', 'LastName': ...</msg>
+<arg>${LENDER_DATA}</arg>
+<arg>${data}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-10-29T17:45:54.475831" elapsed="0.000595"/>
+</kw>
+<arg>C:\\Users\\AdityaChelluru\\Desktop\\automation\\RBA_automation-script\\Test\\Lenders\\Single_Applicant/../../InputData/PP_Conditional_Approval_TestData.json</arg>
+<status status="PASS" start="2025-10-29T17:45:54.444335" elapsed="0.032272"/>
+</kw>
+<kw name="Merchant Portal Login" owner="Merchant_Login">
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Start With" owner="BuiltIn">
+<msg time="2025-10-29T17:45:54.479710" level="FAIL">'R418009' does not start with 'rba'</msg>
+<arg>${tag}</arg>
+<arg>rba</arg>
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<status status="FAIL" start="2025-10-29T17:45:54.479383" elapsed="0.000595">'R418009' does not start with 'rba'</status>
+</kw>
+<msg time="2025-10-29T17:45:54.480192" level="INFO">${is_present} = False</msg>
+<var>${is_present}</var>
+<arg>Should Start With</arg>
+<arg>${tag}</arg>
+<arg>rba</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-10-29T17:45:54.479099" elapsed="0.001135"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_present}">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>this is the tag : ${tag}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-10-29T17:45:54.481319" elapsed="0.000068"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${base_url}</var>
+<arg>${tag}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-10-29T17:45:54.481617" elapsed="0.000043"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>this is the base url ${base_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-10-29T17:45:54.481859" elapsed="0.000042"/>
+</kw>
+<kw name="Exit For Loop" owner="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" start="2025-10-29T17:45:54.482091" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2025-10-29T17:45:54.480410" elapsed="0.001774"/>
+</branch>
+<status status="PASS" start="2025-10-29T17:45:54.480357" elapsed="0.001903"/>
+</if>
+<var name="${tag}">R418009</var>
+<status status="PASS" start="2025-10-29T17:45:54.478820" elapsed="0.003486"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Start With" owner="BuiltIn">
+<arg>${tag}</arg>
+<arg>rba</arg>
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<status status="PASS" start="2025-10-29T17:45:54.483122" elapsed="0.000238"/>
+</kw>
+<msg time="2025-10-29T17:45:54.483506" level="INFO">${is_present} = True</msg>
+<var>${is_present}</var>
+<arg>Should Start With</arg>
+<arg>${tag}</arg>
+<arg>rba</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-10-29T17:45:54.482810" elapsed="0.000738"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_present}">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>this is the tag : ${tag}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-29T17:45:54.483920" elapsed="0.000565"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-29T17:45:54.485228" level="INFO">${base_url} = rba</msg>
+<var>${base_url}</var>
+<arg>${tag}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-29T17:45:54.484897" elapsed="0.000382"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>this is the base url ${base_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-29T17:45:54.485566" elapsed="0.000645"/>
+</kw>
+<kw name="Exit For Loop" owner="BuiltIn">
+<msg time="2025-10-29T17:45:54.487005" level="INFO">Exiting for loop altogether.</msg>
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="PASS" start="2025-10-29T17:45:54.486798" elapsed="0.000327"/>
+</kw>
+<status status="PASS" start="2025-10-29T17:45:54.483676" elapsed="0.003536"/>
+</branch>
+<status status="PASS" start="2025-10-29T17:45:54.483648" elapsed="0.003643"/>
+</if>
+<var name="${tag}">rba</var>
+<status status="PASS" start="2025-10-29T17:45:54.482585" elapsed="0.004752"/>
+</iter>
+<var>${tag}</var>
+<value>@{TEST_TAGS}</value>
+<status status="PASS" start="2025-10-29T17:45:54.478457" elapsed="0.008967"/>
+</for>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-10-29T17:45:54.488135" level="INFO">Opening browser 'chrome' to base url 'https://rba-qa.mktplacegateway.com/m/login'.</msg>
+<errors>
+<msg time="2025-10-29T17:45:57.911270" level="ERROR">Execution stopped by user.</msg>
+</errors>
+</robot>

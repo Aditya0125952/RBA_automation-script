@@ -1,0 +1,60 @@
+{
+    "planID": "S100617",
+    "projectCost": "12000",
+    "depositAmount": "500",
+    "Applicant": {
+        "FirstName": "Ana",
+          "LastName": "Villar",
+          "email": "aditya.chelluru@finmkt.io",
+          "street_add": "11765 West Avenue",
+          "city": "San Antonio",
+          "state": "Texas",
+          "zipcode": "78216",
+          "Do_you_own_installation_add": "Yes, I own this property.",
+          "Do_you_reside_installation_add": "Yes, I reside at this address.",
+          "mobileNumber": "9877830814",
+          "employment_status": "Employed",
+          "occupation": "business",
+          "employer_name": "ganesh",
+          "monthly_mortgage_amount": "500",
+          "annual_income": "80000",
+          "household_income": "120000",
+          "dob": "05/01/1981",
+          "ssn": "666308630",
+          "citizenship_status": "US Citizen"
+    },
+      "Co-Applicant":
+          {
+          "FirstName": "Morghan",
+          "LastName": "Blake",
+          "email": "aditya.chelluru@finmkt.io",
+          "street_add": "17254 Timberlake Court",
+          "city": "Boonville",
+          "state": "Missouri",
+          "zipcode": "65233",
+          "Do_you_own_installation_add": "Yes, I own this property.",
+          "Do_you_reside_installation_add": "Yes, I reside at this address.",
+          "mobileNumber": "9177266416",
+          "employment_status": "Employed",
+          "occupation": "business",
+          "employer_name": "ganesh",
+          "monthly_mortgage_amount": "500",
+          "annual_income": "150000",
+          "household_income": "150000",
+          "dob": "05/01/1986",
+          "ssn": "666971260",
+          "citizenship_status": "US Citizen"
+      },
+    "Agretha_Chene": {
+        "mobileNumber": "2001001687",
+        "ssn": "369956933"
+    },
+    "Johnnie_Lammiman": {
+        "mobileNumber": "2001004004",
+        "ssn": "111258802"
+    },
+    "Sebastian_Limmer": {
+        "mobileNumber": "2001004001",
+        "ssn": "347465324"
+    }
+}
