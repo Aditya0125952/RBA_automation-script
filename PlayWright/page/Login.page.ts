@@ -19,7 +19,7 @@ export class LoginPage extends BasePage {
         
             await this.page.goto('https://rba6-test.mktplacegateway.com/m/login', {
                 waitUntil: 'networkidle',
-                timeout: 30000 // 30 seconds timeout
+                timeout: 50000 // 30 seconds timeout
             });
             
             await this.usernameInput.fill(Username);

@@ -1,4 +1,5 @@
 // interfaces/testCaseInterfaces.ts (New/Updated File)
+import {UserKeys} from "./dataNames.js";
 
 export interface LenderControl {
     name: string;
@@ -19,6 +20,8 @@ export interface LenderSelection {
 
 export interface TestCaseControl {
     scenarioName: string;
+    applicant_key : string;
+    Co_Applicant_key : string;
     flowControl: FlowControl;
     lenderSelection: LenderSelection;
     lender: LenderControl;

@@ -10,7 +10,7 @@
     "street_add": "11765 West Avenue",
     "city": "San Antonio",
     "state": "Iowa",
-    "zipcode": "50011",
+    "zipcode": "50014",
     "Do_you_own_installation_add": "Yes, I own this property.",
     "Do_you_reside_installation_add": "Yes, I reside at this address.",
     "mobileNumber": "9877878787",
@@ -41,7 +41,7 @@
     "monthly_mortgage_amount": "1000",
     "annual_income": "120000",
     "household_income": "120000",
-    "dob": "06/01/1986",
+    "dob": "07/01/1986",
     "ssn": "666971260",
     "citizenship_status": "US Citizen"
   },

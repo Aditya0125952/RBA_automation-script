@@ -10,7 +10,7 @@ ${instance}    rba2
 *** Test Cases ***
 Upgrade HappyCase
     [Tags]    R412004    ${instance}
-    Load Lender Data    ${GL_DATA}    1429
+    Load Lender Data    ${GL_DATA}    1445
     Merchant Portal Login
     Merchant Selection Page    Sunlight_HI 
     Selecting The Merchant Location    Sunlight_HI_Master
@@ -20,8 +20,8 @@ Upgrade HappyCase
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
     ${unique}=    unique Email
-    Set To Dictionary    ${modified_app}    email=madhuvani.uppala+${unique}@finmkt.io
-   # Set To Dictionary    ${modified_app}    employment_status=Not Employed
+    Set To Dictionary    ${modified_app}    email=varshitha.suryepalli+${unique}@finmkt.io
+    Set To Dictionary    ${modified_app}    employment_status=Not Employed
     #Set To Dictionary    ${modified_app}    dob=04/01/1982
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
@@ -32,7 +32,7 @@ Upgrade HappyCase
     Prove Data
     Basic Information
     Personal Information
-    #Sleep    100
+    Sleep    100
     Handle Initial Flow
 
 

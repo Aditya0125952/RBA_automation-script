@@ -12,27 +12,28 @@ export class ApplicationDetailsPage extends BasePage{
 
         await this.page.waitForSelector('text="Send Application"')
         const allInputs = this.page.locator('input, textarea, select');
-        await allInputs.nth(0).fill('11765 West Avenue');
-        await allInputs.nth(2).fill('San Antonio');
+        await allInputs.nth(0).fill(applicant.street_add);
+        await allInputs.nth(2).fill(applicant.city);
         if(lenderName == "GICU"){
             await allInputs.nth(3).fill('Iowa');
             await allInputs.nth(3).press('Enter');
             await allInputs.nth(4).fill('50014');
         }else{
-            await allInputs.nth(3).fill('texas');
+            await allInputs.nth(3).fill(applicant.state);
             await allInputs.nth(3).press('Enter');
-            await allInputs.nth(4).fill('78216');
+            console.log("zipcode :",applicant.zipcode);
+            await allInputs.nth(4).fill(applicant.zipcode);
         }
-        await allInputs.nth(5).fill('ana');
-        await allInputs.nth(6).fill('villar');
-        await allInputs.nth(7).fill('aditya.chelluru@finmkt.io');
-        await allInputs.nth(8).fill('9387498374');
+        await allInputs.nth(5).fill(applicant.FirstName);
+        await allInputs.nth(6).fill(applicant.LastName);
+        await allInputs.nth(7).fill(applicant.email);
+        await allInputs.nth(8).fill(applicant.mobileNumber);
         if(CoApp){
             await allInputs.nth(9).waitFor({state: 'visible'});
-            await allInputs.nth(9).fill('Morghan');
-            await allInputs.nth(10).fill('Blake');
-            await allInputs.nth(11).fill('aditya.chelluru+12@finmkt.io');
-            await allInputs.nth(12).fill('8978134367');
+            await allInputs.nth(9).fill(coApplicant.FirstName);
+            await allInputs.nth(10).fill(coApplicant.LastName);
+            await allInputs.nth(11).fill(coApplicant.email);
+            await allInputs.nth(12).fill(coApplicant.mobileNumber);
         }
         await this.page.getByLabel('NO').check();
         await this.page.keyboard.press('Enter');

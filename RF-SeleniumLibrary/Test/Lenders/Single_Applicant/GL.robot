@@ -5,7 +5,7 @@ Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${GL_DATA}     ${CURDIR}/../../InputData/GL_applicants_list.json
 ${START_DIGITS}    888
-${instance}    rba2
+${instance}    rba7
 #for succes case
 #${SSN}    500101 
 #for failure case
@@ -13,11 +13,11 @@ ${SSN}    500205
 
 *** Test Cases ***
 GL HappyCase
-    [Tags]    ${instance}    S100617
-    Load Lender Data    ${GL_DATA}    1335
-    Merchant Portal Login
-    Merchant Selection Page
-    Selecting The Merchant Location
+    [Tags]    ${instance}    Z303600
+    Load Lender Data    ${GL_DATA}    841
+    Merchant Portal Login    kolla.nagendra@finmkt.io    Qa@12345
+    Merchant Selection Page    Rba_Lenders_Integration
+    #Selecting The Merchant Location
     Sending Application to Consumer
     Dc plans page
     Type of Application page
@@ -25,7 +25,7 @@ GL HappyCase
     ${number}=    Generate Phone Number Starting With 888
     ${modified_app}=    Copy Dictionary    ${application}
     Set To Dictionary    ${modified_app}    mobileNumber=${number}
-    Set To Dictionary    ${modified_app}    email=madhuvani.uppala@finmkt.io
+    Set To Dictionary    ${modified_app}    email=satya.satti@finmkt.io
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up
@@ -35,6 +35,7 @@ GL HappyCase
     Prove Data
     Basic Information
     Personal Information
+    SSN Re-Kyc Screen
     Handle Initial Flow
 
 

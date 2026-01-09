@@ -4,7 +4,7 @@ import json
 file_path = '${CURDIR}\..\.\InputData\GL_applicants_list.json'  # 👈 Replace with your file's name
 list_key = 'Applicants'
 search_key = 'street_add'  # 👈 The field to search for (e.g., 'email', '_id')
-search_value = '5680 STONEHAVEN LN'  # 👈 The value to find
+search_value = '9302 PIONEER Boulevard'  # 👈 The value to find
 
 # --- Script ---
 found_record_details = {}

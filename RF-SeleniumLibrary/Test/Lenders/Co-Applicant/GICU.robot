@@ -3,24 +3,24 @@ Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
-${GICU_DATA}    ${CURDIR}/../../InputData/GICU_TestData.json
-${instance}    rba2
+${GICU_DATA}    ${CURDIR}/../../InputData/PP_TestData.json
+${instance}    rba3
 
 *** Test Cases ***
 GICU Happycase
-    [Tags]    R412007    ${instance}    Co-App
+    [Tags]    R418009    ${instance}    Co-App
     Load Lender Data    ${GICU_DATA}
     Merchant Portal Login  
-    Merchant Selection Page
+    Merchant Selection Page    RbA-AD1
     #selecting the merchant location  
     Sending Application to Consumer
-    Dc plans page    10000    5000
+    Dc plans page
     Type of Application page
     Load and Prepare applicant details
     ${modified_app1}=    Copy Dictionary    ${application}
     ${modified_app2}=    Copy Dictionary    ${co_app_dup}
-     #Set To Dictionary    ${modified_app1}    email=manohar.anaparthi@finmkt.io
-     #Set To Dictionary    ${modified_app2}    email=manohar.anaparthi@finmkt.io
+     Set To Dictionary    ${modified_app1}    email=aditya.chelluru@finmkt.io
+     Set To Dictionary    ${modified_app2}    email=aditya.chelluru+12@finmkt.io
     Set Global Variable    ${co_app_dup}    ${modified_app2}
     Set Global Variable    ${application}    ${modified_app1}
     Application Details Page
@@ -31,8 +31,8 @@ GICU Happycase
     Prove Data
     Basic Information
     Personal Information
-    Address Re-Kyc Screen
-    Click Button    xpath:/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div/div/div/div/span/form/div[2]/div/div/button
+    #Address Re-Kyc Screen
+    #Click Button    xpath:/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div/div/div/div/span/form/div[2]/div/div/button
     Handle Initial Flow
     Wait Until Element Is Visible    xpath:(//p)[1]    120
     URL Applicant

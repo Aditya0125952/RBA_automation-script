@@ -1,92 +1,144 @@
-// Assuming this code is in your utility file (e.g., utils/testSetUp.js or TS_TestSetUp.ts)
-
 import { TestGlobalData } from '../Interface/statcDataContainer';
-import * as UserPool from '../TestScenario/userpool.json';
-import * as TestScenario from '../TestScenario/test.json'; // The raw scenario file
+import UserPool from '../TestScenario/userpool.json';
 import { ApplicantData } from '../Interface/interface.js';
-import { TestCaseControl, FlowControl, LenderSelection, LenderControl } from '../Interface/TestInterface.js'; // Ensure all interfaces are imported
+import {
+  TestCaseControl,
+  FlowControl,
+  LenderSelection,
+  LenderControl,
+} from '../Interface/TestInterface.js';
 
-// --- External Utility Function (Required for Safe Merging) ---
-// IMPORTANT: This function must be defined or imported alongside this setup function.
-function safeMergeData<T extends object>(defaultData: T, overrideData: Partial<T> | undefined): T {
-    if (!overrideData) {
-        return defaultData;
+// ---------------- SAFE MERGE ----------------
+function safeMergeData<T extends object>(
+  base: T,
+  overrides?: Partial<T>
+): T {
+  if (!overrides) return base;
+
+  const merged = { ...base } as T;
+
+  for (const key in overrides) {
+    const value = overrides[key];
+    if (value !== undefined && value !== null && value !== '') {
+      merged[key] = value as T[keyof T];
     }
+  }
 
-    const mergedData: T = { ...defaultData };
-
-    for (const key in overrideData) {
-        if (overrideData.hasOwnProperty(key)) {
-            const overrideValue = overrideData[key] as T[keyof T];
-
-            // CRITICAL CHECK: Only apply the override if it has a valid, non-empty value
-            if (overrideValue !== null && overrideValue !== undefined && overrideValue !== "") {
-                mergedData[key] = overrideValue;
-            }
-        }
-    }
-    return mergedData;
-}
-// -----------------------------------------------------------
-
-
-// Define the FINAL, structured return type
-export interface ITestSetupData {
-    flowControl: FlowControl;
-    lenderSelection: LenderSelection;
-    lender: LenderControl;
-    // Assuming you will add loginCredentials to your test.json later:
-    // loginCredentials: { username: string, password: string }; 
+  return merged;
 }
 
+// ---------------- USER RESOLVER ----------------
+function resolveUserKey(
+  role: 'applicant' | 'coApplicant',
+  scenario: TestCaseControl,
+  users: Record<string, ApplicantData>
+): string {
+  const lender = scenario.lender?.name;
+  const isSpecialLender =
+    lender === 'GoodLeap' || lender === 'Upgrade';
 
-export function setupTestEnvironment(): ITestSetupData {
-    
-    console.log('--- Starting Test Context Setup ---');
-    
-    // 1. Load Raw Data
-    const controlData: TestCaseControl = TestScenario as TestCaseControl;
-    const defaultApplicant: ApplicantData = UserPool.Users[0] as ApplicantData; 
-    // Assuming default Co-Applicant data is available at index 1 (or is null/undefined)
-    const defaultCoApplicant: ApplicantData | null = UserPool.Users[1] as ApplicantData || null; 
+  const explicitKey =
+    role === 'applicant'
+      ? scenario.Applicant_Test_Data
+      : scenario.Co_Applicant_Test_Data;
 
-    // --- CORE DATA MERGE AND HANDLING ---
+  // 1️⃣ Explicit key always wins
+  if (explicitKey?.trim()) {
+    console.log(`Using explicit ${role}: ${explicitKey}`);
+    return explicitKey.trim();
+  }
 
-    // 2. A. APPLICANT SAFE MERGE (Defaults + Overrides)
-    const finalApplicantData: ApplicantData = safeMergeData(
-        defaultApplicant, 
-        controlData.applicantOverrides 
+  // 2️⃣ Special lender → random user
+  if (isSpecialLender) {
+    const pool = Object.entries(users).filter(
+      ([_, u]) => u.supportedLenders?.includes(lender)
     );
 
-    let finalCoApplicantData: ApplicantData | null = null;
-    
-    // 2. B. CO-APPLICANT CONDITIONAL SAFE MERGE
-    if (controlData.flowControl.hasCoApplicant) {
-        if (!defaultCoApplicant) {
-             console.error("ERROR: hasCoApplicant is true, but no default co-applicant data found in userpool.json at index 1.");
-             // Proceed with null data to fail gracefully
-        } else {
-            // Merge default co-applicant data with any scenario-specific overrides
-            finalCoApplicantData = safeMergeData(
-                defaultCoApplicant,
-                controlData.coApplicantOverrides
-            );
-        }
+    if (!pool.length) {
+      throw new Error(
+        `No ${role} users found for lender ${lender}`
+      );
     }
 
-    // 3. STATIC DATA INJECTION: Inject the final, merged data
-    TestGlobalData.setApplicantData(finalApplicantData);
-    TestGlobalData.setCoApplicantData(finalCoApplicantData); // Requires TestGlobalData to have this method
-    TestGlobalData.setTestControl(controlData); 
-    
-    // Optional: Call modifications (e.g., unique email generation)
-    // GlobalTestContext.applyFlowModifications(); 
+    const [key] =
+      pool[Math.floor(Math.random() * pool.length)];
 
-    // 4. Return the required flow variables
-    return {
-        flowControl: controlData.flowControl,
-        lenderSelection: controlData.lenderSelection,
-        lender: controlData.lender,
-        // loginCredentials: controlData.loginCredentials // Include this when you add it to JSON
-    };
+    console.log(
+      `Randomly selected ${role} '${key}' for ${lender}`
+    );
+    return key;
+  }
+
+  // 3️⃣ Default fallback
+  return role === 'applicant'
+    ? 'Ana_Villar'
+    : 'Morgan_Blake';
+}
+
+// ---------------- RETURN TYPE ----------------
+export interface ITestSetupData {
+  flowControl: FlowControl;
+  lenderSelection: LenderSelection;
+  lender: LenderControl;
+}
+
+// ---------------- MAIN SETUP ----------------
+export function setupTestEnvironment(
+  scenario: TestCaseControl
+): ITestSetupData {
+  if (!scenario) {
+    throw new Error('setupTestEnvironment: scenario is undefined');
+  }
+
+  console.log(
+    `\n--- Starting Scenario: ${scenario.scenarioName} ---`
+  );
+
+  // ---------- APPLICANT ----------
+  const applicantKey = resolveUserKey(
+    'applicant',
+    scenario,
+    UserPool.Users
+  );
+
+  const applicantBase = UserPool.Users[applicantKey];
+  const applicantFinal = safeMergeData(
+    applicantBase,
+    scenario.applicantOverrides
+  );
+
+  // ---------- CO-APPLICANT ----------
+  let coApplicantFinal: ApplicantData | null = null;
+
+  if (scenario.flowControl.hasCoApplicant) {
+    const coKey = resolveUserKey(
+      'coApplicant',
+      scenario,
+      UserPool.Users
+    );
+
+    const coBase = UserPool.Users[coKey];
+    coApplicantFinal = safeMergeData(
+      coBase,
+      scenario.coApplicantOverrides
+    );
+  }
+
+  // ---------- STORE GLOBALLY ----------
+  TestGlobalData.setApplicantData(applicantFinal);
+  TestGlobalData.setCoApplicantData(coApplicantFinal);
+  TestGlobalData.setTestControl(scenario);
+
+  // ---------- DEBUG ---------- i will use these to check 
+  //console.log('Applicant Loaded:', applicantFinal.FirstName);
+  //if (coApplicantFinal) {
+   // console.log('Co-Applicant Loaded:', coApplicantFinal.FirstName);
+  //}
+
+  // ---------- RETURN ----------
+  return {
+    flowControl: scenario.flowControl,
+    lenderSelection: scenario.lenderSelection,
+    lender: scenario.lender,
+  };
 }

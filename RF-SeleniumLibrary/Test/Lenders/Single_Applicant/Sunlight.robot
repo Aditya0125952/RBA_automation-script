@@ -3,20 +3,21 @@ Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${Sunlight_DATA}    ${CURDIR}/../../InputData/Sunlight_TestData.json
-${instance}    rba6
+${instance}    rba2
 
 *** Test Cases ***
 Sunlight HappyCase
-    [Tags]    ${instance}    S100617
+    [Tags]    ${instance}    S101817
     Load Lender Data    ${Sunlight_DATA}
-    Merchant Portal Login
-    Merchant Selection Page    Sunlight_HI
-    Sending Application to Consumer
-    Dc plans page    22000    0
+    Merchant Portal Login    kalyan.gaddala+552@finmkt.io    Qa@12345
+    #Merchant Selection Page    RbA-AD1
+    #selecting the merchant location    RbA-AD1_Master
+    Sending Application to Consumer    
+    Dc plans page    76000    0
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    Set To Dictionary    ${modified_app}    email=manohar.anaparthi@finmkt.io
+    #Set To Dictionary    ${modified_app}    email=manohar.anaparthi@finmkt.io
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up
@@ -29,16 +30,17 @@ Sunlight HappyCase
     Handle Initial Flow
 
 SUNLIGHT Ownership_Stipulation
-    [Tags]    ${instance}    S102417
+    [Tags]    ${instance}    S101817
     Load Lender Data    ${Sunlight_DATA}
     Merchant Portal Login
     Merchant Selection Page    Sunlight_HI
+    selecting the merchant location    Sunlight_HI_Master
     Sending Application to Consumer
     Dc plans page    76000    0
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    Set To Dictionary    ${modified_app}    email=aditya.chelluru@finmkt.io
+    Set To Dictionary    ${modified_app}    email=wesly.thoram@finmkt.io
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up

@@ -5,13 +5,13 @@ Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${FFC_DATA}     ${CURDIR}/../../InputData/FF_TestData.json
 ${START_DIGITS}    888
-${instance}    rba6
+${instance}    rba4
 
 *** Test Cases ***
 FFC HappyCase
-    [Tags]    R418009    ${instance}   Co-App
+    [Tags]    R418006    ${instance}   Co-App
     Load Lender Data    ${FFC_DATA}
-    Merchant Portal Login    madhiu.wede
+    Merchant Portal Login
     Merchant Selection Page    Sunlight_HI 
     Selecting The Merchant Location    Sunlight_HI_Master
     Sending Application to Consumer

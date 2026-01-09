@@ -1,9 +1,8 @@
 import { test, expect, firefox } from '@playwright/test';
 // Corrected path for TestGlobalData (assuming 'Interface' folder is in root)
-//import { TestGlobalData } from '../Interface/statcDataContainer';
-import * as UserPool from '../TestScenario/userpool.json';
-import { ApplicantData } from '../Interface/interface.js';  
-import { TestCaseControl } from '../Interface/TestInterface.js'; // Assuming this is your scenario interface
+import { TestGlobalData } from '../Interface/statcDataContainer';
+//import * as UserPool from '../TestScenario/userpool.json';
+//import { ApplicantData } from '../Interface/interface.js';
 import { BasePage } from '../page/BasePage.page';
 import { LoginPage } from '../page/Login.page';
 import { DashBoardPage } from '../page/dashboard.page';
@@ -19,17 +18,19 @@ import { PersonalInformationPage } from '../page/personal-Info.page';
 import { KBAPage } from '../page/KBA.page';
 import { OfferPage} from '../page/Offer.page';
 import * as dotenv from 'dotenv';
-import { setupTestEnvironment } from '../utils/testSetUp.js';
+import { setupTestEnvironment } from '../utils/testSetUp.js'; 
+import { TestCaseControl } from '../Interface/TestInterface.js'; // Assuming this is your scenario interface
+
 dotenv.config();
-import * as TestScenario from '../TestScenario/test.json'; // Your scenario file
+import TestScenario from '../TestScenario/test.json';
 import { AddressRekyc } from '../page/Address_Rekyc.page';
 
 
 test('Login Test - Using ENV Variables', async ({ page }) => {
-const { flowControl, lenderSelection, lender } = setupTestEnvironment();
+const scenarioConfig = TestScenario[0];
+const { flowControl, lenderSelection, lender } = setupTestEnvironment(scenarioConfig);
 new BasePage(page);
-test.setTimeout(160000);
-// 4. Page Object Initialization (ZERO ARGUMENTS - UNCHANGED)
+test.setTimeout(160000); 
 const loginpage = new LoginPage();
 const merchantselectionpage = new MerchantSelectionAndLocationPage();
 const dashboardpage = new DashBoardPage();
@@ -43,11 +44,11 @@ const BasicInfoPage = new BasicInformationPage();
 const Personal_Info = new PersonalInformationPage();
 const OnlyAddressRekyc = new AddressRekyc();
 const KbaPage=new KBAPage();
-const Offerpage = new OfferPage;
+const Offerpage = new OfferPage();
 
 // 5. Test Flow (METHOD CALLS ARE UNTOUCHED)
 await loginpage.loadingMerchantPortal('aditya.chelluru+12@finmkt.io','Qa@12345');
-await merchantselectionpage.MerchantAndLocationSelection(lenderSelection.merchant);
+await merchantselectionpage.MerchantAndLocationSelection(lenderSelection.merchant , "abcd");
 await dashboardpage.SendingAppilication();
 await dcplanpage.Dc_Plan_Selection(lenderSelection.dcPlan);
 await applicantselectionpage.Applicant_Selection_Page(flowControl.hasCoApplicant);
@@ -79,7 +80,7 @@ if(flowControl.hasCoApplicant){
 }
 const Url = await page.url();
 console.log(" this is the offer url : ",Url);
-await Offerpage.offerpagefunction();
+await Offerpage.waitForOffers();
 }
 
 

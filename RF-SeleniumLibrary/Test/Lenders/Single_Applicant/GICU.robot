@@ -4,15 +4,16 @@ Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
 ${GICU_DATA}    ${CURDIR}/../../InputData/GICU_TestData.json
-${instance}    rba2
+${instance}    rba6
 
 *** Test Cases ***
 GICU HappyCase
-    [Tags]    ${instance}    R412007
+    [Tags]    ${instance}    R412009
     Load Lender Data    ${GICU_DATA}
     Merchant Portal Login
-    Merchant Selection Page   
-    Sending Application to Consumer
+    Merchant Selection Page    RbA-AD1  
+    #selecting the merchant location    Sunlight_HI_Master
+    Sending Application to Consumer    
     Dc plans page
     Type of Application page
     Load and Prepare applicant details
@@ -26,4 +27,5 @@ GICU HappyCase
     Personal Information
     Address Re-Kyc Screen
     Click Button    xpath:/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div/div/div/div/span/form/div[2]/div/div/button
+    Sleep    100
     Handle Initial Flow

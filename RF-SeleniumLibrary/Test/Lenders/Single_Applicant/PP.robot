@@ -18,8 +18,8 @@ PP HappyCase
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    Set To Dictionary    ${modified_app}    email=prathyusha.dumala@finmkt.io
-    Set To Dictionary    ${modified_app}    citizenship_status=Other
+    #Set To Dictionary    ${modified_app}    email=prathyusha.dumala@finmkt.io
+    #Set To Dictionary    ${modified_app}    citizenship_status=Other
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up

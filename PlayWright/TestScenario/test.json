@@ -1,26 +1,37 @@
-{
+[
+  {
   "scenarioName": "Minimal Flow Control Test",
+  "Applicant_Test_Data": "Ana_Villar",
+  "applicantOverrides": {
+    "FirstName":"",
+    "LastName" : "",
+    "email": "hemasri.moram@finmkt.io",
+    "state": "",
+    "zipcode":"",
+    "employment_status":"",
+    "annual_income":"",
+    "household_income":"",
+    "mobileNumber":""
+  },
   "flowControl": {
-    "hasCoApplicant": true, 
+    "hasCoApplicant": false, 
     "kbaAnswersNeeded": true 
   },
-  "applicantOverrides": {
-    "email": "aditya@test.io",
-    "state": "California"
-  },
-  
+  "Co_Applicant_Test_Data":"Morghan_Blake",
   "coApplicantOverrides": {
-    "FirstName": "Co-Applicant First Name",
-    "LastName": "Co-Applicant Last Name",
-    "email": "coapp.test@test.io"
+    "FirstName": "",
+    "LastName": "",
+    "email": ""
   },
   "lenderSelection": {
-    "merchant": "rba_Ad",
-    "dcPlan": "R412006"
+    "merchant": "RbA-Ad1",
+    "dcPlan": "GICU_RBA"
   },
   "lender":{
-    "name" : "Sunlight",
+    "Comment": "Upgrade, GoodLeap, GICU, SLF, PP, FFC",
+    "name" : "PP",
     "state" : "Iowa",
-    "Zip" : "50006"
+    "Zip" : "50014"
   }
 }
+]

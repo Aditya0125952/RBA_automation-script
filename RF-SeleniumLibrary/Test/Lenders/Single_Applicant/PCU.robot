@@ -5,16 +5,16 @@ Library         JSONLibrary  # Needed for parsing
 Library         BuiltIn
 *** Variables ***
 ${PCU_DATA}    ${CURDIR}/../../InputData/PCU_TestData.json
-${INSTANCE}    rba6
+${INSTANCE}    rba3
 
 *** Test Cases ***
 PCU HappyCase
-    [Tags]    ${instance}    H201209
+    [Tags]    ${INSTANCE}    H201209
     Load Lender Data    ${PCU_DATA}
     Merchant Portal Login
     Merchant Selection Page
     Sending Application to Consumer
-    Dc plans page
+    Dc plans page    9000    10    
     Type of Application page
     Load and Prepare applicant details
     Application Details Page

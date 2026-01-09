@@ -1,7 +1,7 @@
 import { Locator, Page, expect } from "@playwright/test";
 import Fuse from "fuse.js";
 import { BasePage } from "./BasePage.page";
-
+import { showDecisionModal } from "../utils/interactiveDecisionModal";
 export class MerchantSelectionAndLocationPage extends BasePage {
     readonly LoginButton: Locator;
     constructor() {
@@ -9,70 +9,104 @@ export class MerchantSelectionAndLocationPage extends BasePage {
         this.LoginButton = this.page.getByRole('button', { name: 'Submit' });
     }
     async MerchantAndLocationSelection(Merchant: string, Location?: string) {
-        console.log(`Waiting for merchant list API and clicking submit...`);
-        const [response] = await Promise.all([
-            this.page.waitForResponse('**/api/pos/login/merchants'),
-            this.LoginButton.click(),
-        ]);
+  console.log(`Waiting for merchant list API and clicking submit...`);
 
-        if (!response.ok()) {
-            throw new Error(`API call failed with status: ${response.status()}`);
-        }
+  const [response] = await Promise.all([
+    this.page.waitForResponse('**/api/pos/login/merchants'),
+    this.LoginButton.click(),
+  ]);
 
-        const data = await response.json();
-        
-        // --- DEBUGGING STARTS HERE ---
-        // Log the full response to inspect its structure
-        console.log("Full Merchant API Response:", JSON.stringify(data, null, 2));
+  if (!response.ok()) {
+    throw new Error(`API call failed with status: ${response.status()}`);
+  }
 
-        // Safety check: Verify data.users exists and is an array
-        if (!data || !data.users || !Array.isArray(data.users)) {
-            console.error("Critical Error: API response is missing the 'users' array.");
-            throw new Error("Invalid API response structure for merchant list.");
-        }
+  const data = await response.json();
 
-        if (data.users.length === 0) {
-            console.warn("Warning: The merchant list returned from the API is empty.");
-        }
-        // --- DEBUGGING ENDS HERE ---
+  if (!data?.users || !Array.isArray(data.users)) {
+    throw new Error('Invalid merchant API response');
+  }
 
-        const option = {
-            keys: ['merchantName'],
-            threshold: 0.3
-        }
-        
-        // Initialize Fuse with the validated users array
-        const fuse = new Fuse(data.users, option);
-        
-        console.log(`Searching for merchant: '${Merchant}'`);
-        const result = fuse.search(Merchant);
+  // ---------- MERCHANT FUZZY MATCH ----------
+  const merchantFuse = new Fuse(data.users, {
+    keys: ['merchantName'],
+    threshold: 0.3,
+  });
 
-        // Safety check: Ensure search returned at least one result
-        if (result.length === 0) {
-            console.error(`Error: No merchant found matching '${Merchant}'.`);
-            // Log available merchants to help with debugging
-            const availableMerchants = data.users.map((u: any) => u.merchantName).join(", ");
-            console.log(`Available merchants were: ${availableMerchants}`);
-            throw new Error(`Merchant searched '${Merchant}' not found in the list.`);
-        }
+  const merchantResult = merchantFuse.search(Merchant);
 
-        // Now it's safe to access the first result
-        const foundmerchant = result[0].item.merchantName;
-        console.log('Selected merchant found by fuzzy search: ', foundmerchant);
+  if (merchantResult.length === 0) {
+    throw new Error(`Merchant '${Merchant}' not found`);
+  }
 
-        // ... rest of your logic for location selection
-        const [locationResponse] = await Promise.all([
-            this.page.waitForResponse('**/api/pos/merchant/login'),
-            this.page.selectOption('select.login-selectdropdown', { label: foundmerchant }),
-        ]);
-        const locationdata = await locationResponse.json();
-        if (locationdata.status != 'success') {
-            // Ensure userLocationConfigs exists and has elements before accessing index 0
-            if (locationdata.merchantUser?.userLocationConfigs?.length > 0) {
-                await this.page.selectOption('select.login-selectdropdown', { label: locationdata.merchantUser.userLocationConfigs[0].locationName });
-            } else {
-                 console.error("Could not auto-select location: userLocationConfigs is missing or empty.");
-            }
-        }
-    }
+  const foundMerchant = merchantResult[0].item.merchantName;
+  console.log('Selected merchant:', foundMerchant);
+
+  // ---------- FETCH LOCATIONS ----------
+  const [locationResponse] = await Promise.all([
+    this.page.waitForResponse('**/api/pos/merchant/login'),
+    this.page.selectOption('select.login-selectdropdown', {
+      label: foundMerchant,
+    }),
+  ]);
+
+  const locationData = await locationResponse.json();
+
+  const locations =
+    locationData?.merchantUser?.userLocationConfigs?.map(
+      (l: any) => l.locationName
+    ) || [];
+
+  if (!locations || locations.length === 0) {
+  console.log(
+    'ℹ️ No locations returned. Merchant is MASTER user. Skipping location selection.'
+  );
+  return; // ← IMPORTANT
+}
+
+  // ---------- IF NO LOCATION PASSED → AUTO PICK FIRST ----------
+  if (!Location) {
+    await this.page.selectOption('select.login-selectdropdown', {
+      label: locations[0],
+    });
+    return;
+  }
+
+  // ---------- LOCATION FUZZY MATCH ----------
+  const locationFuse = new Fuse(locations, { threshold: 0.3 });
+  const locationResult = locationFuse.search(Location);
+
+  if (locationResult.length > 0) {
+    const matchedLocation = locationResult[0].item;
+    console.log('Matched location:', matchedLocation);
+
+    await this.page.selectOption('select.login-selectdropdown', {
+ label: matchedLocation,
+    });
+    return;
+  }
+
+  // ---------- LOCATION NOT FOUND → SHOW MODAL ----------
+  const decision = await showDecisionModal(this.page, {
+    title: 'Location Not Found',
+    message: `The location "<b>${Location}</b>" is not available for merchant "<b>${foundMerchant}</b>".`,
+    dropdownLabel: 'Available locations',
+    options: locations,
+    continueText: 'Continue',
+    cancelText: 'No',
+  });
+
+  if (decision.action === 'cancel') {
+    console.log('User cancelled flow at location selection');
+    console.log('Current URL:', decision.url);
+    return decision.url;
+  }
+
+  // ---------- USER SELECTED NEW LOCATION ----------
+  await this.page.selectOption('select.login-selectdropdown', {
+    label: decision.value!,
+  });
+
+  console.log('User selected new location:', decision.value);
+}
+
 }

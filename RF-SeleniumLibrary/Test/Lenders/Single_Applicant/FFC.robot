@@ -9,14 +9,14 @@ ${INSTANCE}    rba
 
 *** Test Cases ***
 FFC HappyCase
-    [Tags]    ${INSTANCE}    H201209         
+    [Tags]    ${INSTANCE}    S100617        
     ${test_data}=    Get Test Data  
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login         
-    Merchant Selection Page    
-    Selecting The Merchant Location    Sunlight_HI_Master     
+    Merchant Selection Page    Sunlight_HI   
+    Selecting The Merchant Location    Sunlight_HI_Master   
     Sending Application to Consumer
-    Dc plans page    10000    200   
+    Dc plans page   
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}

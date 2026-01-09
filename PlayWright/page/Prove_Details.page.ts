@@ -1,10 +1,16 @@
 import { log } from "console";
+import { TestGlobalData } from "../Interface/statcDataContainer";
 import { BasePage } from "./BasePage.page";
+import { ApplicantData } from "../Interface/interface.js";
 
 
 export class Prove_Details_Page extends BasePage {
 
     async Prove_Details(){
+
+        const applicant : ApplicantData = TestGlobalData.applicantData;
+        const coApplicant : ApplicantData | null = TestGlobalData.coApplicantData;
+
         const continuBtn = this.page.getByRole('button',{name : 'Continue'});
         await continuBtn.waitFor({state : 'visible'});
         const currenturl = await this.page.url();
@@ -12,13 +18,12 @@ export class Prove_Details_Page extends BasePage {
         const type = parse.searchParams.get("type");
         const inputFields = this.page.locator('input');
         if(type != "CO_APPLICANT"){
-            await inputFields.nth(0).fill('666308630');
-            await inputFields.nth(1).fill('8880297482');
+            await inputFields.nth(0).fill(applicant.ssn);
+            await inputFields.nth(1).fill(applicant.mobileNumber);
         }else{
-            await inputFields.nth(0).fill('666971260');
-            await inputFields.nth(1).fill('8880297412');
+            await inputFields.nth(0).fill(coApplicant.ssn);
+            await inputFields.nth(1).fill(coApplicant.mobileNumber);
         }
-        
         while(1){
             const [response] = await Promise.all([
                 this.page.waitForResponse('**/prefill-information?**'),

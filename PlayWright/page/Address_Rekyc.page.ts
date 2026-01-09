@@ -18,7 +18,7 @@ export class AddressRekyc extends BasePage{
         await this.page.waitForTimeout(500);
         await allFormInputs.nth(3).fill('Iowa');
         await allFormInputs.nth(3).press('Enter');
-        await allFormInputs.nth(4).fill('50011');
+        await allFormInputs.nth(4).fill('50014');
         }
     }
 }
