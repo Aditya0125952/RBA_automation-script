@@ -5,13 +5,13 @@
   "applicantOverrides": {
     "FirstName":"",
     "LastName" : "",
-    "email": "hemasri.moram@finmkt.io",
+    "email": "",
     "state": "",
     "zipcode":"",
     "employment_status":"",
     "annual_income":"",
     "household_income":"",
-    "mobileNumber":""
+    "mobileNumber":"8888216073"
   },
   "flowControl": {
     "hasCoApplicant": false, 
@@ -21,15 +21,16 @@
   "coApplicantOverrides": {
     "FirstName": "",
     "LastName": "",
-    "email": ""
+    "email": "",
+    "mobileNumber":""
   },
   "lenderSelection": {
-    "merchant": "RbA-Ad1",
-    "dcPlan": "GICU_RBA"
+    "merchant": "rba-ad",
+    "dcPlan": "R412007"
   },
   "lender":{
-    "Comment": "Upgrade, GoodLeap, GICU, SLF, PP, FFC",
-    "name" : "PP",
+    "Comment": "Upgrade, GoodLeap, GICU, SLF, PP, FFC, PCU",
+    "name" : "GICU",
     "state" : "Iowa",
     "Zip" : "50014"
   }

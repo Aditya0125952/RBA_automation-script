@@ -1,9 +1,10 @@
-// --- Interfaces (Ensure these are defined in your project) ---
+// --- Interfaces ---
 export interface DecisionModalConfig {
   title: string;
   message: string;
   options?: string[];
   dropdownLabel?: string;
+  loanId?: string; // ✅ NEW
   continueText?: string;
   cancelText?: string;
 }
@@ -12,266 +13,392 @@ export type ModalAction =
   | { action: 'continue'; value?: string }
   | { action: 'cancel'; url: string };
 
-
-// --- The Main Function ---
+// --- Main Function ---
 export async function showDecisionModal(
-  page: any, // Using 'any' for generic Playwright Page type compatibility
+  page: any,
   config: DecisionModalConfig
 ): Promise<ModalAction> {
   return await page.evaluate((cfg) => {
     return new Promise((resolve) => {
-      // 1. Cleanup any existing modals first
+
+      /* ------------------ CLEANUP ------------------ */
       document.getElementById('automation-decision-modal-root')?.remove();
 
-      // 2. Define Theme Colors (Indigo/Purple Palette)
+      /* ------------------ THEME ------------------ */
       const theme = {
-        primary: '#4F46E5',     // Indigo 600 (Buttons, accents)
-        primaryHover: '#4338CA', // Indigo 700 (Button hover)
-        primaryLight: '#EEF2FF', // Indigo 50 (Icon background, hover state)
-        textDark: '#111827',    // Gray 900 (Title)
-        textMedium: '#4B5563',  // Gray 600 (Body text)
-        border: '#E5E7EB',      // Gray 200 (Borders)
-        bgHover: '#F9FAFB',     // Gray 50 (Footer background)
+        gradient:
+          'linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%)',
+        glassBg: 'rgba(255,255,255,0.85)',
+        border: 'rgba(255,255,255,0.4)',
+        textDark: '#111827',
+        textMedium: '#4B5563',
+        primary: '#6366F1',
+        primaryHover: '#4F46E5',
+        footerBg: 'rgba(249,250,251,0.85)',
       };
 
-      /* ---------- Create Overlay (Background Blur) ---------- */
+      /* ------------------ OVERLAY ------------------ */
       const overlay = document.createElement('div');
       overlay.id = 'automation-decision-modal-root';
       overlay.style.cssText = `
         position: fixed;
         inset: 0;
-        background-color: rgba(17, 24, 39, 0.65);
-        backdrop-filter: blur(8px);
+        background: rgba(17,24,39,0.65);
+        backdrop-filter: blur(10px);
         z-index: 2147483647;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px;
+        padding: 24px;
         opacity: 0;
-        transition: opacity 0.2s ease-out;
+        transition: opacity 0.25s ease;
       `;
 
-      /* ---------- Create Modal Container ---------- */
+      /* ------------------ MODAL ------------------ */
       const modal = document.createElement('div');
       modal.style.cssText = `
-        background: #ffffff;
-        padding: 0;
-        border-radius: 16px;
         width: 100%;
-        max-width: 480px;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0,0,0,0.05);
+        max-width: 520px;
+        border-radius: 20px;
+        background: ${theme.glassBg};
+        backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid ${theme.border};
+        box-shadow:
+          0 30px 60px -20px rgba(0,0,0,0.35),
+          inset 0 1px 0 rgba(255,255,255,0.6);
         transform: scale(0.95);
         opacity: 0;
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        position: relative; /* For dropdown positioning */
+        transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+        font-family: Inter, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        overflow: visible;
       `;
 
-      /* ---------- Inject HTML & CSS ---------- */
+      /* ------------------ HTML + CSS ------------------ */
       modal.innerHTML = `
         <style>
-          .adm-content-wrapper { padding: 32px; }
+          .adm-header {
+            background: ${theme.gradient};
+            padding: 28px;
+            border-radius: 20px 20px 0 0;
+            color: white;
+          }
 
-          /* Header & Icon */
-          .adm-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
-          .adm-icon-badge {
-            flex-shrink: 0; width: 40px; height: 40px;
-            background-color: ${theme.primaryLight};
-            color: ${theme.primary};
+          .adm-title {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 700;
+          }
+
+          .adm-body {
+            padding: 28px;
+          }
+
+          .adm-message {
+            margin: 0 0 20px 0;
+            font-size: 15px;
+            line-height: 1.7;
+            color: ${theme.textMedium};
+            white-space: pre-line;
+          }
+
+          /* ---------- LOAN ID ---------- */
+          .adm-loan {
+            margin-bottom: 24px;
+          }
+
+          .adm-loan-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #6B7280;
+            margin-bottom: 6px;
+            display: block;
+          }
+
+          .adm-loan-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            background: rgba(243,244,246,0.9);
             border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
+            padding: 10px 14px;
           }
-          .adm-icon-badge svg { width: 24px; height: 24px; stroke-width: 2; }
-          .adm-title { margin: 0; font-size: 20px; font-weight: 700; color: ${theme.textDark}; line-height: 1.2; }
-          .adm-message { font-size: 15px; color: ${theme.textMedium}; line-height: 1.6; margin: 0 0 24px 0; padding-left: 56px; }
 
-          /* Form & Custom Dropdown CSS */
-          .adm-form-group { padding-left: 56px; margin-bottom: 24px; }
-          .adm-label { font-size: 13px; font-weight: 600; color: ${theme.textDark}; margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.05em; }
-          
-          /* Custom Select Container */
-          .adm-custom-select { position: relative; width: 100%; }
+          .adm-loan-box code {
+            font-size: 14px;
+            color: ${theme.textDark};
+            user-select: all;
+          }
 
-          /* The trigger button (looks like the input box) */
+          .adm-copy-btn {
+            background: ${theme.primary};
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 12px;
+            cursor: pointer;
+          }
+
+          .adm-copy-btn:hover {
+            background: ${theme.primaryHover};
+          }
+
+          /* ---------- DROPDOWN ---------- */
+          .adm-form-group {
+            margin-top: 20px;
+          }
+
+          .adm-label {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+          }
+
+          .adm-custom-select {
+            position: relative;
+          }
+
           .adm-select-trigger {
-            display: flex; justify-content: space-between; align-items: center;
-            width: 100%; padding: 12px 16px;
-            border-radius: 8px; border: 1px solid ${theme.primary};
-            font-size: 15px; color: ${theme.textDark}; background: #fff;
-            cursor: pointer; transition: all 0.15s ease;
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid ${theme.primary};
+            background: #fff;
+            cursor: pointer;
           }
-          .adm-select-trigger:focus { outline: none; box-shadow: 0 0 0 4px ${theme.primaryLight}; }
 
-          /* Custom Arrow */
           .adm-trigger-arrow {
-            width: 0; height: 0;
-            border-left: 5px solid transparent; border-right: 5px solid transparent;
-            border-top: 5px solid ${theme.primary}; margin-left: 10px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid ${theme.primary};
           }
 
-          /* The beautiful dropdown list */
           .adm-select-options {
-            position: absolute; top: calc(100% + 8px); left: 0; right: 0;
-            background: #fff; border-radius: 8px;
-            border: 1px solid ${theme.border};
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            z-index: 20; max-height: 220px; overflow-y: auto;
-            list-style: none; padding: 4px 0; margin: 0;
-            display: none; /* Hidden by default */
-            opacity: 0; transform: translateY(-10px); transition: all 0.2s ease-out;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            z-index: 9999;
+            max-height: 220px;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            list-style: none;
+            margin: 0;
+            padding: 6px 0;
+            display: none;
           }
-          /* State to show the list */
-          .adm-select-options.open { display: block; opacity: 1; transform: translateY(0); }
 
-          /* Individual options */
+          .adm-select-options.open {
+            display: block;
+          }
+
           .adm-option {
-            padding: 10px 16px; font-size: 15px; color: ${theme.textDark};
-            cursor: pointer; transition: background-color 0.1s ease;
-            border-radius: 4px; margin: 0 4px;
+            padding: 10px 16px;
+            cursor: pointer;
           }
-          .adm-option:hover { background-color: ${theme.primaryLight}; color: ${theme.primary}; }
-          .adm-option.selected { font-weight: 500; background-color: ${theme.primaryLight}; color: ${theme.primary}; }
 
-          /* Footer & Buttons */
+          .adm-option:hover,
+          .adm-option.selected {
+            background: rgba(99,102,241,0.1);
+            color: ${theme.primary};
+          }
+
+          /* ---------- FOOTER ---------- */
           .adm-footer {
-            background-color: ${theme.bgHover}; padding: 16px 32px;
-            display: flex; justify-content: flex-end; gap: 12px;
-            border-top: 1px solid ${theme.border}; border-radius: 0 0 16px 16px;
+            background: ${theme.footerBg};
+            padding: 18px 28px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-radius: 0 0 20px 20px;
           }
+
           .adm-btn {
-            padding: 10px 20px; font-size: 14px; font-weight: 600;
-            border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
+            padding: 10px 22px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
           }
+
           .adm-btn-cancel {
-            background: #fff; color: ${theme.textDark}; border: 1px solid ${theme.border};
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.1);
           }
-          .adm-btn-cancel:hover { background: ${theme.bgHover}; border-color: #D1D5DB; }
+
           .adm-btn-primary {
-            background: ${theme.primary}; color: white; border: 1px solid transparent;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            background: ${theme.primary};
+            color: white;
+            border: none;
           }
-          .adm-btn-primary:hover { background: ${theme.primaryHover}; transform: translateY(-1px); }
         </style>
 
-        <div class="adm-content-wrapper">
-          <div class="adm-header">
-            <div class="adm-icon-badge">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="4" />
-                <circle cx="9" cy="10" r="2" />
-                <circle cx="15" cy="10" r="2" />
-                <path d="M8 16h8" />
-                <line x1="12" y1="1" x2="12" y2="3" />
-              </svg>
-            </div>
-            <div><h3 class="adm-title">${cfg.title}</h3></div>
-          </div>
+        <div class="adm-header">
+          <h3 class="adm-title">${cfg.title}</h3>
+        </div>
 
+        <div class="adm-body">
           <p class="adm-message">${cfg.message}</p>
 
-          ${cfg.options ? `
-            <div class="adm-form-group">
-                <label class="adm-label">${cfg.dropdownLabel || 'Select Required Action'}</label>
-                
-                <div class="adm-custom-select" id="admCustomSelect">
-                    <input type="hidden" id="decisionSelectValue" value="${cfg.options[0]}">
-                    
-                    <div class="adm-select-trigger" tabindex="0">
-                        <span id="selectedText">${cfg.options[0]}</span>
-                        <div class="adm-trigger-arrow"></div>
-                    </div>
-                    
-                    <ul class="adm-select-options">
-                        ${cfg.options.map((o, i) => `
-                            <li class="adm-option ${i === 0 ? 'selected' : ''}" data-value="${o}">${o}</li>
-                        `).join('')}
-                    </ul>
-                </div>
+          ${
+            cfg.loanId
+              ? `
+            <div class="adm-loan">
+              <span class="adm-loan-label">Loan ID</span>
+              <div class="adm-loan-box">
+                <code id="loanIdText">${cfg.loanId}</code>
+                <button id="copyLoanIdBtn" class="adm-copy-btn">Copy</button>
+              </div>
             </div>
-            ` : ''}
+          `
+              : ''
+          }
+
+          ${
+            cfg.options
+              ? `
+            <div class="adm-form-group">
+              <label class="adm-label">${cfg.dropdownLabel || 'Select Action'}</label>
+              <div class="adm-custom-select" id="admCustomSelect">
+                <input type="hidden" id="decisionSelectValue" value="${cfg.options[0]}" />
+                <div class="adm-select-trigger">
+                  <span id="selectedText">${cfg.options[0]}</span>
+                  <div class="adm-trigger-arrow"></div>
+                </div>
+                <ul class="adm-select-options">
+                  ${cfg.options
+                    .map(
+                      (o, i) =>
+                        `<li class="adm-option ${
+                          i === 0 ? 'selected' : ''
+                        }" data-value="${o}">${o}</li>`
+                    )
+                    .join('')}
+                </ul>
+              </div>
+            </div>
+          `
+              : ''
+          }
         </div>
 
         <div class="adm-footer">
-          <button id="cancelBtn" class="adm-btn adm-btn-cancel">${cfg.cancelText || 'Stop & Cancel'}</button>
-          <button id="continueBtn" class="adm-btn adm-btn-primary">${cfg.continueText || 'Confirm & Continue'}</button>
+          <button id="cancelBtn" class="adm-btn adm-btn-cancel">
+            ${cfg.cancelText || 'Cancel'}
+          </button>
+          <button id="continueBtn" class="adm-btn adm-btn-primary">
+            ${cfg.continueText || 'Continue'}
+          </button>
         </div>
       `;
 
       overlay.appendChild(modal);
       document.body.appendChild(overlay);
 
-      // 3. Trigger Enter Animation
+      /* ------------------ ANIMATE IN ------------------ */
       requestAnimationFrame(() => {
         overlay.style.opacity = '1';
         modal.style.opacity = '1';
         modal.style.transform = 'scale(1)';
       });
 
-      // ----- Custom Dropdown Logic -----
+      /* ------------------ COPY LOAN ID ------------------ */
+      if (cfg.loanId) {
+  const btn = document.getElementById('copyLoanIdBtn') as HTMLButtonElement;
+  const text = document.getElementById('loanIdText')!.textContent!;
+
+  const copyTextToClipboard = (value: string) => {
+    const textarea = document.createElement('textarea');
+    textarea.value = value;
+
+    // Prevent page jump / visual glitch
+    textarea.style.position = 'fixed';
+    textarea.style.top = '0';
+    textarea.style.left = '0';
+    textarea.style.opacity = '0';
+
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+
+    try {
+      document.execCommand('copy');
+      btn.textContent = 'Copied';
+    } catch (err) {
+      console.error('Copy failed', err);
+      btn.textContent = 'Failed';
+    }
+
+    setTimeout(() => {
+      btn.textContent = 'Copy';
+    }, 1500);
+
+    document.body.removeChild(textarea);
+  };
+
+  btn.onclick = () => copyTextToClipboard(text);
+}
+
+      /* ------------------ DROPDOWN LOGIC ------------------ */
       if (cfg.options) {
-        const customSelect = document.getElementById('admCustomSelect')!;
-        const trigger = customSelect.querySelector('.adm-select-trigger') as HTMLElement;
-        const optionsList = customSelect.querySelector('.adm-select-options') as HTMLElement;
-        const hiddenInput = document.getElementById('decisionSelectValue') as HTMLInputElement;
-        const selectedTextSpan = document.getElementById('selectedText')!;
-        const options = customSelect.querySelectorAll('.adm-option');
+        const select = document.getElementById('admCustomSelect')!;
+        const trigger = select.querySelector('.adm-select-trigger')!;
+        const list = select.querySelector('.adm-select-options')!;
+        const hidden = document.getElementById('decisionSelectValue') as HTMLInputElement;
+        const selectedText = document.getElementById('selectedText')!;
+        const options = select.querySelectorAll('.adm-option');
 
-        // Toggle open/close on trigger click
-        trigger.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent immediate close by document listener
-            optionsList.classList.toggle('open');
+        trigger.onclick = (e) => {
+          e.stopPropagation();
+          list.classList.toggle('open');
+        };
+
+        options.forEach((opt) => {
+          opt.addEventListener('click', () => {
+            options.forEach(o => o.classList.remove('selected'));
+            opt.classList.add('selected');
+            hidden.value = opt.getAttribute('data-value')!;
+            selectedText.textContent = opt.textContent!;
+            list.classList.remove('open');
+          });
         });
 
-        // Handle option selection
-        options.forEach(option => {
-            option.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const value = option.getAttribute('data-value')!;
-                const text = option.textContent!;
-
-                // Update state
-                hiddenInput.value = value;
-                selectedTextSpan.textContent = text;
-
-                // Update visual selection state
-                options.forEach(o => o.classList.remove('selected'));
-                option.classList.add('selected');
-
-                // Close dropdown
-                optionsList.classList.remove('open');
-            });
-        });
-
-        // Close dropdown if clicking outside of it
-        document.addEventListener('click', (e) => {
-            if (!customSelect.contains(e.target as Node)) {
-                optionsList.classList.remove('open');
-            }
-        });
+        document.addEventListener('click', () => list.classList.remove('open'));
       }
-      // ----------------------------------
 
-
-      // 4. Helper function for exit animation and resolution
-      const cleanupAndResolve = (result: any) => {
+      /* ------------------ CLEANUP ------------------ */
+      const cleanup = (result: any) => {
         overlay.style.opacity = '0';
         modal.style.opacity = '0';
         modal.style.transform = 'scale(0.95)';
-        setTimeout(() => { overlay.remove(); resolve(result); }, 200);
-      }
+        setTimeout(() => {
+          overlay.remove();
+          resolve(result);
+        }, 200);
+      };
 
-      // 5. Attach Button Event Listeners
       document.getElementById('continueBtn')!.onclick = () => {
-        // Read value from the hidden input
-        const hiddenInput = document.getElementById('decisionSelectValue') as HTMLInputElement;
-        const value = cfg.options && hiddenInput ? hiddenInput.value : undefined;
-        cleanupAndResolve({ action: 'continue', value });
+        const input = document.getElementById('decisionSelectValue') as HTMLInputElement;
+        cleanup({ action: 'continue', value: cfg.options ? input?.value : undefined });
       };
 
       document.getElementById('cancelBtn')!.onclick = () => {
-        cleanupAndResolve({ action: 'cancel', url: window.location.href });
+        cleanup({ action: 'cancel', url: window.location.href });
       };
     });
   }, config);

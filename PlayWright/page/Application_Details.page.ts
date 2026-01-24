@@ -14,7 +14,7 @@ export class ApplicationDetailsPage extends BasePage{
         const allInputs = this.page.locator('input, textarea, select');
         await allInputs.nth(0).fill(applicant.street_add);
         await allInputs.nth(2).fill(applicant.city);
-        if(lenderName == "GICU"){
+        if(lenderName == "GICU" || lenderName == "PCU"){
             await allInputs.nth(3).fill('Iowa');
             await allInputs.nth(3).press('Enter');
             await allInputs.nth(4).fill('50014');
@@ -35,7 +35,10 @@ export class ApplicationDetailsPage extends BasePage{
             await allInputs.nth(11).fill(coApplicant.email);
             await allInputs.nth(12).fill(coApplicant.mobileNumber);
         }
-        await this.page.getByLabel('NO').check();
+        const noOption = this.page.locator('label.selectable-option', { hasText: 'NO' });
+        await noOption.waitFor({ state: 'visible' });
+        await noOption.scrollIntoViewIfNeeded();
+        await noOption.click();
         await this.page.keyboard.press('Enter');
         await this.page.getByRole('button', {name:'Send Application'}).click();
         const currentUrl = await this.page.url();

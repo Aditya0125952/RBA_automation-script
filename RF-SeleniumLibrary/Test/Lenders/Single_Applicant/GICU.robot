@@ -4,7 +4,7 @@ Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
 ${GICU_DATA}    ${CURDIR}/../../InputData/GICU_TestData.json
-${instance}    rba6
+${instance}    rba4
 
 *** Test Cases ***
 GICU HappyCase
@@ -27,5 +27,4 @@ GICU HappyCase
     Personal Information
     Address Re-Kyc Screen
     Click Button    xpath:/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div/div/div/div/span/form/div[2]/div/div/button
-    Sleep    100
     Handle Initial Flow

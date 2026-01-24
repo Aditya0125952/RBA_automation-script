@@ -6,7 +6,7 @@
   "projectCost": "23000",
   "depositAmount": "2000",
   "Applicant": {
-    "FirstName": "Morghan",
+    "FirstName": "morghan",
     "LastName": "Blake",
     "email": "aditya.chelluru@finmkt.io",
     "street_add": "17254 Timberlake Court",
@@ -15,15 +15,16 @@
     "zipcode": "65233",
     "Do_you_own_installation_add": "Yes, I own this property.",
     "Do_you_reside_installation_add": "Yes, I reside at this address.",
-    "mobileNumber": "9177261326",
+    "mobileNumber": "9177261126",
     "employment_status": "Employed",
     "occupation": "business",
     "employer_name": "ganesh",
     "monthly_mortgage_amount": "500",
     "annual_income": "150000",
     "household_income": "150000",
-    "dob": "07/01/1986",
-    "ssn": "666971260",    "citizenship_status": "US Citizen"
+    "dob": "08/01/1986",
+    "ssn": "666971260",
+    "citizenship_status": "US Citizen"
   },
   "Co-Applicant": {
     "FirstName": "Ana",
@@ -42,7 +43,7 @@
     "monthly_mortgage_amount": "500",
     "annual_income": "85,000",
     "household_income": "85,000",
-    "dob": "07/01/1981",
+    "dob": "08/01/1981",
     "ssn": "666308630",
     "citizenship_status": "US Citizen"
   },

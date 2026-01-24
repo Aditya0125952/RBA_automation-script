@@ -5,7 +5,7 @@ Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${FFC_DATA}     ${CURDIR}/../../InputData/FF_TestData.json
 ${START_DIGITS}    888
-${instance}    rba4
+${instance}    rba6
 
 *** Test Cases ***
 FFC HappyCase

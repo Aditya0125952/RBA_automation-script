@@ -5,7 +5,7 @@ Library         JSONLibrary  # Needed for parsing
 Library         BuiltIn
 *** Variables ***
 ${FFC_DATA}    ${CURDIR}/../../InputData/FF_TestData.json
-${INSTANCE}    rba
+${INSTANCE}    rba6
 
 *** Test Cases ***
 FFC HappyCase
@@ -20,6 +20,8 @@ FFC HappyCase
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
+    Set To Dictionary    ${modified_app}    email=satya.satti@finmkt.io
+    #Set To Dictionary    ${modified_app}    FirstName=anaa
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up

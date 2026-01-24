@@ -1,6 +1,8 @@
 import { BasePage } from "./BasePage.page";
-import { Locator } from "@playwright/test";
 
+/**
+ * Knowledge base for known KBA answers
+ */
 export const kbaKnowledgeBase: Record<string, string> = {
   "Which of these last names have you used previously?": "Goodman",
   "Which of these addresses are you associated with?": "920 Mill Creek Ave",
@@ -30,106 +32,121 @@ export const kbaKnowledgeBase: Record<string, string> = {
   "From the following list, select the city in which you lived in 2015.": "Tucker",
   "In what county have you lived previously?": "Dekalb",
   "What state was your social security number issued (this could be the state in which you were born or had your first job)?": "Delaware",
-  "If you have a student loan, what is the monthly payment?": "$136",
+  "If you have a student loan, what is the monthly payment?": "136",
   "How many years have you lived at your current address?": "5",
   "In 2010 what county did you live in?": "Fulton"
 };
 
 export class KBAPage extends BasePage {
-    
-    private readonly MAX_RETRY_COUNT = 5;
 
-    async KBApage(coapp?:Boolean) {
-        const continueBtn = this.page.getByRole('button', { name: 'Continue' });
-        let kbaResponseData = null;
-        
-        // --- 1. Controlled Retry Loop for API Chain ---
-        for (let attempt = 1; attempt <= this.MAX_RETRY_COUNT; attempt++) {
-            console.log(`API Chain Check (Attempt ${attempt}/${this.MAX_RETRY_COUNT})...`);
+  private readonly MAX_RETRY_COUNT = 5;
 
-            try {
-                // Phase 1: Wait for the CRITICAL 'process-payload' response AND the click.
-                const [response1] = await Promise.all([
-                    this.page.waitForResponse('**/process-payload?**', { timeout: 45000 }),
-                    continueBtn.click(),
-                ]);
+  /**
+   * Main KBA entry
+   */
+  async KBApage(coapp?: boolean) {
+    const continueBtn = this.page.getByRole("button", { name: "Continue" });
+    let kbaResponseData: any = null;
 
-                const data1 = await response1.json();
+    for (let attempt = 1; attempt <= this.MAX_RETRY_COUNT; attempt++) {
+      console.log(`KBA API chain attempt ${attempt}/${this.MAX_RETRY_COUNT}`);
 
-                if (data1.meta?.success && data1.meta?.code === 200) {
-                    // Phase 2: Wait for the SECOND, subsequent API call (fraud-verification-status)
-                    const response2 = await this.page.waitForResponse('**/fraud-verification-status?**');
-                    const data2 = await response2.json();
-                    
-                    // Validate the second API response
-                    if (response2.status() === 200) {
-                        console.log("API 2 (KBA Status) successful. Data received.");
-                        kbaResponseData = data2; // Store the KBA data
-                        break; // Exit the loop on full success
-                    } else {
-                        throw new Error(`API 2 failed with status: ${response2.status()}`);
-                    }
-                } else {
-                    console.warn(`API 1 failed (Attempt ${attempt}): ${data1.meta?.message}.`);
-                }
-            } catch (error) {
-                console.warn(`Chain failed on attempt ${attempt}. Error: ${error}. Retrying...`);
-            }
-            
-            await this.page.waitForTimeout(40000); // Wait before next click
+      try {
+        const [response1] = await Promise.all([
+          this.page.waitForResponse("**/process-payload?**", { timeout: 45000 }),
+          continueBtn.click()
+        ]);
+
+        const data1 = await response1.json();
+
+        if (data1?.meta?.success && data1?.meta?.code === 200) {
+          const response2 = await this.page.waitForResponse("**/fraud-verification-status?**", { timeout: 45000 });
+          const data2 = await response2.json();
+
+          if (response2.status() === 200) {
+            kbaResponseData = data2;
+            console.log("KBA API response received");
+            break;
+          }
         }
-        
-        if (!kbaResponseData) {
-            throw new Error(`API Chain failed after ${this.MAX_RETRY_COUNT} attempts. Cannot proceed.`);
-        }
-        await this.handleKbaQuestions(kbaResponseData); 
-        
-        if (coapp){
-            await this.page.waitForSelector('text="Thank You!"');
-        }
+      } catch (err) {
+        console.warn(`Attempt ${attempt} failed`, err);
+      }
+
+      await this.page.waitForTimeout(40000);
     }
-    
-    // --- Helper for KBA Question Handling ---
-    private async handleKbaQuestions(data: any): Promise<void> {
-        
-        if (data.result?.flag !== "KBA_REQUIRED") {
-             console.warn(`KBA not required. Flag was: ${data.result?.flag}. Skipping answers.`);
-             return;
-        }
 
-        const questions = data.result.KbaQuestions?.Questions || [];
-        let questno = 0;
-
-        for (const q of questions) {
-            const expectedAnswer = kbaKnowledgeBase[q.QuestionText];
-            
-            if (!expectedAnswer) {
-                console.warn(`No known answer for question: "${q.QuestionText}". Skipping.`);
-                continue;
-            }
-
-            const answerOption = q.Choices.find(option => option.ChoiceText === expectedAnswer);
-            
-            if (!answerOption) {
-                 console.error(`ERROR: Correct answer "${expectedAnswer}" not found in options for question: ${q.QuestionText}`);
-                 continue;
-            }
-
-            console.log(`Question ${questno}: "${q.QuestionText}". Selecting Answer ID: ${answerOption.Id}`);
-            
-            const group = `que${questno}`;
-            await this.page.locator(`#question-${questno}-option-${answerOption.Id}`).click(); 
-            
-            questno++;
-        }
-        
-      
-        const submitKbaBtn = this.page.getByRole('button', { name: 'Submit' }); 
-        await submitKbaBtn.waitFor({state : 'visible'});
-        
-        // Ensure the button is enabled before clicking
-        await submitKbaBtn.click();
-        
-        console.log("KBA answers submitted successfully.");
+    if (!kbaResponseData) {
+      throw new Error("KBA API chain failed after maximum retries");
     }
+
+    await this.handleKbaQuestions(kbaResponseData);
+
+    if (coapp) {
+      await this.page.waitForSelector('text="Thank You!"');
+    }
+  }
+
+  /**
+   * Normalize text for reliable matching
+   */
+  private normalize(text: string): string {
+    return text
+      .toLowerCase()
+      .replace(/"/g, "")            // inches symbol
+      .replace(/\$/g, "")           // currency
+      .replace(/,/g, "")
+      .replace(/\s+/g, "")
+      .trim();
+  }
+
+  /**
+   * Answer KBA questions
+   */
+  private async handleKbaQuestions(data: any): Promise<void> {
+
+    if (data?.result?.flag !== "KBA_REQUIRED") {
+      console.warn(`KBA not required. Flag: ${data?.result?.flag}`);
+      return;
+    }
+
+    const questions = data.result?.KbaQuestions?.Questions || [];
+
+    for (let index = 0; index < questions.length; index++) {
+      const question = questions[index];
+      const expectedAnswer = kbaKnowledgeBase[question.QuestionText];
+
+      if (!expectedAnswer) {
+        console.warn(`No KB answer for question: ${question.QuestionText}`);
+        continue;
+      }
+
+      const normalizedExpected = this.normalize(expectedAnswer);
+
+      const matchedOption = question.Choices.find((choice: any) =>
+        this.normalize(choice.ChoiceText) === normalizedExpected
+      );
+
+      if (!matchedOption) {
+        console.error(
+          `Answer not found for question: ${question.QuestionText}. Expected: ${expectedAnswer}`
+        );
+        continue;
+      }
+
+      console.log(
+        `Answering Q${index}: "${question.QuestionText}" -> "${matchedOption.ChoiceText}"`
+      );
+
+      await this.page
+        .locator(`#question-${index}-option-${matchedOption.Id}`)
+        .click();
+    }
+
+    const submitBtn = this.page.getByRole("button", { name: "Submit" });
+    await submitBtn.waitFor({ state: "visible" });
+    await submitBtn.click();
+
+    console.log("KBA submitted successfully");
+  }
 }

@@ -20,7 +20,6 @@ import { OfferPage} from '../page/Offer.page';
 import * as dotenv from 'dotenv';
 import { setupTestEnvironment } from '../utils/testSetUp.js'; 
 import { TestCaseControl } from '../Interface/TestInterface.js'; // Assuming this is your scenario interface
-
 dotenv.config();
 import TestScenario from '../TestScenario/test.json';
 import { AddressRekyc } from '../page/Address_Rekyc.page';
@@ -65,7 +64,7 @@ await BasicInfoPage.BasicInformationPage();
 // to pull data from TestGlobalData.applicantData internally.
 await Personal_Info.Personal_Info(); 
 
-if(lender.name == "GICU"){
+if(lender.name == "GICU" || lender.name == "PCU"){
     await OnlyAddressRekyc.AddressRekycScreev();
 }
 await KbaPage.KBApage(flowControl.hasCoApplicant);
@@ -78,15 +77,6 @@ if(flowControl.hasCoApplicant){
     await Personal_Info.Personal_Info();
     await KbaPage.KBApage();
 }
-const Url = await page.url();
-console.log(" this is the offer url : ",Url);
-await Offerpage.waitForOffers();
-}
-
-
-
-
-);
-
-
-
+await Offerpage.waitForOffers(160000,lender.name);
+await Offerpage.continueToTilaAndSign();
+});

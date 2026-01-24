@@ -27,11 +27,11 @@ Prove HappyCase
     Handle Initial Flow
     
 Co-Applicant Happy path for prove
-    [Tags]    Prove    rba    S100617    Co-App
-    Load Lender Data    ${Prove_DATA}
+    [Tags]    Prove    rba6    S102417    Co-App
+    Load Lender Data    ${Prove_DATA}    2    0
     Merchant Portal Login
-    Merchant Selection Page
-    Selecting The Merchant Location
+    Merchant Selection Page    Sunlight_HI   
+    Selecting The Merchant Location    Sunlight_HI_Master 
     Sending Application to Consumer
     Dc plans page    21000    0
     Type of Application page

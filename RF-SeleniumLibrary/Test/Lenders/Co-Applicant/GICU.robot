@@ -3,18 +3,18 @@ Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
-${GICU_DATA}    ${CURDIR}/../../InputData/PP_TestData.json
+${GICU_DATA}    ${CURDIR}/../../InputData/FF_TestData.json
 ${instance}    rba3
 
 *** Test Cases ***
 GICU Happycase
-    [Tags]    R418009    ${instance}    Co-App
+    [Tags]    S100617    ${instance}    Co-App
     Load Lender Data    ${GICU_DATA}
     Merchant Portal Login  
     Merchant Selection Page    RbA-AD1
     #selecting the merchant location  
     Sending Application to Consumer
-    Dc plans page
+    Dc plans page    24441    0
     Type of Application page
     Load and Prepare applicant details
     ${modified_app1}=    Copy Dictionary    ${application}
