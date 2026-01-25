@@ -30,7 +30,7 @@
   },
   "lender":{
     "Comment": "Upgrade, GoodLeap, GICU, SLF, PP, FFC, PCU",
-    "name" : "GICU",
+    "name" : "PCU",
     "state" : "Iowa",
     "Zip" : "50014"
   }
