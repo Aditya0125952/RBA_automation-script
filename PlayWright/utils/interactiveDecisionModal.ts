@@ -84,6 +84,15 @@ export async function showDecisionModal(
             color: white;
           }
 
+          /* ---------- TIMER ---------- */
+          .adm-timer {
+            margin: 4px 0 16px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #DC2626;
+          }
+
+
           .adm-title {
             margin: 0;
             font-size: 22px;
@@ -254,7 +263,7 @@ export async function showDecisionModal(
 
         <div class="adm-body">
           <p class="adm-message">${cfg.message}</p>
-
+          <p id="admTimer" class="adm-timer"></p>
           ${
             cfg.loanId
               ? `
@@ -354,6 +363,26 @@ export async function showDecisionModal(
   btn.onclick = () => copyTextToClipboard(text);
 }
 
+      /* ------------------ TIMER ------------------ */
+let remaining = 10; // default 10s
+const timerEl = document.getElementById('admTimer');
+let timerInterval: any;
+
+if (timerEl) {
+  timerEl.textContent = `Auto cancelling in ${remaining}s`;
+
+  timerInterval = setInterval(() => {
+    remaining--;
+    timerEl.textContent = `Auto cancelling in ${remaining}s`;
+
+    if (remaining <= 0) {
+      clearInterval(timerInterval);
+      cleanup({ action: 'cancel', url: window.location.href });
+    }
+  }, 1000);
+}
+
+
       /* ------------------ DROPDOWN LOGIC ------------------ */
       if (cfg.options) {
         const select = document.getElementById('admCustomSelect')!;
@@ -383,14 +412,16 @@ export async function showDecisionModal(
 
       /* ------------------ CLEANUP ------------------ */
       const cleanup = (result: any) => {
-        overlay.style.opacity = '0';
-        modal.style.opacity = '0';
-        modal.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-          overlay.remove();
-          resolve(result);
-        }, 200);
-      };
+  if (timerInterval) clearInterval(timerInterval);
+  overlay.style.opacity = '0';
+  modal.style.opacity = '0';
+  modal.style.transform = 'scale(0.95)';
+  setTimeout(() => {
+    overlay.remove();
+    resolve(result);
+  }, 200);
+};
+
 
       document.getElementById('continueBtn')!.onclick = () => {
         const input = document.getElementById('decisionSelectValue') as HTMLInputElement;

@@ -62,6 +62,7 @@ export class OfferPage extends BasePage {
 
           Would you like to continue with this offer?`,
           loanId: `${loanId}`,
+          timeoutMs: 15000,
           continueText: "Continue",
           cancelText: "Cancel",
         });
