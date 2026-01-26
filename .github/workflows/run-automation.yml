@@ -3,11 +3,12 @@ name: Playwright Tests
 on:
   workflow_dispatch:
     inputs:
-      applicantOverrides:
+      APPLICANTOVERRIDES:
         description: "FE applicant override JSON"
         required: false
         type: string
-      lenderSelection:
+
+      LENDERSELECTION:
         description: "FE lender selection JSON"
         required: false
         type: string
