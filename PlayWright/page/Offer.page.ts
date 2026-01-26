@@ -68,7 +68,9 @@ export class OfferPage extends BasePage {
         });
 
         if (decision.action === "cancel"){
-          throw new Error("User cancelled the automation flow due to lender mismatch");
+          console.log("User cancelled the automation flow due to lender mismatch");
+          await this.page.context().close();
+          return; 
         }else{
           console.log("User chose to continue despite lender mismatch");
         }

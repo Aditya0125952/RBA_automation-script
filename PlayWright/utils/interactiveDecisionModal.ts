@@ -5,6 +5,7 @@ export interface DecisionModalConfig {
   options?: string[];
   dropdownLabel?: string;
   loanId?: string; // ✅ NEW
+  timeoutMs?: number;
   continueText?: string;
   cancelText?: string;
 }

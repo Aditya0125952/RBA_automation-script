@@ -62,6 +62,7 @@ export class Dc_Plan_Page extends BasePage {
       message: `The plan "<b>${Plan}</b>" is not available.`,
       dropdownLabel: "Available plans",
       options: plans.map(p => p.name),
+      timeoutMs: 20000,
       continueText: "Continue",
       cancelText: "No",
     });
@@ -69,7 +70,8 @@ export class Dc_Plan_Page extends BasePage {
     if (decision.action === "cancel") {
       console.log("User cancelled plan selection");
       console.log("Current URL:", decision.url);
-      return decision.url;
+      await this.page.context().close();
+      return;
     }
 
     // ---------- USER SELECTED PLAN ----------

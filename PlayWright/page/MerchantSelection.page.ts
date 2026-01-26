@@ -108,6 +108,7 @@ export class MerchantSelectionAndLocationPage extends BasePage {
       message: `The location "${locationName}" is not available for merchant "${selectedMerchant}".`,
       dropdownLabel: "Available locations",
       options: locations,
+      timeoutMs: 10000,
       continueText: "Continue",
       cancelText: "No",
     });
@@ -121,6 +122,7 @@ export class MerchantSelectionAndLocationPage extends BasePage {
     /* ------------------ USER CANCEL / TIMEOUT ------------------ */
     if (decision.action === "cancel") {
       console.log("🚫 Location selection cancelled (user or timeout)");
+      await this.page.context().close();
       return;
     }
 
