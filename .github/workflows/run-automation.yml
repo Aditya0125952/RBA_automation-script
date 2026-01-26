@@ -3,13 +3,8 @@ name: Playwright Tests
 on:
   workflow_dispatch:
     inputs:
-      applicantOverrides:
-        description: "FE applicant override JSON"
-        required: false
-        type: string
-
-      lenderSelection:
-        description: "FE lender selection JSON"
+      FE_DATA:
+        description: "Full FE override JSON"
         required: false
         type: string
 
@@ -32,9 +27,8 @@ jobs:
         run: npm ci
 
       # 🔥 THIS IS THE CRITICAL FIX
-      - name: Inject FE overrides into environment
-        run: |
-          echo "FE_DATA={\"applicantOverrides\":${{ github.event.inputs.applicantOverrides || '{}' }},\"lenderSelection\":${{ github.event.inputs.lenderSelection || '{}' }}}" >> $GITHUB_ENV
+      - name: Export FE data to environment
+        run: echo "FE_DATA=${{ github.event.inputs.FE_DATA }}" >> $GITHUB_ENV
 
       - name: Install Playwright browsers
         working-directory: PlayWright
