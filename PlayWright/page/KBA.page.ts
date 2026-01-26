@@ -134,10 +134,6 @@ export class KBAPage extends BasePage {
         continue;
       }
 
-      console.log(
-        `Answering Q${index}: "${question.QuestionText}" -> "${matchedOption.ChoiceText}"`
-      );
-
       await this.page
         .locator(`#question-${index}-option-${matchedOption.Id}`)
         .click();
