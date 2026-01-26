@@ -16,6 +16,8 @@ export interface FlowControl {
 export interface LenderSelection {
     merchant: string;
     dcPlan: string;
+    requested_amount: string;
+    deposite_amount: string;
 }
 
 export interface TestCaseControl {

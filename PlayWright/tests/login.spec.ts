@@ -49,7 +49,7 @@ const Offerpage = new OfferPage();
 await loginpage.loadingMerchantPortal('aditya.chelluru+12@finmkt.io','Qa@12345');
 await merchantselectionpage.MerchantAndLocationSelection(lenderSelection.merchant , "abcd");
 await dashboardpage.SendingAppilication();
-await dcplanpage.Dc_Plan_Selection(lenderSelection.dcPlan);
+await dcplanpage.Dc_Plan_Selection(lenderSelection.dcPlan, lenderSelection.requested_amount, lenderSelection.deposite_amount);
 await applicantselectionpage.Applicant_Selection_Page(flowControl.hasCoApplicant);
 
 // Application Details Page will now read applicant data from TestGlobalData internally

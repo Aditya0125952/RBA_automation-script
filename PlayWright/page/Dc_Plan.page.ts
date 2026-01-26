@@ -7,7 +7,7 @@ type PlanItem = {
 
 export class Dc_Plan_Page extends BasePage {
 
-  async Dc_Plan_Selection(Plan?: string) {
+  async Dc_Plan_Selection(Plan?: string, requested_amount?: string, deposite_amount?: string) {
     console.log("Waiting for plans API...");
 
     const [plansResponse] = await Promise.all([
@@ -42,7 +42,7 @@ export class Dc_Plan_Page extends BasePage {
         plans[0].name
       );
       await this.selectPlan(plans[0].name);
-      await this.fillAmountsAndContinue();
+      await this.fillAmountsAndContinue(requested_amount, deposite_amount);
       return;
     }
 
@@ -52,7 +52,7 @@ export class Dc_Plan_Page extends BasePage {
     if (exactMatch) {
       console.log("Exact plan match found:", exactMatch.name);
       await this.selectPlan(exactMatch.name);
-      await this.fillAmountsAndContinue();
+      await this.fillAmountsAndContinue(requested_amount, deposite_amount);
       return;
     }
 
@@ -78,7 +78,7 @@ export class Dc_Plan_Page extends BasePage {
     await this.selectPlan(decision.value!);
     console.log("User selected plan:", decision.value);
 
-    await this.fillAmountsAndContinue();
+    await this.fillAmountsAndContinue(requested_amount, deposite_amount);
   }
 
   // ---------- HELPERS ----------
@@ -87,19 +87,31 @@ export class Dc_Plan_Page extends BasePage {
     await this.page.locator(`b:has-text("${planName}")`).click();
   }
 
-  private async fillAmountsAndContinue() {
-    await this.page
-      .locator(
-        'div.CLS-input-group:has(p:has-text("Enter Project Cost")) input'
-      )
-      .fill("21000");
+  private async fillAmountsAndContinue(requested_amount: string, deposite_amount: string) {
+    const projectCostInput = this.page.locator(
+    'div.CLS-input-group:has(p:has-text("Enter Project Cost")) input'
+  );
 
-    await this.page
-      .locator(
-        'div.CLS-input-group:has(p:has-text("Enter Deposit Amount")) input'
-      )
-      .fill("0");
+  await projectCostInput.waitFor({ state: "visible" });
+  await projectCostInput.click({ force: true });
 
+  // Clear field properly
+  await projectCostInput.press("Control+A");
+  await projectCostInput.press("Backspace");
+
+  // Type like a real user
+  await projectCostInput.type(requested_amount, { delay: 80 });
+  await projectCostInput.blur();
+
+    const depositInput = this.page.locator(
+    'div.CLS-input-group:has(p:has-text("Enter Deposit Amount")) input'
+  );
+
+  await depositInput.click({ force: true });
+  await depositInput.press("Control+A");
+  await depositInput.press("Backspace");
+  await depositInput.type(String(deposite_amount ?? 0), { delay: 80 });
+  await depositInput.blur();
     await this.page.getByRole("button", { name: "Continue" }).click();
   }
 }

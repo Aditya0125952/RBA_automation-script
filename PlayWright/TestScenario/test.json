@@ -26,7 +26,9 @@
   },
   "lenderSelection": {
     "merchant": "Rba-Ad",
-    "dcPlan": "R412007"
+    "dcPlan": "R412007",
+    "requested_amount": "15000",
+    "deposite_amount": "1500"
   },
   "lender":{
     "Comment": "Upgrade, GoodLeap, GICU, SLF, PP, FFC, PCU",
