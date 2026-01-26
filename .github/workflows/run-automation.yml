@@ -3,15 +3,16 @@ name: Playwright Tests
 on:
   workflow_dispatch:
     inputs:
-      APPLICANTOVERRIDES:
+      applicantOverrides:
         description: "FE applicant override JSON"
         required: false
         type: string
 
-      LENDERSELECTION:
+      lenderSelection:
         description: "FE lender selection JSON"
         required: false
         type: string
+
 jobs:
   test:
     timeout-minutes: 60
@@ -30,8 +31,10 @@ jobs:
         working-directory: PlayWright
         run: npm ci
 
-      - name: Create testdata.json from UI input
-        run: echo '${{ github.event.inputs.testdata }}' > testdata.json
+      # 🔥 THIS IS THE CRITICAL FIX
+      - name: Inject FE overrides into environment
+        run: |
+          echo "FE_DATA={\"applicantOverrides\":${{ github.event.inputs.applicantOverrides || '{}' }},\"lenderSelection\":${{ github.event.inputs.lenderSelection || '{}' }}}" >> $GITHUB_ENV
 
       - name: Install Playwright browsers
         working-directory: PlayWright
