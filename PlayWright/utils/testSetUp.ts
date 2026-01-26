@@ -141,13 +141,34 @@ try {
 if (feData) {
   // ---- Applicant overrides (EMAIL etc.) ----
   if (feData.applicantOverrides) {
-    for (const key in feData.applicantOverrides) {
-      const value = feData.applicantOverrides[key];
+  const map: Record<string, string> = {
+    firstName: "FirstName",
+    lastName: "LastName",
+    dob: "DOB",
+    ssn: "SSN",
+    mobile: "MobileNumber",
+    street: "StreetAddress",
+    city: "City",
+    state: "State",
+    zip: "ZipCode",
+    email: "Email",              // ⭐ THIS FIXES YOUR ISSUE
+    occupation: "Occupation",
+    employer: "EmployerName",
+    mortgage: "MortgageAmount",
+    annualIncome: "AnnualIncome",
+    householdIncome: "HouseholdIncome"
+  };
 
-      if (value !== "" && value !== null && value !== undefined) {
-        (applicantFinal as any)[key] = value;
-      }
+  for (const feKey in feData.applicantOverrides) {
+    const mappedKey = map[feKey];
+    const value = feData.applicantOverrides[feKey];
+
+    if (mappedKey && value !== "" && value !== null && value !== undefined) {
+      (applicantFinal as any)[mappedKey] = value;
     }
+  }
+}
+
   }
 
   // ---- Lender / Loan overrides ----
