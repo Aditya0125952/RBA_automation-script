@@ -127,37 +127,43 @@ export function setupTestEnvironment(
   // ---------- STORE GLOBALLY ----------
 
   // ================= FE OVERRIDE INJECTION =================
-const feRaw = process.env.FE_DATA;
+let feData: any = null;
 
-if (feRaw) {
-  console.log("🟢 FE override detected — applying to applicant data");
+try {
+  if (process.env.FE_DATA) {
+    feData = JSON.parse(process.env.FE_DATA);
+    console.log("🟢 FE override detected — applying overrides");
+  }
+} catch (err) {
+  console.log("⚠️ FE_DATA exists but failed to parse:", err);
+}
 
-  const feData = JSON.parse(feRaw);
-
-  // ---- Applicant overrides ----
+if (feData) {
+  // ---- Applicant overrides (EMAIL etc.) ----
   if (feData.applicantOverrides) {
-    Object.keys(feData.applicantOverrides).forEach(key => {
+    for (const key in feData.applicantOverrides) {
       const value = feData.applicantOverrides[key];
 
       if (value !== "" && value !== null && value !== undefined) {
         (applicantFinal as any)[key] = value;
       }
-    });
+    }
   }
 
   // ---- Lender / Loan overrides ----
   if (feData.lenderSelection) {
-    Object.keys(feData.lenderSelection).forEach(key => {
+    for (const key in feData.lenderSelection) {
       const value = feData.lenderSelection[key];
 
       if (value !== "" && value !== null && value !== undefined) {
         (scenario.lenderSelection as any)[key] = value;
       }
-    });
+    }
   }
 } else {
   console.log("🟡 Running in local mode (no FE override)");
 }
+
 
   TestGlobalData.setApplicantData(applicantFinal);
   TestGlobalData.setCoApplicantData(coApplicantFinal);
