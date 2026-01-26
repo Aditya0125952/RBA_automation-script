@@ -29,7 +29,7 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-     headless: false, // this makes the browser visible
+    headless: process.env.CI ? true : false, // this makes the browser visible
      viewport: { width: 1280, height: 720 },
      trace: 'on-first-retry',
      permissions: [],
