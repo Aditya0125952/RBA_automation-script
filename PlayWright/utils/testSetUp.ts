@@ -180,7 +180,6 @@ if (feData) {
         (scenario.lenderSelection as any)[key] = value;
       }
     }
-  }
 } else {
   console.log("🟡 Running in local mode (no FE override)");
 }
