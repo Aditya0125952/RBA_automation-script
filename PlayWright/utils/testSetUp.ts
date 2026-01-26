@@ -127,21 +127,18 @@ export function setupTestEnvironment(
   // ---------- STORE GLOBALLY ----------
 
   // ================= FE OVERRIDE INJECTION =================
-let feData: any = null;
+// ================= FE OVERRIDE INJECTION =================
+const feRaw = process.env.FE_DATA;
 
-try {
-  if (process.env.FE_DATA) {
-    feData = JSON.parse(process.env.FE_DATA);
-    console.log("🟢 FE override detected — applying overrides");
-  }
-} catch (err) {
-  console.log("⚠️ FE_DATA exists but failed to parse:", err);
-}
+if (feRaw) {
+  console.log("🟢 FE override detected — applying to applicant data");
 
-if (feData) {
-  // ---- Applicant overrides (EMAIL etc.) ----
-  if (feData.applicantOverrides) {
-  const map: Record<string, string> = {
+  const feData = JSON.parse(feRaw);
+  console.log("📦 FE DATA RECEIVED:", feData);
+
+  // 🔁 Map FE keys → Playwright JSON keys
+  const keyMap: Record<string, string> = {
+    email: "Email",
     firstName: "FirstName",
     lastName: "LastName",
     dob: "DOB",
@@ -150,36 +147,35 @@ if (feData) {
     street: "StreetAddress",
     city: "City",
     state: "State",
-    zip: "ZipCode",
-    email: "Email",              // ⭐ THIS FIXES YOUR ISSUE
-    occupation: "Occupation",
-    employer: "EmployerName",
-    mortgage: "MortgageAmount",
-    annualIncome: "AnnualIncome",
-    householdIncome: "HouseholdIncome"
+    zip: "ZipCode"
   };
 
-  for (const feKey in feData.applicantOverrides) {
-    const mappedKey = map[feKey];
-    const value = feData.applicantOverrides[feKey];
+  // ---- Applicant overrides ----
+  if (feData.applicantOverrides) {
+    Object.keys(feData.applicantOverrides).forEach(feKey => {
+      const mappedKey = keyMap[feKey];
+      const value = feData.applicantOverrides[feKey];
 
-    if (mappedKey && value !== "" && value !== null && value !== undefined) {
-      (applicantFinal as any)[mappedKey] = value;
-    }
+      if (mappedKey && value !== "" && value !== null && value !== undefined) {
+        console.log(`✏️ Overriding ${mappedKey} with FE value:`, value);
+        (applicantFinal as any)[mappedKey] = value;
+      }
+    });
   }
-}
 
-  }
+  console.log("📧 FINAL EMAIL AFTER FE OVERRIDE:", applicantFinal.Email);
 
   // ---- Lender / Loan overrides ----
   if (feData.lenderSelection) {
-    for (const key in feData.lenderSelection) {
+    Object.keys(feData.lenderSelection).forEach(key => {
       const value = feData.lenderSelection[key];
 
       if (value !== "" && value !== null && value !== undefined) {
         (scenario.lenderSelection as any)[key] = value;
       }
-    }
+    });
+  }
+
 } else {
   console.log("🟡 Running in local mode (no FE override)");
 }
