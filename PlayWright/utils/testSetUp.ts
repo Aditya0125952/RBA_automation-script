@@ -133,7 +133,20 @@ const feRaw = process.env.FE_DATA;
 if (feRaw) {
   console.log("🟢 FE override detected — applying to applicant data");
 
-  const feData = JSON.parse(feRaw);
+  let feData: any = null;
+
+try {
+  feData = JSON.parse(feRaw);
+
+  // 🔁 If still string, parse again
+  if (typeof feData === "string") {
+    feData = JSON.parse(feData);
+  }
+
+  console.log("📦 FE DATA RECEIVED:", feData);
+} catch (err) {
+  console.log("❌ FE_DATA JSON parse failed:", feRaw);
+}
   console.log("📦 FE DATA RECEIVED:", feData);
 
   // 🔁 Map FE keys → Playwright JSON keys
