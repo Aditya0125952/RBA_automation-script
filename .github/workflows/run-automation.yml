@@ -3,9 +3,14 @@ name: Playwright Tests
 on:
   workflow_dispatch:
     inputs:
-      testdata:
-        description: "Applicant and loan data"
-        required: true
+      applicantOverrides:
+        description: "FE applicant override JSON"
+        required: false
+        type: string
+      lenderSelection:
+        description: "FE lender selection JSON"
+        required: false
+        type: string
 jobs:
   test:
     timeout-minutes: 60
