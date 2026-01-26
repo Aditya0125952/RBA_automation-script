@@ -23,6 +23,7 @@ import { TestCaseControl } from '../Interface/TestInterface.js'; // Assuming thi
 dotenv.config();
 import TestScenario from '../TestScenario/test.json';
 import { AddressRekyc } from '../page/Address_Rekyc.page';
+import fs from 'fs';
 
 
 test('Login Test - Using ENV Variables', async ({ page }) => {

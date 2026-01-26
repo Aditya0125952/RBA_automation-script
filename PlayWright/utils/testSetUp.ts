@@ -125,6 +125,40 @@ export function setupTestEnvironment(
   }
 
   // ---------- STORE GLOBALLY ----------
+
+  // ================= FE OVERRIDE INJECTION =================
+const feRaw = process.env.FE_DATA;
+
+if (feRaw) {
+  console.log("🟢 FE override detected — applying to applicant data");
+
+  const feData = JSON.parse(feRaw);
+
+  // ---- Applicant overrides ----
+  if (feData.applicantOverrides) {
+    Object.keys(feData.applicantOverrides).forEach(key => {
+      const value = feData.applicantOverrides[key];
+
+      if (value !== "" && value !== null && value !== undefined) {
+        (applicantFinal as any)[key] = value;
+      }
+    });
+  }
+
+  // ---- Lender / Loan overrides ----
+  if (feData.lenderSelection) {
+    Object.keys(feData.lenderSelection).forEach(key => {
+      const value = feData.lenderSelection[key];
+
+      if (value !== "" && value !== null && value !== undefined) {
+        (scenario.lenderSelection as any)[key] = value;
+      }
+    });
+  }
+} else {
+  console.log("🟡 Running in local mode (no FE override)");
+}
+
   TestGlobalData.setApplicantData(applicantFinal);
   TestGlobalData.setCoApplicantData(coApplicantFinal);
   TestGlobalData.setTestControl(scenario);
