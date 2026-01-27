@@ -130,71 +130,40 @@ export function setupTestEnvironment(
 const feRaw = process.env.FE_DATA;
 
 if (feRaw) {
-  console.log("🟢 FE override detected — applying to applicant data");
+  console.log("🟢 FE override detected — decoding Base64");
 
   let feData: any = null;
 
   try {
-    feData = JSON.parse(feRaw);
+    const decoded = Buffer.from(feRaw, 'base64').toString('utf-8');
+    feData = JSON.parse(decoded);
 
-    // If still stringified twice
-    if (typeof feData === "string") {
-      feData = JSON.parse(feData);
-    }
-
-    console.log("📦 FE DATA RECEIVED:", feData);
+    console.log("📦 DECODED FE DATA:", feData);
   } catch (err) {
-    console.log("❌ FE_DATA JSON parse failed:", err);
+    console.log("❌ FE_DATA decode/parse failed:", feRaw);
   }
 
-  if (feData) {
+  const keyMap: Record<string, string> = {
+    email: "Email"
+  };
 
-    // 🔁 Map FE keys → Playwright JSON keys
-    const keyMap: Record<string, string> = {
-      email: "Email",
-      firstName: "FirstName",
-      lastName: "LastName",
-      dob: "DOB",
-      ssn: "SSN",
-      mobile: "MobileNumber",
-      street: "StreetAddress",
-      city: "City",
-      state: "State",
-      zip: "ZipCode"
-    };
-
-    // 🔥 SUPPORT BOTH STRUCTURES
-    const applicantOverrides =
-      feData.applicantOverrides || feData;
-
-    Object.keys(applicantOverrides).forEach(feKey => {
+  if (feData?.applicantOverrides) {
+    Object.keys(feData.applicantOverrides).forEach(feKey => {
       const mappedKey = keyMap[feKey];
-      const value = applicantOverrides[feKey];
+      const value = feData.applicantOverrides[feKey];
 
-      if (mappedKey && value !== "" && value !== null && value !== undefined) {
+      if (mappedKey && value) {
         console.log(`✏️ Overriding ${mappedKey} with FE value:`, value);
         (applicantFinal as any)[mappedKey] = value;
       }
     });
-
-    console.log("📧 FINAL EMAIL AFTER FE OVERRIDE:", applicantFinal.Email);
-
-    // ---- Lender / Loan overrides ----
-    if (feData.lenderSelection) {
-      Object.keys(feData.lenderSelection).forEach(key => {
-        const value = feData.lenderSelection[key];
-
-        if (value !== "" && value !== null && value !== undefined) {
-          (scenario.lenderSelection as any)[key] = value;
-        }
-      });
-    }
-
   }
+
+  console.log("📧 FINAL EMAIL AFTER FE OVERRIDE:", applicantFinal.Email);
+
 } else {
   console.log("🟡 Running in local mode (no FE override)");
 }
-
 
 
   TestGlobalData.setApplicantData(applicantFinal);
