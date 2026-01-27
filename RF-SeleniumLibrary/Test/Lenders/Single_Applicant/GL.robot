@@ -69,7 +69,7 @@ Good Leap Counter Offer Case
 
 GL HappyCase by changining ssn
     [Tags]    ${instance}    S100617
-    Load Lender Data    ${GL_DATA}    1180
+    Load Lender Data    ${GL_DATA}    1184
     Merchant Portal Login
     Merchant Selection Page     
     Selecting The Merchant Location       
@@ -82,7 +82,7 @@ GL HappyCase by changining ssn
     ${modified_app}=    Copy Dictionary    ${application}
     Set To Dictionary    ${modified_app}    mobileNumber=${number}
     Set To Dictionary    ${modified_app}    ssn=${ssn}
-    #Set To Dictionary    ${modified_app}    email=manohar.anaparthi+13@finmkt.io
+    Set To Dictionary    ${modified_app}    email=saranya.pentapati@finmkt.io
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up

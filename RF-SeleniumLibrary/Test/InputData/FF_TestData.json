@@ -5,8 +5,8 @@
   "projectCost": "25000",
   "depositAmount": "10",
   "Applicant": {
-    "FirstName": "Patricia",
-    "LastName": "Abel",
+    "FirstName": "ana",
+    "LastName": "villar",
     "email": "aditya.chelluru@finmkt.io",
     "street_add": "11765 West Avenue",
     "city": "San Antonio",
@@ -22,7 +22,7 @@
     "annual_income": "85,000",
     "household_income": "85,000",
     "dob": "08/01/1981",
-    "ssn": "666663537",
+    "ssn": "666308630",
     "citizenship_status": "US Citizen"
   },
   "Co-Applicant": {

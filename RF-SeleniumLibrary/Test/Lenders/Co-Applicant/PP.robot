@@ -8,21 +8,19 @@ ${START_DIGITS}    888
 
 *** Test Cases ***
 PP HappyCase
-    [Tags]    rba5    Co-App    S100617
+    [Tags]    rba4    Co-App    R418009
     Load Lender Data    ${PP_DATA}
     Merchant Portal Login
     Merchant Selection Page    Sunlight_HI
    Selecting The Merchant Location    Sunlight_HI_Master
     Sending Application to Consumer
-    Dc plans page    120000    0
+    Dc plans page    21000    0
     Type of Application page
     Load and Prepare applicant details
     ${modified_app1}=    Copy Dictionary    ${application}
     ${modified_app2}=    Copy Dictionary    ${co_app_dup}
-     Set To Dictionary    ${modified_app1}    email=balakrishna.kethe+1@finmkt.io
-     Set To Dictionary    ${modified_app2}    email=balakrishna.kethe+12@finmkt.io
-     Set To Dictionary    ${modified_app1}    citizenship_status=Other
-     Set To Dictionary    ${modified_app2}    citizenship_status=Other
+     Set To Dictionary    ${modified_app1}    email=saranya.pentapati@finmkt.io
+     Set To Dictionary    ${modified_app2}    email=saranya.pentapati@finmkt.io
     Set Global Variable    ${application}    ${modified_app1}
     Set Global Variable    ${co_app_dup}    ${modified_app2}
     Application Details Page

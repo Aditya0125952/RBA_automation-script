@@ -5,11 +5,11 @@ Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${FFC_DATA}     ${CURDIR}/../../InputData/FF_TestData.json
 ${START_DIGITS}    888
-${instance}    rba6
+${instance}    rba4
 
 *** Test Cases ***
 FFC HappyCase
-    [Tags]    R418006    ${instance}   Co-App
+    [Tags]    S100617    ${instance}   Co-App
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login
     Merchant Selection Page    Sunlight_HI 
@@ -21,8 +21,8 @@ FFC HappyCase
     ${modified_app1}=    Copy Dictionary    ${application}
     ${modified_app2}=    Copy Dictionary    ${co_app_dup}
      #Set To Dictionary    ${modified_app1}    mobileNumber=8889271987
-     Set To Dictionary    ${modified_app1}    email=aditya.chelluru+6761@finmkt.io
-     Set To Dictionary    ${modified_app2}    email=aditya.chelluru+2827@finmkt.io
+     Set To Dictionary    ${modified_app1}    email=saranya.pentapati@finmkt.io
+     Set To Dictionary    ${modified_app2}    email=saranya.pentapati@finmkt.io
     Set Global Variable    ${co_app_dup}    ${modified_app2}
     Set Global Variable    ${application}    ${modified_app1}
     Application Details Page
@@ -39,8 +39,7 @@ FFC HappyCase
     Application Authorization Page
     Credit Freeze Page
     Prove Data
-    Basic Information    Co-App
-    Sleep    60    
+    Basic Information    Co-App 
     Personal Information    Co-App
     Handle Initial Flow
 

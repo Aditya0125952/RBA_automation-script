@@ -144,7 +144,7 @@ if (feRaw) {
 
     console.log("📦 FE DATA RECEIVED:", feData);
   } catch (err) {
-    console.log("❌ FE_DATA JSON parse failed:", feRaw);
+    console.log("❌ FE_DATA JSON parse failed:", err);
   }
 
   if (feData) {

@@ -125,8 +125,8 @@ GoodLeap applicant Drop case
     Handle Initial Flow
 
 GoodLeap co-applicant Drop case
-    [Tags]    rba5    Co-App
-    Load Lender Data    ${GL_DATA}    27    23
+    [Tags]    rba4    Co-App
+    Load Lender Data    ${GL_DATA}    29    31
     Merchant Portal Login
     Merchant Selection Page
     Selecting The Merchant Location
@@ -140,6 +140,8 @@ GoodLeap co-applicant Drop case
     ${modified_app2}=    Copy Dictionary    ${co_app_dup}
     Set To Dictionary    ${modified_app2}    mobileNumber=${number2}
     Set To Dictionary    ${modified_app1}    mobileNumber=${number1}
+    Set To Dictionary    ${modified_app1}    email=saranya.pentapati@finmkt.io
+     Set To Dictionary    ${modified_app2}    email=saranya.pentapati@finmkt.io
     Set Global Variable    ${co_app_dup}    ${modified_app2}
     Set Global Variable    ${application}    ${modified_app1}
     Application Details Page
