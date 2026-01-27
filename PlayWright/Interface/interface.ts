@@ -2,7 +2,7 @@ export interface ApplicantData {
     UserId : string,
     FirstName: string;
     LastName: string;
-    email: string;
+    Email: string;
     street_add: string;
     city: string;
     state: string;

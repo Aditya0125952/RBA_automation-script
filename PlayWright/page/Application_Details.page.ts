@@ -26,13 +26,13 @@ export class ApplicationDetailsPage extends BasePage{
         }
         await allInputs.nth(5).fill(applicant.FirstName);
         await allInputs.nth(6).fill(applicant.LastName);
-        await allInputs.nth(7).fill(applicant.email);
+        await allInputs.nth(7).fill(applicant.Email);
         await allInputs.nth(8).fill(applicant.mobileNumber);
         if(CoApp){
             await allInputs.nth(9).waitFor({state: 'visible'});
             await allInputs.nth(9).fill(coApplicant.FirstName);
             await allInputs.nth(10).fill(coApplicant.LastName);
-            await allInputs.nth(11).fill(TestGlobalData.applicantData.email);
+            await allInputs.nth(11).fill(TestGlobalData.applicantData.Email);
             await allInputs.nth(12).fill(coApplicant.mobileNumber);
         }
         const noOption = this.page.locator('label.selectable-option', { hasText: 'NO' });
