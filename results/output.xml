@@ -1,2760 +1,556 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2026-01-26T18:45:11.268788" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2026-01-27T16:11:11.151194" rpa="false" schemaversion="5">
 <suite id="s1" name="RBA automation-script" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script">
 <suite id="s1-s1" name="RF-SeleniumLibrary" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary">
 <suite id="s1-s1-s1" name="Test" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test">
 <suite id="s1-s1-s1-s1" name="Lenders" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test\Lenders">
-<suite id="s1-s1-s1-s1-s1" name="Single Applicant" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test\Lenders\Single_Applicant">
-<suite id="s1-s1-s1-s1-s1-s1" name="FFC" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test\Lenders\Single_Applicant\FFC.robot">
-<test id="s1-s1-s1-s1-s1-s1-t1" name="FFC HappyCase" line="11">
-<kw name="Get Test Data">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Variable Should Exist" owner="BuiltIn">
-<msg time="2026-01-26T18:45:17.337829" level="FAIL">Variable '${DYNAMIC_TEST_DATA}' does not exist.</msg>
-<arg>${DYNAMIC_TEST_DATA}</arg>
-<doc>Fails unless the given variable exists within the current scope.</doc>
-<status status="FAIL" start="2026-01-26T18:45:17.336624" elapsed="0.010612">Variable '${DYNAMIC_TEST_DATA}' does not exist.</status>
-</kw>
-<msg time="2026-01-26T18:45:17.347699" level="INFO">${script_run_detected} = False</msg>
-<var>${script_run_detected}</var>
-<arg>Variable Should Exist</arg>
-<arg>${DYNAMIC_TEST_DATA}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.336139" elapsed="0.012400"/>
-</kw>
-<if>
-<branch type="IF" condition="${script_run_detected}">
-<kw name="Log" owner="BuiltIn">
-<arg>Automatic run detected. Parsing dynamic data.</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:17.349504" elapsed="0.000328"/>
-</kw>
-<kw name="Parse Json">
-<var>${data}</var>
-<arg>${DYNAMIC_TEST_DATA}</arg>
-<status status="NOT RUN" start="2026-01-26T18:45:17.350149" elapsed="0.003006"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:17.348937" elapsed="0.007371"/>
-</branch>
-<branch type="ELSE">
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-01-26T18:45:17.357597" level="INFO">Manual run detected. Loading default file.</msg>
-<arg>Manual run detected. Loading default file.</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.356991" elapsed="0.000989"/>
-</kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2026-01-26T18:45:17.360275" level="INFO">${data} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '25000', 'depositAmount': '10', 'Applicant': {'FirstName': 'Patricia', 'LastName': 'Abel...</msg>
-<var>${data}</var>
-<arg>${FFC_DATA}</arg>
-<doc>Load JSON from file.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.358424" elapsed="0.002128"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:17.356463" elapsed="0.004635"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:17.348899" elapsed="0.012429"/>
-</if>
-<return>
-<value>${data}</value>
-<status status="PASS" start="2026-01-26T18:45:17.361459" elapsed="0.000637"/>
-</return>
-<msg time="2026-01-26T18:45:17.362995" level="INFO">${test_data} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '25000', 'depositAmount': '10', 'Applicant': {'FirstName': 'Patricia', 'LastName': 'Abel...</msg>
-<var>${test_data}</var>
-<doc>This keyword smartly loads test data.
-If run from run.py, it parses the ${DYNAMIC_TEST_DATA} variable.
-If run manually (e.g., from VS Code), it loads from ${FFC_DATA_FILE}.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.334360" elapsed="0.029002"/>
-</kw>
+<suite id="s1-s1-s1-s1-s1" name="Co-Applicant" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test\Lenders\Co-Applicant">
+<suite id="s1-s1-s1-s1-s1-s1" name="GICU" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test\Lenders\Co-Applicant\GICU.robot">
+<test id="s1-s1-s1-s1-s1-s1-t1" name="GICU Happycase" line="10">
 <kw name="Load Lender Data" owner="LoadingInputFile">
 <kw name="Get File" owner="OperatingSystem">
-<msg time="2026-01-26T18:45:17.366015" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test\InputData\FF_TestData.json"&gt;C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test\InputData\FF_TestData.json&lt;/a&gt;'.</msg>
-<msg time="2026-01-26T18:45:17.366734" level="INFO">${json_text} = {
-  "Merchant": "Upgrade_Regression",
-  "Location": "Upgrade_Regression_Master",
-  "planID": "S100617",
-  "projectCost": "25000",
-  "depositAmount": "10",
+<msg time="2026-01-27T16:11:12.164804" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test\InputData\GICU_TestData.json"&gt;C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test\InputData\GICU_TestData.json&lt;/a&gt;'.</msg>
+<msg time="2026-01-27T16:11:12.165814" level="INFO">${json_text} = {
+  "Merchant": "RbA-AD1",
+  "planID": "R412007",
+  "projectCost": "7000",
+  "depositAmount": "200",
   "Applicant": {
-    "FirstName": "Patricia",...</msg>
+    "FirstName": "Ana",
+    "LastName": "Villar",
+    "email": "aditya.chelluru@fi...</msg>
 <var>${json_text}</var>
 <arg>${file_path}</arg>
 <doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.365261" elapsed="0.001630"/>
+<status status="PASS" start="2026-01-27T16:11:12.164457" elapsed="0.001878"/>
 </kw>
 <kw name="Convert String To Json" owner="JSONLibrary">
-<msg time="2026-01-26T18:45:17.368216" level="INFO">${data} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '25000', 'depositAmount': '10', 'Applicant': {'FirstName': 'Patricia', 'LastName': 'Abel...</msg>
+<msg time="2026-01-27T16:11:12.167564" level="INFO">${data} = {'Merchant': 'RbA-AD1', 'planID': 'R412007', 'projectCost': '7000', 'depositAmount': '200', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': ...</msg>
 <var>${data}</var>
 <arg>${json_text}</arg>
 <doc>Convert String to JSON object</doc>
-<status status="PASS" start="2026-01-26T18:45:17.367181" elapsed="0.001285"/>
+<status status="PASS" start="2026-01-27T16:11:12.166830" elapsed="0.000878"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:17.369758" level="INFO">${index1} = None</msg>
+<msg time="2026-01-27T16:11:12.168486" level="INFO">${index1} = None</msg>
 <arg>${index1}</arg>
 <arg>${index1}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.369018" elapsed="0.001024"/>
+<status status="PASS" start="2026-01-27T16:11:12.167924" elapsed="0.000804"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:17.371066" level="INFO">${index2} = None</msg>
+<msg time="2026-01-27T16:11:12.170015" level="INFO">${index2} = None</msg>
 <arg>${index2}</arg>
 <arg>${index2}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.370437" elapsed="0.000878"/>
+<status status="PASS" start="2026-01-27T16:11:12.169049" elapsed="0.001394"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:17.372240" level="INFO">${LENDER_DATA} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '25000', 'depositAmount': '10', 'Applicant': {'FirstName': 'Patricia', 'LastName': 'Abel...</msg>
+<msg time="2026-01-27T16:11:12.171540" level="INFO">${LENDER_DATA} = {'Merchant': 'RbA-AD1', 'planID': 'R412007', 'projectCost': '7000', 'depositAmount': '200', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': ...</msg>
 <arg>${LENDER_DATA}</arg>
 <arg>${data}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.371669" elapsed="0.000807"/>
+<status status="PASS" start="2026-01-27T16:11:12.170900" elapsed="0.000903"/>
 </kw>
-<arg>${FFC_DATA}</arg>
-<status status="PASS" start="2026-01-26T18:45:17.364411" elapsed="0.008300"/>
+<arg>${GICU_DATA}</arg>
+<status status="PASS" start="2026-01-27T16:11:12.163424" elapsed="0.008622"/>
 </kw>
 <kw name="Merchant Portal Login" owner="Merchant_Login">
 <for flavor="IN">
 <iter>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Start With" owner="BuiltIn">
+<msg time="2026-01-27T16:11:12.176181" level="FAIL">'Co-App' does not start with 'rba'</msg>
 <arg>${tag}</arg>
 <arg>rba</arg>
 <doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.375084" elapsed="0.000185"/>
+<status status="FAIL" start="2026-01-27T16:11:12.175609" elapsed="0.005148">'Co-App' does not start with 'rba'</status>
 </kw>
-<msg time="2026-01-26T18:45:17.375386" level="INFO">${is_present} = True</msg>
+<msg time="2026-01-27T16:11:12.180991" level="INFO">${is_present} = False</msg>
 <var>${is_present}</var>
 <arg>Should Start With</arg>
 <arg>${tag}</arg>
 <arg>rba</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.374843" elapsed="0.000654"/>
+<status status="PASS" start="2026-01-27T16:11:12.174869" elapsed="0.006303"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_present}">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>this is the tag : ${tag}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.375836" elapsed="0.000899"/>
+<status status="NOT RUN" start="2026-01-27T16:11:12.182085" elapsed="0.000250"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:17.377743" level="INFO">${base_url} = rba6</msg>
 <var>${base_url}</var>
 <arg>${tag}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.376961" elapsed="0.001231"/>
+<status status="NOT RUN" start="2026-01-27T16:11:12.182510" elapsed="0.000137"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>this is the base url ${base_url}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.378747" elapsed="0.000514"/>
+<status status="NOT RUN" start="2026-01-27T16:11:12.182888" elapsed="0.000179"/>
 </kw>
 <kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2026-01-26T18:45:17.379983" level="INFO">Exiting for loop altogether.</msg>
 <doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.379579" elapsed="0.000632"/>
+<status status="NOT RUN" start="2026-01-27T16:11:12.183216" elapsed="0.000123"/>
 </kw>
-<status status="PASS" start="2026-01-26T18:45:17.375628" elapsed="0.004723"/>
+<status status="NOT RUN" start="2026-01-27T16:11:12.181469" elapsed="0.001939"/>
 </branch>
-<status status="PASS" start="2026-01-26T18:45:17.375609" elapsed="0.004818"/>
+<status status="PASS" start="2026-01-27T16:11:12.181427" elapsed="0.002034"/>
 </if>
-<var name="${tag}">rba6</var>
-<status status="PASS" start="2026-01-26T18:45:17.374643" elapsed="0.005825"/>
-</iter>
-<var>${tag}</var>
-<value>@{TEST_TAGS}</value>
-<status status="PASS" start="2026-01-26T18:45:17.374361" elapsed="0.006198"/>
-</for>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:17.381227" level="INFO">Opening browser 'chrome' to base url 'https://rba6-qa.mktplacegateway.com/m/login'.</msg>
-<arg>https://${base_url}-qa.mktplacegateway.com/m/login</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-01-26T18:45:17.380789" elapsed="8.379703"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>user-name</arg>
-<arg>30</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-01-26T18:45:25.761050" elapsed="0.016457"/>
-</kw>
-<if>
-<branch type="IF" condition="'${user}'=='None'">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:25.778869" level="INFO">Typing text 'aditya.chelluru+12@finmkt.io' into text field 'user-name'.</msg>
-<arg>user-name</arg>
-<arg>aditya.chelluru+12@finmkt.io</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:25.778424" elapsed="0.149192"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:25.777854" elapsed="0.150056"/>
-</branch>
-<branch type="ELSE">
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>user-name</arg>
-<arg>${user}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:25.929315" elapsed="0.000424"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:25.928159" elapsed="0.001856"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:25.777807" elapsed="0.152300"/>
-</if>
-<if>
-<branch type="IF" condition="'${password}' == 'None'">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:25.931057" level="INFO">Typing text 'Qa@12345' into text field 'user-password'.</msg>
-<arg>user-password</arg>
-<arg>Qa@12345</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:25.930641" elapsed="0.083417"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:25.930206" elapsed="0.084238"/>
-</branch>
-<branch type="ELSE">
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>user-password</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:26.015051" elapsed="0.000230"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:26.014593" elapsed="0.000830"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:25.930177" elapsed="0.085308"/>
-</if>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:26.016029" level="INFO">Clicking button 'xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/span/form/div/div/div[4]/div/button'.</msg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/span/form/div/div/div[4]/div/button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:26.015627" elapsed="0.089397"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:17.373805" elapsed="8.731559"/>
-</kw>
-<kw name="Merchant Selection Page" owner="merchant_selection">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>merchant-selection-modal___BV_modal_title_</arg>
-<arg>60</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:26.107172" elapsed="0.572302"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>merchant-selection-modal___BV_modal_title_</arg>
-<arg>60</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:26.680040" elapsed="0.033271"/>
-</kw>
-<if>
-<branch type="IF" condition="'${merchant}' == 'None'">
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<arg>xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select</arg>
-<arg>${LENDER_DATA['Merchant']}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:26.714157" elapsed="0.000215"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:26.713611" elapsed="0.000899"/>
-</branch>
-<branch type="ELSE">
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:26.715293" level="INFO">Selecting options from selection list 'xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select' by label Sunlight_HI.</msg>
-<arg>xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select</arg>
-<arg>${merchant}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2026-01-26T18:45:26.714854" elapsed="0.132499"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:26.714578" elapsed="0.133014"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:26.713574" elapsed="0.134091"/>
-</if>
-<arg>Sunlight_HI</arg>
-<status status="PASS" start="2026-01-26T18:45:26.106216" elapsed="0.741521"/>
-</kw>
-<kw name="selecting the merchant location" owner="Merchant_location">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>location-selection-modal___BV_modal_content_</arg>
-<arg>30</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:26.849090" elapsed="0.818030"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>location-selection-modal___BV_modal_content_</arg>
-<arg>30</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:27.668106" elapsed="0.051993"/>
-</kw>
-<if>
-<branch type="IF" condition="'${location}'=='None'">
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<arg>xpath://*[@id="location-selection-modal___BV_modal_body_"]/div/div/select</arg>
-<arg>${LENDER_DATA['Location']}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:27.722887" elapsed="0.000778"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:27.720843" elapsed="0.003125"/>
-</branch>
-<branch type="ELSE">
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:27.726239" level="INFO">Selecting options from selection list 'xpath://*[@id="location-selection-modal___BV_modal_body_"]/div/div/select' by label Sunlight_HI_Master.</msg>
-<arg>xpath://*[@id="location-selection-modal___BV_modal_body_"]/div/div/select</arg>
-<arg>${location}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2026-01-26T18:45:27.724770" elapsed="0.224066"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:27.724124" elapsed="0.225114"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:27.720773" elapsed="0.228590"/>
-</if>
-<arg>Sunlight_HI_Master</arg>
-<status status="PASS" start="2026-01-26T18:45:26.848385" elapsed="1.101432"/>
-</kw>
-<kw name="Sending Application to Consumer" owner="sendApplication">
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css=div.position-absolute.bg-white.rounded-lg</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:27.951441" elapsed="0.013660"/>
-</kw>
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css:div.position-absolute.bg-white</arg>
-<arg>60</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:27.965521" elapsed="2.476260"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']</arg>
-<arg>60</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:30.442190" elapsed="0.022522"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']</arg>
-<arg>30</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:30.465363" elapsed="0.020410"/>
-</kw>
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css=div.position-absolute.bg-white.rounded-lg</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:30.486327" elapsed="0.007962"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-26T18:45:32.495735" level="INFO">Slept 2 seconds.</msg>
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-26T18:45:30.494801" elapsed="2.001208"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:32.496651" level="INFO">Clicking button 'xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']'.</msg>
-<arg>xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:32.496259" elapsed="0.151258"/>
-</kw>
-<kw name="Switch Window" owner="SeleniumLibrary">
-<arg>title:Point Of Sale</arg>
-<arg>20</arg>
-<doc>Switches to browser window matching ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:32.647778" elapsed="6.425986"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:27.950775" elapsed="11.123461"/>
-</kw>
-<kw name="Dc plans page" owner="DC_Plan_Page">
-<for flavor="IN">
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="List Should Contain Value" owner="Collections">
-<msg time="2026-01-26T18:45:39.078541" level="FAIL">[ S100617 | S100617-AUT | S100617-PP-AUT | S100617-UG-AUT | S101217 | S101817 | S102417 | Z303600 | Z303600-TD-AUT | Z302400 | Z304800 | Z306000 | Z307200 | R424008 | R418009 | R418007 | R418005 | R418006 | R418008 | R418013 | R418015 | R412005 | R412007 | R412009 | R412013 | R412002 | R412003 | R412004 | R412004-DIV-AUT | R412006 | R424007 | R424005 | R424009 | R424006 | R424004 | H30300 | H201205 | H201209 | R418004 | S102417 | F193728 | GICU_RBA | Upgrade_1_plan | Upgrade_2_plan | Dividend | Dividend_Plan | Dividend Test | PowerPay2 Test | PowerPay2 CoApp | Upgrade | FF new plan ss | PowerPayNew | GoodLeap_plan1 | HSunLight-Demo ] does not contain value 'rba6'.</msg>
-<arg>${KNOWN_PLANS}</arg>
-<arg>${tag}</arg>
-<doc>Fails if the ``value`` is not found from ``list``.</doc>
-<status status="FAIL" start="2026-01-26T18:45:39.077937" elapsed="0.010176">[ S100617 | S100617-AUT | S100617-PP-AUT | S100617-UG-AUT | S101217 | S101817 | S102417 | Z303600 | Z303600-TD-AUT | Z302400 | Z304800 | Z306000 | Z307200 | R424008 | R418009 | R418007 | R418005 | R418006 | R418008 | R418013 | R418015 | R412005 | R412007 | R412009 | R412013 | R412002 | R412003 | R412004 | R412004-DIV-AUT | R412006 | R424007 | R424005 | R424009 | R424006 | R424004 | H30300 | H201205 | H201209 | R418004 | S102417 | F193728 | GICU_RBA | Upgrade_1_plan | Upgrade_2_plan | Dividend | Dividend_Plan | Dividend Test | PowerPay2 Test | PowerPay2 CoApp | Upgrade | FF new plan ss | PowerPayNew | GoodLeap_plan1 | HSunLight-Demo ] does not contain value 'rba6'.</status>
-</kw>
-<msg time="2026-01-26T18:45:39.088856" level="INFO">${is_present} = False</msg>
-<var>${is_present}</var>
-<arg>List Should Contain Value</arg>
-<arg>${KNOWN_PLANS}</arg>
-<arg>${tag}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:45:39.077438" elapsed="0.012734"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_present}">
-<kw name="Copy Dictionary" owner="Collections">
-<var>${Lender}</var>
-<arg>${LENDER_DATA}</arg>
-<doc>Returns a copy of the given dictionary.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:39.092619" elapsed="0.000358"/>
-</kw>
-<kw name="Set To Dictionary" owner="Collections">
-<arg>${Lender}</arg>
-<arg>planID=${tag}</arg>
-<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:39.093278" elapsed="0.000252"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<arg>${LENDER_DATA}</arg>
-<arg>${Lender}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:39.093874" elapsed="0.000317"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:39.091248" elapsed="0.003104"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:39.091001" elapsed="0.003513"/>
-</if>
-<var name="${tag}">rba6</var>
-<status status="PASS" start="2026-01-26T18:45:39.077031" elapsed="0.017529"/>
+<var name="${tag}">Co-App</var>
+<status status="PASS" start="2026-01-27T16:11:12.173916" elapsed="0.009570"/>
 </iter>
 <iter>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="List Should Contain Value" owner="Collections">
-<arg>${KNOWN_PLANS}</arg>
+<kw name="Should Start With" owner="BuiltIn">
+<msg time="2026-01-27T16:11:12.184263" level="FAIL">'R412009' does not start with 'rba'</msg>
 <arg>${tag}</arg>
-<doc>Fails if the ``value`` is not found from ``list``.</doc>
-<status status="PASS" start="2026-01-26T18:45:39.096738" elapsed="0.000464"/>
+<arg>rba</arg>
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<status status="FAIL" start="2026-01-27T16:11:12.184023" elapsed="0.019351">'R412009' does not start with 'rba'</status>
 </kw>
-<msg time="2026-01-26T18:45:39.097484" level="INFO">${is_present} = True</msg>
+<msg time="2026-01-27T16:11:12.203643" level="INFO">${is_present} = False</msg>
 <var>${is_present}</var>
-<arg>List Should Contain Value</arg>
-<arg>${KNOWN_PLANS}</arg>
+<arg>Should Start With</arg>
 <arg>${tag}</arg>
+<arg>rba</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:45:39.095272" elapsed="0.002478"/>
+<status status="PASS" start="2026-01-27T16:11:12.183797" elapsed="0.020381"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_present}">
-<kw name="Copy Dictionary" owner="Collections">
-<msg time="2026-01-26T18:45:39.099035" level="INFO">${Lender} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '25000', 'depositAmount': '10', 'Applicant': {'FirstName': 'Patricia', 'LastName': 'Abel...</msg>
-<var>${Lender}</var>
-<arg>${LENDER_DATA}</arg>
-<doc>Returns a copy of the given dictionary.</doc>
-<status status="PASS" start="2026-01-26T18:45:39.098520" elapsed="0.000934"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>this is the tag : ${tag}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-01-27T16:11:12.205045" elapsed="0.000231"/>
 </kw>
-<kw name="Set To Dictionary" owner="Collections">
-<arg>${Lender}</arg>
-<arg>planID=${tag}</arg>
-<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="PASS" start="2026-01-26T18:45:39.099806" elapsed="0.001227"/>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${base_url}</var>
+<arg>${tag}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-27T16:11:12.205451" elapsed="0.000142"/>
 </kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:39.104425" level="INFO">${LENDER_DATA} = {'Merchant': 'Upgrade_Regression', 'Location': 'Upgrade_Regression_Master', 'planID': 'S100617', 'projectCost': '25000', 'depositAmount': '10', 'Applicant': {'FirstName': 'Patricia', 'LastName': 'Abel...</msg>
-<arg>${LENDER_DATA}</arg>
-<arg>${Lender}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2026-01-26T18:45:39.102581" elapsed="0.002834"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>this is the base url ${base_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-01-27T16:11:12.205914" elapsed="0.000290"/>
 </kw>
-<status status="PASS" start="2026-01-26T18:45:39.097988" elapsed="0.007903"/>
+<kw name="Exit For Loop" owner="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" start="2026-01-27T16:11:12.206447" elapsed="0.000163"/>
+</kw>
+<status status="NOT RUN" start="2026-01-27T16:11:12.204565" elapsed="0.002127"/>
 </branch>
-<status status="PASS" start="2026-01-26T18:45:39.097956" elapsed="0.008028"/>
+<status status="PASS" start="2026-01-27T16:11:12.204518" elapsed="0.002234"/>
 </if>
-<var name="${tag}">S100617</var>
-<status status="PASS" start="2026-01-26T18:45:39.094923" elapsed="0.011104"/>
+<var name="${tag}">R412009</var>
+<status status="PASS" start="2026-01-27T16:11:12.183629" elapsed="0.023150"/>
 </iter>
-<var>${tag}</var>
-<value>@{TEST_TAGS}</value>
-<status status="PASS" start="2026-01-26T18:45:39.076561" elapsed="0.029552"/>
-</for>
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css:div.position-absolute.bg-white</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:39.106443" elapsed="0.568222"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/span/div/div[1]/div/div[1]/h4/b</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:39.675181" elapsed="0.016800"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>${LENDER_DATA['planID']}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:39.692276" elapsed="0.024927"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:39.718718" level="INFO">Clicking button 'S100617'.</msg>
-<arg>${LENDER_DATA['planID']}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:39.717516" elapsed="0.072892"/>
-</kw>
-<if>
-<branch type="IF" condition="'${amount}' == 'None'">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:39.792314" level="INFO">Typing text '25000' into text field 'enter-project-cost'.</msg>
-<arg>enter-project-cost</arg>
-<arg>${LENDER_DATA['projectCost']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:39.791755" elapsed="0.135498"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:39.929047" level="INFO">Typing text '10' into text field 'enter-deposit-amount'.</msg>
-<arg>enter-deposit-amount</arg>
-<arg>${LENDER_DATA['depositAmount']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:39.927792" elapsed="0.186254"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:39.790755" elapsed="0.323529"/>
-</branch>
-<branch type="ELSE">
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>enter-project-cost</arg>
-<arg>${amount}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:40.114791" elapsed="0.000219"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>enter-deposit-amount</arg>
-<arg>${deposite}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:40.115251" elapsed="0.000215"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:40.114370" elapsed="0.001233"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:39.790721" elapsed="0.324945"/>
-</if>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:40.116233" level="INFO">Clicking button 'xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/span/div/div[2]/div[2]/div/div/div[1]/div/button'.</msg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/span/div/div[2]/div[2]/div/div/div[1]/div/button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:40.115803" elapsed="0.081372"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:39.075800" elapsed="1.121705"/>
-</kw>
-<kw name="Type of Application page" owner="Application_type_page">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2026-01-26T18:45:40.200561" level="FAIL">'['rba6', 'S100617']' does not contain 'Co-App'</msg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2026-01-26T18:45:40.200046" elapsed="0.006636">'['rba6', 'S100617']' does not contain 'Co-App'</status>
-</kw>
-<msg time="2026-01-26T18:45:40.207001" level="INFO">${is_CoApp} = False</msg>
-<var>${is_CoApp}</var>
-<arg>Should Contain</arg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:45:40.199118" elapsed="0.008218"/>
-</kw>
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css:div.position-absolute.bg-white.rounded-lg</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:40.207713" elapsed="2.315958"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_CoApp}">
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath://input[@value='2']</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:42.524557" elapsed="0.000282"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>xpath://input[@value='2']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:42.525112" elapsed="0.000215"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:42.524030" elapsed="0.001422"/>
-</branch>
-<branch type="ELSE">
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath://input[@value='1']</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.525777" elapsed="0.021463"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:42.548135" level="INFO">Clicking button 'xpath://input[@value='1']'.</msg>
-<arg>xpath://input[@value='1']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.547602" elapsed="0.052841"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:42.525517" elapsed="0.075092"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:42.523980" elapsed="0.076675"/>
-</if>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:42.601113" level="INFO">Clicking button 'xpath://button[@type='button']'.</msg>
-<arg>xpath://button[@type='button']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.600781" elapsed="0.070844"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:40.198243" elapsed="2.473834"/>
-</kw>
-<kw name="Load and Prepare applicant details" owner="PrepareApplicant_Details">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2026-01-26T18:45:42.674288" level="FAIL">'['rba6', 'S100617']' does not contain 'Co-App'</msg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2026-01-26T18:45:42.673702" elapsed="0.005437">'['rba6', 'S100617']' does not contain 'Co-App'</status>
-</kw>
-<msg time="2026-01-26T18:45:42.679424" level="INFO">${is_CoApp} = False</msg>
-<var>${is_CoApp}</var>
-<arg>Should Contain</arg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.673369" elapsed="0.006386"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-01-26T18:45:42.681191" level="INFO">${has_applicants} = False</msg>
-<var>${has_applicants}</var>
-<arg>'Applicants' in ${LENDER_DATA}</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.680201" elapsed="0.001289"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${has_applicants}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.681879" elapsed="0.000785"/>
-</kw>
-<if>
-<branch type="IF" condition="'${has_applicants}' == 'True'">
-<if>
-<branch type="IF" condition="'${index1}' != 'None'">
-<kw name="Get From List" owner="Collections">
-<var>${application}</var>
-<arg>${LENDER_DATA["Applicants"]}</arg>
-<arg>${index1}</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:42.683922" elapsed="0.000419"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:42.683436" elapsed="0.001162"/>
-</branch>
-<branch type="ELSE">
-<kw name="Get From Dictionary" owner="Collections">
-<var>${application}</var>
-<arg>${LENDER_DATA}</arg>
-<arg>Applicant</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:42.684974" elapsed="0.000221"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:42.684686" elapsed="0.000650"/>
-</branch>
-<status status="NOT RUN" start="2026-01-26T18:45:42.683405" elapsed="0.002002"/>
-</if>
-<status status="NOT RUN" start="2026-01-26T18:45:42.682954" elapsed="0.002489"/>
-</branch>
-<branch type="ELSE">
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2026-01-26T18:45:42.686619" level="INFO">${application} = {'FirstName': 'Patricia', 'LastName': 'Abel', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Texas', 'zipcode': '78216', 'Do_you_own_installa...</msg>
-<var>${application}</var>
-<arg>${LENDER_DATA}</arg>
-<arg>Applicant</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.685774" elapsed="0.001218"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:42.685505" elapsed="0.001685"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:42.682910" elapsed="0.004356"/>
-</if>
-<if>
-<branch type="IF" condition="${is_CoApp}">
-<if>
-<branch type="IF" condition="'${index2}' != 'None'">
-<kw name="Get From List" owner="Collections">
-<var>${co-app}</var>
-<arg>${LENDER_DATA["Applicants"]}</arg>
-<arg>${index2}</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:42.688088" elapsed="0.000292"/>
-</kw>
-<kw name="Copy Dictionary" owner="Collections">
-<var>${co_app_dup}</var>
-<arg>${co-app}</arg>
-<doc>Returns a copy of the given dictionary.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:42.688641" elapsed="0.000203"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<arg>${co_app_dup}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:42.689083" elapsed="0.000196"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:42.687709" elapsed="0.001720"/>
-</branch>
-<branch type="ELSE">
-<kw name="Get From Dictionary" owner="Collections">
-<var>${co-app}</var>
-<arg>${LENDER_DATA}</arg>
-<arg>Co-Applicant</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:42.689747" elapsed="0.000191"/>
-</kw>
-<kw name="Copy Dictionary" owner="Collections">
-<var>${co_app_dup}</var>
-<arg>${co-app}</arg>
-<doc>Returns a copy of the given dictionary.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:42.690159" elapsed="0.000191"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<arg>${co_app_dup}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:42.690576" elapsed="0.000189"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:42.689494" elapsed="0.001400"/>
-</branch>
-<status status="NOT RUN" start="2026-01-26T18:45:42.687677" elapsed="0.003275"/>
-</if>
-<status status="NOT RUN" start="2026-01-26T18:45:42.687373" elapsed="0.003611"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:42.687339" elapsed="0.003697"/>
-</if>
-<kw name="Copy Dictionary" owner="Collections">
-<msg time="2026-01-26T18:45:42.691537" level="INFO">${applicant} = {'FirstName': 'Patricia', 'LastName': 'Abel', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Texas', 'zipcode': '78216', 'Do_you_own_installa...</msg>
-<var>${applicant}</var>
-<arg>${application}</arg>
-<doc>Returns a copy of the given dictionary.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.691153" elapsed="0.000681"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:42.692717" level="INFO">${applicant} = {'FirstName': 'Patricia', 'LastName': 'Abel', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Texas', 'zipcode': '78216', 'Do_you_own_installa...</msg>
-<arg>${applicant}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.692126" elapsed="0.000910"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:42.693887" level="INFO">${application} = {'FirstName': 'Patricia', 'LastName': 'Abel', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Texas', 'zipcode': '78216', 'Do_you_own_installa...</msg>
-<arg>${application}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.693343" elapsed="0.000885"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:42.672886" elapsed="0.021538"/>
-</kw>
-<kw name="Copy Dictionary" owner="Collections">
-<msg time="2026-01-26T18:45:42.695682" level="INFO">${modified_app} = {'FirstName': 'Patricia', 'LastName': 'Abel', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Texas', 'zipcode': '78216', 'Do_you_own_installa...</msg>
-<var>${modified_app}</var>
-<arg>${application}</arg>
-<doc>Returns a copy of the given dictionary.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.695257" elapsed="0.000578"/>
-</kw>
-<kw name="Set To Dictionary" owner="Collections">
-<arg>${modified_app}</arg>
-<arg>email=satya.satti@finmkt.io</arg>
-<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.696228" elapsed="0.000420"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:42.697572" level="INFO">${application} = {'FirstName': 'Patricia', 'LastName': 'Abel', 'email': 'satya.satti@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Texas', 'zipcode': '78216', 'Do_you_own_installation...</msg>
-<arg>${application}</arg>
-<arg>${modified_app}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.697041" elapsed="0.000825"/>
-</kw>
-<kw name="Application Details Page" owner="Application_details_Page">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2026-01-26T18:45:42.701677" level="FAIL">'['rba6', 'S100617']' does not contain 'Co-App'</msg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2026-01-26T18:45:42.701017" elapsed="0.009744">'['rba6', 'S100617']' does not contain 'Co-App'</status>
-</kw>
-<msg time="2026-01-26T18:45:42.711072" level="INFO">${is_CoApp} = False</msg>
-<var>${is_CoApp}</var>
-<arg>Should Contain</arg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.700332" elapsed="0.011046"/>
-</kw>
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css:div.position-absolute.bg-white.rounded-lg</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:42.711879" elapsed="0.695142"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>street-address-1</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:43.407416" elapsed="0.466851"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:43.875607" level="INFO">Typing text '11765 West Avenue' into text field 'street-address-1'.</msg>
-<arg>street-address-1</arg>
-<arg>${application["street_add"]}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:43.874704" elapsed="0.174625"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:44.052519" level="INFO">Typing text 'San Antonio' into text field 'city'.</msg>
-<arg>city</arg>
-<arg>${application["city"]}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:44.050427" elapsed="0.148605"/>
-</kw>
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:44.202322" level="INFO">Selecting options from selection list 'street-address-state' by label Texas.</msg>
-<arg>street-address-state</arg>
-<arg>${application["state"]}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2026-01-26T18:45:44.199754" elapsed="0.155965"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:44.357099" level="INFO">Typing text '78216' into text field 'zipCode'.</msg>
-<arg>zipCode</arg>
-<arg>${application["zipcode"]}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:44.356176" elapsed="0.132658"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:44.490130" level="INFO">Typing text 'Patricia' into text field 'legal-first-name'.</msg>
-<arg>legal-first-name</arg>
-<arg>${application["FirstName"]}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:44.489222" elapsed="0.172024"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:44.662538" level="INFO">Typing text 'Abel' into text field 'legal-last-name'.</msg>
-<arg>legal-last-name</arg>
-<arg>${application["LastName"]}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:44.661634" elapsed="0.126871"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:44.790000" level="INFO">Typing text 'satya.satti@finmkt.io' into text field 'email'.</msg>
-<arg>email</arg>
-<arg>${application["email"]}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:44.788990" elapsed="0.176555"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:44.968612" level="INFO">Typing text '9877676698' into text field 'mobile-number'.</msg>
-<arg>mobile-number</arg>
-<arg>${application["mobileNumber"]}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:44.966521" elapsed="0.171908"/>
-</kw>
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css=.position-absolute.bg-white.rounded-lg</arg>
-<arg>timeout=30</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:45.139060" elapsed="0.940682"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_CoApp}">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>coapp-legal-first-name</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:46.081299" elapsed="0.000255"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>coapp-legal-first-name</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:46.081808" elapsed="0.000183"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>coapp-legal-first-name</arg>
-<arg>${co_app_dup['FirstName']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:46.082186" elapsed="0.000143"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>coapp-legal-last-name</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:46.082512" elapsed="0.000198"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>coapp-legal-last-name</arg>
-<arg>${co_app_dup['LastName']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:46.082907" elapsed="0.000140"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath:(//input[@id="email"])[2]</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:46.083222" elapsed="0.000131"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath:(//input[@id="email"])[2]</arg>
-<arg>${co_app_dup['email']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:46.083528" elapsed="0.000140"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath:(//input[@id="mobile-number"])[2]</arg>
-<arg>8</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:46.083843" elapsed="0.000147"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath:(//input[@id="mobile-number"])[2]</arg>
-<arg>${co_app_dup['mobileNumber']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:46.084170" elapsed="0.000149"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:46.080266" elapsed="0.004153"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:46.080017" elapsed="0.004462"/>
-</if>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>no</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.084598" elapsed="0.018356"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>yes</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.103329" elapsed="0.016922"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:46.121081" level="INFO">Clicking element 'no'.</msg>
-<arg>no</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.120617" elapsed="0.047569"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/span/form/div[3]/div/div/div/div/div[2]/div/button</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.168798" elapsed="0.025018"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:46.194901" level="INFO">Clicking button 'xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/span/form/div[3]/div/div/div/div/div[2]/div/button'.</msg>
-<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div[2]/div/span/form/div[3]/div/div/div/div/div[2]/div/button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.194218" elapsed="0.107452"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:42.698945" elapsed="3.603141"/>
-</kw>
-<kw name="verification info pop-up" owner="Verification_Info_pop-up">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2026-01-26T18:45:46.304629" level="FAIL">'['rba6', 'S100617']' does not contain 'Co-App'</msg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2026-01-26T18:45:46.304032" elapsed="0.005784">'['rba6', 'S100617']' does not contain 'Co-App'</status>
-</kw>
-<msg time="2026-01-26T18:45:46.310135" level="INFO">${is_CoApp} = False</msg>
-<var>${is_CoApp}</var>
-<arg>Should Contain</arg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.303445" elapsed="0.007019"/>
-</kw>
-<kw name="Get Location" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:46.317897" level="INFO">${creating_new_Url} = https://rba6-qa.mktplacegateway.com/dc/initiate-application?m=6863782ec54eaa9f42305820&amp;pId=5c86c1dd3fe07d3f675d9417&amp;spId=5cb111f23fe07d72716dc547&amp;locationId=685ce904c54eaa7f5fc52649&amp;appId=4b8acba9-ca6...</msg>
-<var>${creating_new_Url}</var>
-<doc>Returns the current browser window URL.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.310839" elapsed="0.007449"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-01-26T18:45:46.319890" level="INFO">${match} = ['6863782ec54eaa9f42305820', '5c86c1dd3fe07d3f675d9417', '5cb111f23fe07d72716dc547', '685ce904c54eaa7f5fc52649', '4b8acba9-ca62-4cb2-8750-37d756c916aa', '685cef9fc54eaa5f9ec14960']</msg>
-<var>${match}</var>
-<arg>__import__('re').findall(r'[a-z0-9\-]{24,36}', '''${creating_new_Url}''')</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.318704" elapsed="0.002295"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${match}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.322053" elapsed="0.001009"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:46.325579" level="INFO">${APP_ID} = 4b8acba9-ca62-4cb2-8750-37d756c916aa</msg>
-<arg>${APP_ID}</arg>
-<arg>${match[-2]}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.323479" elapsed="0.002580"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:46.328609" level="INFO">${Location_ID} = 685ce904c54eaa7f5fc52649</msg>
-<arg>${Location_ID}</arg>
-<arg>${match[-3]}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.326590" elapsed="0.002409"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:46.331642" level="INFO">${Merchant_ID} = 6863782ec54eaa9f42305820</msg>
-<arg>${Merchant_ID}</arg>
-<arg>${match[0]}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.329390" elapsed="0.002819"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_CoApp}">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[8]/div[2]/div/button</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:46.333180" elapsed="0.000302"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[8]/div[2]/div/button</arg>
-<arg>120</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:46.333773" elapsed="0.000221"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[8]/div[2]/div/button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:46.334283" elapsed="0.000276"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:46.332586" elapsed="0.002127"/>
-</branch>
-<branch type="ELSE">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[7]/div[2]/div/button</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.335068" elapsed="0.021366"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[7]/div[2]/div/button</arg>
-<arg>180</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.356971" elapsed="0.030034"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[7]/div[2]/div/button</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.387415" elapsed="0.295284"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:46.683651" level="INFO">Clicking element 'xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[7]/div[2]/div/button'.</msg>
-<arg>xpath://*[@id="send-application-modal___BV_modal_body_"]/div/div[7]/div[2]/div/button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.683109" elapsed="0.055922"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:46.334794" elapsed="0.404456"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:46.332541" elapsed="0.406783"/>
-</if>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Application Sent Successfully!</arg>
-<arg>15</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2026-01-26T18:45:46.739523" elapsed="0.889419"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:46.302742" elapsed="1.327537"/>
-</kw>
-<kw name="URL Applicant" owner="URL_applicant">
-<for flavor="IN">
 <iter>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Start With" owner="BuiltIn">
 <arg>${tag}</arg>
 <arg>rba</arg>
 <doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
-<status status="PASS" start="2026-01-26T18:45:47.636689" elapsed="0.000511"/>
+<status status="PASS" start="2026-01-27T16:11:12.208333" elapsed="0.000661"/>
 </kw>
-<msg time="2026-01-26T18:45:47.637458" level="INFO">${is_present} = True</msg>
+<msg time="2026-01-27T16:11:12.209514" level="INFO">${is_present} = True</msg>
 <var>${is_present}</var>
 <arg>Should Start With</arg>
 <arg>${tag}</arg>
 <arg>rba</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:45:47.636079" elapsed="0.001872"/>
+<status status="PASS" start="2026-01-27T16:11:12.207630" elapsed="0.002431"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_present}">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>this is the tag : ${tag}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-27T16:11:12.211097" elapsed="0.001356"/>
+</kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:47.639707" level="INFO">${base_url} = rba6</msg>
+<msg time="2026-01-27T16:11:12.213184" level="INFO">${base_url} = rba4</msg>
 <var>${base_url}</var>
 <arg>${tag}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-01-26T18:45:47.638986" elapsed="0.000960"/>
+<status status="PASS" start="2026-01-27T16:11:12.212861" elapsed="0.000603"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>this is the base url ${base_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-27T16:11:12.213658" elapsed="0.000403"/>
 </kw>
 <kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2026-01-26T18:45:47.641449" level="INFO">Exiting for loop altogether.</msg>
+<msg time="2026-01-27T16:11:12.214553" level="INFO">Exiting for loop altogether.</msg>
 <doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2026-01-26T18:45:47.640284" elapsed="0.001550"/>
+<status status="PASS" start="2026-01-27T16:11:12.214322" elapsed="0.000390"/>
 </kw>
-<status status="PASS" start="2026-01-26T18:45:47.638241" elapsed="0.003879"/>
+<status status="PASS" start="2026-01-27T16:11:12.210459" elapsed="0.004342"/>
 </branch>
-<status status="PASS" start="2026-01-26T18:45:47.638201" elapsed="0.004023"/>
+<status status="PASS" start="2026-01-27T16:11:12.210430" elapsed="0.004417"/>
 </if>
-<var name="${tag}">rba6</var>
-<status status="PASS" start="2026-01-26T18:45:47.635358" elapsed="0.006904"/>
+<var name="${tag}">rba4</var>
+<status status="PASS" start="2026-01-27T16:11:12.207102" elapsed="0.007765"/>
 </iter>
 <var>${tag}</var>
 <value>@{TEST_TAGS}</value>
-<status status="PASS" start="2026-01-26T18:45:47.633502" elapsed="0.008838"/>
+<status status="PASS" start="2026-01-27T16:11:12.173308" elapsed="0.041602"/>
 </for>
-<kw name="Get Location" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:47.656821" level="INFO">${url} = https://rba6-qa.mktplacegateway.com/dc/application-sent?m=6863782ec54eaa9f42305820&amp;pId=5c86c1dd3fe07d3f675d9417&amp;spId=5cb111f23fe07d72716dc547&amp;locationId=685ce904c54eaa7f5fc52649&amp;appId=4b8acba9-ca62-4c...</msg>
-<var>${url}</var>
-<doc>Returns the current browser window URL.</doc>
-<status status="PASS" start="2026-01-26T18:45:47.642555" elapsed="0.014562"/>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-27T16:11:12.215462" level="INFO">Opening browser 'chrome' to base url 'https://rba4-qa.mktplacegateway.com/m/login'.</msg>
+<arg>https://${base_url}-qa.mktplacegateway.com/m/login</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-27T16:11:12.215094" elapsed="53.226248"/>
 </kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2026-01-26T18:45:47.660436" level="FAIL">'https://rba6-qa.mktplacegateway.com/dc/application-sent?m=6863782ec54eaa9f42305820&amp;pId=5c86c1dd3fe07d3f675d9417&amp;spId=5cb111f23fe07d72716dc547&amp;locationId=685ce904c54eaa7f5fc52649&amp;appId=4b8acba9-ca62-4cb2-8750-37d756c916aa&amp;offerCode=685cef9fc54eaa5f9ec14960' does not contain 'loanId='</msg>
-<arg>${url}</arg>
-<arg>loanId=</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2026-01-26T18:45:47.658890" elapsed="0.016081">'https://rba6-qa.mktplacegateway.com/dc/application-sent?m=6863782ec54eaa9f42305820&amp;pId=5c86c1dd3fe07d3f675d9417&amp;spId=5cb111f23fe07d72716dc547&amp;locationId=685ce904c54eaa7f5fc52649&amp;appId=4b8acba9-ca62-4cb2-8750-37d756c916aa&amp;offerCode=685cef9fc54eaa5f9ec14960' does not contain 'loanId='</status>
-</kw>
-<msg time="2026-01-26T18:45:47.675314" level="INFO">${loan_id_is_present} = False</msg>
-<var>${loan_id_is_present}</var>
-<arg>Should Contain</arg>
-<arg>${url}</arg>
-<arg>loanId=</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:45:47.657384" elapsed="0.018127"/>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-01-27T16:12:05.448729" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=143.0.7499.193)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6c0f288d5
+	0x7ff6c0f28930
+	0x7ff6c0d0165d
+	0x7ff6c0cd91b1
+	0x7ff6c0d897e6
+	0x7ff6c0daa5c2
+	0x7ff6c0d4ac29
+	0x7ff6c0d4ba93
+	0x7ff6c1240620
+	0x7ff6c123af60
+	0x7ff6c12596c6
+	0x7ff6c0f45dd4
+	0x7ff6c0f4ed7c
+	0x7ff6c0f31ff4
+	0x7ff6c0f321a5
+	0x7ff6c0f17ed2
+	0x7ff85c56e8d7
+	0x7ff85e79c34c
+</msg>
+<msg time="2026-01-27T16:12:05.459556" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=143.0.7499.193)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6c0f288d5
+	0x7ff6c0f28930
+	0x7ff6c0d0165d
+	0x7ff6c0cd91b1
+	0x7ff6c0d897e6
+	0x7ff6c0daa5c2
+	0x7ff6c0d4ac29
+	0x7ff6c0d4ba93
+	0x7ff6c1240620
+	0x7ff6c123af60
+	0x7ff6c12596c6
+	0x7ff6c0f45dd4
+	0x7ff6c0f4ed7c
+	0x7ff6c0f31ff4
+	0x7ff6c0f321a5
+	0x7ff6c0f17ed2
+	0x7ff85c56e8d7
+	0x7ff85e79c34c
+</msg>
+<arg>user-name</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-01-27T16:12:05.441847" elapsed="0.164190">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=143.0.7499.193)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6c0f288d5
+	0x7ff6c0f28930
+	0x7ff6c0d0165d
+	0x7ff6c0cd91b1
+	0x7ff6c0d897e6
+	0x7ff6c0daa5c2
+	0x7ff6c0d4ac29
+	0x7ff6c0d4ba93
+	0x7ff6c1240620
+	0x7ff6c123af60
+	0x7ff6c12596c6
+	0x7ff6c0f45dd4
+	0x7ff6c0f4ed7c
+	0x7ff6c0f31ff4
+	0x7ff6c0f321a5
+	0x7ff6c0f17ed2
+	0x7ff85c56e8d7
+	0x7ff85e79c34c
+</status>
 </kw>
 <if>
-<branch type="IF" condition="${loan_id_is_present}">
-<kw name="Evaluate" owner="BuiltIn">
-<var>${match}</var>
-<arg>__import__('re').findall(r'loanId=([a-z0-9\-]{24,36})', '''${url}''')</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:47.676497" elapsed="0.000317"/>
+<branch type="IF" condition="'${user}'=='None'">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>user-name</arg>
+<arg>aditya.chelluru+12@finmkt.io</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-27T16:12:05.606727" elapsed="0.000198"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${match}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:47.677092" elapsed="0.000243"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${M_URL}</var>
-<arg>https://${base_Url}-qa.mktplacegateway.com/c/application-authorization?loanId=${match[0]}&amp;type=CO_APPLICANT&amp;m=${Merchant_ID}&amp;locationId=${Location_ID}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:47.677746" elapsed="0.000474"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:47.675779" elapsed="0.002690"/>
+<status status="NOT RUN" start="2026-01-27T16:12:05.606286" elapsed="0.000747"/>
 </branch>
 <branch type="ELSE">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:47.679791" level="INFO">${M_URL} = https://rba6-qa.mktplacegateway.com/c/application-authorization?appId=4b8acba9-ca62-4cb2-8750-37d756c916aa&amp;type=APPLICANT&amp;m=6863782ec54eaa9f42305820&amp;locationId=685ce904c54eaa7f5fc52649</msg>
-<var>${M_URL}</var>
-<arg>https://${base_Url}-qa.mktplacegateway.com/c/application-authorization?appId=${APP_ID}&amp;type=APPLICANT&amp;m=${Merchant_ID}&amp;locationId=${Location_ID}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-01-26T18:45:47.678966" elapsed="0.001141"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>user-name</arg>
+<arg>${user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-27T16:12:05.607266" elapsed="0.000114"/>
 </kw>
-<status status="PASS" start="2026-01-26T18:45:47.678571" elapsed="0.001889"/>
+<status status="NOT RUN" start="2026-01-27T16:12:05.607075" elapsed="0.000382"/>
 </branch>
-<status status="PASS" start="2026-01-26T18:45:47.675736" elapsed="0.004809"/>
+<status status="NOT RUN" start="2026-01-27T16:12:05.606256" elapsed="0.001234"/>
 </if>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:47.682494" level="INFO">Executing JavaScript:
-window.open('https://rba6-qa.mktplacegateway.com/c/application-authorization?appId=4b8acba9-ca62-4cb2-8750-37d756c916aa&amp;type=APPLICANT&amp;m=6863782ec54eaa9f42305820&amp;locationId=685ce904c54eaa7f5fc52649', '_blank')
-Without any arguments.</msg>
-<arg>window.open('${M_URL}', '_blank')</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2026-01-26T18:45:47.680837" elapsed="0.063775"/>
+<if>
+<branch type="IF" condition="'${password}' == 'None'">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>user-password</arg>
+<arg>Qa@12345</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-27T16:12:05.607717" elapsed="0.000118"/>
 </kw>
-<kw name="Switch Window" owner="SeleniumLibrary">
-<arg>NEW</arg>
-<doc>Switches to browser window matching ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:47.745523" elapsed="0.016988"/>
+<status status="NOT RUN" start="2026-01-27T16:12:05.607550" elapsed="0.000364"/>
+</branch>
+<branch type="ELSE">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>user-password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-27T16:12:05.608085" elapsed="0.000095"/>
 </kw>
-<kw name="Get Location" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:48.544194" level="INFO">${location} = https://rba6-qa.mktplacegateway.com/c/application-authorization?appId=4b8acba9-ca62-4cb2-8750-37d756c916aa&amp;type=APPLICANT&amp;m=6863782ec54eaa9f42305820&amp;locationId=685ce904c54eaa7f5fc52649</msg>
-<var>${location}</var>
-<doc>Returns the current browser window URL.</doc>
-<status status="PASS" start="2026-01-26T18:45:47.762970" elapsed="0.781432"/>
+<status status="NOT RUN" start="2026-01-27T16:12:05.607951" elapsed="0.000299"/>
+</branch>
+<status status="NOT RUN" start="2026-01-27T16:12:05.607534" elapsed="0.000748"/>
+</if>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/span/form/div/div/div[4]/div/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-27T16:12:05.608379" elapsed="0.000108"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>this is the location</arg>
-<arg>${location}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-01-26T18:45:48.544736" elapsed="0.000832"/>
+<status status="FAIL" start="2026-01-27T16:11:12.172692" elapsed="53.435964">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=143.0.7499.193)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6c0f288d5
+	0x7ff6c0f28930
+	0x7ff6c0d0165d
+	0x7ff6c0cd91b1
+	0x7ff6c0d897e6
+	0x7ff6c0daa5c2
+	0x7ff6c0d4ac29
+	0x7ff6c0d4ba93
+	0x7ff6c1240620
+	0x7ff6c123af60
+	0x7ff6c12596c6
+	0x7ff6c0f45dd4
+	0x7ff6c0f4ed7c
+	0x7ff6c0f31ff4
+	0x7ff6c0f321a5
+	0x7ff6c0f17ed2
+	0x7ff85c56e8d7
+	0x7ff85e79c34c
+</status>
 </kw>
-<status status="PASS" start="2026-01-26T18:45:47.631771" elapsed="0.914192"/>
+<kw name="Merchant Selection Page" owner="merchant_selection">
+<arg>RbA-AD1</arg>
+<status status="NOT RUN" start="2026-01-27T16:12:05.609248" elapsed="0.000553"/>
+</kw>
+<kw name="Sending Application to Consumer" owner="sendApplication">
+<status status="NOT RUN" start="2026-01-27T16:12:05.610287" elapsed="0.000264"/>
+</kw>
+<kw name="Dc plans page" owner="DC_Plan_Page">
+<arg>24441</arg>
+<arg>0</arg>
+<status status="NOT RUN" start="2026-01-27T16:12:05.611097" elapsed="0.000276"/>
+</kw>
+<kw name="Type of Application page" owner="Application_type_page">
+<status status="NOT RUN" start="2026-01-27T16:12:05.611961" elapsed="0.000385"/>
+</kw>
+<kw name="Load and Prepare applicant details" owner="PrepareApplicant_Details">
+<status status="NOT RUN" start="2026-01-27T16:12:05.613079" elapsed="0.000378"/>
+</kw>
+<kw name="Copy Dictionary" owner="Collections">
+<var>${modified_app1}</var>
+<arg>${application}</arg>
+<doc>Returns a copy of the given dictionary.</doc>
+<status status="NOT RUN" start="2026-01-27T16:12:05.614029" elapsed="0.000362"/>
+</kw>
+<kw name="Copy Dictionary" owner="Collections">
+<var>${modified_app2}</var>
+<arg>${co_app_dup}</arg>
+<doc>Returns a copy of the given dictionary.</doc>
+<status status="NOT RUN" start="2026-01-27T16:12:05.615400" elapsed="0.000304"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${modified_app1}</arg>
+<arg>email=lalith.buddha@finmkt.io</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-01-27T16:12:05.616240" elapsed="0.000356"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${modified_app2}</arg>
+<arg>email=lalith.buddha@finmkt.io</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-01-27T16:12:05.617182" elapsed="0.000289"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<arg>${co_app_dup}</arg>
+<arg>${modified_app2}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" start="2026-01-27T16:12:05.617911" elapsed="0.000302"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<arg>${application}</arg>
+<arg>${modified_app1}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" start="2026-01-27T16:12:05.618569" elapsed="0.000170"/>
+</kw>
+<kw name="Application Details Page" owner="Application_details_Page">
+<status status="NOT RUN" start="2026-01-27T16:12:05.619233" elapsed="0.000297"/>
+</kw>
+<kw name="verification info pop-up" owner="Verification_Info_pop-up">
+<status status="NOT RUN" start="2026-01-27T16:12:05.619911" elapsed="0.000192"/>
+</kw>
+<kw name="URL Applicant" owner="URL_applicant">
+<status status="NOT RUN" start="2026-01-27T16:12:05.620488" elapsed="0.000168"/>
 </kw>
 <kw name="Application Authorization Page" owner="Application_Authorization">
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css:div.position-absolute.bg-white.rounded-lg</arg>
-<arg>120</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:48.547755" elapsed="0.009797"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div[5]/div/div/button/div</arg>
-<arg>120</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:48.557900" elapsed="0.019408"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:48.578196" level="INFO">Clicking element 'xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div[5]/div/div/button/div'.</msg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div[5]/div/div/button/div</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:48.577660" elapsed="0.055941"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:48.546564" elapsed="0.087485"/>
+<status status="NOT RUN" start="2026-01-27T16:12:05.620907" elapsed="0.000136"/>
 </kw>
 <kw name="Credit freeze page" owner="Credit_Freeze_Page">
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css:div.position-absolute.bg-white.rounded-lg</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-01-26T18:45:48.635680" elapsed="1.028182"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Credit Freeze Reminder</arg>
-<arg>20</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2026-01-26T18:45:49.664695" elapsed="0.019246"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/div[4]/div/button</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:49.684476" elapsed="0.030996"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:49.716342" level="INFO">Clicking element 'xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/div[4]/div/button'.</msg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/div[4]/div/button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:49.715765" elapsed="0.054795"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:48.634897" elapsed="1.136123"/>
+<status status="NOT RUN" start="2026-01-27T16:12:05.621369" elapsed="0.000160"/>
 </kw>
 <kw name="prove data" owner="Prove_data_Page">
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>ssn</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:49.772323" elapsed="1.346727"/>
-</kw>
-<if>
-<branch type="IF" condition="'${type}' == 'None'">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:51.121069" level="INFO">Typing text '666663537' into text field 'ssn'.</msg>
-<arg>ssn</arg>
-<arg>${application['ssn']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:51.120017" elapsed="0.137931"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:51.259321" level="INFO">Typing text '9877676698' into text field 'prove-mobile-number'.</msg>
-<arg>prove-mobile-number</arg>
-<arg>${application['mobileNumber']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:51.258375" elapsed="0.119432"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:51.119395" elapsed="0.258833"/>
-</branch>
-<branch type="ELSE">
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>ssn</arg>
-<arg>${co_app_dup['ssn']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:51.379283" elapsed="0.000410"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>prove-mobile-number</arg>
-<arg>${co_app_dup['mobileNumber']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:51.380104" elapsed="0.000313"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:51.378467" elapsed="0.002159"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:51.119353" elapsed="0.261393"/>
-</if>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:51.381368" level="INFO">Clicking button 'xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/fieldset/div/div[6]/div/div/button'.</msg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/fieldset/div/div[6]/div/div/button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:51.380949" elapsed="0.089787"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:49.771710" elapsed="1.699217"/>
+<status status="NOT RUN" start="2026-01-27T16:12:05.622137" elapsed="0.000217"/>
 </kw>
 <kw name="basic information" owner="Basic_Info_Page">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2026-01-26T18:45:51.472888" level="FAIL">'['rba6', 'S100617']' does not contain 'Co-App'</msg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2026-01-26T18:45:51.472457" elapsed="0.004716">'['rba6', 'S100617']' does not contain 'Co-App'</status>
-</kw>
-<msg time="2026-01-26T18:45:51.477575" level="INFO">${is_CoApp} = False</msg>
-<var>${is_CoApp}</var>
-<arg>Should Contain</arg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:45:51.472109" elapsed="0.006854"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[7]/div/div/span/div/input</arg>
-<arg>30</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:51.479682" elapsed="1.191711"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-26T18:45:55.672492" level="INFO">Slept 3 seconds.</msg>
-<arg>3</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-26T18:45:52.671755" elapsed="3.001283"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2026-01-26T18:45:55.675229" level="FAIL">'['rba6', 'S100617']' does not contain 'Prove'</msg>
-<arg>${TEST TAGS}</arg>
-<arg>Prove</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2026-01-26T18:45:55.674689" elapsed="0.010923">'['rba6', 'S100617']' does not contain 'Prove'</status>
-</kw>
-<msg time="2026-01-26T18:45:55.686080" level="INFO">${is_prove} = False</msg>
-<var>${is_prove}</var>
-<arg>Should Contain</arg>
-<arg>${TEST TAGS}</arg>
-<arg>Prove</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:45:55.673683" elapsed="0.012614"/>
-</kw>
-<if>
-<branch type="IF" condition="'${primary}'=='None'">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:45:55.688570" level="INFO">${data} = {'FirstName': 'Patricia', 'LastName': 'Abel', 'email': 'satya.satti@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Texas', 'zipcode': '78216', 'Do_you_own_installation...</msg>
-<var>${data}</var>
-<arg>${application}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-01-26T18:45:55.687809" elapsed="0.001461"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:55.686681" elapsed="0.003006"/>
-</branch>
-<branch type="ELSE">
-<kw name="Set Variable If" owner="BuiltIn">
-<var>${data}</var>
-<arg>${is_CoApp}</arg>
-<arg>${co_app_dup}</arg>
-<arg>${application}</arg>
-<doc>Sets variable based on the given condition.</doc>
-<status status="NOT RUN" start="2026-01-26T18:45:55.691064" elapsed="0.000878"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:55.689937" elapsed="0.002485"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:55.686626" elapsed="0.005940"/>
-</if>
-<if>
-<branch type="IF" condition="${is_prove}">
-<kw name="Handle Prove Scenario" owner="Basic_Info_Page">
-<arg>${is_CoApp}</arg>
-<arg>${data}</arg>
-<status status="NOT RUN" start="2026-01-26T18:45:55.693241" elapsed="0.000287"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:45:55.692668" elapsed="0.001032"/>
-</branch>
-<branch type="ELSE">
-<kw name="Handle NonProve Scenario" owner="Basic_Info_Page">
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[7]/div/div/span/div/input</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:55.695191" elapsed="0.026043"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:55.722768" level="INFO">Typing text '08/01/1981' into text field 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[7]/div/div/span/div/input'.</msg>
-<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[7]/div/div/span/div/input</arg>
-<arg>${data['dob']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:45:55.721714" elapsed="0.142798"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>INSTALLATION__ADDRESS__DROPDOWN</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:45:55.864926" elapsed="0.049189"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:55.915240" level="INFO">Executing JavaScript:
-document.getElementById("INSTALLATION__ADDRESS__DROPDOWN").value = "true";
-Without any arguments.</msg>
-<arg>document.getElementById("INSTALLATION__ADDRESS__DROPDOWN").value = "true";</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2026-01-26T18:45:55.914510" elapsed="0.008678"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:55.924542" level="INFO">Executing JavaScript:
-document.getElementById("INSTALLATION__ADDRESS__DROPDOWN").dispatchEvent(new Event('change'));
-Without any arguments.</msg>
-<arg>document.getElementById("INSTALLATION__ADDRESS__DROPDOWN").dispatchEvent(new Event('change'));</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2026-01-26T18:45:55.923753" elapsed="0.012903"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-26T18:45:57.938113" level="INFO">Slept 2 seconds.</msg>
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-26T18:45:55.937009" elapsed="2.001465"/>
-</kw>
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:57.939767" level="INFO">Selecting options from selection list 'INSTALLATION__ADDRESS__DROPDOWN' by label Yes, I own this property..</msg>
-<arg>INSTALLATION__ADDRESS__DROPDOWN</arg>
-<arg>${application['Do_you_own_installation_add']}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2026-01-26T18:45:57.938851" elapsed="0.054078"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:57.994425" level="INFO">Executing JavaScript:
-document.getElementById("INSTALLATION__ADDRESS__RESIDE__DROPDOWN").value = "true";
-Without any arguments.</msg>
-<arg>document.getElementById("INSTALLATION__ADDRESS__RESIDE__DROPDOWN").value = "true";</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2026-01-26T18:45:57.993711" elapsed="0.006709"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:45:58.001140" level="INFO">Executing JavaScript:
-document.getElementById("INSTALLATION__ADDRESS__RESIDE__DROPDOWN").dispatchEvent(new Event('change'));
-Without any arguments.</msg>
-<arg>document.getElementById("INSTALLATION__ADDRESS__RESIDE__DROPDOWN").dispatchEvent(new Event('change'));</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2026-01-26T18:45:58.000666" elapsed="0.009199"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-26T18:46:00.011365" level="INFO">Slept 2 seconds.</msg>
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-26T18:45:58.010329" elapsed="2.001424"/>
-</kw>
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:00.013417" level="INFO">Selecting options from selection list 'INSTALLATION__ADDRESS__RESIDE__DROPDOWN' by label Yes, I reside at this address..</msg>
-<arg>INSTALLATION__ADDRESS__RESIDE__DROPDOWN</arg>
-<arg>${application['Do_you_reside_installation_add']}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2026-01-26T18:46:00.012155" elapsed="0.067230"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[12]/div/span/div/div/label/span[2]</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:46:00.079676" elapsed="0.030429"/>
-</kw>
-<if>
-<branch type="IF" condition="'${primary}' == '${None}'">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:00.112187" level="INFO">Clicking element 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[12]/div/span/div/div/label/span[2]'.</msg>
-<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[12]/div/span/div/div/label/span[2]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:46:00.111802" elapsed="0.090670"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:46:00.110559" elapsed="0.092161"/>
-</branch>
-<branch type="ELSE">
-<kw name="Fill Billing Address" owner="Basic_Info_Page">
-<arg>${data}</arg>
-<status status="NOT RUN" start="2026-01-26T18:46:00.203374" elapsed="0.000265"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:46:00.202809" elapsed="0.000987"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:46:00.110502" elapsed="0.093357"/>
-</if>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:00.204405" level="INFO">Clicking button 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[14]/div/div/button'.</msg>
-<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div/div[14]/div/div/button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:46:00.204011" elapsed="0.164127"/>
-</kw>
-<arg>${is_CoApp}</arg>
-<arg>${primary}</arg>
-<arg>${data}</arg>
-<status status="PASS" start="2026-01-26T18:45:55.694309" elapsed="4.674239"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:45:55.693773" elapsed="4.674987"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:45:55.692639" elapsed="4.676233"/>
-</if>
-<status status="PASS" start="2026-01-26T18:45:51.471595" elapsed="8.897374"/>
+<status status="NOT RUN" start="2026-01-27T16:12:05.622773" elapsed="0.000156"/>
 </kw>
 <kw name="Personal information" owner="Personal_Information_Page">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2026-01-26T18:46:00.373599" level="FAIL">'['rba6', 'S100617']' does not contain 'Co-App'</msg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2026-01-26T18:46:00.372925" elapsed="0.008680">'['rba6', 'S100617']' does not contain 'Co-App'</status>
-</kw>
-<msg time="2026-01-26T18:46:00.381941" level="INFO">${is_CoApp} = False</msg>
-<var>${is_CoApp}</var>
-<arg>Should Contain</arg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:00.372000" elapsed="0.010104"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath://button[contains(text(), 'Next') or contains(@type, 'submit')]</arg>
-<arg>20s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-26T18:46:00.382495" elapsed="0.021771"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-26T18:46:02.405642" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-26T18:46:00.404649" elapsed="2.001323"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2026-01-26T18:46:02.408088" level="FAIL">'['rba6', 'S100617']' does not contain 'Prove'</msg>
-<arg>${TEST TAGS}</arg>
-<arg>Prove</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2026-01-26T18:46:02.407586" elapsed="0.004880">'['rba6', 'S100617']' does not contain 'Prove'</status>
-</kw>
-<msg time="2026-01-26T18:46:02.412968" level="INFO">${is_prove} = False</msg>
-<var>${is_prove}</var>
-<arg>Should Contain</arg>
-<arg>${TEST TAGS}</arg>
-<arg>Prove</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:02.406224" elapsed="0.006908"/>
-</kw>
-<if>
-<branch type="IF" condition="'${primary}'=='None'">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-01-26T18:46:02.414633" level="INFO">${data} = {'FirstName': 'Patricia', 'LastName': 'Abel', 'email': 'satya.satti@finmkt.io', 'street_add': '11765 West Avenue', 'city': 'San Antonio', 'state': 'Texas', 'zipcode': '78216', 'Do_you_own_installation...</msg>
-<var>${data}</var>
-<arg>${application}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-01-26T18:46:02.413931" elapsed="0.001129"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:46:02.413343" elapsed="0.001875"/>
-</branch>
-<branch type="ELSE">
-<kw name="Set Variable If" owner="BuiltIn">
-<var>${data}</var>
-<arg>${is_CoApp}</arg>
-<arg>${co_app_dup}</arg>
-<arg>${application}</arg>
-<doc>Sets variable based on the given condition.</doc>
-<status status="NOT RUN" start="2026-01-26T18:46:02.415550" elapsed="0.000633"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:46:02.415267" elapsed="0.001033"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:46:02.413315" elapsed="0.003026"/>
-</if>
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>xpath=//div[contains(@style, 'backdrop-filter: blur')]</arg>
-<arg>timeout=15s</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-01-26T18:46:02.416451" elapsed="0.009535"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_prove}">
-<kw name="Fill Personal Information" owner="Personal_Information_Page">
-<arg>${data}</arg>
-<arg>${FALSE}</arg>
-<status status="NOT RUN" start="2026-01-26T18:46:02.426961" elapsed="0.000173"/>
-</kw>
-<status status="NOT RUN" start="2026-01-26T18:46:02.426237" elapsed="0.000981"/>
-</branch>
-<branch type="ELSE">
-<kw name="Fill Personal Information" owner="Personal_Information_Page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath://button[contains(text(), 'Next') or contains(@type, 'submit')]</arg>
-<arg>20s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-26T18:46:02.427804" elapsed="0.011866"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-26T18:46:04.441295" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-26T18:46:02.440163" elapsed="2.001885"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>annual-income</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-26T18:46:04.442592" elapsed="0.033278"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>annual-income</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-01-26T18:46:04.476548" elapsed="0.021958"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:04.500166" level="INFO">Typing text '85,000' into text field 'annual-income'.</msg>
-<arg>annual-income</arg>
-<arg>${data['annual_income']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:46:04.498971" elapsed="0.149833"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:04.650203" level="INFO">Typing text '85,000' into text field 'household-income'.</msg>
-<arg>household-income</arg>
-<arg>${data['household_income']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:46:04.649214" elapsed="0.129257"/>
-</kw>
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:04.781018" level="INFO">Selecting options from selection list 'EMPLOYMENT__STATUS__DROPDOWN' by label Employed.</msg>
-<arg>EMPLOYMENT__STATUS__DROPDOWN</arg>
-<arg>${data['employment_status']}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2026-01-26T18:46:04.779137" elapsed="0.089702"/>
-</kw>
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:04.870149" level="INFO">Selecting options from selection list 'CITIZENSHIP__STATUS__DROPDOWN' by label US Citizen.</msg>
-<arg>CITIZENSHIP__STATUS__DROPDOWN</arg>
-<arg>${data['citizenship_status']}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2026-01-26T18:46:04.869113" elapsed="0.091486"/>
-</kw>
-<if>
-<branch type="IF" condition="'${data['employment_status']}' == 'Employed'">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div[1]/div[3]/span/div/input</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-26T18:46:04.962748" elapsed="0.041959"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:05.006288" level="INFO">Typing text 'business' into text field 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div[1]/div[3]/span/div/input'.</msg>
-<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div[1]/div[3]/span/div/input</arg>
-<arg>${application['occupation']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:46:05.005068" elapsed="0.108180"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:05.114670" level="INFO">Typing text 'ganesh' into text field 'xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div[1]/div[4]/span/div/input'.</msg>
-<arg>xpath:/html/body/div[1]/div[2]/div[1]/div/div/div[2]/span/form/fieldset/div[1]/div[4]/span/div/input</arg>
-<arg>${application['employer_name']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:46:05.113641" elapsed="0.100662"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:46:04.960943" elapsed="0.253854"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:46:04.960899" elapsed="0.254008"/>
-</if>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:05.216481" level="INFO">Typing text '500' into text field 'monthly-mortgage'.</msg>
-<arg>monthly-mortgage</arg>
-<arg>${data['monthly_mortgage_amount']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:46:05.215136" elapsed="0.103746"/>
-</kw>
-<if>
-<branch type="IF" condition="${include_ssn}">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:05.320564" level="INFO">Typing text '666663537' into text field 'ssn'.</msg>
-<arg>ssn</arg>
-<arg>${data['ssn']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:46:05.319629" elapsed="0.096455"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:46:05.319183" elapsed="0.097316"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:46:05.319144" elapsed="0.097463"/>
-</if>
-<arg>${data}</arg>
-<arg>${TRUE}</arg>
-<status status="PASS" start="2026-01-26T18:46:02.427459" elapsed="2.989263"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:46:02.427256" elapsed="2.989660"/>
-</branch>
-<status status="PASS" start="2026-01-26T18:46:02.426175" elapsed="2.990814"/>
-</if>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-26T18:46:08.418708" level="INFO">Slept 3 seconds.</msg>
-<arg>3</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-26T18:46:05.417177" elapsed="3.002211"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:08.422226" level="INFO">Clicking button 'xpath://button[contains(text(), 'Next') or contains(@type, 'submit')]'.</msg>
-<arg>xpath://button[contains(text(), 'Next') or contains(@type, 'submit')]</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-26T18:46:08.420254" elapsed="0.104210"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:46:00.370348" elapsed="8.154452"/>
+<status status="NOT RUN" start="2026-01-27T16:12:05.623271" elapsed="0.000164"/>
 </kw>
 <kw name="Handle Initial Flow" owner="KBA_Page">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2026-01-26T18:46:08.530136" level="FAIL">'['rba6', 'S100617']' does not contain 'Co-App'</msg>
-<arg>${TEST TAGS}</arg>
+<status status="NOT RUN" start="2026-01-27T16:12:05.623885" elapsed="0.000495"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath:(//p)[1]</arg>
+<arg>120</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-01-27T16:12:05.625081" elapsed="0.000469"/>
+</kw>
+<kw name="URL Applicant" owner="URL_applicant">
+<status status="NOT RUN" start="2026-01-27T16:12:05.626174" elapsed="0.000359"/>
+</kw>
+<kw name="Application Authorization Page" owner="Application_Authorization">
+<status status="NOT RUN" start="2026-01-27T16:12:05.627023" elapsed="0.000276"/>
+</kw>
+<kw name="Credit freeze page" owner="Credit_Freeze_Page">
+<status status="NOT RUN" start="2026-01-27T16:12:05.627683" elapsed="0.000225"/>
+</kw>
+<kw name="prove data" owner="Prove_data_Page">
+<status status="NOT RUN" start="2026-01-27T16:12:05.628439" elapsed="0.000257"/>
+</kw>
+<kw name="basic information" owner="Basic_Info_Page">
 <arg>Co-App</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2026-01-26T18:46:08.529679" elapsed="0.005703">'['rba6', 'S100617']' does not contain 'Co-App'</status>
+<status status="NOT RUN" start="2026-01-27T16:12:05.629234" elapsed="0.000321"/>
 </kw>
-<msg time="2026-01-26T18:46:08.535689" level="INFO">${is_CoApp} = False</msg>
-<var>${is_CoApp}</var>
-<arg>Should Contain</arg>
-<arg>${TEST TAGS}</arg>
+<kw name="Personal information" owner="Personal_Information_Page">
 <arg>Co-App</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:08.529087" elapsed="0.006864"/>
-</kw>
-<while condition="True">
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:08.678525" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-01-26T18:46:08.678936" level="FAIL">Page should have contained element 'xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button' but did not.</msg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="FAIL" start="2026-01-26T18:46:08.538511" elapsed="0.226517">Page should have contained element 'xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button' but did not.</status>
-</kw>
-<msg time="2026-01-26T18:46:08.765456" level="INFO">${is_tech_issue} = False</msg>
-<var>${is_tech_issue}</var>
-<arg>Page Should Contain Element</arg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:08.537777" elapsed="0.227934"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:09.055050" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-01-26T18:46:09.055442" level="FAIL">Page should have contained text 'We need to verify your identity.' but did not.</msg>
-<arg>We need to verify your identity.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="FAIL" start="2026-01-26T18:46:08.766529" elapsed="0.295274">Page should have contained text 'We need to verify your identity.' but did not.</status>
-</kw>
-<msg time="2026-01-26T18:46:09.062027" level="INFO">${is_identity} = False</msg>
-<var>${is_identity}</var>
-<arg>Page Should Contain</arg>
-<arg>We need to verify your identity.</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:08.765980" elapsed="0.296165"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_tech_issue}</arg>
-<arg>Handle Technical Issue Page</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:09.062381" elapsed="0.000510"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_identity}</arg>
-<arg>Run Keywords</arg>
-<arg>Handle Identity Verification Page</arg>
-<arg>${is_CoApp}</arg>
-<arg>AND</arg>
-<arg>Exit For Loop</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:09.063104" elapsed="0.000270"/>
+<status status="NOT RUN" start="2026-01-27T16:12:05.630190" elapsed="0.000459"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-26T18:46:11.064387" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
+<arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-26T18:46:09.063539" elapsed="2.001257"/>
+<status status="NOT RUN" start="2026-01-27T16:12:05.631184" elapsed="0.000244"/>
 </kw>
-<status status="PASS" start="2026-01-26T18:46:08.536298" elapsed="2.528717"/>
-</iter>
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:11.197095" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-01-26T18:46:11.197781" level="FAIL">Page should have contained element 'xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button' but did not.</msg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="FAIL" start="2026-01-26T18:46:11.066181" elapsed="0.144285">Page should have contained element 'xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button' but did not.</status>
+<kw name="Handle Initial Flow" owner="KBA_Page">
+<status status="NOT RUN" start="2026-01-27T16:12:05.631883" elapsed="0.000397"/>
 </kw>
-<msg time="2026-01-26T18:46:11.211407" level="INFO">${is_tech_issue} = False</msg>
-<var>${is_tech_issue}</var>
-<arg>Page Should Contain Element</arg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:11.065718" elapsed="0.146848"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:11.491511" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-01-26T18:46:11.492371" level="FAIL">Page should have contained text 'We need to verify your identity.' but did not.</msg>
-<arg>We need to verify your identity.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="FAIL" start="2026-01-26T18:46:11.213553" elapsed="0.286953">Page should have contained text 'We need to verify your identity.' but did not.</status>
-</kw>
-<msg time="2026-01-26T18:46:11.500882" level="INFO">${is_identity} = False</msg>
-<var>${is_identity}</var>
-<arg>Page Should Contain</arg>
-<arg>We need to verify your identity.</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:11.212969" elapsed="0.288169"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_tech_issue}</arg>
-<arg>Handle Technical Issue Page</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:11.501498" elapsed="0.000454"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_identity}</arg>
-<arg>Run Keywords</arg>
-<arg>Handle Identity Verification Page</arg>
-<arg>${is_CoApp}</arg>
-<arg>AND</arg>
-<arg>Exit For Loop</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:11.502221" elapsed="0.000500"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-26T18:46:13.505169" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-26T18:46:11.503381" elapsed="2.002433"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:46:11.065106" elapsed="2.440932"/>
-</iter>
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:13.636688" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-01-26T18:46:13.637953" level="FAIL">Page should have contained element 'xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button' but did not.</msg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="FAIL" start="2026-01-26T18:46:13.507097" elapsed="0.136806">Page should have contained element 'xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button' but did not.</status>
-</kw>
-<msg time="2026-01-26T18:46:13.644153" level="INFO">${is_tech_issue} = False</msg>
-<var>${is_tech_issue}</var>
-<arg>Page Should Contain Element</arg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:13.506774" elapsed="0.137566"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:13.908515" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-01-26T18:46:13.908799" level="FAIL">Page should have contained text 'We need to verify your identity.' but did not.</msg>
-<arg>We need to verify your identity.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="FAIL" start="2026-01-26T18:46:13.645334" elapsed="0.267799">Page should have contained text 'We need to verify your identity.' but did not.</status>
-</kw>
-<msg time="2026-01-26T18:46:13.913379" level="INFO">${is_identity} = False</msg>
-<var>${is_identity}</var>
-<arg>Page Should Contain</arg>
-<arg>We need to verify your identity.</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:13.644665" elapsed="0.269054"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_tech_issue}</arg>
-<arg>Handle Technical Issue Page</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:13.914019" elapsed="0.000374"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_identity}</arg>
-<arg>Run Keywords</arg>
-<arg>Handle Identity Verification Page</arg>
-<arg>${is_CoApp}</arg>
-<arg>AND</arg>
-<arg>Exit For Loop</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:13.914691" elapsed="0.000363"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-26T18:46:15.916105" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-26T18:46:13.915289" elapsed="2.001645"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:46:13.506113" elapsed="2.411119"/>
-</iter>
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:16.058662" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+<tag>Co-App</tag>
+<tag>R412009</tag>
+<tag>rba4</tag>
+<status status="FAIL" start="2026-01-27T16:11:12.157327" elapsed="53.475807">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=143.0.7499.193)
 Stacktrace:
 Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:16.073371" level="FAIL">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=143.0.7499.193); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c95165d
-	0x7ff66c93d202
-	0x7ff66c9627af
-	0x7ff66c9d9a29
-	0x7ff66c9fa5c2
-	0x7ff66c99ac29
-	0x7ff66c99ba93
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66cb81ff4
-	0x7ff66cb821a5
-	0x7ff66cb67ed2
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="FAIL" start="2026-01-26T18:46:15.919459" elapsed="0.264292">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=143.0.7499.193); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c95165d
-	0x7ff66c93d202
-	0x7ff66c9627af
-	0x7ff66c9d9a29
-	0x7ff66c9fa5c2
-	0x7ff66c99ac29
-	0x7ff66c99ba93
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66cb81ff4
-	0x7ff66cb821a5
-	0x7ff66cb67ed2
+	0x7ff6c0f288d5
+	0x7ff6c0f28930
+	0x7ff6c0d0165d
+	0x7ff6c0cd91b1
+	0x7ff6c0d897e6
+	0x7ff6c0daa5c2
+	0x7ff6c0d4ac29
+	0x7ff6c0d4ba93
+	0x7ff6c1240620
+	0x7ff6c123af60
+	0x7ff6c12596c6
+	0x7ff6c0f45dd4
+	0x7ff6c0f4ed7c
+	0x7ff6c0f31ff4
+	0x7ff6c0f321a5
+	0x7ff6c0f17ed2
 	0x7ff85c56e8d7
 	0x7ff85e79c34c
 </status>
-</kw>
-<msg time="2026-01-26T18:46:16.184237" level="INFO">${is_tech_issue} = False</msg>
-<var>${is_tech_issue}</var>
-<arg>Page Should Contain Element</arg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:15.918526" elapsed="0.266407"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:16.190662" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:16.232302" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<arg>We need to verify your identity.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="FAIL" start="2026-01-26T18:46:16.186113" elapsed="0.099390">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</status>
-</kw>
-<msg time="2026-01-26T18:46:16.286192" level="INFO">${is_identity} = False</msg>
-<var>${is_identity}</var>
-<arg>Page Should Contain</arg>
-<arg>We need to verify your identity.</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:16.185312" elapsed="0.101333"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_tech_issue}</arg>
-<arg>Handle Technical Issue Page</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:16.287228" elapsed="0.000551"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_identity}</arg>
-<arg>Run Keywords</arg>
-<arg>Handle Identity Verification Page</arg>
-<arg>${is_CoApp}</arg>
-<arg>AND</arg>
-<arg>Exit For Loop</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:16.288064" elapsed="0.000407"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-26T18:46:18.289873" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-26T18:46:16.288715" elapsed="2.001555"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:46:15.917374" elapsed="2.373145"/>
-</iter>
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:18.296976" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:18.317724" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="FAIL" start="2026-01-26T18:46:18.292970" elapsed="0.040752">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</status>
-</kw>
-<msg time="2026-01-26T18:46:18.334190" level="INFO">${is_tech_issue} = False</msg>
-<var>${is_tech_issue}</var>
-<arg>Page Should Contain Element</arg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:18.292095" elapsed="0.042464"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:18.342897" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:18.394395" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<arg>We need to verify your identity.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="FAIL" start="2026-01-26T18:46:18.335786" elapsed="0.067916">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</status>
-</kw>
-<msg time="2026-01-26T18:46:18.404275" level="INFO">${is_identity} = False</msg>
-<var>${is_identity}</var>
-<arg>Page Should Contain</arg>
-<arg>We need to verify your identity.</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:18.335013" elapsed="0.069854"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_tech_issue}</arg>
-<arg>Handle Technical Issue Page</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:18.405211" elapsed="0.000491"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_identity}</arg>
-<arg>Run Keywords</arg>
-<arg>Handle Identity Verification Page</arg>
-<arg>${is_CoApp}</arg>
-<arg>AND</arg>
-<arg>Exit For Loop</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:18.406076" elapsed="0.000519"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-26T18:46:20.407830" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-26T18:46:18.406889" elapsed="2.001332"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:46:18.290607" elapsed="2.117761"/>
-</iter>
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:20.411404" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:20.422706" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="FAIL" start="2026-01-26T18:46:20.409297" elapsed="0.019493">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</status>
-</kw>
-<msg time="2026-01-26T18:46:20.429144" level="INFO">${is_tech_issue} = False</msg>
-<var>${is_tech_issue}</var>
-<arg>Page Should Contain Element</arg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:20.408817" elapsed="0.020657"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:20.433057" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:20.441452" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<arg>We need to verify your identity.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="FAIL" start="2026-01-26T18:46:20.430172" elapsed="0.016666">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</status>
-</kw>
-<msg time="2026-01-26T18:46:20.447093" level="INFO">${is_identity} = False</msg>
-<var>${is_identity}</var>
-<arg>Page Should Contain</arg>
-<arg>We need to verify your identity.</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:20.429732" elapsed="0.017522"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_tech_issue}</arg>
-<arg>Handle Technical Issue Page</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:20.447531" elapsed="0.000640"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_identity}</arg>
-<arg>Run Keywords</arg>
-<arg>Handle Identity Verification Page</arg>
-<arg>${is_CoApp}</arg>
-<arg>AND</arg>
-<arg>Exit For Loop</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:20.448499" elapsed="0.001265"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-26T18:46:22.451826" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-26T18:46:20.450433" elapsed="2.002007"/>
-</kw>
-<status status="PASS" start="2026-01-26T18:46:20.408414" elapsed="2.044413"/>
-</iter>
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:22.457346" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:22.468288" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="FAIL" start="2026-01-26T18:46:22.453942" elapsed="0.018741">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</status>
-</kw>
-<msg time="2026-01-26T18:46:22.472956" level="INFO">${is_tech_issue} = False</msg>
-<var>${is_tech_issue}</var>
-<arg>Page Should Contain Element</arg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div/button</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:22.453533" elapsed="0.019550"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2026-01-26T18:46:22.475807" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:22.483743" level="FAIL">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<arg>We need to verify your identity.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="FAIL" start="2026-01-26T18:46:22.473695" elapsed="0.015023">InvalidSessionIdException: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</status>
-</kw>
-<msg time="2026-01-26T18:46:22.488959" level="INFO">${is_identity} = False</msg>
-<var>${is_identity}</var>
-<arg>Page Should Contain</arg>
-<arg>We need to verify your identity.</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-26T18:46:22.473303" elapsed="0.015797"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_tech_issue}</arg>
-<arg>Handle Technical Issue Page</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:22.489319" elapsed="0.000301"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${is_identity}</arg>
-<arg>Run Keywords</arg>
-<arg>Handle Identity Verification Page</arg>
-<arg>${is_CoApp}</arg>
-<arg>AND</arg>
-<arg>Exit For Loop</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-26T18:46:22.489802" elapsed="0.000210"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="FAIL" start="2026-01-26T18:46:22.490153" elapsed="1.136385">Execution terminated by signal</status>
-</kw>
-<status status="FAIL" start="2026-01-26T18:46:22.452898" elapsed="1.173979">Execution terminated by signal</status>
-</iter>
-<status status="FAIL" start="2026-01-26T18:46:08.536295" elapsed="15.090675">Execution terminated by signal</status>
-</while>
-<status status="FAIL" start="2026-01-26T18:46:08.527665" elapsed="15.099453">Execution terminated by signal</status>
-</kw>
-<tag>rba6</tag>
-<tag>S100617</tag>
-<status status="FAIL" start="2026-01-26T18:45:17.323223" elapsed="66.304346">Execution terminated by signal</status>
 </test>
-<status status="FAIL" start="2026-01-26T18:45:11.353076" elapsed="72.311758"/>
+<status status="FAIL" start="2026-01-27T16:11:11.198033" elapsed="54.456774"/>
 </suite>
-<status status="FAIL" start="2026-01-26T18:45:11.339124" elapsed="72.333350"/>
+<status status="FAIL" start="2026-01-27T16:11:11.194536" elapsed="54.465461"/>
 </suite>
-<status status="FAIL" start="2026-01-26T18:45:11.331969" elapsed="72.344034"/>
+<status status="FAIL" start="2026-01-27T16:11:11.190677" elapsed="54.478671"/>
 </suite>
-<status status="FAIL" start="2026-01-26T18:45:11.324234" elapsed="72.354860"/>
+<status status="FAIL" start="2026-01-27T16:11:11.185616" elapsed="54.488560"/>
 </suite>
-<status status="FAIL" start="2026-01-26T18:45:11.318775" elapsed="72.369288"/>
+<status status="FAIL" start="2026-01-27T16:11:11.181694" elapsed="54.497735"/>
 </suite>
-<status status="FAIL" start="2026-01-26T18:45:11.279343" elapsed="72.411949"/>
+<status status="FAIL" start="2026-01-27T16:11:11.160738" elapsed="54.526491"/>
 </suite>
 <statistics>
 <total>
 <stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">rba6</stat>
-<stat pass="0" fail="1" skip="0">S100617</stat>
+<stat pass="0" fail="1" skip="0">Co-App</stat>
+<stat pass="0" fail="1" skip="0">R412009</stat>
+<stat pass="0" fail="1" skip="0">rba4</stat>
 </tag>
 <suite>
 <stat name="RBA automation-script" id="s1" pass="0" fail="1" skip="0">RBA automation-script</stat>
 <stat name="RF-SeleniumLibrary" id="s1-s1" pass="0" fail="1" skip="0">RBA automation-script.RF-SeleniumLibrary</stat>
 <stat name="Test" id="s1-s1-s1" pass="0" fail="1" skip="0">RBA automation-script.RF-SeleniumLibrary.Test</stat>
 <stat name="Lenders" id="s1-s1-s1-s1" pass="0" fail="1" skip="0">RBA automation-script.RF-SeleniumLibrary.Test.Lenders</stat>
-<stat name="Single Applicant" id="s1-s1-s1-s1-s1" pass="0" fail="1" skip="0">RBA automation-script.RF-SeleniumLibrary.Test.Lenders.Single Applicant</stat>
-<stat name="FFC" id="s1-s1-s1-s1-s1-s1" pass="0" fail="1" skip="0">RBA automation-script.RF-SeleniumLibrary.Test.Lenders.Single Applicant.FFC</stat>
+<stat name="Co-Applicant" id="s1-s1-s1-s1-s1" pass="0" fail="1" skip="0">RBA automation-script.RF-SeleniumLibrary.Test.Lenders.Co-Applicant</stat>
+<stat name="GICU" id="s1-s1-s1-s1-s1-s1" pass="0" fail="1" skip="0">RBA automation-script.RF-SeleniumLibrary.Test.Lenders.Co-Applicant.GICU</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2026-01-26T18:46:16.058662" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+<msg time="2026-01-27T16:12:05.448729" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=143.0.7499.193)
 Stacktrace:
 Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:16.190662" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:18.296976" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:18.342897" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:20.411404" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:20.433057" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:22.457346" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
-	0x7ff85c56e8d7
-	0x7ff85e79c34c
-</msg>
-<msg time="2026-01-26T18:46:22.475807" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-Symbols not available. Dumping unresolved backtrace:
-	0x7ff66cb788d5
-	0x7ff66cb78930
-	0x7ff66c951465
-	0x7ff66c999d83
-	0x7ff66c9d1ee2
-	0x7ff66c9cc500
-	0x7ff66c9cb6f0
-	0x7ff66c91b325
-	0x7ff66ce90620
-	0x7ff66ce8af60
-	0x7ff66cea96c6
-	0x7ff66cb95dd4
-	0x7ff66cb9ed7c
-	0x7ff66c919cb8
-	0x7ff66cfeefe8
+	0x7ff6c0f288d5
+	0x7ff6c0f28930
+	0x7ff6c0d0165d
+	0x7ff6c0cd91b1
+	0x7ff6c0d897e6
+	0x7ff6c0daa5c2
+	0x7ff6c0d4ac29
+	0x7ff6c0d4ba93
+	0x7ff6c1240620
+	0x7ff6c123af60
+	0x7ff6c12596c6
+	0x7ff6c0f45dd4
+	0x7ff6c0f4ed7c
+	0x7ff6c0f31ff4
+	0x7ff6c0f321a5
+	0x7ff6c0f17ed2
 	0x7ff85c56e8d7
 	0x7ff85e79c34c
 </msg>

@@ -127,7 +127,6 @@ export function setupTestEnvironment(
   // ---------- STORE GLOBALLY ----------
 
   // ================= FE OVERRIDE INJECTION =================
-// ================= FE OVERRIDE INJECTION =================
 const feRaw = process.env.FE_DATA;
 
 if (feRaw) {
@@ -135,63 +134,67 @@ if (feRaw) {
 
   let feData: any = null;
 
-try {
-  feData = JSON.parse(feRaw);
+  try {
+    feData = JSON.parse(feRaw);
 
-  // 🔁 If still string, parse again
-  if (typeof feData === "string") {
-    feData = JSON.parse(feData);
+    // If still stringified twice
+    if (typeof feData === "string") {
+      feData = JSON.parse(feData);
+    }
+
+    console.log("📦 FE DATA RECEIVED:", feData);
+  } catch (err) {
+    console.log("❌ FE_DATA JSON parse failed:", feRaw);
   }
 
-  console.log("📦 FE DATA RECEIVED:", feData);
-} catch (err) {
-  console.log("❌ FE_DATA JSON parse failed:", feRaw);
-}
-  console.log("📦 FE DATA RECEIVED:", feData);
+  if (feData) {
 
-  // 🔁 Map FE keys → Playwright JSON keys
-  const keyMap: Record<string, string> = {
-    email: "Email",
-    firstName: "FirstName",
-    lastName: "LastName",
-    dob: "DOB",
-    ssn: "SSN",
-    mobile: "MobileNumber",
-    street: "StreetAddress",
-    city: "City",
-    state: "State",
-    zip: "ZipCode"
-  };
+    // 🔁 Map FE keys → Playwright JSON keys
+    const keyMap: Record<string, string> = {
+      email: "Email",
+      firstName: "FirstName",
+      lastName: "LastName",
+      dob: "DOB",
+      ssn: "SSN",
+      mobile: "MobileNumber",
+      street: "StreetAddress",
+      city: "City",
+      state: "State",
+      zip: "ZipCode"
+    };
 
-  // ---- Applicant overrides ----
-  if (feData.applicantOverrides) {
-    Object.keys(feData.applicantOverrides).forEach(feKey => {
+    // 🔥 SUPPORT BOTH STRUCTURES
+    const applicantOverrides =
+      feData.applicantOverrides || feData;
+
+    Object.keys(applicantOverrides).forEach(feKey => {
       const mappedKey = keyMap[feKey];
-      const value = feData.applicantOverrides[feKey];
+      const value = applicantOverrides[feKey];
 
       if (mappedKey && value !== "" && value !== null && value !== undefined) {
         console.log(`✏️ Overriding ${mappedKey} with FE value:`, value);
         (applicantFinal as any)[mappedKey] = value;
       }
     });
+
+    console.log("📧 FINAL EMAIL AFTER FE OVERRIDE:", applicantFinal.Email);
+
+    // ---- Lender / Loan overrides ----
+    if (feData.lenderSelection) {
+      Object.keys(feData.lenderSelection).forEach(key => {
+        const value = feData.lenderSelection[key];
+
+        if (value !== "" && value !== null && value !== undefined) {
+          (scenario.lenderSelection as any)[key] = value;
+        }
+      });
+    }
+
   }
-
-  console.log("📧 FINAL EMAIL AFTER FE OVERRIDE:", applicantFinal.Email);
-
-  // ---- Lender / Loan overrides ----
-  if (feData.lenderSelection) {
-    Object.keys(feData.lenderSelection).forEach(key => {
-      const value = feData.lenderSelection[key];
-
-      if (value !== "" && value !== null && value !== undefined) {
-        (scenario.lenderSelection as any)[key] = value;
-      }
-    });
-  }
-
 } else {
   console.log("🟡 Running in local mode (no FE override)");
 }
+
 
 
   TestGlobalData.setApplicantData(applicantFinal);

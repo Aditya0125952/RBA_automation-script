@@ -3,12 +3,12 @@ Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
-${GICU_DATA}    ${CURDIR}/../../InputData/FF_TestData.json
-${instance}    rba3
+${GICU_DATA}    ${CURDIR}/../../InputData/GICU_TestData.json
+${instance}    rba4
 
 *** Test Cases ***
 GICU Happycase
-    [Tags]    S100617    ${instance}    Co-App
+    [Tags]    R412009    ${instance}    Co-App
     Load Lender Data    ${GICU_DATA}
     Merchant Portal Login  
     Merchant Selection Page    RbA-AD1
@@ -19,8 +19,8 @@ GICU Happycase
     Load and Prepare applicant details
     ${modified_app1}=    Copy Dictionary    ${application}
     ${modified_app2}=    Copy Dictionary    ${co_app_dup}
-     Set To Dictionary    ${modified_app1}    email=aditya.chelluru@finmkt.io
-     Set To Dictionary    ${modified_app2}    email=aditya.chelluru+12@finmkt.io
+     Set To Dictionary    ${modified_app1}    email=lalith.buddha@finmkt.io
+     Set To Dictionary    ${modified_app2}    email=lalith.buddha@finmkt.io
     Set Global Variable    ${co_app_dup}    ${modified_app2}
     Set Global Variable    ${application}    ${modified_app1}
     Application Details Page

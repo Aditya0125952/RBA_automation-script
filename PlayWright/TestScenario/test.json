@@ -26,13 +26,13 @@
   },
   "lenderSelection": {
     "merchant": "Rba-Ad",
-    "dcPlan": "R412007",
-    "requested_amount": "15000",
-    "deposite_amount": "1500"
+    "dcPlan": "R412009",
+    "requested_amount": "21000",
+    "deposite_amount": "0"
   },
   "lender":{
     "Comment": "Upgrade, GoodLeap, GICU, SLF, PP, FFC, PCU",
-    "name" : "PCU",
+    "name" : "PP",
     "state" : "Iowa",
     "Zip" : "50014"
   }
