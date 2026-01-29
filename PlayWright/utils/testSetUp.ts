@@ -173,13 +173,7 @@ if (feRaw) {
 
   console.log("📧 FINAL EMAIL AFTER FE OVERRIDE:", applicantFinal.Email);
 
-} else {
-  console.log("🟡 Running in local mode (no FE override)");
-}
-
-
-// ================= LENDER SELECTION FE OVERRIDE =================
-if (feData?.lenderSelectionOverrides) {
+  if (feData?.lenderSelectionOverrides) {
   console.log("🟢 Applying FE lender overrides");
 
   const lenderOverrides = feData.lenderSelectionOverrides;
@@ -201,6 +195,15 @@ if (feData?.lenderSelectionOverrides) {
     }
   });
 }
+
+
+} else {
+  console.log("🟡 Running in local mode (no FE override)");
+}
+
+
+// ================= LENDER SELECTION FE OVERRIDE =================
+
 
 
 
