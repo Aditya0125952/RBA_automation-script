@@ -5,7 +5,7 @@ Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${GL_DATA}     ${CURDIR}/../../InputData/GL_applicants_list.json
 ${START_DIGITS}    888
-${instance}    rba4
+${instance}    rba2
 #for succes case
 #${SSN}    500101 
 #for failure case

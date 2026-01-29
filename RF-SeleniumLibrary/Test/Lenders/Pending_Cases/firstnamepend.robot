@@ -4,14 +4,14 @@ Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
 ${FFC_DATA}    ${CURDIR}/../../InputData/FF_TestData.json
-${INSTANCE}    rba3
+${INSTANCE}    rba4
 *** Test Cases ***
 First Name Pending - Applicant
     [Tags]    Pend    ${INSTANCE} 
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login   
     Merchant Selection Page    Sunlight_HI
-    #Selecting The Merchant Location
+    Selecting The Merchant Location    Sunlight_HI_Master
     Sending Application to Consumer
     Dc plans page
     Type of Application page

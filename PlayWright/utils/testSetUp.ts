@@ -131,11 +131,10 @@ export function setupTestEnvironment(
 
   // ================= FE OVERRIDE INJECTION =================
 const feRaw = process.env.FE_DATA;
+let feData: any = null;
 
 if (feRaw) {
   console.log("🟢 FE override detected — decoding Base64");
-
-  let feData: any = null;
 
   try {
     const decoded = Buffer.from(feRaw, 'base64').toString('utf-8');
@@ -177,6 +176,32 @@ if (feRaw) {
 } else {
   console.log("🟡 Running in local mode (no FE override)");
 }
+
+
+// ================= LENDER SELECTION FE OVERRIDE =================
+if (feData?.lenderSelectionOverrides) {
+  console.log("🟢 Applying FE lender overrides");
+
+  const lenderOverrides = feData.lenderSelectionOverrides;
+
+  const lenderKeyMap: Record<string, string> = {
+    merchant: "merchant",
+    dcPlan: "dcPlan",
+    requested_amount: "requested_amount",
+    deposite_amount: "deposite_amount"
+  };
+
+  Object.keys(lenderOverrides).forEach(feKey => {
+    const mappedKey = lenderKeyMap[feKey];
+    const value = lenderOverrides[feKey];
+
+    if (mappedKey && value) {
+      console.log(`✏️ Overriding lender.${mappedKey} with FE value:`, value);
+      (scenario.lenderSelection as any)[mappedKey] = value;
+    }
+  });
+}
+
 
 
 
