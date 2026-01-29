@@ -175,6 +175,7 @@ if (feRaw) {
 
   if (feData?.lenderSelectionOverrides) {
   console.log("🟢 Applying FE lender overrides");
+  console.log("BEFORE OVERRIDE lenderSelection:", scenario.lenderSelection);
 
   const lenderOverrides = feData.lenderSelectionOverrides;
 
