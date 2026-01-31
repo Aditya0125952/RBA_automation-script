@@ -8,6 +8,7 @@ import {
   LenderControl,
   InstanceControl
 } from '../Interface/TestInterface.js';
+import { Server } from 'http';
 
 // ---------------- SAFE MERGE ----------------
 function safeMergeData<T extends object>(
@@ -130,8 +131,7 @@ export function setupTestEnvironment(
   }
 
   // ---------- STORE GLOBALLY ----------
-
-  // ================= FE OVERRIDE INJECTION =================
+// ================= FE OVERRIDE INJECTION =================
 const feRaw = process.env.FE_DATA;
 let feData: any = null;
 
@@ -146,9 +146,8 @@ if (feRaw) {
     console.log("❌ FE_DATA decode/parse failed:", feRaw);
   }
 
+  // ================= APPLICANT OVERRIDE =================
   if (feData?.applicantOverrides) {
-
-    // 🔁 Map FE keys → YOUR INTERFACE KEYS
     const keyMap: Record<string, string> = {
       email: "Email",
       firstName: "FirstName",
@@ -175,36 +174,55 @@ if (feRaw) {
 
   console.log("📧 FINAL EMAIL AFTER FE OVERRIDE:", applicantFinal.Email);
 
+  // ================= LENDER OVERRIDE =================
   if (feData?.lenderSelectionOverrides) {
-  console.log("🟢 Applying FE lender overrides");
-  console.log("BEFORE OVERRIDE lenderSelection:", scenario.lenderSelection);
+    console.log("🟢 Applying FE lender overrides");
 
-  const lenderOverrides = feData.lenderSelectionOverrides;
+    const lenderOverrides = feData.lenderSelectionOverrides;
 
-  const lenderKeyMap: Record<string, string> = {
-    merchant: "merchant",
-    dcPlan: "dcPlan",
-    requested_amount: "requested_amount",
-    deposite_amount: "deposite_amount"
-  };
+    const lenderKeyMap: Record<string, string> = {
+      merchant: "merchant",
+      dcPlan: "dcPlan",
+      requested_amount: "requested_amount",
+      deposite_amount: "deposite_amount"
+    };
 
-  Object.keys(lenderOverrides).forEach(feKey => {
-    const mappedKey = lenderKeyMap[feKey];
-    const value = lenderOverrides[feKey];
+    Object.keys(lenderOverrides).forEach(feKey => {
+      const mappedKey = lenderKeyMap[feKey];
+      const value = lenderOverrides[feKey];
 
-    if (mappedKey && value) {
-      console.log(`✏️ Overriding lender.${mappedKey} with FE value:`, value);
-      (scenario.lenderSelection as any)[mappedKey] = value;
-    }
-  });
-  
-    console.log("AFTER OVERRIDE lenderSelection:", scenario.lenderSelection);
-}
+      if (mappedKey && value) {
+        console.log(`✏️ Overriding lender.${mappedKey} with FE value:`, value);
+        (scenario.lenderSelection as any)[mappedKey] = value;
+      }
+    });
 
+  }
+
+
+  if (feData?.InstanceOverrides) {
+    console.log("🟢 Applying FE instance overrides");
+    const instanceOverrides = feData.InstanceOverrides;
+    const instanceKeyMap: Record<string, string> = {
+      rba: "rba",
+      Server: "server",
+    };
+    Object.keys(instanceOverrides).forEach(feKey => {
+      const mappedKey = instanceKeyMap[feKey];
+      const value = instanceOverrides[feKey];
+      if (mappedKey && value) {
+        console.log(`✏️ Overriding instance.${mappedKey} with FE value:`, value);
+        (scenario.instance as any)[mappedKey] = value;
+      }
+    });
+
+    console.log("📦 FINAL INSTANCE AFTER FE OVERRIDE:", scenario.instance);
+  }
 
 } else {
   console.log("🟡 Running in local mode (no FE override)");
 }
+
 
 
 // ================= LENDER SELECTION FE OVERRIDE =================
