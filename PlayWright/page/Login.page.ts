@@ -27,6 +27,7 @@ export class LoginPage extends BasePage {
             
             await this.usernameInput.fill(Username);
             await this.passwordInput.fill(Password);
+            console.log("Login Url", await this.page.url());
 
     }
            
