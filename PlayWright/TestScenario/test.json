@@ -32,7 +32,7 @@
   },
 
   "instance": {
-  "environment": "qa",
+  "server": "qa",
   "rba":"3"
 },
 
