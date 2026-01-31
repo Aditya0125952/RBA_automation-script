@@ -20,7 +20,7 @@ export class LoginPage extends BasePage {
     async loadingMerchantPortal(Username: string, Password: string) {
         const instance = TestGlobalData.testControl.instance;
         
-            await this.page.goto(`https://rba${instance.rba}-${instance.environment}.mktplacegateway.com/m/login`, {
+            await this.page.goto(`https://rba${instance.rba}-${instance.server}.mktplacegateway.com/m/login`, {
                 waitUntil: 'networkidle',
                 timeout: 50000 // 30 seconds timeout
             });

@@ -30,6 +30,6 @@ export interface TestCaseControl {
     instance: InstanceControl;
 }
 export interface InstanceControl{
-    environment: string;
+    server: string;
     rba: string;
 }
