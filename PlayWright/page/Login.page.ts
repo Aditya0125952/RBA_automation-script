@@ -1,4 +1,5 @@
 import { Locator, Page, expect } from "@playwright/test";
+import { TestGlobalData } from '../Interface/statcDataContainer';
 import { BasePage } from "./BasePage.page";
 
 export class LoginPage extends BasePage {
@@ -13,11 +14,13 @@ export class LoginPage extends BasePage {
         
     }
     
+    
 
     
     async loadingMerchantPortal(Username: string, Password: string) {
+        const instance = TestGlobalData.testControl.instance;
         
-            await this.page.goto('https://rba6-test.mktplacegateway.com/m/login', {
+            await this.page.goto(`https://rba${instance.rba}-${instance.environment}.mktplacegateway.com/m/login`, {
                 waitUntil: 'networkidle',
                 timeout: 50000 // 30 seconds timeout
             });

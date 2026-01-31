@@ -27,4 +27,9 @@ export interface TestCaseControl {
     flowControl: FlowControl;
     lenderSelection: LenderSelection;
     lender: LenderControl;
+    instance: InstanceControl;
+}
+export interface InstanceControl{
+    environment: string;
+    rba: string;
 }

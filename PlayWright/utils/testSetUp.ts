@@ -6,6 +6,7 @@ import {
   FlowControl,
   LenderSelection,
   LenderControl,
+  InstanceControl
 } from '../Interface/TestInterface.js';
 
 // ---------------- SAFE MERGE ----------------
@@ -83,6 +84,7 @@ export interface ITestSetupData {
   flowControl: FlowControl;
   lenderSelection: LenderSelection;
   lender: LenderControl;
+  instance: InstanceControl;
 }
 
 // ---------------- MAIN SETUP ----------------
@@ -227,5 +229,6 @@ if (feRaw) {
     flowControl: scenario.flowControl,
     lenderSelection: scenario.lenderSelection,
     lender: scenario.lender,
+    instance: scenario.instance
   };
 }

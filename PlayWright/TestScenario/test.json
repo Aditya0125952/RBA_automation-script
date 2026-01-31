@@ -30,6 +30,12 @@
     "requested_amount": "21000",
     "deposite_amount": "0"
   },
+
+  "instance": {
+  "environment": "qa",
+  "rba":"3"
+},
+
   "lender":{
     "Comment": "Upgrade, GoodLeap, GICU, SLF, PP, FFC, PCU",
     "name" : "PP",
