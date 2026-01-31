@@ -194,6 +194,9 @@ if (feRaw) {
       console.log(`✏️ Overriding lender.${mappedKey} with FE value:`, value);
       (scenario.lenderSelection as any)[mappedKey] = value;
     }
+
+    console.log("AFTER OVERRIDE lenderSelection:", scenario.lenderSelection);
+
   });
 }
 
