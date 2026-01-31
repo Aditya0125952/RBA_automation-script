@@ -205,7 +205,7 @@ if (feRaw) {
     const instanceOverrides = feData.InstanceOverrides;
     const instanceKeyMap: Record<string, string> = {
       rba: "rba",
-      Server: "server",
+      server: "server",
     };
     Object.keys(instanceOverrides).forEach(feKey => {
       const mappedKey = instanceKeyMap[feKey];
