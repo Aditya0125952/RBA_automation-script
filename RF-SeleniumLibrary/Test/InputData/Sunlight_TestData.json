@@ -1,6 +1,6 @@
 {
   "planID": "S100617",
-  "projectCost": "12000",
+  "projectCost": "21000",
   "depositAmount": "500",
   "Applicant": {
     "FirstName": "Ana",
@@ -19,7 +19,7 @@
     "monthly_mortgage_amount": "500",
     "annual_income": "80000",
     "household_income": "120000",
-    "dob": "08/01/1981",
+    "dob": "09/01/1981",
     "ssn": "666308630",
     "citizenship_status": "US Citizen"
   },
@@ -40,7 +40,7 @@
     "monthly_mortgage_amount": "500",
     "annual_income": "150000",
     "household_income": "150000",
-    "dob": "08/01/1986",
+    "dob": "09/01/1986",
     "ssn": "666971260",
     "citizenship_status": "US Citizen"
   },

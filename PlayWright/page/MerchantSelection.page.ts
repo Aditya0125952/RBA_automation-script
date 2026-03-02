@@ -4,24 +4,17 @@ import { BasePage } from "./BasePage.page";
 import { showDecisionModal } from "../utils/interactiveDecisionModal";
 
 export class MerchantSelectionAndLocationPage extends BasePage {
-  readonly loginButton: Locator;
-
-  constructor() {
-    super();
-    this.loginButton = this.page.getByRole("button", { name: "Submit" });
-  }
-
   async MerchantAndLocationSelection(
     merchantName: string,
     locationName?: string
   ) {
-    console.log("🔄 Waiting for merchant list API and submitting login");
+    console.log("🔄 Waiting for merchant list API results");
 
     /* ------------------ FETCH MERCHANTS ------------------ */
-    const [merchantResponse] = await Promise.all([
-      this.page.waitForResponse("**/api/pos/login/merchants"),
-      this.loginButton.click(),
-    ]);
+    const merchantResponse = await this.page.waitForResponse(
+      "**/api/pos/login/merchants", 
+      { timeout: 60000 }
+    );
 
     if (!merchantResponse.ok()) {
       throw new Error(
@@ -30,32 +23,46 @@ export class MerchantSelectionAndLocationPage extends BasePage {
     }
 
     const merchantData = await merchantResponse.json();
+    const merchantUsers = merchantData?.users || [];
 
-    if (!Array.isArray(merchantData?.users)) {
-      throw new Error("Invalid merchant API response");
+    if (merchantUsers.length === 0) {
+      throw new Error("Invalid merchant API response: No users found.");
     }
 
-    /* ------------------ MERCHANT FUZZY MATCH ------------------ */
-    const merchantFuse = new Fuse(merchantData.users, {
-      keys: ["merchantName"],
-      threshold: 0.3,
-    });
+    let selectedMerchant: string;
 
-    const merchantMatch = merchantFuse.search(merchantName);
-    if (merchantMatch.length === 0) {
-      throw new Error(`Merchant '${merchantName}' not found`);
+    /* ------------------ SMART MERCHANT SELECTION ------------------ */
+    if (merchantUsers.length === 1) {
+      // Scenario: One Merchant - Auto-pick and skip UI interaction
+      selectedMerchant = merchantUsers[0].merchantName;
+      console.log("✨ Only one merchant found. Skipping merchant selection UI:", selectedMerchant);
+    } else {
+      // Scenario: Multiple Merchants - Perform Fuzzy Match and Selection
+      const merchantFuse = new Fuse(merchantUsers, {
+        keys: ["merchantName"],
+        threshold: 0.3,
+      });
+
+      const merchantMatch = merchantFuse.search(merchantName);
+      if (merchantMatch.length === 0) {
+        throw new Error(`Merchant '${merchantName}' not found`);
+      }
+
+      selectedMerchant = merchantMatch[0].item.merchantName;
+      console.log("✅ Selected merchant from list:", selectedMerchant);
+
+      // Select the option to trigger the location API
+      await this.page.selectOption("select.login-selectdropdown", {
+        label: selectedMerchant,
+      });
     }
-
-    const selectedMerchant = merchantMatch[0].item.merchantName;
-    console.log("✅ Selected merchant:", selectedMerchant);
 
     /* ------------------ FETCH LOCATIONS ------------------ */
-    const [locationResponse] = await Promise.all([
-      this.page.waitForResponse("**/api/pos/merchant/login"),
-      this.page.selectOption("select.login-selectdropdown", {
-        label: selectedMerchant,
-      }),
-    ]);
+    // Note: If merchant was auto-picked, the API might already be in flight or finished.
+    const locationResponse = await this.page.waitForResponse(
+      "**/api/pos/merchant/login",
+      { timeout: 30000 }
+    );
 
     if (!locationResponse.ok()) {
       throw new Error(
@@ -77,7 +84,15 @@ export class MerchantSelectionAndLocationPage extends BasePage {
       return;
     }
 
-    /* ------------------ AUTO PICK FIRST LOCATION ------------------ */
+    /* ------------------ SMART LOCATION SELECTION ------------------ */
+    if (locations.length === 1) {
+      // Scenario: One Location - Auto-skip
+      console.log("✨ Only one location found. Skipping location selection UI:", locations[0]);
+      return;
+    }
+
+    // Scenario: Multiple Locations - logic follows
+    /* ------------------ AUTO PICK FIRST LOCATION (If none provided) ------------------ */
     if (!locationName) {
       console.log("ℹ️ No location provided. Selecting first available.");
       await this.page.selectOption("select.login-selectdropdown", {
@@ -100,43 +115,40 @@ export class MerchantSelectionAndLocationPage extends BasePage {
       return;
     }
 
-    /* ------------------ LOCATION NOT FOUND → MODAL ------------------ */
-    console.log("⚠️ Location not found. Asking user.");
+    /* ------------------ MODAL WITH ERROR-RESISTANT FALLBACK ------------------ */
+    console.log("⚠️ Location not matched. Triggering decision modal.");
 
-    const decision = await showDecisionModal(this.page, {
-      title: "Location Not Found",
-      message: `The location "${locationName}" is not available for merchant "${selectedMerchant}".`,
-      dropdownLabel: "Available locations",
-      options: locations,
-      timeoutMs: 10000,
-      continueText: "Continue",
-      cancelText: "No",
-    });
-
-    /* 🔑 Ensure modal overlay is fully removed */
-    await this.page.waitForSelector(
-      "#automation-decision-modal-root",
-      { state: "detached" }
-    );
-
-    /* ------------------ USER CANCEL / TIMEOUT ------------------ */
-    if (decision.action === "cancel") {
-      console.log("🚫 Location selection cancelled (user or timeout)");
-      await this.page.context().close();
-      return;
+    let decision;
+    try {
+      decision = await showDecisionModal(this.page, {
+        title: "Location Not Found",
+        message: `The location "${locationName || 'default'}" was not matched. Select one or wait for auto-pick.`,
+        dropdownLabel: "Available locations",
+        options: locations,
+        timeoutMs: 10000,
+        continueText: "Continue",
+        cancelText: "No",
+      });
+    } catch (error) {
+      // If showDecisionModal throws an error on timeout, we catch it here
+      console.log("⏰ Modal timed out (Error Caught). Falling back to first location:", locations[0]);
+      await this.page.selectOption("select.login-selectdropdown", { label: locations[0] });
+      return; // Exit the function after applying fallback
     }
 
-    /* ------------------ SAFETY CHECK ------------------ */
-    if (!decision.value) {
-      console.log("⚠️ No location selected from modal");
-      return;
-    }
-
-    /* ------------------ APPLY USER SELECTION ------------------ */
-    await this.page.selectOption("select.login-selectdropdown", {
-      label: decision.value,
-    });
-
-    console.log("✅ User selected new location:", decision.value);
+    if (decision.action === 'cancel' && decision.timedOut) {
+    console.log("⏰ Timer expired. Falling back to first location.");
+    await this.page.selectOption("select.login-selectdropdown", { label: locations[0] });
+      } 
+      // 2. Check for Explicit "No" Click
+      else if (decision.action === 'cancel') {
+          console.log("🚫 User clicked 'No'. Stopping execution.");
+          await this.page.context().close();
+          return;
+      }
+      // 3. Check for Continue
+      else if (decision.action === 'continue') {
+          await this.page.selectOption("select.login-selectdropdown", { label: decision.value });
+      }
   }
 }

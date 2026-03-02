@@ -45,7 +45,7 @@ Handle Identity Verification Page
     ${doc_alias}=    Set Variable    MyExcelFile
     ${is_already_open}=    Run Keyword And Return Status    List Sheet Names    ${doc_alias}
     IF    not ${is_already_open}
-        Open Excel Document    ${EXCEL_FILE}    ${SheetName}    ${doc_alias}
+        Open Excel Document    ${EXCEL_FILE}    ${doc_alias}
     END
     ${q1}=    Get Text    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/span/form/div/div[2]/div[1]/div/h3
     ${q2}=    Get Text    xpath:/html/body/div/div[2]/div[1]/div/div[2]/div/span/form/div/div[2]/div[2]/div/h3

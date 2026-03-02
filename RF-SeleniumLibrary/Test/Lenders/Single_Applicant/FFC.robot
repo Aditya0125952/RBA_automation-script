@@ -9,18 +9,18 @@ ${INSTANCE}    rba6
 
 *** Test Cases ***
 FFC HappyCase
-    [Tags]    ${INSTANCE}    S100617        
+    [Tags]    ${INSTANCE}    R412004 
     ${test_data}=    Get Test Data  
     Load Lender Data    ${FFC_DATA}
-    Merchant Portal Login         
-    Merchant Selection Page    Sunlight_HI   
-    Selecting The Merchant Location    Sunlight_HI_Master   
+    Merchant Portal Login    aditya.chelluru+12@finmkt.io    Qa@12345        
+    Merchant Selection Page    RbA-AD1   
+    Selecting The Merchant Location    RbA-AD1_Master       
     Sending Application to Consumer
     Dc plans page   
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    Set To Dictionary    ${modified_app}    email=satya.satti@finmkt.io
+    #Set To Dictionary    ${modified_app}    email=satya.satti@finmkt.io
     #Set To Dictionary    ${modified_app}    FirstName=anaa
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page

@@ -16,7 +16,6 @@ function safeMergeData<T extends object>(
   overrides?: Partial<T>
 ): T {
   if (!overrides) return base;
-
   const merged = { ...base } as T;
 
   for (const key in overrides) {
@@ -130,6 +129,38 @@ export function setupTestEnvironment(
     );
   }
 
+
+  // ================= GOODLEAP PHONE OVERRIDE =================
+  if (scenario.lender?.name === "GoodLeap") {
+      console.log("🛠️ GoodLeap detected: Overriding phone numbers with 888-prefix");
+      if (applicantFinal) {
+          const dynamicPhone = ssnForGoodLeap();
+          const dynamicSSN = SingleapplicantSSN();
+          (applicantFinal as any).ssn = dynamicSSN;
+          (applicantFinal as any).mobileNumber = dynamicPhone;
+          console.log(`📱 Applicant dynamic phone set to: ${dynamicPhone} and ssn : ${dynamicSSN}`);
+      }
+
+      if (coApplicantFinal) {
+        const dynamicPhoneForCoApp = ssnForGoodLeap();
+          (coApplicantFinal as any).mobileNumber = dynamicPhoneForCoApp;
+          console.log(`📱 Co-Applicant dynamic phone set to: ${dynamicPhoneForCoApp}`);
+      }
+  }
+
+
+  //Upgrade
+  if (scenario.lender?.name === "Upgrade") {
+    console.log("🛠️ Upgrade detected: Overriding email");
+    const currentEmail = (applicantFinal as any).email || (applicantFinal as any).Email;
+    if (currentEmail) {
+        const finalizedEmail = generateUniqueEmail(currentEmail);
+        (applicantFinal as any).email = finalizedEmail;
+        (applicantFinal as any).Email = finalizedEmail;
+    }
+  }
+
+
   // ---------- STORE GLOBALLY ----------
 // ================= FE OVERRIDE INJECTION =================
 const feRaw = process.env.FE_DATA;
@@ -200,9 +231,9 @@ if (feRaw) {
   }
 
 
-  if (feData?.InstanceOverrides) {
+  if (feData?.instanceOverrides) {
     console.log("🟢 Applying FE instance overrides");
-    const instanceOverrides = feData.InstanceOverrides;
+    const instanceOverrides = feData.instanceOverrides;
     const instanceKeyMap: Record<string, string> = {
       rba: "rba",
       server: "server",
@@ -224,13 +255,6 @@ if (feRaw) {
 }
 
 
-
-// ================= LENDER SELECTION FE OVERRIDE =================
-
-
-
-
-
   TestGlobalData.setApplicantData(applicantFinal);
   TestGlobalData.setCoApplicantData(coApplicantFinal);
   TestGlobalData.setTestControl(scenario);
@@ -248,4 +272,40 @@ if (feRaw) {
     lender: scenario.lender,
     instance: scenario.instance
   };
+
+
+function ssnForGoodLeap(): string {
+  let randomPart = '';
+  for (let i = 0; i < 7; i++) {
+    randomPart += Math.floor(Math.random() * 10).toString();
+  }
+  return `888${randomPart}`;
+}
+
+function SingleapplicantSSN(): string{
+  const first = Math.floor(Math.random() * 5) + 1; 
+  const last = Math.floor(Math.random() * 9) + 1; 
+  const ssn = `${first}0010211${last}`;
+  console.log(`Generated GL SSN: ${ssn}`);
+  return ssn;
+}
+
+function generateUniqueEmail(email: string | undefined): string {
+  if (!email || typeof email !== 'string') return email || '';
+  
+  // If the email already has a '+', we skip the modification
+  if (email.includes('+')) {
+    console.log(`📧 Email already unique: ${email}. Skipping modification.`);
+    return email;
+  }
+
+  const [name, domain] = email.split('@');
+  // Using a 4-digit random number for uniqueness
+  const uniqueId = Math.floor(1000 + Math.random() * 9000); 
+  const newEmail = `${name}+${uniqueId}@${domain}`;
+  
+  console.log(`📧 Email transformed: ${email} -> ${newEmail}`);
+  return newEmail;
+}
+
 }

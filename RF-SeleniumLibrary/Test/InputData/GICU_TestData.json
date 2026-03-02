@@ -9,8 +9,8 @@
     "email": "aditya.chelluru@finmkt.io",
     "street_add": "11765 West Avenue",
     "city": "San Antonio",
-    "state": "Texas",
-    "zipcode": "78216",
+    "state": "Iowa",
+    "zipcode": "50006",
     "Do_you_own_installation_add": "Yes, I own this property.",
     "Do_you_reside_installation_add": "Yes, I reside at this address.",
     "mobileNumber": "9877878787",
@@ -20,7 +20,7 @@
     "monthly_mortgage_amount": "500",
     "annual_income": "150000",
     "household_income": "175000",
-    "dob": "08/01/1981",
+    "dob": "09/01/1981",
     "ssn": "666308630",
     "citizenship_status": "US Citizen"
   },
@@ -41,7 +41,7 @@
     "monthly_mortgage_amount": "1000",
     "annual_income": "120000",
     "household_income": "120000",
-    "dob": "08/01/1986",
+    "dob": "09/01/1986",
     "ssn": "666971260",
     "citizenship_status": "US Citizen"
   },

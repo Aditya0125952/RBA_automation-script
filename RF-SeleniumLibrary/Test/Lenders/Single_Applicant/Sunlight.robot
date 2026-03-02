@@ -3,21 +3,21 @@ Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${Sunlight_DATA}    ${CURDIR}/../../InputData/Sunlight_TestData.json
-${instance}    rba2
+${instance}    rba6
 
 *** Test Cases ***
 Sunlight HappyCase
-    [Tags]    ${instance}    S101817
+    [Tags]    ${instance}    S100617
     Load Lender Data    ${Sunlight_DATA}
-    Merchant Portal Login    kalyan.gaddala+552@finmkt.io    Qa@12345
-    #Merchant Selection Page    RbA-AD1
-    #selecting the merchant location    RbA-AD1_Master
+    Merchant Portal Login    
+    Merchant Selection Page    Sunlight_HI
+    selecting the merchant location    Sunlight_HI_Primary   
     Sending Application to Consumer    
-    Dc plans page    76000    0
+    Dc plans page    100001    0
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    #Set To Dictionary    ${modified_app}    email=manohar.anaparthi@finmkt.io
+    #Set To Dictionary    ${modified_app}    email=udaysankar.y@finmkt.io
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up

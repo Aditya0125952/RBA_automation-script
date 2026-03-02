@@ -5,15 +5,15 @@ Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${FFC_DATA}     ${CURDIR}/../../InputData/FF_TestData.json
 ${START_DIGITS}    888
-${instance}    rba4
+${instance}    rba6
 
 *** Test Cases ***
 FFC HappyCase
     [Tags]    S100617    ${instance}   Co-App
     Load Lender Data    ${FFC_DATA}
-    Merchant Portal Login
-    Merchant Selection Page    Sunlight_HI 
-    Selecting The Merchant Location    Sunlight_HI_Master
+    Merchant Portal Login    aditya.chelluru+12@finmkt.io    Qa@12345        
+    Merchant Selection Page    RbA-AD1   
+    Selecting The Merchant Location    RbA-AD1_Master
     Sending Application to Consumer
     Dc plans page    28000    1000
     Type of Application page
@@ -21,8 +21,8 @@ FFC HappyCase
     ${modified_app1}=    Copy Dictionary    ${application}
     ${modified_app2}=    Copy Dictionary    ${co_app_dup}
      #Set To Dictionary    ${modified_app1}    mobileNumber=8889271987
-     Set To Dictionary    ${modified_app1}    email=saranya.pentapati@finmkt.io
-     Set To Dictionary    ${modified_app2}    email=saranya.pentapati@finmkt.io
+     #Set To Dictionary    ${modified_app1}    email=saranya.pentapati@finmkt.io
+     #Set To Dictionary    ${modified_app2}    email=saranya.pentapati@finmkt.io
     Set Global Variable    ${co_app_dup}    ${modified_app2}
     Set Global Variable    ${application}    ${modified_app1}
     Application Details Page

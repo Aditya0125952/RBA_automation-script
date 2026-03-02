@@ -83,7 +83,7 @@ First Name Pending - Co-Applicant
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${co_app_dup}
-    Set To Dictionary    ${modified_app}    dob=05/01/1985
+    Set To Dictionary    ${modified_app}    dob=05/01/1986
     Set Global Variable    ${co_app_dup}   ${modified_app}
     Application Details Page
     Verification Info Pop-up
@@ -101,7 +101,7 @@ First Name Pending - Co-Applicant
     Prove Data
     Basic Information    Co-App
     Personal Information    Co-App
-    First Name Re-Kyc Screen    Co-App
+    DOB Re-Kyc Screen    Co-App
     Sleep    5
     Handle Initial Flow
     Onfido Page

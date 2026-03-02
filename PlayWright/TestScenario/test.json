@@ -3,15 +3,15 @@
   "scenarioName": "Minimal Flow Control Test",
   "Applicant_Test_Data": "Ana_Villar",
   "applicantOverrides": {
-    "FirstName":"anaa",
+    "FirstName":"",
     "LastName" : "",
-    "email": "",
+    "email": "mahesh.dandu+12@finmkt.io",
     "state": "",
     "zipcode":"",
     "employment_status":"",
     "annual_income":"",
     "household_income":"",
-    "mobileNumber":"8888216073"
+    "mobileNumber":"7820193904"
   },
   "flowControl": {
     "hasCoApplicant": false, 
@@ -22,7 +22,7 @@
     "FirstName": "",
     "LastName": "",
     "email": "",
-    "mobileNumber":""
+   "mobileNumber": ""
   },
   "lenderSelection": {
     "merchant": "Rba-Ad",
@@ -32,15 +32,15 @@
   },
 
   "instance": {
-  "server": "qa",
-  "rba":"3"
+  "server": "test",
+  "rba":"6"
 },
 
   "lender":{
     "Comment": "Upgrade, GoodLeap, GICU, SLF, PP, FFC, PCU",
-    "name" : "PP",
+    "name" : "Upgrade",
     "state" : "Iowa",
-    "Zip" : "50014"
+    "Zip" : "50011"
   }
 }
 ]

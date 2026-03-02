@@ -48,7 +48,6 @@ export class PersonalInformationPage extends BasePage{
             await this.page.waitForTimeout(3000);
             await this.page.locator('#ssn').fill(coApplicant.ssn);
         }
-
            
     }
 }

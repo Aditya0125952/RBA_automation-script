@@ -5,14 +5,13 @@ Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${GICU_DATA}    ${CURDIR}/../../InputData/GICU_TestData.json
 ${instance}    rba4
-
 *** Test Cases ***
 GICU HappyCase
-    [Tags]    ${instance}    R412009
+    [Tags]    ${instance}    R412007
     Load Lender Data    ${GICU_DATA}
     Merchant Portal Login
-    Merchant Selection Page    RbA-AD1  
-    #selecting the merchant location    Sunlight_HI_Master
+    Merchant Selection Page    RbA-AD1 
+    selecting the merchant location    RbA-AD1_Master
     Sending Application to Consumer    
     Dc plans page
     Type of Application page

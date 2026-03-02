@@ -5,7 +5,7 @@ Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${GL_DATA}     ${CURDIR}/../../InputData/GL_applicants_list.json
 ${START_DIGITS}    888
-${instance}    rba2
+${instance}    rba6
 #for succes case
 #${SSN}    500101 
 #for failure case
@@ -13,8 +13,8 @@ ${SSN}    500205
 
 *** Test Cases ***
 GL HappyCase
-    [Tags]    ${instance}    S100617
-    Load Lender Data    ${GL_DATA}    1678
+    [Tags]    ${instance}   R412004
+    Load Lender Data    ${GL_DATA}    171
     Merchant Portal Login
     Merchant Selection Page
     Selecting The Merchant Location
@@ -25,7 +25,7 @@ GL HappyCase
     ${number}=    Generate Phone Number Starting With 888
     ${modified_app}=    Copy Dictionary    ${application}
     Set To Dictionary    ${modified_app}    mobileNumber=${number}
-    Set To Dictionary    ${modified_app}    email=varshitha.suryapalli@finmkt.io
+    #Set To Dictionary    ${modified_app}    email=varshitha.suryapalli@finmkt.io
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up
@@ -69,10 +69,10 @@ Good Leap Counter Offer Case
 
 GL HappyCase by changining ssn
     [Tags]    ${instance}    S100617
-    Load Lender Data    ${GL_DATA}    1184
-    Merchant Portal Login
-    Merchant Selection Page     
-    Selecting The Merchant Location       
+    Load Lender Data    ${GL_DATA}    165
+    Merchant Portal Login    aditya.chelluru+123@finmkt.io    Qa@12345
+    #Merchant Selection Page     
+    #Selecting The Merchant Location       
     Sending Application to Consumer
     Dc plans page
     Type of Application page
@@ -82,7 +82,7 @@ GL HappyCase by changining ssn
     ${modified_app}=    Copy Dictionary    ${application}
     Set To Dictionary    ${modified_app}    mobileNumber=${number}
     Set To Dictionary    ${modified_app}    ssn=${ssn}
-    Set To Dictionary    ${modified_app}    email=saranya.pentapati@finmkt.io
+   # Set To Dictionary    ${modified_app}    email=saranya.pentapati@finmkt.io
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up
@@ -111,4 +111,5 @@ GL SSN First and Last
     ${first}=    Evaluate    ''.join(__import__('random').choices('12345', k=1))
     ${last}=    Evaluate    ''.join(__import__('random').choices('123456789', k=1))
     ${phone_number}=    Catenate    SEPARATOR=    ${first}    0010211    ${last}
+    Log To Console      ${phone_number}
     [Return]    ${phone_number}

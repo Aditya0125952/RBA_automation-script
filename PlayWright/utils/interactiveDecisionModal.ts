@@ -12,7 +12,7 @@ export interface DecisionModalConfig {
 
 export type ModalAction =
   | { action: 'continue'; value?: string }
-  | { action: 'cancel'; url: string };
+  | { action: 'cancel'; url: string; timedOut?: boolean };
 
 // --- Main Function ---
 export async function showDecisionModal(
@@ -378,7 +378,7 @@ if (timerEl) {
 
     if (remaining <= 0) {
       clearInterval(timerInterval);
-      cleanup({ action: 'cancel', url: window.location.href });
+      cleanup({ action: 'cancel', url: window.location.href, timedOut: true });
     }
   }, 1000);
 }
