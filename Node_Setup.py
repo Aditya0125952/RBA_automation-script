@@ -4,34 +4,24 @@ import urllib.request
 import sys
 import winreg
 import ctypes
-import subprocess
 
-# ==============================
-# CONFIGURATION
-# ==============================
-
-NODE_VERSION = "v20.11.1"  # Use stable LTS version
+# --- Configuration ---
+NODE_VERSION = "v24.11.0"
 NODE_FILENAME = f"node-{NODE_VERSION}-win-x64"
 ZIP_FILE_NAME = f"{NODE_FILENAME}.zip"
 NODE_URL = f"https://nodejs.org/dist/{NODE_VERSION}/{ZIP_FILE_NAME}"
 
 TOOLS_DIR_NAME = "tools"
 
-# ==============================
-# PATHS
-# ==============================
-
+# --- Dynamic Paths ---
 CWD = os.getcwd()
 ZIP_FILE_PATH = os.path.join(CWD, ZIP_FILE_NAME)
 TOOLS_DIR = os.path.join(CWD, TOOLS_DIR_NAME)
 NODE_DIR_PATH = os.path.abspath(os.path.join(TOOLS_DIR, NODE_FILENAME))
 
 
-# ==============================
-# REGISTRY FUNCTIONS
-# ==============================
-
 def get_user_path_from_registry():
+    """Read user PATH from registry."""
     try:
         key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment", 0, winreg.KEY_READ)
         path_value, _ = winreg.QueryValueEx(key, "Path")
@@ -45,131 +35,98 @@ def get_user_path_from_registry():
 
 
 def set_user_path_in_registry(new_path_string):
+    """Write user PATH to registry (no admin required)."""
     try:
         key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment", 0, winreg.KEY_ALL_ACCESS)
         winreg.SetValueEx(key, "Path", 0, winreg.REG_EXPAND_SZ, new_path_string)
         winreg.CloseKey(key)
 
-        # Notify Windows about environment change
+        # Broadcast environment change
         ctypes.windll.user32.SendMessageTimeoutW(
             0xFFFF, 0x001A, 0, "Environment", 0x0002, 5000
         )
         return True
     except Exception as e:
-        print(f"ERROR: Failed to update PATH: {e}")
+        print(f"--- ERROR ---\nFailed to write to registry: {e}")
+        print("Try running your terminal as Administrator and rerun the script.")
         return False
 
 
-# ==============================
-# DOWNLOAD & EXTRACT
-# ==============================
-
 def download_node_zip():
+    """Download Node.js portable ZIP if not already present."""
     if os.path.isfile(ZIP_FILE_PATH):
         print(f"✅ Found existing {ZIP_FILE_NAME}")
         return
 
-    print(f"⬇ Downloading Node.js from {NODE_URL}")
+    print(f"⬇️  Downloading Node.js from {NODE_URL} ...")
     try:
         urllib.request.urlretrieve(NODE_URL, ZIP_FILE_PATH)
-        print("✅ Download complete")
+        print(f"✅ Download complete: {ZIP_FILE_NAME}")
     except Exception as e:
-        print(f"❌ Download failed: {e}")
+        print(f"❌ ERROR: Failed to download Node.js. {e}")
         sys.exit(1)
 
 
 def unzip_node():
+    """Unzip the Node.js portable archive."""
     if os.path.isdir(NODE_DIR_PATH):
-        print("✅ Node already extracted")
+        print(f"✅ Node.js already extracted at {NODE_DIR_PATH}")
         return
 
-    os.makedirs(TOOLS_DIR, exist_ok=True)
+    if not os.path.isfile(ZIP_FILE_PATH):
+        print(f"❌ Missing ZIP: {ZIP_FILE_PATH}")
+        sys.exit(1)
 
-    print("📦 Extracting Node...")
+    os.makedirs(TOOLS_DIR, exist_ok=True)
+    print(f"📦 Extracting Node.js to {TOOLS_DIR} ...")
     try:
         with zipfile.ZipFile(ZIP_FILE_PATH, "r") as zip_ref:
             zip_ref.extractall(TOOLS_DIR)
-        print("✅ Extraction complete")
+        print("✅ Extraction complete.")
     except Exception as e:
-        print(f"❌ Extraction failed: {e}")
+        print(f"❌ ERROR: Failed to unzip Node.js. {e}")
         sys.exit(1)
 
-
-# ==============================
-# PATH UPDATE
-# ==============================
 
 def add_node_to_path():
-    print("🔍 Checking PATH...")
+    """Add Node.js path to user PATH."""
+    print(f"🔍 Checking if {NODE_DIR_PATH} is in PATH...")
 
-    current_path = get_user_path_from_registry()
-    if current_path is None:
+    current_path_string = get_user_path_from_registry()
+    if current_path_string is None:
         sys.exit(1)
 
-    paths = current_path.split(os.pathsep)
+    current_paths = current_path_string.split(os.pathsep)
     normalized_new_path = os.path.normcase(NODE_DIR_PATH)
 
-    if any(os.path.normcase(p.strip()) == normalized_new_path for p in paths):
-        print("✅ Node already in PATH")
+    if any(os.path.normcase(p.strip()) == normalized_new_path for p in current_paths):
+        print("✅ Node.js path already in PATH.")
         return
 
-    new_path = current_path + os.pathsep + NODE_DIR_PATH
+    print("➕ Adding Node.js to PATH...")
+    new_path_string = f"{current_path_string};{NODE_DIR_PATH}"
 
-    if not set_user_path_in_registry(new_path):
+    if not set_user_path_in_registry(new_path_string):
         sys.exit(1)
 
-    print("✅ PATH updated successfully")
+    print("✅ PATH updated successfully!")
 
-
-# ==============================
-# COMMAND RUNNER
-# ==============================
-
-def run_command(command, cwd=None):
-    try:
-        print(f"\n▶ Running: {command}")
-        subprocess.run(command, shell=True, check=True, cwd=cwd)
-        print("✅ Success")
-    except subprocess.CalledProcessError as e:
-        print(f"❌ Command failed: {e}")
-        sys.exit(1)
-
-
-# ==============================
-# MAIN SETUP
-# ==============================
 
 def run_setup():
-    print("======================================")
-    print(" Node.js + Playwright Auto Setup ")
-    print("======================================")
+    """Main function."""
+    print("--- Starting Node.js setup ---")
 
     download_node_zip()
     unzip_node()
     add_node_to_path()
 
-    # IMPORTANT: Update PATH for current process
-    os.environ["PATH"] += os.pathsep + NODE_DIR_PATH
-
-    print("\n🔎 Verifying Node installation...")
-    run_command("node -v")
-    run_command("npm -v")
-
-    # Initialize npm project if not exists
-    if not os.path.exists(os.path.join(CWD, "package.json")):
-        print("\n📁 Initializing npm project...")
-        run_command("npm init -y", cwd=CWD)
-
-    # Install Playwright
-    print("\n📦 Installing Playwright...")
-    run_command("npm install playwright", cwd=CWD)
-
-    # Install browsers
-    print("\n🌐 Installing Playwright browsers...")
-    run_command("npx playwright install", cwd=CWD)
-
-    print("\n🚀 Playwright setup completed successfully!")
-    print("You can now run your Playwright scripts.")
+    print("\n🎉 Setup complete!")
+    print("Please CLOSE and REOPEN your terminal or VS Code.")
+    print("Then verify with:")
+    print("  node -v")
+    print("  npm -v")
+    print("Please run this command : rfbrowser init")
+    print("Please run this command : npm install dotenv")
 
 
 if __name__ == "__main__":
