@@ -122,7 +122,7 @@ def run_setup():
 
     print("\n🎉 Setup complete!")
     print("Please CLOSE and REOPEN your terminal or VS Code.")
-    print("Then verify with:")
+    print("Then Verify with:")
     print("  node -v")
     print("  npm -v")
     print("Please run this command : rfbrowser init")

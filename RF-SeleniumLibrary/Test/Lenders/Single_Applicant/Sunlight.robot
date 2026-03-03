@@ -13,11 +13,11 @@ Sunlight HappyCase
     Merchant Selection Page    Sunlight_HI
     selecting the merchant location    Sunlight_HI_Primary   
     Sending Application to Consumer    
-    Dc plans page    100001    0
+    Dc plans page
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    #Set To Dictionary    ${modified_app}    email=udaysankar.y@finmkt.io
+    Set To Dictionary    ${modified_app}    email=lalith.buddha@finmkt.io
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up

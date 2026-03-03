@@ -12,7 +12,7 @@ GICU Happycase
     Load Lender Data    ${GICU_DATA}
     Merchant Portal Login  
     Merchant Selection Page    RbA-AD1  
-    selecting the merchant location    RbA-AD1_Master  
+    selecting the merchant location    RbA-AD1_Primary  
     Sending Application to Consumer
     Dc plans page
     Type of Application page

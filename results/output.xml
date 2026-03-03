@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2026-02-27T18:17:02.665494" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2026-03-03T18:25:59.139091" rpa="false" schemaversion="5">
 <suite id="s1" name="RBA automation-script" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script">
 <suite id="s1-s1" name="RF-SeleniumLibrary" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary">
 <suite id="s1-s1-s1" name="Test" source="C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test">
@@ -9,8 +9,8 @@
 <test id="s1-s1-s1-s1-s1-s1-t1" name="Sunlight HappyCase" line="9">
 <kw name="Load Lender Data" owner="LoadingInputFile">
 <kw name="Get File" owner="OperatingSystem">
-<msg time="2026-02-27T18:17:09.662399" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test\InputData\Sunlight_TestData.json"&gt;C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test\InputData\Sunlight_TestData.json&lt;/a&gt;'.</msg>
-<msg time="2026-02-27T18:17:09.667115" level="INFO">${json_text} = {
+<msg time="2026-03-03T18:26:09.135010" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test\InputData\Sunlight_TestData.json"&gt;C:\Users\AdityaChelluru\Desktop\automation\RBA_automation-script\RF-SeleniumLibrary\Test\InputData\Sunlight_TestData.json&lt;/a&gt;'.</msg>
+<msg time="2026-03-03T18:26:09.186781" level="INFO">${json_text} = {
   "planID": "S100617",
   "projectCost": "21000",
   "depositAmount": "500",
@@ -22,38 +22,38 @@
 <var>${json_text}</var>
 <arg>${file_path}</arg>
 <doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2026-02-27T18:17:09.661616" elapsed="0.007621"/>
+<status status="PASS" start="2026-03-03T18:26:09.133531" elapsed="0.053756"/>
 </kw>
 <kw name="Convert String To Json" owner="JSONLibrary">
-<msg time="2026-02-27T18:17:09.670625" level="INFO">${data} = {'planID': 'S100617', 'projectCost': '21000', 'depositAmount': '500', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', '...</msg>
+<msg time="2026-03-03T18:26:09.190469" level="INFO">${data} = {'planID': 'S100617', 'projectCost': '21000', 'depositAmount': '500', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', '...</msg>
 <var>${data}</var>
 <arg>${json_text}</arg>
 <doc>Convert String to JSON object</doc>
-<status status="PASS" start="2026-02-27T18:17:09.669670" elapsed="0.001695"/>
+<status status="PASS" start="2026-03-03T18:26:09.188182" elapsed="0.003529"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-02-27T18:17:09.672757" level="INFO">${index1} = None</msg>
+<msg time="2026-03-03T18:26:09.195496" level="INFO">${index1} = None</msg>
 <arg>${index1}</arg>
 <arg>${index1}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-02-27T18:17:09.672036" elapsed="0.001022"/>
+<status status="PASS" start="2026-03-03T18:26:09.193160" elapsed="0.003379"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-02-27T18:17:09.674015" level="INFO">${index2} = None</msg>
+<msg time="2026-03-03T18:26:09.199754" level="INFO">${index2} = None</msg>
 <arg>${index2}</arg>
 <arg>${index2}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-02-27T18:17:09.673429" elapsed="0.000815"/>
+<status status="PASS" start="2026-03-03T18:26:09.198093" elapsed="0.002456"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-02-27T18:17:09.675350" level="INFO">${LENDER_DATA} = {'planID': 'S100617', 'projectCost': '21000', 'depositAmount': '500', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', '...</msg>
+<msg time="2026-03-03T18:26:09.203242" level="INFO">${LENDER_DATA} = {'planID': 'S100617', 'projectCost': '21000', 'depositAmount': '500', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', '...</msg>
 <arg>${LENDER_DATA}</arg>
 <arg>${data}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-02-27T18:17:09.674598" elapsed="0.002715"/>
+<status status="PASS" start="2026-03-03T18:26:09.201415" elapsed="0.003212"/>
 </kw>
 <arg>${Sunlight_DATA}</arg>
-<status status="PASS" start="2026-02-27T18:17:09.657964" elapsed="0.020118"/>
+<status status="PASS" start="2026-03-03T18:26:09.128999" elapsed="0.076452"/>
 </kw>
 <kw name="Merchant Portal Login" owner="Merchant_Login">
 <for flavor="IN">
@@ -63,128 +63,130 @@
 <arg>${tag}</arg>
 <arg>rba</arg>
 <doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
-<status status="PASS" start="2026-02-27T18:17:09.685168" elapsed="0.000408"/>
+<status status="PASS" start="2026-03-03T18:26:09.214921" elapsed="0.000871"/>
 </kw>
-<msg time="2026-02-27T18:17:09.685785" level="INFO">${is_present} = True</msg>
+<msg time="2026-03-03T18:26:09.216284" level="INFO">${is_present} = True</msg>
 <var>${is_present}</var>
 <arg>Should Start With</arg>
 <arg>${tag}</arg>
 <arg>rba</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-02-27T18:17:09.683566" elapsed="0.002916"/>
+<status status="PASS" start="2026-03-03T18:26:09.213709" elapsed="0.003363"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_present}">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>this is the tag : ${tag}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-02-27T18:17:09.687323" elapsed="0.000994"/>
+<status status="PASS" start="2026-03-03T18:26:09.218426" elapsed="0.001424"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-02-27T18:17:09.689289" level="INFO">${base_url} = rba6</msg>
+<msg time="2026-03-03T18:26:09.222750" level="INFO">${base_url} = rba6</msg>
 <var>${base_url}</var>
 <arg>${tag}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-02-27T18:17:09.688640" elapsed="0.000908"/>
+<status status="PASS" start="2026-03-03T18:26:09.220991" elapsed="0.003159"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>this is the base url ${base_url}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-02-27T18:17:09.689862" elapsed="0.001348"/>
+<status status="PASS" start="2026-03-03T18:26:09.225532" elapsed="0.002480"/>
 </kw>
 <kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2026-02-27T18:17:09.692160" level="INFO">Exiting for loop altogether.</msg>
+<msg time="2026-03-03T18:26:09.229576" level="INFO">Exiting for loop altogether.</msg>
 <doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2026-02-27T18:17:09.691517" elapsed="0.001676"/>
+<status status="PASS" start="2026-03-03T18:26:09.228864" elapsed="0.001189"/>
 </kw>
-<status status="PASS" start="2026-02-27T18:17:09.686805" elapsed="0.007027"/>
+<status status="PASS" start="2026-03-03T18:26:09.217590" elapsed="0.012789"/>
 </branch>
-<status status="PASS" start="2026-02-27T18:17:09.686759" elapsed="0.007195"/>
+<status status="PASS" start="2026-03-03T18:26:09.217516" elapsed="0.013041"/>
 </if>
 <var name="${tag}">rba6</var>
-<status status="PASS" start="2026-02-27T18:17:09.683045" elapsed="0.010969"/>
+<status status="PASS" start="2026-03-03T18:26:09.212583" elapsed="0.018061"/>
 </iter>
 <var>${tag}</var>
 <value>@{TEST_TAGS}</value>
-<status status="PASS" start="2026-02-27T18:17:09.681461" elapsed="0.012835"/>
+<status status="PASS" start="2026-03-03T18:26:09.209965" elapsed="0.020851"/>
 </for>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-02-27T18:17:09.696128" level="INFO">Opening browser 'chrome' to base url 'https://rba6-qa.mktplacegateway.com/m/login'.</msg>
+<msg time="2026-03-03T18:26:09.233392" level="INFO">Opening browser 'chrome' to base url 'https://rba6-qa.mktplacegateway.com/m/login'.</msg>
 <arg>https://${base_url}-qa.mktplacegateway.com/m/login</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-02-27T18:17:09.695163" elapsed="6.594766"/>
+<status status="PASS" start="2026-03-03T18:26:09.231572" elapsed="10.568125"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>user-name</arg>
 <arg>30</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-02-27T18:17:16.290513" elapsed="0.018389"/>
+<status status="PASS" start="2026-03-03T18:26:19.802095" elapsed="0.078077"/>
 </kw>
 <if>
 <branch type="IF" condition="'${user}'=='None'">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-27T18:17:16.310618" level="INFO">Typing text 'aditya.chelluru+12@finmkt.io' into text field 'user-name'.</msg>
+<msg time="2026-03-03T18:26:19.883988" level="INFO">Typing text 'aditya.chelluru+12@finmkt.io' into text field 'user-name'.</msg>
 <arg>user-name</arg>
 <arg>aditya.chelluru+12@finmkt.io</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-27T18:17:16.309982" elapsed="0.146056"/>
+<status status="PASS" start="2026-03-03T18:26:19.882447" elapsed="0.625368"/>
 </kw>
-<status status="PASS" start="2026-02-27T18:17:16.309426" elapsed="0.147058"/>
+<status status="PASS" start="2026-03-03T18:26:19.880861" elapsed="0.628011"/>
 </branch>
 <branch type="ELSE">
 <kw name="Input Text" owner="SeleniumLibrary">
 <arg>user-name</arg>
 <arg>${user}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:16.457374" elapsed="0.000510"/>
+<status status="NOT RUN" start="2026-03-03T18:26:20.511639" elapsed="0.001618"/>
 </kw>
-<status status="NOT RUN" start="2026-02-27T18:17:16.456644" elapsed="0.001539"/>
+<status status="NOT RUN" start="2026-03-03T18:26:20.509327" elapsed="0.004939"/>
 </branch>
-<status status="PASS" start="2026-02-27T18:17:16.309364" elapsed="0.148958"/>
+<status status="PASS" start="2026-03-03T18:26:19.880760" elapsed="0.634111"/>
 </if>
 <if>
 <branch type="IF" condition="'${password}' == 'None'">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-27T18:17:16.460001" level="INFO">Typing text 'Qa@12345' into text field 'user-password'.</msg>
+<msg time="2026-03-03T18:26:20.521072" level="INFO">Typing text 'Qa@12345' into text field 'user-password'.</msg>
 <arg>user-password</arg>
 <arg>Qa@12345</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-27T18:17:16.459263" elapsed="0.096763"/>
+<status status="PASS" start="2026-03-03T18:26:20.518858" elapsed="0.373344"/>
 </kw>
-<status status="PASS" start="2026-02-27T18:17:16.458501" elapsed="0.098061"/>
+<status status="PASS" start="2026-03-03T18:26:20.515520" elapsed="0.378372"/>
 </branch>
 <branch type="ELSE">
 <kw name="Input Text" owner="SeleniumLibrary">
 <arg>user-password</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:16.557855" elapsed="0.000385"/>
+<status status="NOT RUN" start="2026-03-03T18:26:20.897189" elapsed="0.001225"/>
 </kw>
-<status status="NOT RUN" start="2026-02-27T18:17:16.556777" elapsed="0.001736"/>
+<status status="NOT RUN" start="2026-03-03T18:26:20.894289" elapsed="0.004923"/>
 </branch>
-<status status="PASS" start="2026-02-27T18:17:16.458449" elapsed="0.100187"/>
+<status status="PASS" start="2026-03-03T18:26:20.515324" elapsed="0.384207"/>
 </if>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-02-27T18:17:16.559627" level="INFO">Clicking button 'xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/span/form/div/div/div[4]/div/button'.</msg>
+<msg time="2026-03-03T18:26:20.902185" level="INFO">Clicking button 'xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/span/form/div/div/div[4]/div/button'.</msg>
 <arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/span/form/div/div/div[4]/div/button</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-27T18:17:16.558900" elapsed="0.166533"/>
+<status status="PASS" start="2026-03-03T18:26:20.900388" elapsed="0.410476"/>
 </kw>
-<status status="PASS" start="2026-02-27T18:17:09.680279" elapsed="7.045439"/>
+<status status="PASS" start="2026-03-03T18:26:09.208226" elapsed="12.103641"/>
 </kw>
 <kw name="Merchant Selection Page" owner="merchant_selection">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-03-03T18:27:21.667060" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1388.png"&gt;&lt;img src="selenium-screenshot-1388.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-03-03T18:27:21.668465" level="FAIL">Element 'merchant-selection-modal___BV_modal_title_' not visible after 1 minute.</msg>
 <arg>merchant-selection-modal___BV_modal_title_</arg>
 <arg>60</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-02-27T18:17:16.727103" elapsed="0.607310"/>
+<status status="FAIL" start="2026-03-03T18:26:21.316777" elapsed="60.519922">Element 'merchant-selection-modal___BV_modal_title_' not visible after 1 minute.</status>
 </kw>
 <kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
 <arg>merchant-selection-modal___BV_modal_title_</arg>
 <arg>60</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-02-27T18:17:17.335436" elapsed="0.035202"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.837585" elapsed="0.000594"/>
 </kw>
 <if>
 <branch type="IF" condition="'${merchant}' == 'None'">
@@ -192,398 +194,100 @@
 <arg>xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select</arg>
 <arg>${LENDER_DATA['Merchant']}</arg>
 <doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:17.372367" elapsed="0.000482"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.839175" elapsed="0.000386"/>
 </kw>
-<status status="NOT RUN" start="2026-02-27T18:17:17.371267" elapsed="0.001926"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.838588" elapsed="0.001219"/>
 </branch>
 <branch type="ELSE">
 <kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2026-02-27T18:17:17.374887" level="INFO">Selecting options from selection list 'xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select' by label Sunlight_HI.</msg>
 <arg>xpath://*[@id="merchant-selection-modal___BV_modal_body_"]/div/div/select</arg>
 <arg>${merchant}</arg>
 <doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2026-02-27T18:17:17.373933" elapsed="0.128484"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.840517" elapsed="0.000327"/>
 </kw>
-<status status="PASS" start="2026-02-27T18:17:17.373342" elapsed="0.129313"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.840031" elapsed="0.001056"/>
 </branch>
-<status status="PASS" start="2026-02-27T18:17:17.371191" elapsed="0.131539"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.838527" elapsed="0.002659"/>
 </if>
 <arg>Sunlight_HI</arg>
-<status status="PASS" start="2026-02-27T18:17:16.726331" elapsed="0.776471"/>
+<status status="FAIL" start="2026-03-03T18:26:21.314263" elapsed="60.527174">Element 'merchant-selection-modal___BV_modal_title_' not visible after 1 minute.</status>
 </kw>
 <kw name="selecting the merchant location" owner="Merchant_location">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>location-selection-modal___BV_modal_content_</arg>
-<arg>30</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-02-27T18:17:17.504330" elapsed="0.753251"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>location-selection-modal___BV_modal_content_</arg>
-<arg>30</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-02-27T18:17:18.258939" elapsed="0.090279"/>
-</kw>
-<if>
-<branch type="IF" condition="'${location}'=='None'">
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<arg>xpath://*[@id="location-selection-modal___BV_modal_body_"]/div/div/select</arg>
-<arg>${LENDER_DATA['Location']}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:18.350988" elapsed="0.000715"/>
-</kw>
-<status status="NOT RUN" start="2026-02-27T18:17:18.349844" elapsed="0.002372"/>
-</branch>
-<branch type="ELSE">
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2026-02-27T18:17:18.353993" level="INFO">Selecting options from selection list 'xpath://*[@id="location-selection-modal___BV_modal_body_"]/div/div/select' by label Sunlight_HI_Primary.</msg>
-<arg>xpath://*[@id="location-selection-modal___BV_modal_body_"]/div/div/select</arg>
-<arg>${location}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2026-02-27T18:17:18.352954" elapsed="0.142094"/>
-</kw>
-<status status="PASS" start="2026-02-27T18:17:18.352397" elapsed="0.142885"/>
-</branch>
-<status status="PASS" start="2026-02-27T18:17:18.349805" elapsed="0.145549"/>
-</if>
 <arg>Sunlight_HI_Primary</arg>
-<status status="PASS" start="2026-02-27T18:17:17.503613" elapsed="0.991813"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.842403" elapsed="0.000311"/>
 </kw>
 <kw name="Sending Application to Consumer" owner="sendApplication">
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css=div.position-absolute.bg-white.rounded-lg</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-02-27T18:17:18.497300" elapsed="0.013405"/>
-</kw>
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<msg time="2026-02-27T18:17:21.227643" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<arg>css:div.position-absolute.bg-white</arg>
-<arg>60</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-02-27T18:17:18.511198" elapsed="2.937336"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']</arg>
-<arg>60</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-02-27T18:17:21.449311" elapsed="0.042485"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']</arg>
-<arg>30</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-02-27T18:17:21.492444" elapsed="0.070047"/>
-</kw>
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css=div.position-absolute.bg-white.rounded-lg</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-02-27T18:17:21.562915" elapsed="0.019598"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-02-27T18:17:23.584083" level="INFO">Slept 2 seconds.</msg>
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-02-27T18:17:21.582913" elapsed="2.001850"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-02-27T18:17:23.585748" level="INFO">Clicking button 'xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']'.</msg>
-<arg>xpath://div[@class='col-md-12 d-flex justify-content-end']//div[@name='Send Application']//div//button[@type='submit'][normalize-space()='Send Application']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-27T18:17:23.585164" elapsed="0.171207"/>
-</kw>
-<kw name="Switch Window" owner="SeleniumLibrary">
-<arg>title:Point Of Sale</arg>
-<arg>20</arg>
-<doc>Switches to browser window matching ``locator``.</doc>
-<status status="PASS" start="2026-02-27T18:17:23.756771" elapsed="4.144860"/>
-</kw>
-<status status="PASS" start="2026-02-27T18:17:18.496105" elapsed="9.406118"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.843482" elapsed="0.000850"/>
 </kw>
 <kw name="Dc plans page" owner="DC_Plan_Page">
-<for flavor="IN">
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="List Should Contain Value" owner="Collections">
-<msg time="2026-02-27T18:17:27.910057" level="FAIL">[ S100617 | S100617-AUT | S100617-PP-AUT | S100617-UG-AUT | S101217 | S101817 | S102417 | Z303600 | Z303600-TD-AUT | Z302400 | Z304800 | Z306000 | Z307200 | R424008 | R418009 | R418007 | R418005 | R418006 | R418008 | R418013 | R418015 | R412005 | R412007 | R412009 | R412013 | R412002 | R412003 | R412004 | R412004-DIV-AUT | R412006 | R424007 | R424005 | R424009 | R424006 | R424004 | H30300 | H201205 | H201209 | R418004 | S102417 | F193728 | GICU_RBA | Upgrade_1_plan | Upgrade_2_plan | Dividend | Dividend_Plan | Dividend Test | PowerPay2 Test | PowerPay2 CoApp | Upgrade | FF new plan ss | PowerPayNew | GoodLeap_plan1 | HSunLight-Demo ] does not contain value 'rba6'.</msg>
-<arg>${KNOWN_PLANS}</arg>
-<arg>${tag}</arg>
-<doc>Fails if the ``value`` is not found from ``list``.</doc>
-<status status="FAIL" start="2026-02-27T18:17:27.908998" elapsed="0.024206">[ S100617 | S100617-AUT | S100617-PP-AUT | S100617-UG-AUT | S101217 | S101817 | S102417 | Z303600 | Z303600-TD-AUT | Z302400 | Z304800 | Z306000 | Z307200 | R424008 | R418009 | R418007 | R418005 | R418006 | R418008 | R418013 | R418015 | R412005 | R412007 | R412009 | R412013 | R412002 | R412003 | R412004 | R412004-DIV-AUT | R412006 | R424007 | R424005 | R424009 | R424006 | R424004 | H30300 | H201205 | H201209 | R418004 | S102417 | F193728 | GICU_RBA | Upgrade_1_plan | Upgrade_2_plan | Dividend | Dividend_Plan | Dividend Test | PowerPay2 Test | PowerPay2 CoApp | Upgrade | FF new plan ss | PowerPayNew | GoodLeap_plan1 | HSunLight-Demo ] does not contain value 'rba6'.</status>
-</kw>
-<msg time="2026-02-27T18:17:27.934761" level="INFO">${is_present} = False</msg>
-<var>${is_present}</var>
-<arg>List Should Contain Value</arg>
-<arg>${KNOWN_PLANS}</arg>
-<arg>${tag}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-02-27T18:17:27.908366" elapsed="0.027812"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_present}">
-<kw name="Copy Dictionary" owner="Collections">
-<var>${Lender}</var>
-<arg>${LENDER_DATA}</arg>
-<doc>Returns a copy of the given dictionary.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:27.939519" elapsed="0.001057"/>
-</kw>
-<kw name="Set To Dictionary" owner="Collections">
-<arg>${Lender}</arg>
-<arg>planID=${tag}</arg>
-<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:27.941964" elapsed="0.000946"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<arg>${LENDER_DATA}</arg>
-<arg>${Lender}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:27.944127" elapsed="0.004497"/>
-</kw>
-<status status="NOT RUN" start="2026-02-27T18:17:27.937257" elapsed="0.016058"/>
-</branch>
-<status status="PASS" start="2026-02-27T18:17:27.937127" elapsed="0.016892"/>
-</if>
-<var name="${tag}">rba6</var>
-<status status="PASS" start="2026-02-27T18:17:27.907309" elapsed="0.046850"/>
-</iter>
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="List Should Contain Value" owner="Collections">
-<arg>${KNOWN_PLANS}</arg>
-<arg>${tag}</arg>
-<doc>Fails if the ``value`` is not found from ``list``.</doc>
-<status status="PASS" start="2026-02-27T18:17:27.960946" elapsed="0.002273"/>
-</kw>
-<msg time="2026-02-27T18:17:27.963835" level="INFO">${is_present} = True</msg>
-<var>${is_present}</var>
-<arg>List Should Contain Value</arg>
-<arg>${KNOWN_PLANS}</arg>
-<arg>${tag}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-02-27T18:17:27.957057" elapsed="0.007643"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_present}">
-<kw name="Copy Dictionary" owner="Collections">
-<msg time="2026-02-27T18:17:27.972282" level="INFO">${Lender} = {'planID': 'S100617', 'projectCost': '21000', 'depositAmount': '500', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', '...</msg>
-<var>${Lender}</var>
-<arg>${LENDER_DATA}</arg>
-<doc>Returns a copy of the given dictionary.</doc>
-<status status="PASS" start="2026-02-27T18:17:27.968924" elapsed="0.005011"/>
-</kw>
-<kw name="Set To Dictionary" owner="Collections">
-<arg>${Lender}</arg>
-<arg>planID=${tag}</arg>
-<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="PASS" start="2026-02-27T18:17:27.975126" elapsed="0.001200"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2026-02-27T18:17:27.977821" level="INFO">${LENDER_DATA} = {'planID': 'S100617', 'projectCost': '21000', 'depositAmount': '500', 'Applicant': {'FirstName': 'Ana', 'LastName': 'Villar', 'email': 'aditya.chelluru@finmkt.io', 'street_add': '11765 West Avenue', '...</msg>
-<arg>${LENDER_DATA}</arg>
-<arg>${Lender}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2026-02-27T18:17:27.976980" elapsed="0.001141"/>
-</kw>
-<status status="PASS" start="2026-02-27T18:17:27.965521" elapsed="0.013092"/>
-</branch>
-<status status="PASS" start="2026-02-27T18:17:27.965406" elapsed="0.013333"/>
-</if>
-<var name="${tag}">S100617</var>
-<status status="PASS" start="2026-02-27T18:17:27.955149" elapsed="0.023636"/>
-</iter>
-<var>${tag}</var>
-<value>@{TEST_TAGS}</value>
-<status status="PASS" start="2026-02-27T18:17:27.906287" elapsed="0.072599"/>
-</for>
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css:div.position-absolute.bg-white</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-02-27T18:17:27.979535" elapsed="2.127899"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/span/div/div[1]/div/div[1]/h4/b</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-02-27T18:17:30.108018" elapsed="0.029351"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>${LENDER_DATA['planID']}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-02-27T18:17:30.137843" elapsed="0.044365"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-02-27T18:17:30.184746" level="INFO">Clicking button 'S100617'.</msg>
-<arg>${LENDER_DATA['planID']}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-27T18:17:30.182767" elapsed="0.119270"/>
-</kw>
-<if>
-<branch type="IF" condition="'${amount}' == 'None'">
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>enter-project-cost</arg>
-<arg>${LENDER_DATA['projectCost']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:30.303358" elapsed="0.000288"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>enter-deposit-amount</arg>
-<arg>${LENDER_DATA['depositAmount']}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:30.303942" elapsed="0.000236"/>
-</kw>
-<status status="NOT RUN" start="2026-02-27T18:17:30.302432" elapsed="0.001894"/>
-</branch>
-<branch type="ELSE">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-27T18:17:30.305253" level="INFO">Typing text '100001' into text field 'enter-project-cost'.</msg>
-<arg>enter-project-cost</arg>
-<arg>${amount}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-27T18:17:30.304703" elapsed="0.143425"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-27T18:17:30.450148" level="INFO">Typing text '0' into text field 'enter-deposit-amount'.</msg>
-<arg>enter-deposit-amount</arg>
-<arg>${deposite}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-27T18:17:30.448973" elapsed="0.135568"/>
-</kw>
-<status status="PASS" start="2026-02-27T18:17:30.304403" elapsed="0.280568"/>
-</branch>
-<status status="PASS" start="2026-02-27T18:17:30.302385" elapsed="0.282744"/>
-</if>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-02-27T18:17:30.586385" level="INFO">Clicking button 'xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/span/div/div[2]/div[2]/div/div/div[1]/div/button'.</msg>
-<arg>xpath:/html/body/div/div[2]/div[1]/div/div/div[2]/div/span/form/span/div/div[2]/div[2]/div/div/div[1]/div/button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-27T18:17:30.585488" elapsed="0.136214"/>
-</kw>
-<arg>100001</arg>
-<arg>0</arg>
-<status status="PASS" start="2026-02-27T18:17:27.904466" elapsed="2.817531"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.845866" elapsed="0.000636"/>
 </kw>
 <kw name="Type of Application page" owner="Application_type_page">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2026-02-27T18:17:30.725444" level="FAIL">'['rba6', 'S100617']' does not contain 'Co-App'</msg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2026-02-27T18:17:30.724560" elapsed="0.007930">'['rba6', 'S100617']' does not contain 'Co-App'</status>
-</kw>
-<msg time="2026-02-27T18:17:30.732876" level="INFO">${is_CoApp} = False</msg>
-<var>${is_CoApp}</var>
-<arg>Should Contain</arg>
-<arg>${TEST TAGS}</arg>
-<arg>Co-App</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-02-27T18:17:30.723655" elapsed="0.009598"/>
-</kw>
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css:div.position-absolute.bg-white.rounded-lg</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" start="2026-02-27T18:17:30.733668" elapsed="0.027963"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_CoApp}">
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>xpath://input[@value='2']</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:30.763011" elapsed="0.001532"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>xpath://input[@value='2']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:30.765771" elapsed="0.000854"/>
-</kw>
-<status status="NOT RUN" start="2026-02-27T18:17:30.762148" elapsed="0.005057"/>
-</branch>
-<branch type="ELSE">
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<msg time="2026-02-27T18:17:51.107550" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1407.png"&gt;&lt;img src="selenium-screenshot-1407.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-02-27T18:17:51.108220" level="FAIL">Element with locator 'xpath://input[@value='1']' not found.</msg>
-<arg>xpath://input[@value='1']</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="FAIL" start="2026-02-27T18:17:30.768344" elapsed="20.475953">Element with locator 'xpath://input[@value='1']' not found.</status>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>xpath://input[@value='1']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:51.245177" elapsed="0.000705"/>
-</kw>
-<status status="FAIL" start="2026-02-27T18:17:30.767446" elapsed="20.478859">Element with locator 'xpath://input[@value='1']' not found.</status>
-</branch>
-<status status="FAIL" start="2026-02-27T18:17:30.762099" elapsed="20.484399">Element with locator 'xpath://input[@value='1']' not found.</status>
-</if>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>xpath://button[@type='button']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:51.246890" elapsed="0.000483"/>
-</kw>
-<status status="FAIL" start="2026-02-27T18:17:30.722659" elapsed="20.525364">Element with locator 'xpath://input[@value='1']' not found.</status>
+<status status="NOT RUN" start="2026-03-03T18:27:21.847556" elapsed="0.000541"/>
 </kw>
 <kw name="Load and Prepare applicant details" owner="PrepareApplicant_Details">
-<status status="NOT RUN" start="2026-02-27T18:17:51.249796" elapsed="0.000645"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.849642" elapsed="0.000627"/>
 </kw>
 <kw name="Copy Dictionary" owner="Collections">
 <var>${modified_app}</var>
 <arg>${application}</arg>
 <doc>Returns a copy of the given dictionary.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:51.251295" elapsed="0.000553"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.851341" elapsed="0.000566"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${modified_app}</arg>
+<arg>email=lalith.buddha@finmkt.io</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-03-03T18:27:21.853579" elapsed="0.000524"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
 <arg>${application}</arg>
 <arg>${modified_app}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" start="2026-02-27T18:17:51.252650" elapsed="0.000240"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.855034" elapsed="0.000492"/>
 </kw>
 <kw name="Application Details Page" owner="Application_details_Page">
-<status status="NOT RUN" start="2026-02-27T18:17:51.253585" elapsed="0.000263"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.856679" elapsed="0.000513"/>
 </kw>
 <kw name="verification info pop-up" owner="Verification_Info_pop-up">
-<status status="NOT RUN" start="2026-02-27T18:17:51.254744" elapsed="0.000394"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.858168" elapsed="0.000199"/>
 </kw>
 <kw name="URL Applicant" owner="URL_applicant">
-<status status="NOT RUN" start="2026-02-27T18:17:51.256064" elapsed="0.000408"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.859591" elapsed="0.000854"/>
 </kw>
 <kw name="Application Authorization Page" owner="Application_Authorization">
-<status status="NOT RUN" start="2026-02-27T18:17:51.257134" elapsed="0.000389"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.861933" elapsed="0.000809"/>
 </kw>
 <kw name="Credit freeze page" owner="Credit_Freeze_Page">
-<status status="NOT RUN" start="2026-02-27T18:17:51.258173" elapsed="0.000339"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.863645" elapsed="0.000437"/>
 </kw>
 <kw name="prove data" owner="Prove_data_Page">
-<status status="NOT RUN" start="2026-02-27T18:17:51.259210" elapsed="0.000343"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.865292" elapsed="0.000864"/>
 </kw>
 <kw name="basic information" owner="Basic_Info_Page">
-<status status="NOT RUN" start="2026-02-27T18:17:51.260295" elapsed="0.000334"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.867618" elapsed="0.000253"/>
 </kw>
 <kw name="Personal information" owner="Personal_Information_Page">
-<status status="NOT RUN" start="2026-02-27T18:17:51.261714" elapsed="0.000322"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.868359" elapsed="0.000197"/>
 </kw>
 <kw name="Handle Initial Flow" owner="KBA_Page">
-<status status="NOT RUN" start="2026-02-27T18:17:51.262660" elapsed="0.000330"/>
+<status status="NOT RUN" start="2026-03-03T18:27:21.869024" elapsed="0.000245"/>
 </kw>
 <tag>rba6</tag>
 <tag>S100617</tag>
-<status status="FAIL" start="2026-02-27T18:17:09.646790" elapsed="41.616869">Element with locator 'xpath://input[@value='1']' not found.</status>
+<status status="FAIL" start="2026-03-03T18:26:09.098351" elapsed="72.771387">Element 'merchant-selection-modal___BV_modal_title_' not visible after 1 minute.</status>
 </test>
-<status status="FAIL" start="2026-02-27T18:17:02.732316" elapsed="48.562116"/>
+<status status="FAIL" start="2026-03-03T18:25:59.308029" elapsed="82.572717"/>
 </suite>
-<status status="FAIL" start="2026-02-27T18:17:02.728529" elapsed="48.577814"/>
+<status status="FAIL" start="2026-03-03T18:25:59.289623" elapsed="82.598975"/>
 </suite>
-<status status="FAIL" start="2026-02-27T18:17:02.719879" elapsed="48.621542"/>
+<status status="FAIL" start="2026-03-03T18:25:59.277900" elapsed="82.618213"/>
 </suite>
-<status status="FAIL" start="2026-02-27T18:17:02.715512" elapsed="48.640280"/>
+<status status="FAIL" start="2026-03-03T18:25:59.262783" elapsed="82.644527"/>
 </suite>
-<status status="FAIL" start="2026-02-27T18:17:02.700014" elapsed="48.667463"/>
+<status status="FAIL" start="2026-03-03T18:25:59.239794" elapsed="82.681182"/>
 </suite>
-<status status="FAIL" start="2026-02-27T18:17:02.678161" elapsed="48.705686"/>
+<status status="FAIL" start="2026-03-03T18:25:59.174668" elapsed="82.754120"/>
 </suite>
 <statistics>
 <total>

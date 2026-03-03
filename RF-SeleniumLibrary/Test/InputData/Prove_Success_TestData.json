@@ -3,7 +3,7 @@
   "projectCost": "20000",
   "depositAmount": "2000",
   "Merchant": "Upgrade_Regression",
-  "Location": "Upgrade_Regression_Master",
+  "Location": "Upgrade_Regression_Master_1",
   "Applicants": [
     {
       "FirstName": "Sebastian",
@@ -27,24 +27,24 @@
       "citizenship_status": "US Citizen"
     },
     {
-      "FirstName": "Leena",
-      "LastName": "Tomashov",
-      "street_add": "4984 Sage Hill",
-      "city": "Saint Louis",
-      "state": "Missouri",
-      "zipcode": "63104",
+      "FirstName": "Milo",
+      "LastName": "Pinson",
+      "street_add": "6377 Birchwood Hill",
+      "city": "Littleton",
+      "state": "Colorado",
+      "zipcode": "80161",
       "email": "aditya.chelluru@finmkt.io",
       "Do_you_own_installation_add": "Yes, I own this property.",
       "Do_you_reside_installation_add": "Yes, I reside at this address.",
-      "mobileNumber": "2001004002",
+      "mobileNumber": "2001001695",
       "employment_status": "Employed",
       "occupation": "business",
       "employer_name": "ganesh",
       "monthly_mortgage_amount": "500",
       "annual_income": "125000",
       "household_income": "125000",
-      "dob": "09/13/1965",
-      "ssn": "115925498",
+      "dob": "17/01/1981",
+      "ssn": "847350596",
       "citizenship_status": "US Citizen"
     },
     {

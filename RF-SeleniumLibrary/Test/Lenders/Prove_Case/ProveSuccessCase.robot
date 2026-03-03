@@ -6,11 +6,11 @@ ${Prove_DATA}    ${CURDIR}/../../InputData/Prove_Success_TestData.json
 
 *** Test Cases ***
 Prove HappyCase
-    [Tags]    Prove    rba5    S100617
-    Load Lender Data    ${Prove_DATA}    0
+    [Tags]    Prove    rba6    S100617
+    Load Lender Data    ${Prove_DATA}    1
     Merchant Portal Login
-    Merchant Selection Page    Sunlight_HI
-    #Selecting The Merchant Location
+    Merchant Selection Page
+    Selecting The Merchant Location
     Sending Application to Consumer
     Dc plans page    21000    0
     Type of Application page

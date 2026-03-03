@@ -5,7 +5,7 @@
   "applicantOverrides": {
     "FirstName":"",
     "LastName" : "",
-    "email": "mahesh.dandu+12@finmkt.io",
+    "email": "",
     "state": "",
     "zipcode":"",
     "employment_status":"",
@@ -14,7 +14,7 @@
     "mobileNumber":"7820193904"
   },
   "flowControl": {
-    "hasCoApplicant": false, 
+    "hasCoApplicant": true, 
     "kbaAnswersNeeded": true 
   },
   "Co_Applicant_Test_Data":"Morghan_Blake",
@@ -38,7 +38,7 @@
 
   "lender":{
     "Comment": "Upgrade, GoodLeap, GICU, SLF, PP, FFC, PCU",
-    "name" : "Upgrade",
+    "name" : "GICU",
     "state" : "Iowa",
     "Zip" : "50011"
   }
