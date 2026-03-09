@@ -35,7 +35,7 @@ export class ApplicationDetailsPage extends BasePage{
             await allInputs.nth(11).fill(TestGlobalData.applicantData.Email);
             await allInputs.nth(12).fill(coApplicant.mobileNumber);
         }
-        const noOption = this.page.locator('label.selectable-option', { hasText: 'NO' });
+        const noOption = this.page.locator('label.selectable-option', { hasText: 'YES' });
         await noOption.waitFor({ state: 'visible' });
         await noOption.scrollIntoViewIfNeeded();
         await noOption.click();

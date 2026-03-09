@@ -2,12 +2,12 @@
 Library    SeleniumLibrary
 Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
-${Sunlight_DATA}    ${CURDIR}/../../InputData/Sunlight_TestData.json
+${Sunlight_DATA}    ${CURDIR}/../../InputData/FF_TestData.json
 ${instance}    rba6
 
 *** Test Cases ***
 Sunlight HappyCase
-    [Tags]    ${instance}    S100617
+    [Tags]    ${instance}    R412007
     Load Lender Data    ${Sunlight_DATA}
     Merchant Portal Login    
     Merchant Selection Page    Sunlight_HI
@@ -27,6 +27,7 @@ Sunlight HappyCase
     Prove Data
     Basic Information
     Personal Information
+    Sleep    10
     Handle Initial Flow
 
 SUNLIGHT Ownership_Stipulation

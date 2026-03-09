@@ -14,14 +14,14 @@ export class ApplicationAuthorizationPage extends BasePage{
             const co_parsed=new URL(currenturl);
             const loanId= co_parsed.searchParams.get("loanId");
             finalUrl = 
-            `https://rba6-test.mktplacegateway.com/gateway-pos/v2/consent/v1`+
+            `https://rba6-test.mktplacegateway.com/gateway-pos/v2/workflow/compass`+
             `?loanId=${loanId}`+
             `&type=CO_APPLICANT`+
             `&m=${merchantId}`+
             `&locationId=${locationId}`;
         }else{
             finalUrl =
-            `https://rba6-test.mktplacegateway.com/gateway-pos/v2/consent/v1`+
+            `https://rba6-test.mktplacegateway.com/gateway-pos/v2/workflow/compass`+
             `?appId=${appId}`+
             `&type=APPLICANT`+
             `&m=${merchantId}`+

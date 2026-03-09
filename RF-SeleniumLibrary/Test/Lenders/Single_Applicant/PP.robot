@@ -11,14 +11,14 @@ PP HappyCase
     [Tags]    ${INSTANCE}    R418009
     Load Lender Data    ${PP_DATA}
     Merchant Portal Login    mahesh.dandu@finmkt.io    Qa@12345
-    #Merchant Selection Page    RBA_GL_FFC_DIV_PP
-    #Selecting The Merchant Location    RBA_GL_FFC_DIV_PP_Master
+    Merchant Selection Page    Sunlight_HI
+    Selecting The Merchant Location    Sunlight_HI_Primary
     Sending Application to Consumer
     Dc plans page
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    #Set To Dictionary    ${modified_app}    email=satya.satti@finmkt.io
+    Set To Dictionary    ${modified_app}    ssn=666971261
     #Set To Dictionary    ${modified_app}    citizenship_status=Other
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page

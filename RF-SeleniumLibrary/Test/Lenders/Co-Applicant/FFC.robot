@@ -12,8 +12,8 @@ FFC HappyCase
     [Tags]    S100617    ${instance}   Co-App
     Load Lender Data    ${FFC_DATA}
     Merchant Portal Login    aditya.chelluru+12@finmkt.io    Qa@12345        
-    Merchant Selection Page    RbA-AD1   
-    Selecting The Merchant Location    RbA-AD1_Master
+    Merchant Selection Page    Sunlight_HI   
+    Selecting The Merchant Location    Sunlight_HI_Primary
     Sending Application to Consumer
     Dc plans page    28000    1000
     Type of Application page

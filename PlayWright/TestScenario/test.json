@@ -1,7 +1,7 @@
 [
   {
   "scenarioName": "Minimal Flow Control Test",
-  "Applicant_Test_Data": "Ana_Villar",
+  "Applicant_Test_Data": "Morghan_Blake",
   "applicantOverrides": {
     "FirstName":"",
     "LastName" : "",
@@ -9,24 +9,26 @@
     "state": "",
     "zipcode":"",
     "employment_status":"",
+    "dob":"",
     "annual_income":"",
     "household_income":"",
-    "mobileNumber":"7820193904"
+    "mobileNumber":"7120193804"
   },
   "flowControl": {
-    "hasCoApplicant": true, 
+    "hasCoApplicant": false, 
     "kbaAnswersNeeded": true 
   },
-  "Co_Applicant_Test_Data":"Morghan_Blake",
+  "Co_Applicant_Test_Data":"GL_User_0139",
   "coApplicantOverrides": {
     "FirstName": "",
     "LastName": "",
     "email": "",
+    "dob": "",
    "mobileNumber": ""
   },
   "lenderSelection": {
     "merchant": "Rba-Ad",
-    "dcPlan": "R412009",
+    "dcPlan": "R418009",
     "requested_amount": "21000",
     "deposite_amount": "0"
   },
@@ -38,9 +40,9 @@
 
   "lender":{
     "Comment": "Upgrade, GoodLeap, GICU, SLF, PP, FFC, PCU",
-    "name" : "GICU",
+    "name" : "GoodLeap",
     "state" : "Iowa",
-    "Zip" : "50011"
+    "Zip" : "50014"
   }
 }
 ]

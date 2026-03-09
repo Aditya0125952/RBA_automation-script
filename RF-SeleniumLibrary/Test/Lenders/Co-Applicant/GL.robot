@@ -47,11 +47,11 @@ Good Leap HappyCase
     Personal Information    Co-App
     Handle Initial Flow
 Good leap Co-App flow(ssn_change) Happy flow
-    [Tags]    rba4    Co-App    S100617
-    Load Lender Data    ${GL_DATA}    89    179
+    [Tags]    rba6    Co-App    S100617
+    Load Lender Data    ${GL_DATA}    70    177
     Merchant Portal Login 
     Merchant Selection Page    Sunlight_HI
-    Selecting The Merchant Location    Sunlight_HI_Master
+    Selecting The Merchant Location    Sunlight_HI_Primary
     Sending Application to Consumer
     Dc plans page
     Type of Application page 

@@ -4,7 +4,7 @@ Resource    ../../common_pages/common_Resoucres.robot
 
 *** Variables ***
 ${GICU_DATA}    ${CURDIR}/../../InputData/GICU_TestData.json
-${instance}    rba4
+${instance}    rba6
 
 *** Test Cases ***
 GICU Happycase
@@ -19,7 +19,7 @@ GICU Happycase
     Load and Prepare applicant details
     ${modified_app1}=    Copy Dictionary    ${application}
     ${modified_app2}=    Copy Dictionary    ${co_app_dup}
-    # Set To Dictionary    ${modified_app1}    employment_status=Not Employed
+    Set To Dictionary    ${modified_app1}    firstName=anaa
      #Set To Dictionary    ${modified_app2}    email=lalith.buddha@finmkt.io
     Set Global Variable    ${co_app_dup}    ${modified_app2}
     Set Global Variable    ${application}    ${modified_app1}
