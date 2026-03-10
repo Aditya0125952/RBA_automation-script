@@ -7,17 +7,17 @@ ${instance}    rba6
 
 *** Test Cases ***
 Sunlight HappyCase
-    [Tags]    ${instance}    R412007
+    [Tags]    ${instance}    S100617
     Load Lender Data    ${Sunlight_DATA}
-    Merchant Portal Login    
-    Merchant Selection Page    Sunlight_HI
-    selecting the merchant location    Sunlight_HI_Primary   
+    Merchant Portal Login    kalyan.gaddala@finmkt.io    Qa@12345
+    Merchant Selection Page    div_home
+    selecting the merchant location    div_home_Primary   
     Sending Application to Consumer    
     Dc plans page
     Type of Application page
     Load and Prepare applicant details
     ${modified_app}=    Copy Dictionary    ${application}
-    Set To Dictionary    ${modified_app}    email=lalith.buddha@finmkt.io
+    #Set To Dictionary    ${modified_app}    email=lalith.buddha@finmkt.io
     Set Global Variable    ${application}    ${modified_app}
     Application Details Page
     Verification Info Pop-up

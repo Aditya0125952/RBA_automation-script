@@ -5,7 +5,7 @@ Resource    ../../common_pages/common_Resoucres.robot
 *** Variables ***
 ${GL_DATA}     ${CURDIR}/../../InputData/GL_applicants_list.json
 ${START_DIGITS}    888
-${instance}    rba
+${instance}    rba6
 
 *** Test Cases ***
 Good Leap HappyCase
@@ -48,7 +48,7 @@ Good Leap HappyCase
     Handle Initial Flow
 Good leap Co-App flow(ssn_change) Happy flow
     [Tags]    rba6    Co-App    S100617
-    Load Lender Data    ${GL_DATA}    70    177
+    Load Lender Data    ${GL_DATA}    72    174
     Merchant Portal Login 
     Merchant Selection Page    Sunlight_HI
     Selecting The Merchant Location    Sunlight_HI_Primary
